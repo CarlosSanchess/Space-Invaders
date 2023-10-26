@@ -1,6 +1,10 @@
 package com.Carlos.spaceinvanders;
 
 import java.io.IOException;
+//TODO
+//IMPLEMENTAR UM SHOOTING MAIS FUILDO
+// PODER MOVER APOS A BULLET DEIXAR DE ESTAR ATIVA
+// MULTI SHOOTING
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
