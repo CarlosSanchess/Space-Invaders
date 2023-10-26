@@ -23,5 +23,4 @@ public class Wall {
         return position;
     }
 
-
 }

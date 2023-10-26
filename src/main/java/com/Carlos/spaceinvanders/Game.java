@@ -9,6 +9,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
+
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,10 +33,10 @@ public class Game {
         screen.setCursorPosition(null); // we don't nenulled a cursor
         screen.startScreen(); // screens must be started
         screen.doResizeIfNecessary(); // resize screen if necessary
-        
+
         graphics = screen.newTextGraphics();
     }
-    public void run() throws IOException{
+    public void run() throws IOException, InterruptedException {
             while (true) {
                 drawGame();
                 KeyStroke key = screen.readInput();
@@ -50,7 +51,7 @@ public class Game {
     }
 
 
-    private void processKey(KeyStroke key) throws IOException{
+    private void processKey(KeyStroke key) throws IOException, InterruptedException {
         switch (key.getKeyType()){
             case ArrowLeft -> arena.moveLeft();
             case ArrowRight -> arena.moveRight();
@@ -63,8 +64,11 @@ public class Game {
         screen.refresh();
     }
 
-    private void threads() throws IOException{
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+    private void threads() throws IOException, InterruptedException {
+
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        executor.submit(drawBullets());
+        Thread.sleep(100);
         executor.submit(drawBullets());
         executor.submit(gameRunnable());
     }
@@ -86,7 +90,7 @@ public class Game {
             try {
                 while (true) {
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -102,6 +106,8 @@ public class Game {
                 }
             }catch (IOException e){
                 e.printStackTrace();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         };
     }

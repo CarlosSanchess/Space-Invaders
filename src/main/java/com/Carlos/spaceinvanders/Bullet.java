@@ -4,12 +4,12 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Bullets {
+public class Bullet {
 
     private Position position;
     private int  speed;
     boolean active;
-    Bullets(Position p, int speed){
+    Bullet(Position p, int speed){
         this.position = new Position(p.getX(), p.getY());
         this.speed = speed;
         this.active = true;

@@ -9,17 +9,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Arena {
 
     private int width;
     private int height;
 
     private Player player;
-    private Bullets bullet;
+    private List<Bullet> bullet;
     Arena(int width, int height) {
         this.width = width;
         this.height = height;
         this.player = new Player(10,height - 2);
+        this.bullet = new ArrayList<>();
     }
 
 
@@ -65,11 +68,15 @@ public class Arena {
     }
 
     public void drawBullet(TextGraphics graphics, Screen screen)throws IOException {
-        this.bullet = new Bullets(player.getPosition(), 1);
+        this.bullet.add(new Bullet(player.getPosition(),1));
+        //this.bullet = new Bullet(player.getPosition(), 1);
+        Bullet actual;
         while (true) {
-            bullet.move();
-            bullet.isActive();
-            System.out.println(bullet.getPosition().getY());
+
+            actual = bullet.get(bullet.size() - 1);
+            actual.move();
+            actual.isActive();
+            System.out.println(actual.getPosition().getY());
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
@@ -78,13 +85,14 @@ public class Arena {
 
             graphics.enableModifiers(SGR.BOLD);
             screen.clear();
-            graphics.putString(new TerminalPosition(bullet.getPosition().getX(), bullet.getPosition().getY()), "|");
+            graphics.putString(new TerminalPosition(actual.getPosition().getX(), actual.getPosition().getY()), "|");
             drawArena(graphics);
             screen.refresh();
 
-            if (bullet.active == false) {
+            if (actual.active == false) {
                 break;
             }
         }
     }
+
 }
