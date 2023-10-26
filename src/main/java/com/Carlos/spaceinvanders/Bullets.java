@@ -18,7 +18,7 @@ public class Bullets {
         position.setY(position.getY() - speed);
         return position.getY();
     }
-    public void isActive(int y){
+    public void isActive(){
         if (position.getY() < 0){
             active = false;
         }

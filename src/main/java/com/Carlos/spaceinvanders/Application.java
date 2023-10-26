@@ -1,6 +1,8 @@
 package com.Carlos.spaceinvanders;
 
+
 import java.io.IOException;
+import java.util.List;
 //TODO
 //IMPLEMENTAR UM SHOOTING MAIS FUILDO
 // PODER MOVER APOS A BULLET DEIXAR DE ESTAR ATIVA
@@ -16,6 +18,5 @@ public class Application {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 }
