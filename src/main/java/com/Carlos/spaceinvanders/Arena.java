@@ -17,12 +17,13 @@ public class Arena {
     private int height;
 
     private Player player;
-    private List<Bullet> bullet;
+    private List<Bullet> activeBullets;
     Arena(int width, int height) {
         this.width = width;
         this.height = height;
         this.player = new Player(10,height - 2);
-        this.bullet = new ArrayList<>();
+        this.activeBullets = new ArrayList<>();
+
     }
 
 
@@ -45,9 +46,10 @@ public class Arena {
         return true;
     }
 
-    public void drawArena(TextGraphics graphics){
+    public void drawArena(TextGraphics graphics) throws IOException {
         player.Draw(graphics);
         drawOutline(graphics);
+        drawBullets(graphics);
     }
     public void drawOutline(TextGraphics graphics){ //
         for (Wall wall : createWalls()){
@@ -67,32 +69,24 @@ public class Arena {
         return walls;
     }
 
-    public void drawBullet(TextGraphics graphics, Screen screen)throws IOException {
-        this.bullet.add(new Bullet(player.getPosition(),1));
-        //this.bullet = new Bullet(player.getPosition(), 1);
-        Bullet actual;
-        while (true) {
-
-            actual = bullet.get(bullet.size() - 1);
-            actual.move();
-            actual.isActive();
-            System.out.println(actual.getPosition().getY());
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            graphics.enableModifiers(SGR.BOLD);
-            screen.clear();
-            graphics.putString(new TerminalPosition(actual.getPosition().getX(), actual.getPosition().getY()), "|");
-            drawArena(graphics);
-            screen.refresh();
-
-            if (actual.active == false) {
-                break;
+    public void drawBullets(TextGraphics graphics)throws IOException {
+        //Correr a lista das bullets
+        //Mover a bullet
+        // desenhar a bullet com o Bullet.draw
+        if(!activeBullets.isEmpty() ){
+            for(Bullet bullet:activeBullets) {
+                bullet.move();
+                bullet.isActive();
+                if (bullet.active == false) {
+                    activeBullets.remove(bullet);
+                    break;
+                }
+                bullet.draw(graphics);
             }
         }
     }
 
+    public void addBullet() {
+        activeBullets.add(new Bullet(player.getPosition(),1));
+    }
 }

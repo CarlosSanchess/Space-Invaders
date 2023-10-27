@@ -20,6 +20,7 @@ public class Game {
     private TextGraphics graphicsBullet;
     private int sizeX = 80;
     private int sizeY = 30;
+    private int numberthreads = 0;
 
     Arena arena = new Arena(sizeX,sizeY);
     Game() throws IOException{ //Melhor pratica que try catch
@@ -36,11 +37,15 @@ public class Game {
 
         graphics = screen.newTextGraphics();
     }
+
+
     public void run() throws IOException, InterruptedException {
+
             while (true) {
-                drawGame();
-                KeyStroke key = screen.readInput();
-                processKey(key);
+                    drawGame();
+                    KeyStroke key = screen.readInput();
+                    System.out.println("asdsa");
+                    processKey(key);
 
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
                     screen.close();
@@ -55,61 +60,16 @@ public class Game {
         switch (key.getKeyType()){
             case ArrowLeft -> arena.moveLeft();
             case ArrowRight -> arena.moveRight();
-            case Backspace -> threads();
+            case Backspace -> arena.addBullet();
         }
     }
     private void drawGame() throws IOException{
         screen.clear();
         arena.drawArena(graphics);
         screen.refresh();
+
     }
 
-    private void threads() throws IOException, InterruptedException {
 
-        ExecutorService executor = Executors.newFixedThreadPool(3);
-        executor.submit(drawBullets());
-        Thread.sleep(100);
-        executor.submit(drawBullets());
-        executor.submit(gameRunnable());
-    }
-
-    public Runnable drawBullets() { //Returnar um runnable de drawBullets
-        return () -> {
-            try {
-                screen.clear();
-                System.out.println("*b*");
-                arena.drawBullet(graphics, screen);
-                screen.refresh();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        };
-    }
-    public Runnable gameRunnable(){
-        return () ->{
-            try {
-                while (true) {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    drawGame();
-                    KeyStroke key = screen.readInput();
-                    processKey(key);
-
-                    if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
-                        screen.close();
-                    if (key.getKeyType() == KeyType.EOF) {
-                        break;
-                    }
-                }
-            }catch (IOException e){
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        };
-    }
 
 }

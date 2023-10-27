@@ -25,7 +25,7 @@ public class Bullet {
     }
     public void draw(TextGraphics graphics){
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "");
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "|");
 
     }
 
