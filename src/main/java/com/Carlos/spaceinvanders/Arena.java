@@ -77,7 +77,7 @@ public class Arena {
             for(Bullet bullet:activeBullets) {
                 bullet.move();
                 bullet.isActive();
-                if (bullet.active == false) {
+                if (!bullet.isActive()) {
                     activeBullets.remove(bullet);
                     break;
                 }
@@ -87,6 +87,7 @@ public class Arena {
     }
 
     public void addBullet() {
-        activeBullets.add(new Bullet(player.getPosition(),1));
+        activeBullets.add(new Bullet(player.getPosition(),1,true));
     }
+
 }

@@ -63,12 +63,13 @@ public class Game {
             case Backspace -> arena.addBullet();
         }
     }
+
     private void drawGame() throws IOException{
         screen.clear();
         arena.drawArena(graphics);
         screen.refresh();
-
     }
+
 
 
 
