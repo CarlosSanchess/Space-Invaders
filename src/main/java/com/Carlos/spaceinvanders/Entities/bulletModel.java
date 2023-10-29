@@ -27,4 +27,5 @@ public class bulletModel extends Elements{
         }
         return active;
     }
+
 }

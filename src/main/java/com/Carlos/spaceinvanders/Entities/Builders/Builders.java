@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Builders {
-    public List<wallModel> createWalls (int width, int height){
+    public static List<wallModel> createWalls (int width, int height){
         List<wallModel> walls = new ArrayList<>();
         for (int c = 0; c < width; c++) {
             walls.add(new wallModel(new positionModel(  c, 0)));
