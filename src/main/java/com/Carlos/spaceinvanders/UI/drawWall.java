@@ -15,6 +15,7 @@ public class drawWall implements drawEntities{
     @Override
     public void draw(TextGraphics graphics) {
             graphics.enableModifiers(SGR.BOLD);
+
             graphics.putString(new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY()), "*");
         }
     }

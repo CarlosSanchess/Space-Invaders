@@ -1,6 +1,8 @@
 package com.Carlos.spaceinvanders;
 
 
+import com.googlecode.lanterna.input.KeyStroke;
+
 import java.io.IOException;
 import java.util.List;
 //TODO
@@ -14,8 +16,9 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         try {
-            Game game = new Game();
-            game.run();
+            Menu menu = new Menu();
+            menu.run();
+
         }catch (IOException | InterruptedException e){
             e.printStackTrace();
         }

@@ -14,12 +14,13 @@ import com.googlecode.lanterna.input.KeyType;
 
 
 
+
 import java.io.IOException;
 
 
 
 public class Game {
-    private final Screen screen;
+    private Screen screen;
     private TextGraphics graphics;
     private TextGraphics graphicsBullet;
     private int sizeX = 80;
@@ -27,17 +28,20 @@ public class Game {
 
 
      arenaModel arena = new arenaModel(sizeX,sizeY);
-    Game() throws IOException{ //Melhor pratica que try catch
-        //Create Terminal
+    Game(Screen screen) throws IOException{ //Melhor pratica que try catch
+        //Ja foi criado no MENU
+        /*
         TerminalSize terminalSize = new TerminalSize(80,30); // ??
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         Terminal terminal = terminalFactory.createTerminal();
         //Create Screen
-        screen = new TerminalScreen(terminal);
 
-        screen.setCursorPosition(null); // we don't nenulled a cursor
-        screen.startScreen(); // screens must be started
-        screen.doResizeIfNecessary(); // resize screen if necessary
+        screen = new TerminalScreen(terminal);
+            */
+        this.screen = screen;
+        this.screen.setCursorPosition(null); // we don't nenulled a cursor
+        this.screen.startScreen(); // screens must be started
+        this.screen.doResizeIfNecessary(); // resize screen if necessary
 
         graphics = screen.newTextGraphics();
     }
