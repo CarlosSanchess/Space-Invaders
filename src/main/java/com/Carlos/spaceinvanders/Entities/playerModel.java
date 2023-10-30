@@ -10,7 +10,7 @@ public class playerModel extends Elements{
     }
 
     public boolean canMove(positionModel position) { // Premitir escolher tamanho da arena?
-        return position.getX() > 1 && position.getX()  < 80 - 1;
+        return position.getX() >= 1 && position.getX()  < 80 - 1;
     }
 
     public void moveLeft(positionModel position){
@@ -24,6 +24,6 @@ public class playerModel extends Elements{
         }
     }
     public bulletModel playerShoot(){
-        return new bulletModel(getPosition(),1,true);
+        return new bulletModel(position,1,true);
     }
 }

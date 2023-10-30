@@ -15,8 +15,8 @@ import com.googlecode.lanterna.input.KeyType;
 
 
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
+
 
 public class Game {
     private final Screen screen;

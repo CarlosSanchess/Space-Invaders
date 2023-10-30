@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvanders.Entities;
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
+import com.Carlos.spaceinvanders.UI.drawOutline;
 import com.Carlos.spaceinvanders.UI.drawPlayer;
 import com.Carlos.spaceinvanders.UI.drawBullets;
 
@@ -22,14 +23,15 @@ public class arenaModel {
     private playerModel player;
     private drawPlayer drawPlayer;
     private drawBullets drawBullets;
-
+    private drawOutline drawOutline;
 
     public arenaModel(int x, int y){
         this.width = x;
         this.height = y;
-        this.player = new playerModel(new positionModel(10,y - 1),3);
+        this.player = new playerModel(new positionModel(10,y - 2),3);
         this.activeBullets = new ArrayList<>();
         walls = Builders.createWalls(width,height);
+        drawOutline = new drawOutline(walls);
         drawPlayer = new drawPlayer(this.player);
     }
 
@@ -43,8 +45,15 @@ public class arenaModel {
 
    public void Draw(TextGraphics graphics) throws IOException { // Tirar daqui esta merda
             drawPlayer.draw(graphics);
-            drawBullets = new drawBullets(activeBullets);
-            drawBullets.draw(graphics);
+            drawOutline.draw(graphics);
+
+            if(!activeBullets.isEmpty()) //DrawBullets
+            {
+                //drawBullets = new drawBullets(activeBullets);
+                //drawBullets.draw(graphics);
+                //drawPlayer.draw(graphics);
+            }
+
     }
 
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
@@ -55,10 +64,9 @@ public class arenaModel {
                     break;
                 case ArrowRight:
                     player.moveRight(player.getPosition());
-
                     break;
                 case Backspace:
-                    activeBullets.add(player.playerShoot());
+                    activeBullets.add(player.playerShoot()); //Ok
                     break;
 
             }

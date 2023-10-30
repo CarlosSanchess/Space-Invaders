@@ -5,10 +5,10 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public abstract class wallDraw implements drawEntities{
+public class drawWall implements drawEntities{
 
     wallModel wall;
-    wallDraw(wallModel wall){
+    public drawWall(wallModel wall){
         this.wall = wall;
     }
 

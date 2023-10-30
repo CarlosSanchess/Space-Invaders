@@ -14,6 +14,7 @@ public class drawBullet implements drawEntities{
 
     @Override
     public void draw(TextGraphics graphics){
+        System.out.println("asdsa");
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(bulletModel.getPosition().getX(), bulletModel.getPosition().getY()), "|");
     }
