@@ -5,10 +5,10 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class bulletDraw implements drawEntities{
+public class drawBullet implements drawEntities{
 
     bulletModel bulletModel;
-    bulletDraw(bulletModel bulletModel){
+    public drawBullet(bulletModel bulletModel){
        this.bulletModel = bulletModel;
     }
 

@@ -2,7 +2,7 @@ package com.Carlos.spaceinvanders;
 import com.Carlos.spaceinvanders.Entities.arenaModel;
 
 
-
+import com.Carlos.spaceinvanders.Entities.playerModel;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -59,9 +59,10 @@ public class Game {
 
         }
 
-    void drawGame() throws  IOException{
+    public void drawGame() throws  IOException{
         screen.clear();
         arena.Draw(graphics);
         screen.refresh();
     }
+
 }
