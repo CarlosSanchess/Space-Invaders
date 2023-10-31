@@ -24,6 +24,6 @@ public class playerModel extends Elements{
         }
     }
     public bulletModel playerShoot(){
-        return new bulletModel(position,1,true);
+        return new bulletModel(new positionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
     }
 }

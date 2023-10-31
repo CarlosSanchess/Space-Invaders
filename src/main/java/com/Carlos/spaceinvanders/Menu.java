@@ -43,8 +43,10 @@ public class Menu {
         drawTitle.draw(graphics);
         screen.refresh();
         Thread.sleep(200);
-        KeyStroke key = screen.readInput();
-        processKey(key);
+        while (true) { // Faz com que a primeira letra que se le, nao precise de ter significado
+            KeyStroke key = screen.readInput();
+            processKey(key);
+        }
     }
 
     private void processKey(KeyStroke key) throws IOException, InterruptedException { // Melhorar a oragnização de codigo tirar process Key

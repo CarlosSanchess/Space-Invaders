@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvanders.Entities;
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
+import com.Carlos.spaceinvanders.UI.drawBullet;
 import com.Carlos.spaceinvanders.UI.drawOutline;
 import com.Carlos.spaceinvanders.UI.drawPlayer;
 import com.Carlos.spaceinvanders.UI.drawBullets;
@@ -47,7 +48,14 @@ public class arenaModel {
    public void Draw(TextGraphics graphics) throws IOException { // Da draw no player e na outline
             drawPlayer.draw(graphics);
             drawOutline.draw(graphics);
+            if(!activeBullets.isEmpty()){
+               drawBullets = new drawBullets(activeBullets);
+               drawBullets.draw(graphics);
+            }else{
+                System.out.println("nao ha");
+            }
     }
+
 
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
 
