@@ -51,7 +51,7 @@ public class Game {
 
         while (true) {
            drawGame();
-           KeyStroke key = screen.readInput(); // Usar pollinput Impedir que o game, nao se esteja sempre a reescrever
+           KeyStroke key = screen.pollInput(); // Usar pollinput Impedir que o game, nao se esteja sempre a reescrever
            if(key != null){
                arena.processKey(key);
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
@@ -60,6 +60,7 @@ public class Game {
                     break;
                 }
             }
+           Thread.sleep(50); // 20 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
         }
 
     }

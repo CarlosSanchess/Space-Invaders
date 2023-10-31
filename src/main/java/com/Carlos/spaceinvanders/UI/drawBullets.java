@@ -4,6 +4,7 @@ import com.Carlos.spaceinvanders.Entities.bulletModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 public class drawBullets implements drawEntities {
@@ -13,8 +14,8 @@ public class drawBullets implements drawEntities {
     }
 
     @Override
-    public void draw(TextGraphics graphics){  //COdigo GPT
-        /*
+    public void draw(TextGraphics graphics) {
+        // + EFI
         Iterator<bulletModel> iterator = activeBullets.iterator();
 
         while (iterator.hasNext()) {
@@ -27,7 +28,7 @@ public class drawBullets implements drawEntities {
                 bulletDraw.draw(graphics);
             }
         }
-    */
+    /*
         if(activeBullets.isEmpty() == false) {
             for (bulletModel bullet : activeBullets) {
                 bullet.move();
@@ -41,5 +42,7 @@ public class drawBullets implements drawEntities {
                 }
             }
         }
+    }
+    */
     }
 }

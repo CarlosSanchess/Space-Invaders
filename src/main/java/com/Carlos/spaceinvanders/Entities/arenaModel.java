@@ -46,16 +46,15 @@ public class arenaModel {
 
 
    public void Draw(TextGraphics graphics) throws IOException { // Da draw no player e na outline
-            drawPlayer.draw(graphics);
-            drawOutline.draw(graphics);
-            if(!activeBullets.isEmpty()){
-               drawBullets = new drawBullets(activeBullets);
-               drawBullets.draw(graphics);
-            }else{
-                System.out.println("nao ha");
-            }
-    }
-
+       drawPlayer.draw(graphics);
+       drawOutline.draw(graphics);
+       if (!activeBullets.isEmpty()) {
+           drawBullets = new drawBullets(activeBullets);
+           drawBullets.draw(graphics);
+       } else {
+           System.out.println("nao ha");
+       }
+   }
 
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
 
