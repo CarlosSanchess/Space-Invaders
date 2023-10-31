@@ -51,17 +51,18 @@ public class Game {
 
         while (true) {
            drawGame();
-           KeyStroke key = screen.readInput();
-           arena.processKey(key);
-
+           KeyStroke key = screen.readInput(); // Usar pollinput Impedir que o game, nao se esteja sempre a reescrever
+           if(key != null){
+               arena.processKey(key);
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
                     screen.close();
                 if (key.getKeyType() == KeyType.EOF) {
                     break;
                 }
             }
-
         }
+
+    }
 
     public void drawGame() throws  IOException{
         screen.clear();

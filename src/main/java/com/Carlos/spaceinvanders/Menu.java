@@ -46,11 +46,11 @@ public class Menu {
         processKey(key);
     }
 
-    private void processKey(KeyStroke key) throws IOException, InterruptedException { // Melhorar a oragnização de codigo
+    private void processKey(KeyStroke key) throws IOException, InterruptedException { // Melhorar a oragnização de codigo tirar process Key
         if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q')){
             screen.clear();
             screen.refresh();
-            game = new Game(screen);
+            game = new Game(screen); //Sera que faz sentido ter isto aqui?
             game.run();
         }
     }

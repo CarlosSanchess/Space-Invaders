@@ -11,8 +11,11 @@ public class menuString{
                     "    | |                                                          \n" +
                     "    |_|                                                          \n";
 
-
-    public static String getText(){
+    static String startGame = "NEW GAME";
+    public static String getTitle(){
             return text;
+    }
+    public static String getStartGame(){
+        return startGame;
     }
 }
