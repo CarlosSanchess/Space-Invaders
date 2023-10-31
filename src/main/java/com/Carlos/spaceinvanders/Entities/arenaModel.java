@@ -4,6 +4,8 @@ import com.Carlos.spaceinvanders.UI.drawBullet;
 import com.Carlos.spaceinvanders.UI.drawOutline;
 import com.Carlos.spaceinvanders.UI.drawPlayer;
 import com.Carlos.spaceinvanders.UI.drawBullets;
+import com.Carlos.spaceinvanders.UI.drawMonster;
+import com.Carlos.spaceinvanders.Entities.Builders.getRandomPosM;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -21,10 +23,16 @@ public class arenaModel {
 
     private List<bulletModel> activeBullets;
     private List<wallModel> walls;
+    private List<monsterModel> activeMonsters;
+
     private playerModel player;
+    private monsterModel monsterModel;
+
     private drawPlayer drawPlayer;
     private drawBullets drawBullets;
     private drawOutline drawOutline;
+    private drawMonster drawMonster;
+
 
     public arenaModel(int x, int y){
         this.width = x;
@@ -35,6 +43,9 @@ public class arenaModel {
 
         drawOutline = new drawOutline(walls);
         drawPlayer = new drawPlayer(this.player);
+        //Testar Monters
+       // monsterModel = new monsterModel(getRandomPosM.positionModel(),1,1);
+       // drawMonster = new drawMonster(monsterModel);
     }
 
     public int getWidth() {
@@ -48,6 +59,7 @@ public class arenaModel {
    public void Draw(TextGraphics graphics) throws IOException { // Da draw no player e na outline
        drawPlayer.draw(graphics);
        drawOutline.draw(graphics);
+      //  drawMonster.draw(graphics);
        if (!activeBullets.isEmpty()) {
            drawBullets = new drawBullets(activeBullets);
            drawBullets.draw(graphics);

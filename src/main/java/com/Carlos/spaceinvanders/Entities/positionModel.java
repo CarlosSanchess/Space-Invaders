@@ -31,6 +31,7 @@ public class positionModel {
             com.Carlos.spaceinvanders.Entities.positionModel position = (com.Carlos.spaceinvanders.Entities.positionModel) o;
             return x == position.x && y == position.y;
         }
+
         @Override
         public int hashCode() {
             return Objects.hash(x, y);

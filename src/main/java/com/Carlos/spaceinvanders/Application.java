@@ -8,7 +8,7 @@ import java.util.List;
 //TODO
 //Implementar um drawArena Decente
 //Tirar o processKey do model da Arena
-//Nerfar o shooting
+//Nerfar o shooting, implementar movimentos while shooting
 
 public class Application {
     public static void main(String[] args) {
