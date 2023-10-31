@@ -1,5 +1,7 @@
 package com.Carlos.spaceinvanders;
+import com.Carlos.spaceinvanders.Entities.Builders.Builders;
 import com.Carlos.spaceinvanders.Entities.arenaModel;
+import com.Carlos.spaceinvanders.Entities.Builders.FPS;
 
 
 import com.Carlos.spaceinvanders.Entities.playerModel;
@@ -60,7 +62,7 @@ public class Game {
                     break;
                 }
             }
-           Thread.sleep(50); // 20 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
+           Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
         }
 
     }
