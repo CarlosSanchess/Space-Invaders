@@ -1,7 +1,8 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.UI.Menu.drawTitle;
 
+import com.Carlos.spaceinvanders.UI.Menu.drawTitle;
+import com.Carlos.spaceinvanders.Controls.gameCountdown;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyType;
@@ -20,6 +21,7 @@ public class Menu {
     private Terminal terminal;
     private drawTitle drawTitle = new drawTitle();
     private Game game;
+    private gameCountdown gameCountdown;
 
     Menu() throws IOException { //Melhor pratica que try catch
         //Create Terminal e screen que ja fica para o game
@@ -57,6 +59,7 @@ public class Menu {
             game.run();
         }
         if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('Q')){
+
             screen.clear();
             screen.refresh();
             game = new Game(this.screen); //Sera que faz sentido ter isto aqui?

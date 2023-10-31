@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.util.List;
 //TODO
 //Implementar um drawArena Decente
-//Implementar um drawBullets, usar pollinput
-//Implementar um shootingFuilod
 //Tirar o processKey do model da Arena
+//Nerfar o shooting
 
 public class Application {
     public static void main(String[] args) {

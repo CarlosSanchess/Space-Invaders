@@ -3,6 +3,7 @@ import com.Carlos.spaceinvanders.Entities.wallModel;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class drawWall implements drawEntities{
@@ -15,7 +16,7 @@ public class drawWall implements drawEntities{
     @Override
     public void draw(TextGraphics graphics) {
             graphics.enableModifiers(SGR.BOLD);
-
+            graphics.setForegroundColor(new TextColor.RGB(255,255,255));
             graphics.putString(new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY()), "*");
         }
     }

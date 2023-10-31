@@ -51,8 +51,6 @@ public class arenaModel {
        if (!activeBullets.isEmpty()) {
            drawBullets = new drawBullets(activeBullets);
            drawBullets.draw(graphics);
-       } else {
-           System.out.println("nao ha");
        }
    }
 
@@ -65,7 +63,7 @@ public class arenaModel {
                 case ArrowRight:
                     player.moveRight(player.getPosition());
                     break;
-                case Backspace:
+                case Backspace: //ADD CANSHOOT? nerfar a arma, possivle
                     activeBullets.add(this.player.playerShoot()); //Ok
                     break;
             }
