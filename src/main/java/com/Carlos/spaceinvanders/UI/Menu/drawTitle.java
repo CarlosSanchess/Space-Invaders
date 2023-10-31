@@ -3,20 +3,17 @@ import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.Carlos.spaceinvanders.Entities.Menu.menuModel;
 
 public class drawTitle implements drawMenu {
 
-    String Title;// String com o title
-
+    private int row;
+    private menuModel menuModel; // Onde vamos buscar o titlo e os outros atributos
     public drawTitle(){
-        Title = menuString.getTitle();
+        menuModel = new menuModel();
     }
 
-    @Override
-    public void draw(TextGraphics graphics){
-        String title = menuString.getTitle();
-        String startGame = menuString.getStartGame();
-
+    public void drawTitle(TextGraphics graphics){
         TextColor textColor = new TextColor.RGB(178,73,210) ;
         TextColor backgroundColor = new TextColor.RGB(0, 0, 0);
 
@@ -24,15 +21,22 @@ public class drawTitle implements drawMenu {
         graphics.setBackgroundColor(backgroundColor);
         graphics.enableModifiers(SGR.BOLD);
 
-        String[] lines = title.split("\n");
-        int row = 0;
+        String[] lines = menuModel.getTitle().split("\n");
+        row = 0;
         for (String line : lines) {
             graphics.putString(7, row, line);
             row++;
         }
-        textColor = new TextColor.RGB(255,255,0);
+    }
+    public void drawOptions(TextGraphics graphics){ // Deveria haver mais
+        TextColor textColor = new TextColor.RGB(255,255,0);
 
         graphics.setForegroundColor(textColor);
-        graphics.putString(33, row + 5, startGame);
+        graphics.putString(33, row + 5, menuModel.getStartGame());
+    }
+    @Override
+    public void draw(TextGraphics graphics){
+        drawTitle(graphics);
+        drawOptions(graphics);
     }
 }

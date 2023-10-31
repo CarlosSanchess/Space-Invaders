@@ -28,17 +28,18 @@ public class drawBullets implements drawEntities {
             }
         }
     */
-            for(bulletModel bullet:activeBullets) {
+        if(activeBullets.isEmpty() == false) {
+            for (bulletModel bullet : activeBullets) {
                 bullet.move();
                 bullet.isActive();
-               if (!bullet.isActive()) {
+                if (!bullet.isActive()) {
                     activeBullets.remove(bullet);
                     System.out.println("asdsa");
-                    break;
+                } else {
+                    drawBullet drawBullet = new drawBullet(bullet);
+                    drawBullet.draw(graphics);
                 }
-                drawBullet drawBullet = new drawBullet(bullet);
-
-                drawBullet.draw(graphics);
             }
+        }
     }
 }

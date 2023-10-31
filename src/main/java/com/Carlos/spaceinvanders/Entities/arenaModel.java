@@ -31,6 +31,7 @@ public class arenaModel {
         this.player = new playerModel(new positionModel(10,y - 2),3);
         this.activeBullets = new ArrayList<>();
         walls = Builders.createWalls(width,height);
+
         drawOutline = new drawOutline(walls);
         drawPlayer = new drawPlayer(this.player);
     }
@@ -43,17 +44,9 @@ public class arenaModel {
     }
 
 
-   public void Draw(TextGraphics graphics) throws IOException { // Tirar daqui esta merda
+   public void Draw(TextGraphics graphics) throws IOException { // Da draw no player e na outline
             drawPlayer.draw(graphics);
             drawOutline.draw(graphics);
-
-            if(!activeBullets.isEmpty()) //DrawBullets
-            {
-                //drawBullets = new drawBullets(activeBullets);
-                //drawBullets.draw(graphics);
-                //drawPlayer.draw(graphics);
-            }
-
     }
 
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
@@ -66,9 +59,8 @@ public class arenaModel {
                     player.moveRight(player.getPosition());
                     break;
                 case Backspace:
-                    activeBullets.add(player.playerShoot()); //Ok
+                    activeBullets.add(this.player.playerShoot()); //Ok
                     break;
-
             }
         if(key.getCharacter() != null) {
             switch (key.getCharacter()) {

@@ -42,6 +42,7 @@ public class Menu {
         screen.clear();
         drawTitle.draw(graphics);
         screen.refresh();
+        Thread.sleep(200);
         KeyStroke key = screen.readInput();
         processKey(key);
     }
@@ -50,7 +51,13 @@ public class Menu {
         if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q')){
             screen.clear();
             screen.refresh();
-            game = new Game(screen); //Sera que faz sentido ter isto aqui?
+            game = new Game(this.screen); //Sera que faz sentido ter isto aqui?
+            game.run();
+        }
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('Q')){
+            screen.clear();
+            screen.refresh();
+            game = new Game(this.screen); //Sera que faz sentido ter isto aqui?
             game.run();
         }
     }
