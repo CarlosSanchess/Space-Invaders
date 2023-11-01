@@ -15,6 +15,14 @@ public class drawArena implements drawEntities {
 
     @Override
     public void draw(TextGraphics graphics) {
+        arenaModel.getDrawPlayer().draw(graphics);
+        arenaModel.getDrawOutline().draw(graphics);
+        arenaModel.getDrawMonster().draw(graphics);
 
+        if (!(arenaModel.getActiveBullets().isEmpty())) {
+            drawBullets drawBullets = arenaModel.getDrawBullets();
+            drawBullets = new drawBullets(arenaModel.getActiveBullets());
+            drawBullets.draw(graphics);
+        }
     }
 }

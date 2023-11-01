@@ -5,6 +5,7 @@ import com.Carlos.spaceinvanders.Entities.Builders.FPS;
 
 
 import com.Carlos.spaceinvanders.Entities.playerModel;
+import com.Carlos.spaceinvanders.UI.drawArena;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -13,6 +14,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
+
 
 
 
@@ -27,6 +29,7 @@ public class Game {
     private TextGraphics graphicsBullet;
     private int sizeX = 80;
     private int sizeY = 30;
+    private drawArena drawArena;
 
 
      arenaModel arena = new arenaModel(sizeX,sizeY);
@@ -69,7 +72,8 @@ public class Game {
 
     public void drawGame() throws  IOException{
         screen.clear();
-        arena.Draw(graphics);
+        drawArena = arena.getDrawArena();
+        drawArena.draw(graphics);
         screen.refresh();
     }
 

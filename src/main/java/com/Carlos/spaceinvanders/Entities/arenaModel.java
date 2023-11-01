@@ -1,11 +1,12 @@
 package com.Carlos.spaceinvanders.Entities;
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
+import com.Carlos.spaceinvanders.Entities.Builders.getRandomPosM;
 import com.Carlos.spaceinvanders.UI.drawBullet;
 import com.Carlos.spaceinvanders.UI.drawOutline;
 import com.Carlos.spaceinvanders.UI.drawPlayer;
 import com.Carlos.spaceinvanders.UI.drawBullets;
 import com.Carlos.spaceinvanders.UI.drawMonster;
-import com.Carlos.spaceinvanders.Entities.Builders.getRandomPosM;
+import com.Carlos.spaceinvanders.UI.drawArena;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -28,12 +29,13 @@ public class arenaModel {
     private playerModel player;
     private monsterModel monsterModel;
 
-    private drawPlayer drawPlayer;
-    private drawBullets drawBullets;
-    private drawOutline drawOutline;
+    public drawPlayer drawPlayer;
+    public drawBullets drawBullets;
+    public drawOutline drawOutline;
     private drawMonster drawMonster;
 
-
+    //TODO
+    //É safe os objetos de draw serem publicos?
     public arenaModel(int x, int y){
         this.width = x;
         this.height = y;
@@ -44,8 +46,8 @@ public class arenaModel {
         drawOutline = new drawOutline(walls);
         drawPlayer = new drawPlayer(this.player);
         //Testar Monters
-       // monsterModel = new monsterModel(getRandomPosM.positionModel(),1,1);
-       // drawMonster = new drawMonster(monsterModel);
+        monsterModel = new monsterModel(getRandomPosM.positionModel(),1,1);
+        drawMonster = new drawMonster(monsterModel);
     }
 
     public int getWidth() {
@@ -54,17 +56,29 @@ public class arenaModel {
     public int getHeight(){
         return height;
     }
+    public drawArena getDrawArena(){ // Retorna a arena
+        return new drawArena(this);
+    }
 
+    public com.Carlos.spaceinvanders.UI.drawBullets getDrawBullets() {
+        return drawBullets;
+    }
 
-   public void Draw(TextGraphics graphics) throws IOException { // Da draw no player e na outline
-       drawPlayer.draw(graphics);
-       drawOutline.draw(graphics);
-      //  drawMonster.draw(graphics);
-       if (!activeBullets.isEmpty()) {
-           drawBullets = new drawBullets(activeBullets);
-           drawBullets.draw(graphics);
-       }
-   }
+    public com.Carlos.spaceinvanders.UI.drawOutline getDrawOutline() {
+        return drawOutline;
+    }
+
+    public com.Carlos.spaceinvanders.UI.drawPlayer getDrawPlayer() {
+        return drawPlayer;
+    }
+
+    public List<bulletModel> getActiveBullets() {
+        return activeBullets;
+    }
+
+    public com.Carlos.spaceinvanders.UI.drawMonster getDrawMonster() {
+        return drawMonster;
+    }
 
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
 
@@ -86,9 +100,5 @@ public class arenaModel {
 
             }
         }
-    }
-
-    public playerModel getPlayer() {
-        return player;
     }
 }
