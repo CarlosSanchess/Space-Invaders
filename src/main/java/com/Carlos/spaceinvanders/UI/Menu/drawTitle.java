@@ -5,6 +5,10 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.Carlos.spaceinvanders.Entities.Menu.menuModel;
 
+
+//TODO
+//IMPROVE NA LOGICA DE DESENHO DO MENU
+//Fazer algo semelhante a da arena
 public class drawTitle implements drawMenu {
 
     private int row;
@@ -28,11 +32,21 @@ public class drawTitle implements drawMenu {
             row++;
         }
     }
-    public void drawOptions(TextGraphics graphics){ // Deveria haver mais
-        TextColor textColor = new TextColor.RGB(255,255,0);
 
-        graphics.setForegroundColor(textColor);
-        graphics.putString(33, row + 5, menuModel.getStartGame());
+    //Organizar melhor a posição das opcções deveriam ser inicializadas no Draw Menu
+    //Alinhar
+    //Fazer com que dependa do tamanho da arena!!!
+    public void drawOptions(TextGraphics graphics){ // Deveria haver mais
+        drawString(graphics,33, row + 5, menuModel.getStartGame(),new TextColor.RGB(0,255,0));
+        drawString(graphics,33, row + 8, menuModel.getMySpaceShip(), new TextColor.RGB(255,255,0));
+        drawString(graphics,33, row + 11, menuModel.Tutorial(), new TextColor.RGB(255,255,0));
+        drawString(graphics,33, row + 14, menuModel.Options(), new TextColor.RGB(255,255,0));
+        drawString(graphics,33, row + 17, menuModel.Exit(), new TextColor.RGB(255,0,0));
+    }
+
+    public void drawString(TextGraphics graphics,int column, int row, String string, TextColor.RGB color){
+        graphics.setForegroundColor(color);
+        graphics.putString(column,row,string);
     }
     @Override
     public void draw(TextGraphics graphics){

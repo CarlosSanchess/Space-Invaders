@@ -8,11 +8,17 @@ import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 
 public class menuModel {
     private String title;
-    private  String startGame;
+
+
+    enum Options{
+        NEWGAME,
+        MYSPACESHIP,
+        TUTORIAL,
+        OPTIONS
+    }
 
     public menuModel(){
         this.title = menuString.getTitle();
-        this.startGame = menuString.getStartGame();
     }
 
     public String getTitle() {
@@ -20,6 +26,19 @@ public class menuModel {
     }
 
     public String getStartGame() {
-        return startGame;
+        return "NEW GAME";
     }
+    public String getMySpaceShip(){
+        return "MY SPACESHIP";
+    }
+    public String Tutorial(){
+        return "Tutorial";
+    }
+    public String Options(){
+        return "Options";
+    }
+    public String Exit(){
+        return "Exit";
+    }
+
 }
