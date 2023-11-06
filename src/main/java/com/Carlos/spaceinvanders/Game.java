@@ -33,7 +33,7 @@ public class Game {
 
 
      arenaModel arena = new arenaModel(sizeX,sizeY);
-    Game(Screen screen) throws IOException{ //Melhor pratica que try catch
+    Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
         //Ja foi criado no MENU
         /*
         TerminalSize terminalSize = new TerminalSize(80,30); // ??
@@ -72,7 +72,7 @@ public class Game {
 
     public void drawGame() throws  IOException{
         screen.clear();
-        drawArena = arena.getDrawArena();
+        drawArena = arena.getDrawArena(); //Obtem a arena
         drawArena.draw(graphics);
         screen.refresh();
     }

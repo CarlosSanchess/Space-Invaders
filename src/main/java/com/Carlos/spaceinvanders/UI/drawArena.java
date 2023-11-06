@@ -1,26 +1,29 @@
 package com.Carlos.spaceinvanders.UI;
 import com.Carlos.spaceinvanders.Entities.arenaModel;
-import com.Carlos.spaceinvanders.Entities.bulletModel;
-import com.Carlos.spaceinvanders.Entities.playerModel;
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+//TODO,
+//IS safe to have the drawobjects public, in arenamodel, so we dont have that num of getters.
 public class drawArena implements drawEntities {
 
     arenaModel arenaModel;
+
     public drawArena(arenaModel arenaModel){
         this.arenaModel = arenaModel;
     }
 
     @Override
     public void draw(TextGraphics graphics) {
-        arenaModel.getDrawPlayer().draw(graphics);
-        arenaModel.getDrawOutline().draw(graphics);
-        arenaModel.getDrawMonster().draw(graphics);
+        drawPlayer drawPlayer = arenaModel.getDrawPlayer();
+        drawOutline drawOutline = arenaModel.getDrawOutline();
+        drawMonsters drawMonsters = arenaModel.getDrawMonsters();
+        drawBullets drawBullets;
+
+        drawPlayer.draw(graphics);
+        drawOutline.draw(graphics);
+        drawMonsters.draw(graphics);
 
         if (!(arenaModel.getActiveBullets().isEmpty())) {
-            drawBullets drawBullets = arenaModel.getDrawBullets();
             drawBullets = new drawBullets(arenaModel.getActiveBullets());
             drawBullets.draw(graphics);
         }

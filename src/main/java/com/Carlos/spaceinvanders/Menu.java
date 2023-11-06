@@ -16,8 +16,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.io.IOException;
 
 public class Menu {
-    private Screen screen;
-    private TextGraphics graphics;
+    private final Screen screen;
+    private final TextGraphics graphics;
     private Terminal terminal;
     private drawTitle drawTitle = new drawTitle();
     private Game game;

@@ -14,7 +14,7 @@ public class drawMonster implements drawEntities{
     //arena fixa?
     //1 ao 79
     ;
-    private monsterModel monsterModel;
+    private final monsterModel monsterModel;
     public drawMonster(monsterModel monsterModel){
         this.monsterModel = monsterModel;
     }
