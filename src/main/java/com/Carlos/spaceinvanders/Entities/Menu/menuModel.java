@@ -14,7 +14,8 @@ public class menuModel {
         NEWGAME,
         MYSPACESHIP,
         TUTORIAL,
-        OPTIONS
+        OPTIONS,
+        EXIT
     }
 
     public menuModel(){

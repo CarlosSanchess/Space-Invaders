@@ -14,6 +14,8 @@ public class drawMonster implements drawEntities{
     //arena fixa?
     //1 ao 79
     ;
+
+    private TextColor textColor = new TextColor.RGB(255,105,97);
     private final monsterModel monsterModel;
     public drawMonster(monsterModel monsterModel){
         this.monsterModel = monsterModel;
@@ -21,7 +23,6 @@ public class drawMonster implements drawEntities{
 
     @Override
     public void draw(TextGraphics graphics){
-        TextColor textColor = new TextColor.RGB(255,105,97) ;
         graphics.enableModifiers(SGR.BOLD);
         graphics.setForegroundColor(textColor);
         graphics.putString(new TerminalPosition(monsterModel.getPosition().getX(),monsterModel.getPosition().getY()), "x");

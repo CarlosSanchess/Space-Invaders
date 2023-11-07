@@ -62,8 +62,16 @@ public class arenaModel {
     public int getHeight(){
         return height;
     }
+
+    public playerModel getPlayer() {
+        return this.player;
+    }
+
     public drawArena getDrawArena(){ // Retorna a arena
         return new drawArena(this);
+    }
+    public arenaModel getArenaModel(){
+        return this;
     }
 
     public com.Carlos.spaceinvanders.UI.drawBullets getDrawBullets() {
@@ -88,6 +96,8 @@ public class arenaModel {
 
 
     //Tirar daqui o processKey, dar get na arena e mover a partir dai
+
+    /*
     public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
 
             switch (key.getKeyType()) {
@@ -109,4 +119,6 @@ public class arenaModel {
             }
         }
     }
+
+     */
 }
