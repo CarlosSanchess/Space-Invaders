@@ -1,6 +1,7 @@
 package com.Carlos.spaceinvanders.GUI;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
 
@@ -12,12 +13,13 @@ import java.io.IOException;
 
 
 public class LanternaGui {
-    private Screen screen;
+
+    private TextGraphics graphics;
     public LanternaGui(int widht, int height) throws IOException {
         Terminal terminal = createTerminal(widht, height);
-        screen = createScreen(terminal);
-
-}
+        Screen screen = createScreen(terminal);
+        graphics = createGraphics(screen);
+    }
 
     private Terminal createTerminal(int width, int height) throws  IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
@@ -38,4 +40,13 @@ public class LanternaGui {
             screen.doResizeIfNecessary();
             return screen;
         }
+
+        private TextGraphics createGraphics(Screen screen){
+            TextGraphics graphics = screen.newTextGraphics();
+            return graphics;
+        }
+
+    public TextGraphics getGraphics() {
+        return graphics;
+    }
 }
