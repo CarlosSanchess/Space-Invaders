@@ -11,7 +11,6 @@ import java.util.List;
 //TAlvez ter aqui os atributos com getters
 
 public class MenuModel {
-    private String title;
     private final List<String> entries;
     private int entry = 0; // Selecionado
     public MenuModel(){
