@@ -22,7 +22,7 @@ public class LanternaGui {
     }
 
     private Terminal createTerminal(int width, int height) throws  IOException {
-        TerminalSize terminalSize = new TerminalSize(width, height + 1);
+        TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
 
         Terminal terminal  = terminalFactory.createTerminal();
