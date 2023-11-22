@@ -15,9 +15,10 @@ import java.io.IOException;
 public class LanternaGui {
 
     private TextGraphics graphics;
+    private Screen screen;
     public LanternaGui(int widht, int height) throws IOException {
         Terminal terminal = createTerminal(widht, height);
-        Screen screen = createScreen(terminal);
+        screen = createScreen(terminal);
         graphics = createGraphics(screen);
     }
 
@@ -48,5 +49,16 @@ public class LanternaGui {
 
     public TextGraphics getGraphics() {
         return graphics;
+    }
+
+    public Screen getScreen(){
+        return screen;
+    }
+
+    public void screenClear(){
+        screen.clear();
+    }
+    public void screenRefresh() throws IOException {
+        screen.refresh();
     }
 }

@@ -2,6 +2,7 @@ package com.Carlos.spaceinvanders;
 
 import com.Carlos.spaceinvanders.Entities.ArenaModel;
 import com.Carlos.spaceinvanders.Entities.Builders.FPS;
+import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import com.Carlos.spaceinvanders.UI.DrawArena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -17,22 +18,16 @@ import java.io.IOException;
 
 
 public class Game {
-    private Screen screen;
-    private TextGraphics graphics;
-    private int sizeX = 80;
-    private int sizeY = 30;
+
     private DrawArena drawArena;
     private arenaControl arenaControl;
 
+    private final LanternaGui GUI;
 
-     ArenaModel arena = new ArenaModel(sizeX,sizeY);
+    ArenaModel arena = new ArenaModel(80,30);
     Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
-        this.screen = screen;
-        this.screen.setCursorPosition(null); // we don't nenulled a cursor
-        this.screen.startScreen(); // screens must be started
-        this.screen.doResizeIfNecessary(); // resize screen if necessary
+        this.GUI = new LanternaGui(80,30);
 
-        graphics = screen.newTextGraphics();
     }
 
 
@@ -48,10 +43,10 @@ public class Game {
 
 
     public void drawGame() throws  IOException{
-        screen.clear();
+        GUI.screenClear();
         drawArena = arena.getDrawArena(); //Obtem a arena
-        drawArena.draw(graphics);
-        screen.refresh();
+        drawArena.draw(GUI.getGraphics());
+        GUI.screenRefresh();
     }
 
 }
