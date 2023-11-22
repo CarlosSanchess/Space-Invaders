@@ -2,44 +2,32 @@ package com.Carlos.spaceinvanders.Entities.Menu;
 
 import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 //TODO
 //Organizar o codigo do menu retirar os atributos da classe menu do draw Menu
 //TAlvez ter aqui os atributos com getters
 
 public class MenuModel {
     private String title;
-
-
-    enum Options{
-        NEWGAME,
-        MYSPACESHIP,
-        TUTORIAL,
-        OPTIONS,
-        EXIT
-    }
-
+    private final List<String> entries;
+    private int entry = 0; // Selecionado
     public MenuModel(){
-        this.title = menuString.getTitle();
+        this.entries = Arrays.asList("NEW GAME,TUTORIAL,OPTIONS,EXIT");
+        entry = 0;
+    }
+    public void nextEntry(){
+        entry = (entry + 1) % entries.size();
+    }
+    public void previousEntry(){
+        entry = (entry - 1) % entries.size();
+    }
+    public int getEntry(){
+        return entry;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public String getStartGame() {
-        return "NEW GAME";
-    }
-    public String getMySpaceShip(){
-        return "MY SPACESHIP";
-    }
-    public String Tutorial(){
-        return "Tutorial";
-    }
-    public String Options(){
-        return "Options";
-    }
-    public String Exit(){
-        return "Exit";
-    }
 
 }

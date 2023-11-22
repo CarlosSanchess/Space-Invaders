@@ -10,7 +10,7 @@ public class BulletModel extends Elements{
        this.speed = speed;
        this.direction = direction;
        active = true;
-&
+
     }
     public void move(){
         if(direction)
