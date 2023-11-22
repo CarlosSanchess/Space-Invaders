@@ -37,10 +37,10 @@ public class drawTitle implements drawMenu {
     //Alinhar
     //Fazer com que dependa do tamanho da arena!!!
     public void drawOptions(TextGraphics graphics){ // Deveria haver mais
-        drawString(graphics,33, row + 5, menuModel.getStartGame(),new TextColor.RGB(0,255,0));
-        drawString(graphics,33, row + 8, menuModel.getMySpaceShip(), new TextColor.RGB(255,255,0));
-        drawString(graphics,33, row + 11, menuModel.Tutorial(), new TextColor.RGB(255,255,0));
-        drawString(graphics,33, row + 14, menuModel.Options(), new TextColor.RGB(255,255,0));
+        drawString(graphics,33, row + 5, menuModel.getStartGame(),new TextColor.RGB(255,255,0));
+        drawString(graphics,33, row + 8, menuModel.getMySpaceShip(), new TextColor.RGB(0,255,0));
+        drawString(graphics,33, row + 11, menuModel.Tutorial(), new TextColor.RGB(0,255,0));
+        drawString(graphics,33, row + 14, menuModel.Options(), new TextColor.RGB(0,255,0));
         drawString(graphics,33, row + 17, menuModel.Exit(), new TextColor.RGB(255,0,0));
     }
 

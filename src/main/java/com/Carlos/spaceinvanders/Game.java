@@ -49,6 +49,7 @@ public class Game {
 
     public void run() throws IOException, InterruptedException {
         //Process aqui
+        //Faz sentido ter um screen.pollInput aqui
         while (true) {
            drawGame();
            KeyStroke key = screen.pollInput(); // Usar pollinput Impedir que o game, nao se esteja sempre a reescrever

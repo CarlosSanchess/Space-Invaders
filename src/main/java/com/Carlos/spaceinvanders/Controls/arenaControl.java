@@ -2,7 +2,7 @@ package com.Carlos.spaceinvanders.Controls;
 
 import com.Carlos.spaceinvanders.Entities.arenaModel;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
+
 
 import java.io.IOException;
 
@@ -17,8 +17,8 @@ public class arenaControl {
            processKey(this.key);
 
        }
-
-    public void processKey(KeyStroke key) throws IOException, InterruptedException { // Aqui ou no controls package ou no game
+//Control para nave e para balas
+    public void processKey(KeyStroke key) { // Aqui ou no controls package ou no game
 
         switch (key.getKeyType()) {
             case ArrowLeft:
