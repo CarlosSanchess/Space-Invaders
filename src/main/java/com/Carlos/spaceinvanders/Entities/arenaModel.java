@@ -48,7 +48,6 @@ public class arenaModel {
 
         walls = Builders.createWalls(width,height);// OPT 2
         activeMonsters = createMonsters.addMonsters(3);
-        System.out.println(activeMonsters);
 
         drawMonsters = new drawMonsters(this.activeMonsters);
         drawOutline = new drawOutline(this.walls);

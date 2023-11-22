@@ -29,15 +29,6 @@ public class Game {
 
      arenaModel arena = new arenaModel(sizeX,sizeY);
     Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
-        //Ja foi criado no MENU
-        /*
-        TerminalSize terminalSize = new TerminalSize(80,30); // ??
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        Terminal terminal = terminalFactory.createTerminal();
-        //Create Screen
-
-        screen = new TerminalScreen(terminal);
-            */
         this.screen = screen;
         this.screen.setCursorPosition(null); // we don't nenulled a cursor
         this.screen.startScreen(); // screens must be started
@@ -50,17 +41,8 @@ public class Game {
     public void run() throws IOException, InterruptedException {
         //Process aqui
         //Faz sentido ter um screen.pollInput aqui
-        while (true) {
+        while(true) {
            drawGame();
-           KeyStroke key = screen.pollInput(); // Usar pollinput Impedir que o game, nao se esteja sempre a reescrever
-           if(key != null){
-               arenaControl = new arenaControl(key,arena.getArenaModel());
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == ('q'))
-                    screen.close();
-                if (key.getKeyType() == KeyType.EOF) {
-                    break;
-                }
-            }
            Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
         }
 
