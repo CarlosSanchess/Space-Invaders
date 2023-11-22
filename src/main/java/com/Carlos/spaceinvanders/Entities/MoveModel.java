@@ -2,7 +2,7 @@ package com.Carlos.spaceinvanders.Entities;
 
 //TODO
 //MONSTERS AND BULLETS SHOULD IMPLEMENT MOVE FUCNTION
-public interface moveModel {
+public interface MoveModel {
     abstract void move(boolean direction);
 
 }

@@ -1,9 +1,7 @@
 package com.Carlos.spaceinvanders.Entities;
 
 
-import java.util.Random;
-
-public class monsterModel extends Elements{
+public class MonsterModel extends Elements{
     //Se quiser mudar o size da arena, fazer com que a posição nao seja definida aqui.
 
 
@@ -12,7 +10,7 @@ public class monsterModel extends Elements{
     private int hitPoints;
     boolean direction = false;
     private final int speed;
-    public monsterModel(positionModel position,int hitPoints, int speed){
+    public MonsterModel(PositionModel position, int hitPoints, int speed){
         super(position);
         this.hitPoints = hitPoints;
         this.speed = speed;

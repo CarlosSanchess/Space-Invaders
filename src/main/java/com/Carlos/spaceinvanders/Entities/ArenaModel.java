@@ -2,56 +2,51 @@ package com.Carlos.spaceinvanders.Entities;
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
 import com.Carlos.spaceinvanders.Entities.Builders.createMonsters;
 
-import com.Carlos.spaceinvanders.UI.drawOutline;
-import com.Carlos.spaceinvanders.UI.drawPlayer;
-import com.Carlos.spaceinvanders.UI.drawBullets;
-import com.Carlos.spaceinvanders.UI.drawMonster;
-import com.Carlos.spaceinvanders.UI.drawArena;
-import com.Carlos.spaceinvanders.UI.drawMonsters;
+import com.Carlos.spaceinvanders.UI.DrawOutline;
+import com.Carlos.spaceinvanders.UI.DrawPlayer;
+import com.Carlos.spaceinvanders.UI.DrawBullets;
+import com.Carlos.spaceinvanders.UI.DrawArena;
+import com.Carlos.spaceinvanders.UI.DrawMonsters;
 
 
-import com.googlecode.lanterna.input.KeyStroke;
-
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 //If active bullets Draw bullets, mover player
 //ELse mover player apenas
-public class arenaModel {
+public class ArenaModel {
 
     private final int width;
     private final int height;
 
-    private List<bulletModel> activeBullets;
-    private List<wallModel> walls;
-    private List<monsterModel> activeMonsters;
+    private List<BulletModel> activeBullets;
+    private List<WallModel> walls;
+    private List<MonsterModel> activeMonsters;
     private createMonsters createMonsters;
 
-    private playerModel player;
-    private monsterModel monsterModel;
+    private PlayerModel player;
+    private MonsterModel monsterModel;
 
-    public drawPlayer drawPlayer;
-    public drawBullets drawBullets;
-    public drawOutline drawOutline;
+    public DrawPlayer drawPlayer;
+    public DrawBullets drawBullets;
+    public DrawOutline drawOutline;
 
-    private drawMonsters drawMonsters;
+    private DrawMonsters drawMonsters;
 
     //TODO
     //É safe os objetos de draw serem publicos?
-    public arenaModel(int x, int y) throws InterruptedException {
+    public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;
         this.height = y;
-        this.player = new playerModel(new positionModel(10,y - 2),3);
+        this.player = new PlayerModel(new PositionModel(10,y - 2),3);
         this.activeBullets = new ArrayList<>();
         this.createMonsters = new createMonsters(x); // OPT 1
 
         walls = Builders.createWalls(width,height);// OPT 2
         activeMonsters = createMonsters.addMonsters(3);
 
-        drawMonsters = new drawMonsters(this.activeMonsters);
-        drawOutline = new drawOutline(this.walls);
-        drawPlayer = new drawPlayer(this.player);
+        drawMonsters = new DrawMonsters(this.activeMonsters);
+        drawOutline = new DrawOutline(this.walls);
+        drawPlayer = new DrawPlayer(this.player);
 
     }
 
@@ -62,34 +57,34 @@ public class arenaModel {
         return height;
     }
 
-    public playerModel getPlayer() {
+    public PlayerModel getPlayer() {
         return this.player;
     }
 
-    public drawArena getDrawArena(){ // Retorna a arena
-        return new drawArena(this);
+    public DrawArena getDrawArena(){ // Retorna a arena
+        return new DrawArena(this);
     }
-    public arenaModel getArenaModel(){
+    public ArenaModel getArenaModel(){
         return this;
     }
 
-    public com.Carlos.spaceinvanders.UI.drawBullets getDrawBullets() {
+    public DrawBullets getDrawBullets() {
         return drawBullets;
     }
 
-    public com.Carlos.spaceinvanders.UI.drawOutline getDrawOutline() {
+    public DrawOutline getDrawOutline() {
         return drawOutline;
     }
 
-    public com.Carlos.spaceinvanders.UI.drawPlayer getDrawPlayer() {
+    public DrawPlayer getDrawPlayer() {
         return drawPlayer;
     }
 
-    public List<bulletModel> getActiveBullets() {
+    public List<BulletModel> getActiveBullets() {
         return activeBullets;
     }
 
-    public com.Carlos.spaceinvanders.UI.drawMonsters getDrawMonsters() {
+    public DrawMonsters getDrawMonsters() {
         return drawMonsters;
     }
 

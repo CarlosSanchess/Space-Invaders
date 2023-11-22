@@ -1,12 +1,10 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.Entities.arenaModel;
+import com.Carlos.spaceinvanders.Entities.ArenaModel;
 import com.Carlos.spaceinvanders.Entities.Builders.FPS;
-import com.Carlos.spaceinvanders.UI.drawArena;
+import com.Carlos.spaceinvanders.UI.DrawArena;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 
 import com.Carlos.spaceinvanders.Controls.arenaControl;
 
@@ -23,11 +21,11 @@ public class Game {
     private TextGraphics graphics;
     private int sizeX = 80;
     private int sizeY = 30;
-    private drawArena drawArena;
+    private DrawArena drawArena;
     private arenaControl arenaControl;
 
 
-     arenaModel arena = new arenaModel(sizeX,sizeY);
+     ArenaModel arena = new ArenaModel(sizeX,sizeY);
     Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
         this.screen = screen;
         this.screen.setCursorPosition(null); // we don't nenulled a cursor

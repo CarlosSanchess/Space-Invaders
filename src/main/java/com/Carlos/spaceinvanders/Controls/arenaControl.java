@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvanders.Controls;
 
-import com.Carlos.spaceinvanders.Entities.arenaModel;
+import com.Carlos.spaceinvanders.Entities.ArenaModel;
 import com.googlecode.lanterna.input.KeyStroke;
 
 
@@ -9,9 +9,9 @@ import java.io.IOException;
 public class arenaControl {
 
        private KeyStroke key;
-       private arenaModel arenaModel;
+       private ArenaModel arenaModel;
 
-       public arenaControl(KeyStroke key,arenaModel arenaModel) throws IOException, InterruptedException {
+       public arenaControl(KeyStroke key, ArenaModel arenaModel) throws IOException, InterruptedException {
            this.key = key;
            this.arenaModel = arenaModel;
            processKey(this.key);

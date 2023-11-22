@@ -1,9 +1,8 @@
 package com.Carlos.spaceinvanders.UI;
 
-import com.Carlos.spaceinvanders.Entities.Elements;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public interface drawEntities {
+public interface DrawEntities {
     abstract void draw(TextGraphics graphics);
 
 }

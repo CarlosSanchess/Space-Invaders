@@ -1,30 +1,30 @@
 package com.Carlos.spaceinvanders.UI;
 
-import com.Carlos.spaceinvanders.Entities.bulletModel;
+import com.Carlos.spaceinvanders.Entities.BulletModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 
 import java.util.Iterator;
 import java.util.List;
 
-public class drawBullets implements drawEntities {
-    List<bulletModel> activeBullets;
-    public drawBullets(List<bulletModel> activeBullets){
+public class DrawBullets implements DrawEntities {
+    List<BulletModel> activeBullets;
+    public DrawBullets(List<BulletModel> activeBullets){
         this.activeBullets = activeBullets;
     }
 
     @Override
     public void draw(TextGraphics graphics) {
         // + EFI
-        Iterator<bulletModel> iterator = activeBullets.iterator();
+        Iterator<BulletModel> iterator = activeBullets.iterator();
 
         while (iterator.hasNext()) {
-            bulletModel bullet = iterator.next();
+            BulletModel bullet = iterator.next();
             bullet.move();
             if (!bullet.isActive()) {
                 iterator.remove(); // Remove inactive bullet
             } else {
-                drawBullet bulletDraw = new drawBullet(bullet);
+                DrawBullet bulletDraw = new DrawBullet(bullet);
                 bulletDraw.draw(graphics);
             }
         }

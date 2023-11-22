@@ -1,9 +1,8 @@
 package com.Carlos.spaceinvanders.UI.Menu;
-import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.Carlos.spaceinvanders.Entities.Menu.menuModel;
+import com.Carlos.spaceinvanders.Entities.Menu.MenuModel;
 
 
 //TODO
@@ -12,9 +11,9 @@ import com.Carlos.spaceinvanders.Entities.Menu.menuModel;
 public class drawTitle implements drawMenu {
 
     private int row;
-    private menuModel menuModel; // Onde vamos buscar o titlo e os outros atributos
+    private MenuModel menuModel; // Onde vamos buscar o titlo e os outros atributos
     public drawTitle(){
-        menuModel = new menuModel();
+        menuModel = new MenuModel();
     }
 
     public void drawTitle(TextGraphics graphics){

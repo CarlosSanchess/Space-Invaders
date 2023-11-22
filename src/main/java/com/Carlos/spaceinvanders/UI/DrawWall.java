@@ -1,15 +1,15 @@
 package com.Carlos.spaceinvanders.UI;
-import com.Carlos.spaceinvanders.Entities.wallModel;
+import com.Carlos.spaceinvanders.Entities.WallModel;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class drawWall implements drawEntities{
+public class DrawWall implements DrawEntities {
 
-    wallModel wall;
-    public drawWall(wallModel wall){
+    WallModel wall;
+    public DrawWall(WallModel wall){
         this.wall = wall;
     }
 

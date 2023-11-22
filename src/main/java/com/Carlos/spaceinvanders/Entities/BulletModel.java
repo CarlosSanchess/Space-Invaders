@@ -1,16 +1,16 @@
 package com.Carlos.spaceinvanders.Entities;
 
-public class bulletModel extends Elements{
+public class BulletModel extends Elements{
     private int  speed;
     private boolean active;
     private boolean direction;
 
-    bulletModel(positionModel position, int speed,boolean direction){
+    BulletModel(PositionModel position, int speed, boolean direction){
        super(position);
        this.speed = speed;
        this.direction = direction;
        active = true;
-
+&
     }
     public void move(){
         if(direction)

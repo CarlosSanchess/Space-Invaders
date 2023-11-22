@@ -1,15 +1,15 @@
 package com.Carlos.spaceinvanders.UI;
 
-import com.Carlos.spaceinvanders.Entities.bulletModel;
+import com.Carlos.spaceinvanders.Entities.BulletModel;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class drawBullet implements drawEntities{
+public class DrawBullet implements DrawEntities {
 
-    bulletModel bulletModel;
-    public drawBullet(bulletModel bulletModel){
+    BulletModel bulletModel;
+    public DrawBullet(BulletModel bulletModel){
        this.bulletModel = bulletModel;
     }
 

@@ -6,7 +6,7 @@ import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 //Organizar o codigo do menu retirar os atributos da classe menu do draw Menu
 //TAlvez ter aqui os atributos com getters
 
-public class menuModel {
+public class MenuModel {
     private String title;
 
 
@@ -18,7 +18,7 @@ public class menuModel {
         EXIT
     }
 
-    public menuModel(){
+    public MenuModel(){
         this.title = menuString.getTitle();
     }
 

@@ -1,11 +1,11 @@
 package com.Carlos.spaceinvanders.Entities;
 
 public abstract class Elements {
-    protected positionModel position; // All the subclasses will have a Position position
-    Elements(positionModel position){
+    protected PositionModel position; // All the subclasses will have a Position position
+    Elements(PositionModel position){
         this.position = position;
     }
-    public positionModel getPosition() {
+    public PositionModel getPosition() {
         return position;
     }
 }

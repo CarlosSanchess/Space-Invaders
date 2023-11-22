@@ -3,11 +3,11 @@ package com.Carlos.spaceinvanders.Entities;
 
 import java.util.Objects;
 
-public class positionModel {
+public class PositionModel {
 
         private int x;
         private int y;
-        public positionModel(int x, int y){ // Problema em por publico?
+        public PositionModel(int x, int y){ // Problema em por publico?
             this.x = x;
             this.y = y;
         }
@@ -28,7 +28,7 @@ public class positionModel {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            com.Carlos.spaceinvanders.Entities.positionModel position = (com.Carlos.spaceinvanders.Entities.positionModel) o;
+            PositionModel position = (PositionModel) o;
             return x == position.x && y == position.y;
         }
 
