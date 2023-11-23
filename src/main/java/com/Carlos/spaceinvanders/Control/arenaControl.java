@@ -1,6 +1,6 @@
-package com.Carlos.spaceinvanders.Controls;
+package com.Carlos.spaceinvanders.Control;
 
-import com.Carlos.spaceinvanders.Entities.ArenaModel;
+import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
 import com.googlecode.lanterna.input.KeyStroke;
 
 

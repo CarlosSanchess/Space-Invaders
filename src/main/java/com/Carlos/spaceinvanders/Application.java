@@ -1,10 +1,7 @@
 package com.Carlos.spaceinvanders;
 
-
-import com.googlecode.lanterna.input.KeyStroke;
-
 import java.io.IOException;
-import java.util.List;
+
 //TODO
 //Implementar um drawArena Decente
 //Tirar o processKey do model da Arena

@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Menu;
+package com.Carlos.spaceinvanders.Entities.Model;
 
 import com.Carlos.spaceinvanders.Entities.Builders.menuString;
 

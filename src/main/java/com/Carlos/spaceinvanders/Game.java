@@ -1,12 +1,9 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.Entities.ArenaModel;
+import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
 import com.Carlos.spaceinvanders.Entities.Builders.FPS;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
-import com.Carlos.spaceinvanders.UI.DrawArena;
-import com.googlecode.lanterna.screen.Screen;
 
-import com.Carlos.spaceinvanders.Controls.arenaControl;
 
 import java.io.IOException;
 
@@ -15,15 +12,18 @@ import java.io.IOException;
 //Aplicar o GUI ao Menu ou seja cria duas Screens diferentes
 
 
+import com.Carlos.spaceinvanders.UI.View.DrawArena;
+
+import java.io.IOException;
+
 public class Game {
 
     private DrawArena drawArena;
-    private arenaControl arenaControl;
 
     private final LanternaGui GUI;
 
     ArenaModel arena = new ArenaModel(80,30);
-    Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
+    Game() throws IOException, InterruptedException { //Melhor pratica que try catch
         this.GUI = new LanternaGui(80,30);
         //Passar a screen do menu aqui é boa pratica???
     }

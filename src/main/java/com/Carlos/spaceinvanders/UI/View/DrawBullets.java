@@ -1,9 +1,7 @@
-package com.Carlos.spaceinvanders.UI;
+package com.Carlos.spaceinvanders.UI.View;
 
-import com.Carlos.spaceinvanders.Entities.BulletModel;
+import com.Carlos.spaceinvanders.Entities.Model.BulletModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
-
-
 import java.util.Iterator;
 import java.util.List;
 

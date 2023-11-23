@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.UI;
+package com.Carlos.spaceinvanders.UI.View;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 

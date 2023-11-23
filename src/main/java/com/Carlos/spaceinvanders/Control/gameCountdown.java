@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Controls;
+package com.Carlos.spaceinvanders.Control;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;

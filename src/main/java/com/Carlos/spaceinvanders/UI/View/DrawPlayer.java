@@ -1,5 +1,5 @@
-package com.Carlos.spaceinvanders.UI;
-import com.Carlos.spaceinvanders.Entities.PlayerModel;
+package com.Carlos.spaceinvanders.UI.View;
+import com.Carlos.spaceinvanders.Entities.Model.PlayerModel;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;

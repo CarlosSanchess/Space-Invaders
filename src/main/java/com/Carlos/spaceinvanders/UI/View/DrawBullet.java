@@ -1,6 +1,6 @@
-package com.Carlos.spaceinvanders.UI;
+package com.Carlos.spaceinvanders.UI.View;
 
-import com.Carlos.spaceinvanders.Entities.BulletModel;
+import com.Carlos.spaceinvanders.Entities.Model.BulletModel;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;

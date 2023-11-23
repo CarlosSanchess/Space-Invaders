@@ -1,5 +1,5 @@
-package com.Carlos.spaceinvanders.UI;
-import com.Carlos.spaceinvanders.Entities.ArenaModel;
+package com.Carlos.spaceinvanders.UI.View;
+import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 //TODO,
