@@ -24,12 +24,6 @@ public class ArenaModel {
     private PlayerModel player;
     private MonsterModel monsterModel;
 
-    public DrawPlayer drawPlayer;
-    public DrawBullets drawBullets;
-    public DrawOutline drawOutline;
-
-    private DrawMonsters drawMonsters;
-
     public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;
         this.height = y;
@@ -39,10 +33,6 @@ public class ArenaModel {
 
         walls = Builders.createWalls(width, height);
         activeMonsters = createMonsters.addMonsters(3);
-
-        drawMonsters = new DrawMonsters(this.activeMonsters);
-        drawOutline = new DrawOutline(this.walls);
-        drawPlayer = new DrawPlayer(this.player);
     }
 
     public int getWidth() {
@@ -57,32 +47,16 @@ public class ArenaModel {
         return this.player;
     }
 
-    public DrawArena getDrawArena() {
-        return new DrawArena(this);
-    }
-
-    public ArenaModel getArenaModel() {
-        return this;
-    }
-
-    public DrawBullets getDrawBullets() {
-        return drawBullets;
-    }
-
-    public DrawOutline getDrawOutline() {
-        return drawOutline;
-    }
-
-    public DrawPlayer getDrawPlayer() {
-        return drawPlayer;
-    }
-
     public List<BulletModel> getActiveBullets() {
         return activeBullets;
     }
 
-    public DrawMonsters getDrawMonsters() {
-        return drawMonsters;
+    public List<MonsterModel> getActiveMonsters() {
+        return activeMonsters;
+    }
+
+    public List<WallModel> getWalls() {
+        return walls;
     }
 }
 
