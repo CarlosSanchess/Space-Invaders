@@ -22,7 +22,6 @@ public class Game {
     private int sizeX = 80;
     private int sizeY = 30;
     private DrawArena drawArena;
-    private arenaControl arenaControl;
 
 
      ArenaModel arena = new ArenaModel(sizeX,sizeY);
