@@ -1,8 +1,9 @@
-package com.Carlos.spaceinvanders.UI.Menu;
+package com.Carlos.spaceinvanders.UI.View.Menu;
+import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.Carlos.spaceinvanders.Entities.MenuModel;
+
 
 
 //TODO

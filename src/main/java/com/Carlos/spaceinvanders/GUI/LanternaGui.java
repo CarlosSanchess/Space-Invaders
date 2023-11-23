@@ -1,6 +1,8 @@
 package com.Carlos.spaceinvanders.GUI;
 
+import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
@@ -51,10 +53,10 @@ public class LanternaGui {
         return graphics;
     }
 
-    public Screen getScreen(){
-        return screen;
+    public void drawText(PositionModel position, String string, TextColor.RGB rgbColor){ // Testar esta função
+            graphics.setForegroundColor(rgbColor);
+            graphics.putString(position.getY(), position.getX(), string);
     }
-
     public void screenClear(){
         screen.clear();
     }
