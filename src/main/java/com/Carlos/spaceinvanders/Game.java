@@ -12,9 +12,7 @@ import java.io.IOException;
 //Aplicar o GUI ao Menu ou seja cria duas Screens diferentes
 
 
-import com.Carlos.spaceinvanders.UI.View.DrawArena;
-
-import java.io.IOException;
+import com.Carlos.spaceinvanders.UI.View.Game.DrawArena;
 
 public class Game {
 

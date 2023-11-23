@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.UI.View;
+package com.Carlos.spaceinvanders.UI.View.Game;
 
 import com.Carlos.spaceinvanders.Entities.Model.BulletModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
