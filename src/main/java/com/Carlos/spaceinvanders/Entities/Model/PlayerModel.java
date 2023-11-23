@@ -1,6 +1,8 @@
-package com.Carlos.spaceinvanders.Entities;
+package com.Carlos.spaceinvanders.Entities.Model;
 
-public class PlayerModel extends Elements{
+import com.Carlos.spaceinvanders.Entities.Model.Elements;
+
+public class PlayerModel extends Elements {
 
     private int hitPoints; //Vida da Nave
 

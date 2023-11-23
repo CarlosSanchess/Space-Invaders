@@ -1,6 +1,6 @@
-package com.Carlos.spaceinvanders.UI;
+package com.Carlos.spaceinvanders.UI.View;
 
-import com.Carlos.spaceinvanders.Entities.MonsterModel;
+import com.Carlos.spaceinvanders.Entities.Model.MonsterModel;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.util.List;

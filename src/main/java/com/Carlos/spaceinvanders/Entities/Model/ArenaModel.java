@@ -1,18 +1,16 @@
-package com.Carlos.spaceinvanders.Entities;
+package com.Carlos.spaceinvanders.Entities.Model;
+
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
 import com.Carlos.spaceinvanders.Entities.Builders.createMonsters;
-
-import com.Carlos.spaceinvanders.UI.DrawOutline;
-import com.Carlos.spaceinvanders.UI.DrawPlayer;
-import com.Carlos.spaceinvanders.UI.DrawBullets;
-import com.Carlos.spaceinvanders.UI.DrawArena;
-import com.Carlos.spaceinvanders.UI.DrawMonsters;
-
+import com.Carlos.spaceinvanders.UI.View.DrawArena;
+import com.Carlos.spaceinvanders.UI.View.DrawBullets;
+import com.Carlos.spaceinvanders.UI.View.DrawMonsters;
+import com.Carlos.spaceinvanders.UI.View.DrawOutline;
+import com.Carlos.spaceinvanders.UI.View.DrawPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
-//If active bullets Draw bullets, mover player
-//ELse mover player apenas
+
 public class ArenaModel {
 
     private final int width;
@@ -32,28 +30,26 @@ public class ArenaModel {
 
     private DrawMonsters drawMonsters;
 
-    //TODO
-    //É safe os objetos de draw serem publicos?
     public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;
         this.height = y;
-        this.player = new PlayerModel(new PositionModel(10,y - 2),3);
+        this.player = new PlayerModel(new PositionModel(10, y - 2), 3);
         this.activeBullets = new ArrayList<>();
-        this.createMonsters = new createMonsters(x); // OPT 1
+        this.createMonsters = new createMonsters(x);
 
-        walls = Builders.createWalls(width,height);// OPT 2
+        walls = Builders.createWalls(width, height);
         activeMonsters = createMonsters.addMonsters(3);
 
         drawMonsters = new DrawMonsters(this.activeMonsters);
         drawOutline = new DrawOutline(this.walls);
         drawPlayer = new DrawPlayer(this.player);
-
     }
 
     public int getWidth() {
         return width;
     }
-    public int getHeight(){
+
+    public int getHeight() {
         return height;
     }
 
@@ -61,10 +57,11 @@ public class ArenaModel {
         return this.player;
     }
 
-    public DrawArena getDrawArena(){ // Retorna a arena
+    public DrawArena getDrawArena() {
         return new DrawArena(this);
     }
-    public ArenaModel getArenaModel(){
+
+    public ArenaModel getArenaModel() {
         return this;
     }
 
@@ -87,6 +84,7 @@ public class ArenaModel {
     public DrawMonsters getDrawMonsters() {
         return drawMonsters;
     }
+}
 
 
     //Tirar daqui o processKey, dar get na arena e mover a partir dai
@@ -115,4 +113,3 @@ public class ArenaModel {
     }
 
      */
-}

@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities;
+package com.Carlos.spaceinvanders.Entities.Model;
 
 
 import java.util.Objects;

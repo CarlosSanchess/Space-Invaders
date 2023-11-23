@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvanders;
 
 import com.Carlos.spaceinvanders.UI.View.Menu.*;
-import com.Carlos.spaceinvanders.Entities.MenuModel;
+import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import java.io.IOException;
 

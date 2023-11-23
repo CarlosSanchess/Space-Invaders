@@ -1,21 +1,11 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.Entities.ArenaModel;
+import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
 import com.Carlos.spaceinvanders.Entities.Builders.FPS;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
-import com.Carlos.spaceinvanders.UI.DrawArena;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
-
-import com.Carlos.spaceinvanders.Controls.arenaControl;
-
-
-
-
+import com.Carlos.spaceinvanders.UI.View.DrawArena;
 
 import java.io.IOException;
-
-
 
 public class Game {
 

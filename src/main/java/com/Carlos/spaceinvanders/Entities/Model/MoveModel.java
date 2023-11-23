@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities;
+package com.Carlos.spaceinvanders.Entities.Model;
 
 //TODO
 //MONSTERS AND BULLETS SHOULD IMPLEMENT MOVE FUCNTION
