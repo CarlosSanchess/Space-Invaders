@@ -1,7 +1,5 @@
 package com.Carlos.spaceinvanders.Entities.Model;
 
-import com.Carlos.spaceinvanders.Entities.Model.Elements;
-
 public class PlayerModel extends Elements {
 
     private int hitPoints; //Vida da Nave
@@ -10,8 +8,13 @@ public class PlayerModel extends Elements {
         super(position);
         this.hitPoints = hitPoints;
     }
+    public BulletModel playerShoot(){
+        return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
+    }
+}
 
-    public boolean canMove(PositionModel position) { // Premitir escolher tamanho da arena?
+/*
+public boolean canMove(PositionModel position) { // Premitir escolher tamanho da arena?
         return position.getX() >= 1 && position.getX()  < 80 - 1;
     }
 
@@ -25,7 +28,4 @@ public class PlayerModel extends Elements {
             position.setX(position.getX() + 1);
         }
     }
-    public BulletModel playerShoot(){
-        return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
-    }
-}
+*/

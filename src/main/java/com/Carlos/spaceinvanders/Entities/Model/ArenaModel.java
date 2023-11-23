@@ -2,11 +2,7 @@ package com.Carlos.spaceinvanders.Entities.Model;
 
 import com.Carlos.spaceinvanders.Entities.Builders.Builders;
 import com.Carlos.spaceinvanders.Entities.Builders.createMonsters;
-import com.Carlos.spaceinvanders.UI.View.DrawArena;
-import com.Carlos.spaceinvanders.UI.View.DrawBullets;
-import com.Carlos.spaceinvanders.UI.View.DrawMonsters;
-import com.Carlos.spaceinvanders.UI.View.DrawOutline;
-import com.Carlos.spaceinvanders.UI.View.DrawPlayer;
+
 
 import java.util.ArrayList;
 import java.util.List;
