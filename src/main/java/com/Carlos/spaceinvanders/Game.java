@@ -24,7 +24,7 @@ public class Game {
     private final LanternaGui GUI;
 
     ArenaModel arena = new ArenaModel(80,30);
-    Game(Screen screen) throws IOException, InterruptedException { //Melhor pratica que try catch
+    Game() throws IOException, InterruptedException { //Melhor pratica que try catch
         this.GUI = new LanternaGui(80,30);
 
     }

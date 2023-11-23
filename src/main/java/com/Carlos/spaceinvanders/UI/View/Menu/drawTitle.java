@@ -2,7 +2,7 @@ package com.Carlos.spaceinvanders.UI.Menu;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.Carlos.spaceinvanders.Entities.Menu.MenuModel;
+import com.Carlos.spaceinvanders.Entities.MenuModel;
 
 
 //TODO
