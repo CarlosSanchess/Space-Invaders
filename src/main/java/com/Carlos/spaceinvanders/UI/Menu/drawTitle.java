@@ -24,17 +24,18 @@ public class drawTitle implements drawMenu {
         graphics.setBackgroundColor(backgroundColor);
         graphics.enableModifiers(SGR.BOLD);
 
-        String[] lines = menuModel.getTitle().split("\n");
+        //String[] lines = menuModel.getTitle().split("\n");
         row = 0;
-        for (String line : lines) {
-            graphics.putString(7, row, line);
-            row++;
-        }
+       // for (String line : lines) {
+       //     graphics.putString(7, row, line);
+       //     row++;
+       // }
     }
 
     //Organizar melhor a posição das opcções deveriam ser inicializadas no Draw Menu
     //Alinhar
     //Fazer com que dependa do tamanho da arena!!!
+    /*
     public void drawOptions(TextGraphics graphics){ // Deveria haver mais
         drawString(graphics,33, row + 5, menuModel.getStartGame(),new TextColor.RGB(255,255,0));
         drawString(graphics,33, row + 8, menuModel.getMySpaceShip(), new TextColor.RGB(0,255,0));
@@ -42,7 +43,7 @@ public class drawTitle implements drawMenu {
         drawString(graphics,33, row + 14, menuModel.Options(), new TextColor.RGB(0,255,0));
         drawString(graphics,33, row + 17, menuModel.Exit(), new TextColor.RGB(255,0,0));
     }
-
+    */
     public void drawString(TextGraphics graphics,int column, int row, String string, TextColor.RGB color){
         graphics.setForegroundColor(color);
         graphics.putString(column,row,string);
@@ -50,6 +51,6 @@ public class drawTitle implements drawMenu {
     @Override
     public void draw(TextGraphics graphics){
         drawTitle(graphics);
-        drawOptions(graphics);
+        //drawOptions(graphics);
     }
 }
