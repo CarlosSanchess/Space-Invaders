@@ -19,5 +19,13 @@ public class DrawMenu extends Viewer<MenuModel> {
         MenuModel menuModel = super.getModel();
         String title = menuModel.getText();
         GUI.drawTitle(title);
+
+        List<String> entries = menuModel.getEntries();
+        int y = 10;
+        for (String entry : entries) {
+                TextColor.RGB color = menuModel.getColor(entry);
+                GUI.drawText(new PositionModel(33, y), entry, color); 
+                y += 3;
+        }
     }
 }
