@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvanders.Entities.Model;
 
-public class BulletModel extends Elements implements Model{
+public class BulletModel extends Elements {
     private int  speed;
     private boolean active;
     private boolean direction;
@@ -26,5 +26,4 @@ public class BulletModel extends Elements implements Model{
         }
         return active;
     }
-
 }

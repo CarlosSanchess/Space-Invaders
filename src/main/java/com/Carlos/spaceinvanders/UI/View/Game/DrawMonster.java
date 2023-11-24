@@ -4,12 +4,8 @@ import com.Carlos.spaceinvanders.Entities.Model.MonsterModel;
 
 
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
-import com.Carlos.spaceinvanders.UI.View.Game.DrawEntities;
 import com.Carlos.spaceinvanders.UI.View.Viewer;
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class DrawMonster extends Viewer<MonsterModel> {
 
