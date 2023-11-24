@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args) {
         try {
-           Game menu = new Game();
+           Menu menu = new Menu();
            menu.run();
 
         }catch (IOException | InterruptedException e){
