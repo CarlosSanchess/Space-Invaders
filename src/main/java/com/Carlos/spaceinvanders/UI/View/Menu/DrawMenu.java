@@ -8,13 +8,16 @@ import com.googlecode.lanterna.TextColor;
 
 public class DrawMenu extends Viewer<MenuModel> {
 
+    MenuModel menuModel;
     public DrawMenu(MenuModel menuModel){
         super(menuModel);
+        menuModel = super.getModel();
 
     }
     @Override
-    public void draw(LanternaGui GUI){
-        MenuModel menuModel = super.getModel();
-        GUI.drawText(new PositionModel(10,10), menuModel.getText(), new TextColor.RGB(255,105,97)); // Usar hexadecimal ?
+    public void draw(LanternaGui GUI) {
+        String title = menuModel.getText();
+        GUI.drawTitle(title);
     }
+
 }
