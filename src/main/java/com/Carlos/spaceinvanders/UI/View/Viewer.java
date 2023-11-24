@@ -3,7 +3,6 @@ package com.Carlos.spaceinvanders.UI.View;
 
 
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 

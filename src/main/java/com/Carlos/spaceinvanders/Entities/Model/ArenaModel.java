@@ -7,7 +7,7 @@ import com.Carlos.spaceinvanders.Entities.Builders.createMonsters;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArenaModel {
+public class ArenaModel{
 
     private final int width;
     private final int height;
