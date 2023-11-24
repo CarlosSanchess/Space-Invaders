@@ -5,7 +5,7 @@ import com.Carlos.spaceinvanders.UI.View.Viewer;
 import com.googlecode.lanterna.TextColor;
 
 
-public class DrawWall extends Viewer<WallModel> {
+public class DrawWall extends Viewer<WallModel> implements DrawElement {
 
     public DrawWall(WallModel wall){
         super(wall);

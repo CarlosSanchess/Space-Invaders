@@ -7,8 +7,7 @@ import com.Carlos.spaceinvanders.UI.View.Viewer;
 
 import java.util.List;
 
-public class DrawMonsters extends Viewer<List<MonsterModel>>{
-
+public class DrawMonsters extends Viewer<List<MonsterModel>> implements DrawElement{
     public DrawMonsters(List<MonsterModel> monsters){
         super(monsters);
     }

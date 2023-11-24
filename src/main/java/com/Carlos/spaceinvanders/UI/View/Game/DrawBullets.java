@@ -8,7 +8,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import java.util.Iterator;
 import java.util.List;
 
-public class DrawBullets extends Viewer<List<BulletModel>> {
+public class DrawBullets extends Viewer<List<BulletModel>> implements DrawElement {
 
     public DrawBullets(List<BulletModel> bullets){
         super(bullets);
