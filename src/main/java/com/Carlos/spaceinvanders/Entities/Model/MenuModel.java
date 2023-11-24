@@ -7,7 +7,7 @@ import java.util.List;
 //Organizar o codigo do menu retirar os atributos da classe menu do draw Menu
 //TAlvez ter aqui os atributos com getters
 
-public class MenuModel {
+public class MenuModel implements Model{
     static String text =
             "                          _                     _               \n" +
                     "                         (_)                   | |              \n" +

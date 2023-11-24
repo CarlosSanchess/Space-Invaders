@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvanders.Entities.Model;
 
-public abstract class Elements {
+public abstract class Elements implements Model{
     
     protected PositionModel position; // All the subclasses will have a Position position
     
