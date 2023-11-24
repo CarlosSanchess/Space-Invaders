@@ -1,24 +1,25 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
+import com.Carlos.spaceinvanders.Entities.Model.PlayerModel;
 import com.Carlos.spaceinvanders.Entities.Model.WallModel;
 
+import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import com.Carlos.spaceinvanders.UI.View.Game.DrawEntities;
+import com.Carlos.spaceinvanders.UI.View.Viewer;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class DrawWall implements DrawEntities {
+public class DrawWall extends Viewer<WallModel> {
 
-    WallModel wall;
     public DrawWall(WallModel wall){
-        this.wall = wall;
+        super(wall);
     }
 
     @Override
-    public void draw(TextGraphics graphics) {
-            graphics.enableModifiers(SGR.BOLD);
-            graphics.setForegroundColor(new TextColor.RGB(255,255,255));
-            graphics.putString(new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY()), "*");
+    public void draw(LanternaGui GUI) {
+        WallModel monsterModel = super.getModel();
+        GUI.drawText(monsterModel.getPosition(),"*",new TextColor.RGB(255,105,97));
         }
     }
 

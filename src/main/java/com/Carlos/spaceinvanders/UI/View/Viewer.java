@@ -16,7 +16,7 @@ public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
         this.model = model;
     }
 
-    void lanternaDraw(LanternaGui GUI) throws IOException {
+    public void lanternaDraw(LanternaGui GUI) throws IOException {
         GUI.screenClear();
         draw(GUI);
         GUI.screenRefresh();

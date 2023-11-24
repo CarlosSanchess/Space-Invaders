@@ -13,40 +13,27 @@ import java.io.IOException;
 
 
 import com.Carlos.spaceinvanders.UI.View.Game.DrawArena;
+import com.Carlos.spaceinvanders.UI.View.Game.DrawGame;
+import com.Carlos.spaceinvanders.UI.View.Viewer;
 
 public class Game {
 
-    private DrawArena drawArena;
+
 
     private final LanternaGui GUI;
 
     ArenaModel arena = new ArenaModel(80,30);
+    private final DrawGame drawGame = new DrawGame(arena);
     Game() throws IOException, InterruptedException { //Melhor pratica que try catch
         this.GUI = new LanternaGui(80,30);
-        //Passar a screen do menu aqui é boa pratica???
     }
 
 
     public void run() throws IOException, InterruptedException {
-        //Process aqui
-        //Faz sentido ter um screen.pollInput aqui
         while(true) {
-
-           Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
+            drawGame.lanternaDraw(GUI);
+            Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
         }
 
     }
-
-
-    /*
-
-    public void drawGame() throws  IOException{ //View
-        GUI.screenClear();
-        //drawArena = arena.getDrawArena(); //Obtem a arena
-        drawArena.draw(GUI.getGraphics());
-        GUI.screenRefresh();
-    }
-    */
-
-
 }

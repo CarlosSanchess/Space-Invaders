@@ -18,10 +18,10 @@ public class DrawMonsters implements DrawEntities {
 
     @Override
     public void draw(TextGraphics graphics){
-        for (MonsterModel monster : monsters) {
-            monsterDraw = new DrawMonster(monster);
-            monsterDraw.draw(graphics);
+       // for (MonsterModel monster : monsters) {
+       //     monsterDraw = new DrawMonster(monster);
+       //     monsterDraw.draw(graphics);
 
-        }
+        //}
     }
 }
