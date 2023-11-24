@@ -20,7 +20,6 @@ public class ArenaModel implements Model{
     private CreateMonsters createMonsters;
 
     private PlayerModel player;
-    private MonsterModel monsterModel;
 
     public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;

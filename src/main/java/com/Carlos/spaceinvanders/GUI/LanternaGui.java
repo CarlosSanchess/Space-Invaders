@@ -1,13 +1,11 @@
 package com.Carlos.spaceinvanders.GUI;
 
+import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
 import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-
-
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -73,16 +71,15 @@ public class LanternaGui {
             y++;
         }
     }
-    public void drawEntries(List<String> entries, TextColor.RGB rgbColor){
-        int y = 10; // start drawing entries from this line
+    public void drawEntries(MenuModel menuModel){
+        List<String> entries = menuModel.getEntries();
+        int y = 10;
         for (String entry : entries) {
-            // Calculate the starting position of the entry
-            int terminalWidth = graphics.getSize().getColumns();
-            int x = (terminalWidth - entry.length()) / 2;
 
-            // Draw the entry with the provided color
-            drawText(new PositionModel(x, y), entry, rgbColor);
-            y++;
+            TextColor.RGB color = menuModel.getColor(entry);
+
+            drawText(new PositionModel(33, y), entry, color);
+            y += 3;
         }
     }
 }
