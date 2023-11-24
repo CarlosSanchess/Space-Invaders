@@ -2,6 +2,7 @@ package com.Carlos.spaceinvanders.GUI;
 
 import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
 import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -57,13 +58,17 @@ public class LanternaGui {
             graphics.setForegroundColor(rgbColor);
             graphics.putString(position.getX(), position.getY(), string);
     }
-    public void screenClear(){
+    public void screenClear() {
         screen.clear();
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#4B0082")); 
+        graphics.fillRectangle(new TerminalPosition(0, 0), screen.getTerminalSize(), ' ');
     }
     public void screenRefresh() throws IOException {
         screen.refresh();
     }
     public void drawTitle(String string){
+        screenClear();
         String [] lines = string.split("\n");
         int y = 0;
         for (String line : lines) {
@@ -72,14 +77,15 @@ public class LanternaGui {
         }
     }
     public void drawEntries(MenuModel menuModel){
+        screenClear();
         List<String> entries = menuModel.getEntries();
         int y = 10;
         for (String entry : entries) {
-
             TextColor.RGB color = menuModel.getColor(entry);
-
+            graphics.setBackgroundColor(TextColor.Factory.fromString("#4B0082")); 
             drawText(new PositionModel(33, y), entry, color);
             y += 3;
         }
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#000000")); 
     }
 }
