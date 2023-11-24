@@ -7,7 +7,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.io.IOException;
 
-public abstract class Viewer <T>{  // Este viewer, da display do jogo por completo, e do menu.
+public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
 
     private final T model;
 
@@ -15,10 +15,13 @@ public abstract class Viewer <T>{  // Este viewer, da display do jogo por comple
         this.model = model;
     }
 
-    void draw(LanternaGui GUI) throws IOException {
+    void lanternaDraw(LanternaGui GUI) throws IOException {
         GUI.screenClear();
-        drawGame(GUI);
+        draw(GUI);
         GUI.screenRefresh();
     }
-    abstract void drawGame(LanternaGui GUI);
+    protected T getModel(){
+        return model;
+    }
+    protected abstract void draw(LanternaGui GUI);
 }

@@ -11,12 +11,9 @@ public class BulletModel extends Elements implements Model{
        this.direction = direction;
        active = true;
     }
-}
 
 
-
-
-/* public void move(){
+  public void move(){
         if(direction)
             position.setY(position.getY() - speed);
         else
@@ -30,5 +27,4 @@ public class BulletModel extends Elements implements Model{
         return active;
     }
 
-    Acho que o bullet control vai ter de dar override a um move() que faz isto
-*/
+}

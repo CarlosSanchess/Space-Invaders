@@ -14,8 +14,9 @@ public class DrawArena implements DrawEntities {
 
     @Override
     public void draw(TextGraphics graphics) {
-        DrawPlayer drawPlayer = arenaModel.getDrawPlayer();
-        DrawOutline drawOutline = arenaModel.getDrawOutline();
+        /*
+       // DrawPlayer drawPlayer = arenaModel.getDrawPlayer();
+       // DrawOutline drawOutline = arenaModel.getDrawOutline();
         DrawMonsters drawMonsters = arenaModel.getDrawMonsters();
         DrawBullets drawBullets;
 
@@ -27,5 +28,6 @@ public class DrawArena implements DrawEntities {
             drawBullets = new DrawBullets(arenaModel.getActiveBullets());
             drawBullets.draw(graphics);
         }
+        */
     }
 }

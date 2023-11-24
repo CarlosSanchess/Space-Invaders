@@ -31,18 +31,22 @@ public class Game {
         //Process aqui
         //Faz sentido ter um screen.pollInput aqui
         while(true) {
-           drawGame();
+
            Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
         }
 
     }
 
 
+    /*
+
     public void drawGame() throws  IOException{ //View
         GUI.screenClear();
-        drawArena = arena.getDrawArena(); //Obtem a arena
+        //drawArena = arena.getDrawArena(); //Obtem a arena
         drawArena.draw(GUI.getGraphics());
         GUI.screenRefresh();
     }
+    */
+
 
 }

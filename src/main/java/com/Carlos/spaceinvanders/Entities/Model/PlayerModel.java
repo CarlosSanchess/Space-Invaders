@@ -11,9 +11,9 @@ public class PlayerModel extends Elements {
     public BulletModel playerShoot(){
         return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
     }
-}
 
-/*
+
+
 public boolean canMove(PositionModel position) { // Premitir escolher tamanho da arena?
         return position.getX() >= 1 && position.getX()  < 80 - 1;
     }
@@ -28,4 +28,5 @@ public boolean canMove(PositionModel position) { // Premitir escolher tamanho da
             position.setX(position.getX() + 1);
         }
     }
-*/
+
+}

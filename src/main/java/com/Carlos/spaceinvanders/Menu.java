@@ -7,16 +7,16 @@ import java.io.IOException;
 
 public class Menu {
 
-    private DrawMenu drawMenu;
-    private final LanternaGui GUI;
-    MenuModel menu = new MenuModel();
+
+    LanternaGui GUI;
 
     Menu() throws IOException, InterruptedException {
         this.GUI = new LanternaGui(80,30);
+        MenuModel menu = new MenuModel();
     }
     public void run() throws IOException, InterruptedException {
         while(true) {
-            drawMenu();
+
             Thread.sleep(200); // Refresh the menu every second
         }
     }

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DrawBullets implements DrawEntities {
+
     List<BulletModel> activeBullets;
     public DrawBullets(List<BulletModel> activeBullets){
         this.activeBullets = activeBullets;
