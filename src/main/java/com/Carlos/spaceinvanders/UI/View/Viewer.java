@@ -1,12 +1,12 @@
 package com.Carlos.spaceinvanders.UI.View;
 
 
-import com.Carlos.spaceinvanders.Entities.Model.Model;
+
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 
 import java.io.IOException;
 
-public abstract class Viewer <T extends Model>{  // Este viewer, da display do jogo e do menu.
+public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
     //Inicializar o viewer e chamar o lanternadraw no gameloop
 
     private final T model;
