@@ -2,6 +2,7 @@ package com.Carlos.spaceinvanders.UI.View;
 
 
 
+import com.Carlos.spaceinvanders.Entities.Model.Model;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 
 import java.io.IOException;
