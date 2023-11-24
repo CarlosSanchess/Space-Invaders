@@ -15,16 +15,9 @@ public class DrawMenu extends Viewer<MenuModel> {
     }
 
     @Override
-    public void draw(LanternaGui gui) {
-        MenuModel menuModel = getModel(); // Get the menu model
-        String title = menuModel.getText(); // Get the menu string from the model
-        TextColor.RGB textColor = new TextColor.RGB(178, 73, 210);
-
-        String[] lines = title.split("\n");
-        int y = 0;
-        for (String line : lines) {
-            gui.drawText(new PositionModel(7, y), line, textColor);
-            y++;
-        }
+    public void draw(LanternaGui GUI) {
+        MenuModel menuModel = super.getModel();
+        String title = menuModel.getText();
+        GUI.drawTitle(title);
     }
 }

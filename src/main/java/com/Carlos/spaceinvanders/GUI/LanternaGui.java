@@ -63,4 +63,12 @@ public class LanternaGui {
     public void screenRefresh() throws IOException {
         screen.refresh();
     }
+    public void drawTitle(String string){
+        String [] lines = string.split("\n");
+        int y = 0;
+        for (String line : lines) {
+            drawText(new PositionModel(7, y), line, new TextColor.RGB(178, 73, 210));
+            y++;
+        }
+    }
 }
