@@ -38,7 +38,7 @@ public class Game {
     }
 
 
-    public void drawGame() throws  IOException{
+    public void drawGame() throws  IOException{ //View
         GUI.screenClear();
         drawArena = arena.getDrawArena(); //Obtem a arena
         drawArena.draw(GUI.getGraphics());
