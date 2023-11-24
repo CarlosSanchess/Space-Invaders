@@ -7,7 +7,7 @@ import com.googlecode.lanterna.TextColor;
 
 
 
-public class DrawPlayer extends Viewer<PlayerModel> {
+public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
     public DrawPlayer(PlayerModel player){
         super(player);
     }

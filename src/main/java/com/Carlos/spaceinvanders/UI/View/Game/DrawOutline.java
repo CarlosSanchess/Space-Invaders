@@ -6,7 +6,7 @@ import com.Carlos.spaceinvanders.UI.View.Viewer;
 
 import java.util.List;
 
-public class DrawOutline extends Viewer<List<WallModel>> {
+public class DrawOutline extends Viewer<List<WallModel>> implements DrawElement {
 
 
     public DrawOutline(List<WallModel> walls){
