@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvanders.Entities.Model;
 
-import com.Carlos.spaceinvanders.Entities.Builders.Builders;
-import com.Carlos.spaceinvanders.Entities.Builders.createMonsters;
+import com.Carlos.spaceinvanders.Entities.Builders.CreateWalls;
+import com.Carlos.spaceinvanders.Entities.Builders.CreateMonsters;
 
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class ArenaModel implements Model{
     private List<BulletModel> activeBullets;
     private List<WallModel> walls;
     private List<MonsterModel> activeMonsters;
-    private createMonsters createMonsters;
+    private CreateMonsters createMonsters;
 
     private PlayerModel player;
     private MonsterModel monsterModel;
@@ -25,11 +25,11 @@ public class ArenaModel implements Model{
     public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;
         this.height = y;
-        this.player = new PlayerModel(new PositionModel(10, y - 2), 3);
+        this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
         this.activeBullets = new ArrayList<>();
-        this.createMonsters = new createMonsters(x);
+        this.createMonsters = new CreateMonsters(x);
 
-        walls = Builders.createWalls(width, height);
+        walls = CreateWalls.createWalls(x, y);
         activeMonsters = createMonsters.addMonsters(3);
     }
 

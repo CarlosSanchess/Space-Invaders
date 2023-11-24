@@ -11,7 +11,7 @@ public class DrawGame extends Viewer<ArenaModel> {
         super(arenaModel);
     }
     @Override
-    public void draw(LanternaGui GUI) {
+    public void draw(LanternaGui GUI) { //TODO OTIMIZAR ESTE DRAW
         DrawPlayer drawPlayer = new DrawPlayer(super.getModel().getPlayer());
         drawPlayer.draw(GUI);
 

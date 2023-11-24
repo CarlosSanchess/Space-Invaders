@@ -55,7 +55,7 @@ public class LanternaGui {
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor){ // Testar esta função
             graphics.setForegroundColor(rgbColor);
-            graphics.putString(position.getY(), position.getX(), string);
+            graphics.putString(position.getX(), position.getY(), string);
     }
     public void screenClear(){
         screen.clear();

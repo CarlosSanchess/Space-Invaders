@@ -8,6 +8,7 @@ import java.util.List;
 
 public class DrawOutline extends Viewer<List<WallModel>> {
 
+
     public DrawOutline(List<WallModel> walls){
         super(walls);
     }

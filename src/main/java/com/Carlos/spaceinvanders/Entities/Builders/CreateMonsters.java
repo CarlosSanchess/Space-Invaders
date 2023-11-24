@@ -9,12 +9,12 @@ import java.util.Random;
 //Criar assim ou como BUilders create Walls
 //TODO
 //Opção de criar mais monstros, default 3
-public class createMonsters {
+public class CreateMonsters {
 
     private int width;
     private List<MonsterModel> monsters;
 
-    public createMonsters(int width){
+    public CreateMonsters(int width){
         monsters = new ArrayList<>();
         this.width = width;
     }
