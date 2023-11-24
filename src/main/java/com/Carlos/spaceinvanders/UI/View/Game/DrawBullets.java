@@ -1,48 +1,24 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
 import com.Carlos.spaceinvanders.Entities.Model.BulletModel;
+import com.Carlos.spaceinvanders.GUI.LanternaGui;
+import com.Carlos.spaceinvanders.UI.View.Viewer;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import java.util.Iterator;
 import java.util.List;
 
-public class DrawBullets {
-    /*
-    List<BulletModel> activeBullets;
-    public DrawBullets(List<BulletModel> activeBullets){
-        this.activeBullets = activeBullets;
+public class DrawBullets extends Viewer<List<BulletModel>> {
+
+    public DrawBullets(List<BulletModel> bullets){
+        super(bullets);
     }
 
     @Override
-    public void draw(TextGraphics graphics) {
-        // + EFI
-        Iterator<BulletModel> iterator = activeBullets.iterator();
-
-        while (iterator.hasNext()) {
-            BulletModel bullet = iterator.next();
-            bullet.move();
-            if (!bullet.isActive()) {
-                iterator.remove(); // Remove inactive bullet
-            } else {
-                DrawBullet bulletDraw = new DrawBullet(bullet);
-                bulletDraw.draw(graphics);
-            }
-        }
-    /*
-        if(activeBullets.isEmpty() == false) {
-            for (bulletModel bullet : activeBullets) {
-                bullet.move();
-                bullet.isActive();
-                if (!bullet.isActive()) {
-                    activeBullets.remove(bullet);
-                    System.out.println("asdsa");
-                } else {
-                    drawBullet drawBullet = new drawBullet(bullet);
-                    drawBullet.draw(graphics);
-                }
-            }
+    public void draw(LanternaGui GUI){
+        for (BulletModel bulletModel : super.getModel()) {
+            DrawBullet drawBullet = new DrawBullet(bulletModel);
+            drawBullet.draw(GUI);
         }
     }
-
-     */
-
 }
