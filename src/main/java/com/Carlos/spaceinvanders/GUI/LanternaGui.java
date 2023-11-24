@@ -1,17 +1,17 @@
 package com.Carlos.spaceinvanders.GUI;
 
+import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
 import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-
-
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class LanternaGui {
@@ -58,6 +58,13 @@ public class LanternaGui {
             graphics.putString(position.getX(), position.getY(), string);
     }
 
+
+    public void screenClear(){
+        screen.clear();
+    }
+    public void screenRefresh() throws IOException {
+        screen.refresh();
+    }
     public void drawTitle(String string){
         String [] lines = string.split("\n");
         int y = 0;
@@ -66,10 +73,15 @@ public class LanternaGui {
             y++;
         }
     }
-    public void screenClear(){
-        screen.clear();
-    }
-    public void screenRefresh() throws IOException {
-        screen.refresh();
+    public void drawEntries(MenuModel menuModel){
+        List<String> entries = menuModel.getEntries();
+        int y = 10;
+        for (String entry : entries) {
+
+            TextColor.RGB color = menuModel.getColor(entry);
+
+            drawText(new PositionModel(33, y), entry, color);
+            y += 3;
+        }
     }
 }
