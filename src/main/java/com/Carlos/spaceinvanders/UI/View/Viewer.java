@@ -8,6 +8,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 
 public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
+    //Inicializar o viewer e chamar o lanternadraw no gameloop
 
     private final T model;
 
