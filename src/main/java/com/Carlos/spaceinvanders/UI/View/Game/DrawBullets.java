@@ -5,8 +5,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import java.util.Iterator;
 import java.util.List;
 
-public class DrawBullets implements DrawEntities {
-
+public class DrawBullets {
+    /*
     List<BulletModel> activeBullets;
     public DrawBullets(List<BulletModel> activeBullets){
         this.activeBullets = activeBullets;
@@ -42,6 +42,7 @@ public class DrawBullets implements DrawEntities {
             }
         }
     }
-    */
-    }
+
+     */
+
 }

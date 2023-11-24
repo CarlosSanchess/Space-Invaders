@@ -12,9 +12,7 @@ import java.io.IOException;
 //Aplicar o GUI ao Menu ou seja cria duas Screens diferentes
 
 
-import com.Carlos.spaceinvanders.UI.View.Game.DrawArena;
 import com.Carlos.spaceinvanders.UI.View.Game.DrawGame;
-import com.Carlos.spaceinvanders.UI.View.Viewer;
 
 public class Game {
 
@@ -24,7 +22,7 @@ public class Game {
 
     ArenaModel arena = new ArenaModel(80,30);
     private final DrawGame drawGame = new DrawGame(arena);
-    Game() throws IOException, InterruptedException { //Melhor pratica que try catch
+    Game() throws IOException, InterruptedException {
         this.GUI = new LanternaGui(80,30);
     }
 
@@ -32,7 +30,7 @@ public class Game {
     public void run() throws IOException, InterruptedException {
         while(true) {
             drawGame.lanternaDraw(GUI);
-            Thread.sleep(FPS.getFps(40)); // 40 FRAMES PER SECOND //Fix no movimento continuo da nave fazer com que haja um limite de speed da nave
+            Thread.sleep(FPS.getFps(40));
         }
 
     }

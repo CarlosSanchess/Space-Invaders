@@ -1,14 +1,10 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
-import com.Carlos.spaceinvanders.Entities.Model.MonsterModel;
-import com.Carlos.spaceinvanders.UI.View.Game.DrawEntities;
-import com.Carlos.spaceinvanders.UI.View.Game.DrawMonster;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.util.List;
 
-public class DrawMonsters implements DrawEntities {
-
+public class DrawMonsters {
+/*
     List<MonsterModel> monsters;
     DrawMonster monsterDraw;
 
@@ -24,4 +20,6 @@ public class DrawMonsters implements DrawEntities {
 
         //}
     }
+
+ */
 }

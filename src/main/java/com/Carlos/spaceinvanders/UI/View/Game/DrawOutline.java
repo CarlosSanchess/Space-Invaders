@@ -12,8 +12,4 @@ public class DrawOutline  {
         this.outLine = outLine;
     }
 
-    public void draw(TextGraphics graphics){
-
-    }
-
 }
