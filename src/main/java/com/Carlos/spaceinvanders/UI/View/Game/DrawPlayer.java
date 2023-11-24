@@ -14,8 +14,8 @@ public class DrawPlayer extends Viewer<PlayerModel> {
 
     @Override
     public void draw(LanternaGui GUI) {
-        PlayerModel monsterModel = super.getModel();
-        GUI.drawText(monsterModel.getPosition(),"x",new TextColor.RGB(255,105,97));
+        PlayerModel playerModel = super.getModel();
+        GUI.drawText(playerModel.getPosition(),"x",new TextColor.RGB(255,105,97));
     }
 }
 

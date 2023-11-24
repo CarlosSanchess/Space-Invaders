@@ -13,8 +13,8 @@ public class DrawWall extends Viewer<WallModel> {
 
     @Override
     public void draw(LanternaGui GUI) {
-        WallModel monsterModel = super.getModel();
-        GUI.drawText(monsterModel.getPosition(),"*",new TextColor.RGB(255,105,97));
+        WallModel wallModel = super.getModel();
+        GUI.drawText(wallModel.getPosition(),"*",new TextColor.RGB(255,105,97));
         }
     }
 

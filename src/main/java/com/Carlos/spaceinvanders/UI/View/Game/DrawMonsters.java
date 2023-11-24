@@ -1,10 +1,9 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
 
-import java.util.List;
 
 public class DrawMonsters {
-/*
+
     List<MonsterModel> monsters;
     DrawMonster monsterDraw;
 
@@ -13,7 +12,7 @@ public class DrawMonsters {
     }
 
     @Override
-    public void draw(TextGraphics graphics){
+    public void draw(LanternaGUI){
        // for (MonsterModel monster : monsters) {
        //     monsterDraw = new DrawMonster(monster);
        //     monsterDraw.draw(graphics);
@@ -21,5 +20,4 @@ public class DrawMonsters {
         //}
     }
 
- */
 }
