@@ -12,8 +12,8 @@ public class BulletModel extends Elements implements Model{
        active = true;
     }
 
+    public void move(){
 
-  public void move(){
         if(direction)
             position.setY(position.getY() - speed);
         else

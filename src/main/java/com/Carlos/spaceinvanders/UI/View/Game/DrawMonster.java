@@ -25,6 +25,4 @@ public class DrawMonster implements DrawEntities {
         graphics.setForegroundColor(textColor);
         graphics.putString(new TerminalPosition(monsterModel.getPosition().getX(),monsterModel.getPosition().getY()), "x");
     }
-
-
 }
