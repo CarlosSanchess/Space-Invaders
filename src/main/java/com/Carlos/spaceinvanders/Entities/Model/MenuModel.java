@@ -30,10 +30,10 @@ public class MenuModel implements Model{
         this.entries = Arrays.asList("NEW GAME","TUTORIAL","OPTIONS","EXIT");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("NEW GAME", new TextColor.RGB(255, 0, 0)); // Red
-        entryColors.put("TUTORIAL", new TextColor.RGB(0, 255, 0)); // Green
-        entryColors.put("OPTIONS", new TextColor.RGB(0, 0, 255)); // Blue
-        entryColors.put("EXIT", new TextColor.RGB(255, 255, 0)); // Yellow
+        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
+        entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0)); // Green
+        entryColors.put("OPTIONS",new TextColor.RGB(0,0,255)); // Blue
+        entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
     }
     public void nextEntry(){
         entry = (entry + 1) % entries.size();

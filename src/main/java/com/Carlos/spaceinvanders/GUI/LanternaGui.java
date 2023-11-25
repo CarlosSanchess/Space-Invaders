@@ -55,7 +55,7 @@ public class LanternaGui {
 
     public void screenClear() {
         screen.clear();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#4B0082"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
         graphics.fillRectangle(new TerminalPosition(0, 0), screen.getTerminalSize(), ' ');
     }
 
@@ -84,7 +84,7 @@ public class LanternaGui {
         int y = 10;
         for (String entry : entries) {
             TextColor.RGB color = menuModel.getColor(entry);
-            graphics.setBackgroundColor(TextColor.Factory.fromString("#4B0082"));
+            graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
             drawText(new PositionModel(33, y), entry, color);
             y += 3;
         }

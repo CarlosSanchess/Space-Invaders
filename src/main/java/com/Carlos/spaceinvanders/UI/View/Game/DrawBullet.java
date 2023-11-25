@@ -21,6 +21,6 @@ public class DrawBullet extends Viewer<BulletModel> {
     @Override
     public void draw(LanternaGui GUI){
         BulletModel monsterModel = super.getModel();
-        GUI.drawText(monsterModel.getPosition(),"|",new TextColor.RGB(255,105,97));
+        GUI.drawText(monsterModel.getPosition(),"|",new TextColor.RGB(255,0,0));
     }
 }
