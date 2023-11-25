@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+
+//80 * 25 = numero de pixeis da screen
 public class LanternaGui {
 
     private TextGraphics graphics;
@@ -67,7 +69,7 @@ public class LanternaGui {
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN, 30);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25); // 1 char 25 pixeis
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 

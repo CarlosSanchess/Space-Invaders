@@ -2,6 +2,7 @@ package com.Carlos.spaceinvanders;
 
 import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
 import com.Carlos.spaceinvanders.Entities.Builders.FPS;
+import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 
 
@@ -21,10 +22,11 @@ public class Game {
 
     private final LanternaGui GUI;
 
-    ArenaModel arena = new ArenaModel(80,30);
+    ArenaModel  arena = new ArenaModel(getsize().getX() / 25,getsize().getY() / 25);
     private final DrawGame drawGame = new DrawGame(arena);
     Game() throws IOException, InterruptedException, FontFormatException {
-        this.GUI = new LanternaGui(80,30);
+
+        this.GUI = new LanternaGui(getsize().getX() / 25,getsize().getY() / 25);
     }
 
 
@@ -34,5 +36,9 @@ public class Game {
             Thread.sleep(FPS.getFps(40));
         }
 
+    }
+    public PositionModel getsize(){
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        return new PositionModel(screenSize.width, screenSize.height);
     }
 }
