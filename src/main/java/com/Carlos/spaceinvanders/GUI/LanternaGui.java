@@ -19,9 +19,13 @@ public class LanternaGui {
 
     private TextGraphics graphics;
     private Screen screen;
+    private int width;
+    private int height;
 
     public LanternaGui(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width, height);
+        this.width = width;
+        this.height = height;
         screen = createScreen(terminal);
         graphics = createGraphics(screen);
     }
@@ -78,11 +82,12 @@ public class LanternaGui {
     }
 
     public void drawTitle(String string) {
-        screenClear();
+
+        int startPoint = (width - 64) / 2;
         String[] lines = string.split("\n");
         int y = 0;
         for (String line : lines) {
-            drawText(new PositionModel(7, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
+            drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
             y++;
         }
     }
@@ -92,10 +97,21 @@ public class LanternaGui {
         int y = 10;
         for (String entry : entries) {
             TextColor.RGB color = menuModel.getColor(entry);
+            int startPoint = getStartPoint(entry,width);
+
             graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
-            drawText(new PositionModel(33, y), entry, color,Boolean.TRUE);
+            drawText(new PositionModel(startPoint, y), entry, color,Boolean.TRUE);
             y += 3;
         }
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
+
+    private int getStartPoint(String string, int width){
+        //NEW GAME
+        int tam = string.length(); //8
+        if (tam == 4)
+            return (width - tam - 1) / 2;
+        return (width - tam) / 2;
+    }
+
 }

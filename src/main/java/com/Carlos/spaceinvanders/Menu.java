@@ -11,7 +11,7 @@ public class Menu {
     MenuModel menu = new MenuModel();
     private final DrawMenu drawMenu = new DrawMenu(menu);
     Menu() throws IOException{
-        this.GUI = new LanternaGui(80,30);
+        this.GUI = new LanternaGui(120,30);
     }
     public void run() throws InterruptedException, IOException {
         while(true) {
