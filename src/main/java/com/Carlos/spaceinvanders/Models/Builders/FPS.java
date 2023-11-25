@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Builders;
+package com.Carlos.spaceinvanders.Models.Builders;
 
 public  class FPS {
     public static int getFps(int nFps){

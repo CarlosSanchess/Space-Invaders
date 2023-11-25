@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvanders.GUI;
 
-import com.Carlos.spaceinvanders.Entities.Model.MenuModel;
-import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
+import com.Carlos.spaceinvanders.Models.Model.MenuModel;
+import com.Carlos.spaceinvanders.Models.Model.PositionModel;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;

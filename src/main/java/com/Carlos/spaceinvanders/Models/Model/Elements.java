@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Model;
+package com.Carlos.spaceinvanders.Models.Model;
 
 public abstract class Elements implements Model{
     

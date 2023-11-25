@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Model;
+package com.Carlos.spaceinvanders.Models.Model;
 
 public class ScoreModel extends Elements{
     private int score;

@@ -1,8 +1,8 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.Entities.Model.ArenaModel;
-import com.Carlos.spaceinvanders.Entities.Builders.FPS;
-import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
+import com.Carlos.spaceinvanders.Models.Model.ArenaModel;
+import com.Carlos.spaceinvanders.Models.Builders.FPS;
+import com.Carlos.spaceinvanders.Models.Model.PositionModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 
 
@@ -22,7 +22,7 @@ public class Game {
 
     private final LanternaGui GUI;
 
-    ArenaModel  arena = new ArenaModel(getsize().getX() / 25,getsize().getY() / 25);
+    ArenaModel  arena = new ArenaModel(getsize().getX() / 25,getsize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
     private final DrawGame drawGame = new DrawGame(arena);
     Game() throws IOException, InterruptedException, FontFormatException {
 

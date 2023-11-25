@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
-import com.Carlos.spaceinvanders.Entities.Model.ScoreModel;
+import com.Carlos.spaceinvanders.Models.Model.ScoreModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import com.Carlos.spaceinvanders.UI.View.Viewer;
 import com.googlecode.lanterna.TextColor;

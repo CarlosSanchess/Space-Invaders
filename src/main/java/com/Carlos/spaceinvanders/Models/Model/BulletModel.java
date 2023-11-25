@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Model;
+package com.Carlos.spaceinvanders.Models.Model;
 
 public class BulletModel extends Elements {
     private int  speed;

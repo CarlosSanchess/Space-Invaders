@@ -1,11 +1,9 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
-import com.Carlos.spaceinvanders.Entities.Model.BulletModel;
+import com.Carlos.spaceinvanders.Models.Model.BulletModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import com.Carlos.spaceinvanders.UI.View.Viewer;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import java.util.Iterator;
+
 import java.util.List;
 
 public class DrawBullets extends Viewer<List<BulletModel>> implements DrawElement {

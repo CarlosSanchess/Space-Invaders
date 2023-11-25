@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvanders.Entities.Model;
+package com.Carlos.spaceinvanders.Models.Model;
 
 public class MonsterModel extends Elements {
     //Se quiser mudar o size da arena, fazer com que a posição nao seja definida aqui.

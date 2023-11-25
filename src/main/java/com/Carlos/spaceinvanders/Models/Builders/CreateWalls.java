@@ -1,7 +1,7 @@
-package com.Carlos.spaceinvanders.Entities.Builders;
+package com.Carlos.spaceinvanders.Models.Builders;
 
-import com.Carlos.spaceinvanders.Entities.Model.WallModel;
-import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
+import com.Carlos.spaceinvanders.Models.Model.WallModel;
+import com.Carlos.spaceinvanders.Models.Model.PositionModel;
 
 
 import java.util.ArrayList;

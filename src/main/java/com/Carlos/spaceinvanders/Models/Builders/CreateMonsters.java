@@ -1,6 +1,6 @@
-package com.Carlos.spaceinvanders.Entities.Builders;
-import com.Carlos.spaceinvanders.Entities.Model.MonsterModel;
-import com.Carlos.spaceinvanders.Entities.Model.PositionModel;
+package com.Carlos.spaceinvanders.Models.Builders;
+import com.Carlos.spaceinvanders.Models.Model.MonsterModel;
+import com.Carlos.spaceinvanders.Models.Model.PositionModel;
 
 import java.util.ArrayList;
 import java.util.List;

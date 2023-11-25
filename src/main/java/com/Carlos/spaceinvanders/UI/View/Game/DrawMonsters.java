@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvanders.UI.View.Game;
 
 
-import com.Carlos.spaceinvanders.Entities.Model.MonsterModel;
+import com.Carlos.spaceinvanders.Models.Model.MonsterModel;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 import com.Carlos.spaceinvanders.UI.View.Viewer;
 
