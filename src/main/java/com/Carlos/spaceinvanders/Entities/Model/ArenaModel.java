@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ArenaModel implements Model{
+public class ArenaModel implements Model {
 
 
     private final int width;
@@ -18,19 +18,23 @@ public class ArenaModel implements Model{
     private List<WallModel> walls;
     private List<MonsterModel> activeMonsters;
     private CreateMonsters createMonsters;
+    private ScoreModel score;
 
     private PlayerModel player;
 
     public ArenaModel(int x, int y) throws InterruptedException {
         this.width = x;
         this.height = y;
+
         this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
+        this.score = new ScoreModel(new PositionModel(77, y - 3)); // EXprimental position
+
         this.activeBullets = new ArrayList<>();
         this.createMonsters = new CreateMonsters(x);
 
         walls = CreateWalls.createWalls(x, y);
         activeMonsters = createMonsters.addMonsters(3);
-        activeBullets.add(new BulletModel(new PositionModel(40,y-3),1,true));
+        activeBullets.add(new BulletModel(new PositionModel(40, y - 3), 1, true));
     }
 
     public int getWidth() {
@@ -56,8 +60,11 @@ public class ArenaModel implements Model{
     public List<WallModel> getWalls() {
         return walls;
     }
-}
 
+    public ScoreModel getScore() {
+        return score;
+    }
+}
 
     //Tirar daqui o processKey, dar get na arena e mover a partir dai
 

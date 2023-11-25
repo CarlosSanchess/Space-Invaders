@@ -16,6 +16,7 @@ public class DrawGame extends Viewer<ArenaModel> {
         drawElement(new DrawMonsters(super.getModel().getActiveMonsters()), GUI);
         drawElement(new DrawBullets(super.getModel().getActiveBullets()), GUI);
         drawElement(new DrawOutline(super.getModel().getWalls()), GUI);
+        drawElement(new DrawScore(super.getModel().getScore()),GUI);
     }
 
     private void drawElement(DrawElement element, LanternaGui GUI) {
