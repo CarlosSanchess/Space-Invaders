@@ -11,8 +11,14 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class LanternaGui {
@@ -20,32 +26,61 @@ public class LanternaGui {
     private TextGraphics graphics;
     private Screen screen;
 
-    public LanternaGui(int width, int height) throws IOException {
+    public LanternaGui(int width, int height) throws IOException, FontFormatException {
         Terminal terminal = createTerminal(width, height);
         screen = createScreen(terminal);
         graphics = createGraphics(screen);
     }
 
-    private Terminal createTerminal(int width, int height) throws IOException {
+    private Terminal createTerminal(int width, int height) throws IOException, FontFormatException {
         TerminalSize terminalSize = new TerminalSize(width, height);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        return terminalFactory.createTerminal();
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
+        
+        AWTTerminalFontConfiguration fontConfig = fontLoader();
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+        
+        terminalFactory.setForceAWTOverSwing(true);
+        
+        terminalFactory.setInitialTerminalSize(terminalSize);
+        Terminal terminal = terminalFactory.createTerminal();
+        AWTTerminalFrame terminalFrame = (AWTTerminalFrame) terminal;
+        windowClosing(terminalFrame);
+        return terminal;
     }
 
-    private Screen createScreen(Terminal terminal) throws IOException {
-        Screen screen = new TerminalScreen(terminal);
-        screen.setCursorPosition(null);
-        screen.startScreen();
-        screen.doResizeIfNecessary();
-        return screen;
+    private void windowClosing(AWTTerminalFrame terminal) {
+        terminal.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent close) {
+                close.getWindow().dispose();
+            }
+        });
+    }
+
+    private AWTTerminalFontConfiguration fontLoader() throws FontFormatException, IOException {
+        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("fonts/CosmicAlien.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 30);
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
+    }
+
+    private Screen createScreen(Terminal terminal) {
+        try {
+            Screen screen = new TerminalScreen(terminal);
+            screen.setCursorPosition(null);
+            screen.startScreen();
+            screen.doResizeIfNecessary();
+            return screen;
+        } catch (IOException e) {
+            System.err.println("Error creating screen: " + e.getMessage());
+            return null;
+        }
     }
 
     private TextGraphics createGraphics(Screen screen) {
         return screen.newTextGraphics();
-    }
-
-    public TextGraphics getGraphics() {
-        return graphics;
     }
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor) {
@@ -59,8 +94,6 @@ public class LanternaGui {
         graphics.putString(position.getX(), position.getY(), string);
     }
 
-
-
     public void screenClear() {
         screen.clear();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
@@ -69,12 +102,6 @@ public class LanternaGui {
 
     public void screenRefresh() throws IOException {
         screen.refresh();
-    }
-
-    public void renderMenu(MenuModel menuModel, String title) throws IOException {
-        drawTitle(title);
-        drawEntries(menuModel);
-        screenRefresh();
     }
 
     public void drawTitle(String string) {

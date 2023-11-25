@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvanders;
 
+import java.awt.*;
 import java.io.IOException;
 
 //TODO
@@ -15,6 +16,8 @@ public class Application {
 
         }catch (IOException | InterruptedException e){
             e.printStackTrace();
+        } catch (FontFormatException e) {
+            throw new RuntimeException(e);
         }
     }
 }

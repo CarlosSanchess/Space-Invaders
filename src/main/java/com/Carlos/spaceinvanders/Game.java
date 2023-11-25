@@ -5,6 +5,7 @@ import com.Carlos.spaceinvanders.Entities.Builders.FPS;
 import com.Carlos.spaceinvanders.GUI.LanternaGui;
 
 
+import java.awt.*;
 import java.io.IOException;
 
 //TODO
@@ -22,7 +23,7 @@ public class Game {
 
     ArenaModel arena = new ArenaModel(80,30);
     private final DrawGame drawGame = new DrawGame(arena);
-    Game() throws IOException, InterruptedException {
+    Game() throws IOException, InterruptedException, FontFormatException {
         this.GUI = new LanternaGui(80,30);
     }
 
