@@ -48,6 +48,9 @@ public class LanternaGui {
         return graphics;
     }
 
+    public void drawText(PositionModel position, String string, TextColor.RGB rgbColor) {
+        drawText(position, string, rgbColor, false);
+    }
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor, boolean bold) {
         if (bold)

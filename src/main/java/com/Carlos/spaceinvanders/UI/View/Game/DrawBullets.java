@@ -22,3 +22,4 @@ public class DrawBullets extends Viewer<List<BulletModel>> implements DrawElemen
         }
     }
 }
+
