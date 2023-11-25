@@ -57,6 +57,7 @@ public class LanternaGui {
             @Override
             public void windowClosing(WindowEvent close) {
                 close.getWindow().dispose();
+                System.exit(0); //To stop exec
             }
         });
     }
