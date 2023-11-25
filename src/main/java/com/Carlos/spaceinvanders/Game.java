@@ -1,9 +1,10 @@
 package com.Carlos.spaceinvanders;
 
-import com.Carlos.spaceinvanders.Models.Model.ArenaModel;
-import com.Carlos.spaceinvanders.Models.Builders.FPS;
-import com.Carlos.spaceinvanders.Models.Model.PositionModel;
-import com.Carlos.spaceinvanders.GUI.LanternaGui;
+import com.Carlos.spaceinvanders.model.models.ArenaModel;
+import com.Carlos.spaceinvanders.model.builders.FPS;
+import com.Carlos.spaceinvanders.model.models.PositionModel;
+import com.Carlos.spaceinvanders.gui.LanternaGui;
+import com.Carlos.spaceinvanders.view.game.DrawGame;
 
 
 import java.awt.*;
@@ -12,9 +13,6 @@ import java.io.IOException;
 //TODO
 //Check se o codigo esta blindado do GUI
 //Aplicar o GUI ao Menu ou seja cria duas Screens diferentes
-
-
-import com.Carlos.spaceinvanders.UI.View.Game.DrawGame;
 
 public class Game {
 
