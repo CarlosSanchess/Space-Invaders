@@ -1,8 +1,6 @@
 package com.Carlos.spaceinvaders.model.models;
 
 
-import com.Carlos.spaceinvanders.model.models.BulletModel;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -30,6 +28,25 @@ public class BulletTest {
         assertTrue(bullet.isActive());
 
         bullet.getPosition().setY(-10);
+        assertFalse(bullet.isActive());
+    }
+
+    @Test
+    public void testNotActiveAfterMovingOffScreen() {
+        bullet.move();
+        assertTrue(bullet.isActive());
+        bullet.move();
+        assertFalse(bullet.isActive());
+    }
+
+    @Test
+    public void testIsActiveInitially() {
+        assertTrue(bullet.isActive());
+    }
+
+    @Test
+    public void testNotActiveWhenOffScreen() {
+        bullet.getPosition().setY(-110);
         assertFalse(bullet.isActive());
     }
 }

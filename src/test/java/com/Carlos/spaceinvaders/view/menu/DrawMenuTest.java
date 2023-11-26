@@ -1,8 +1,7 @@
 package com.Carlos.spaceinvaders.view.menu;
 
-import com.Carlos.spaceinvanders.gui.LanternaGui;
-import com.Carlos.spaceinvanders.model.models.MenuModel;
-import com.Carlos.spaceinvanders.view.menu.DrawMenu;
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.MenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

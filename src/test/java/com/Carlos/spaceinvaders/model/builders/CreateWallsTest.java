@@ -1,10 +1,11 @@
 package com.Carlos.spaceinvaders.model.builders;
 
-import com.Carlos.spaceinvanders.model.builders.CreateWalls;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
-import com.Carlos.spaceinvanders.model.models.WallModel;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.WallModel;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateWallsTest {

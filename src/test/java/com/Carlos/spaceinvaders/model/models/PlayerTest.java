@@ -1,7 +1,5 @@
 package com.Carlos.spaceinvaders.model.models;
-import com.Carlos.spaceinvanders.model.models.BulletModel;
-import com.Carlos.spaceinvanders.model.models.PlayerModel;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
+
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

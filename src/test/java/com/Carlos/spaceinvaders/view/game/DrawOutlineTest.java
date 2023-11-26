@@ -1,8 +1,7 @@
 package com.Carlos.spaceinvaders.view.game;
 
-import com.Carlos.spaceinvanders.gui.LanternaGui;
-import com.Carlos.spaceinvanders.model.models.WallModel;
-import com.Carlos.spaceinvanders.view.game.DrawOutline;
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.WallModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

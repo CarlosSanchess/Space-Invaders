@@ -1,12 +1,13 @@
 package com.Carlos.spaceinvaders.view.game;
 
-import com.Carlos.spaceinvanders.gui.LanternaGui;
-import com.Carlos.spaceinvanders.model.models.BulletModel;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
-import com.Carlos.spaceinvanders.view.game.DrawBullet;
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.BulletModel;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.*;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class DrawBulletTest {
 

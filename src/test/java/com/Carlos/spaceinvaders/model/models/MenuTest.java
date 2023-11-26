@@ -1,9 +1,11 @@
 package com.Carlos.spaceinvaders.model.models;
-import com.Carlos.spaceinvanders.model.models.MenuModel;
+
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -55,7 +57,7 @@ public class MenuTest {
 
     @Test
     public void testGetText() {
-        String expectedText = 
+        String expectedText =
             "                          _                     _               \n" +
             "                         (_)                   | |              \n" +
             " ___ _ __   __ _  ___ ___ _ _ ____   ____ _  __| | ___ _ __ ___ \n" +

@@ -1,12 +1,12 @@
 package com.Carlos.spaceinvaders.model.builders;
 
 
-import com.Carlos.spaceinvanders.model.builders.CreateMonsters;
-import com.Carlos.spaceinvanders.model.models.MonsterModel;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.MonsterModel;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
 public class CreateMonstersTest {

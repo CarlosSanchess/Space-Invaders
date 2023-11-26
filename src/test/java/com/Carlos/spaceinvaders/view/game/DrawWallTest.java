@@ -1,9 +1,8 @@
 package com.Carlos.spaceinvaders.view.game;
 
-import com.Carlos.spaceinvanders.gui.LanternaGui;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
-import com.Carlos.spaceinvanders.model.models.WallModel;
-import com.Carlos.spaceinvanders.view.game.DrawWall;
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.WallModel;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

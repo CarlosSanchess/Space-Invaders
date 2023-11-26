@@ -1,7 +1,0 @@
-Maneira de desenhar as bullets.
-Faz com que seja posivel fazer com que uma bala possa voar enquanto o player move se.
-
-Alternativa:
-Fazer o movimento da bala no loop do game base,
-Fazendo com que altera se uma posição a cada iteração do loop.
-

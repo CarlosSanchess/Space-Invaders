@@ -1,8 +1,8 @@
 package com.Carlos.spaceinvaders.model.models;
-import com.Carlos.spaceinvanders.model.models.MonsterModel;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 

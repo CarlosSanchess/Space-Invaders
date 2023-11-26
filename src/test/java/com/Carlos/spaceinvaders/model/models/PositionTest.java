@@ -1,5 +1,5 @@
 package com.Carlos.spaceinvaders.model.models;
-import com.Carlos.spaceinvanders.model.models.PositionModel;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
