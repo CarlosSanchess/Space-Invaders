@@ -38,8 +38,12 @@ public class MenuModel implements Model{
     public void nextEntry(){
         entry = (entry + 1) % entries.size();
     }
-    public void previousEntry(){
-        entry = (entry - 1) % entries.size();
+    public void previousEntry() {
+        if (entry == 0) {
+            entry = entries.size() - 1;
+        } else {
+            entry--;
+        }
     }
     public List<String> getEntries() {
         return entries;
@@ -54,6 +58,12 @@ public class MenuModel implements Model{
     public String getText(){
         return text;
     }
+    public void setText(String spaceInvaders) {
+        this.text = spaceInvaders;
+    }
 
-
+    public void addEntry(String newGame, TextColor.RGB rgb) {
+        this.entries.add(newGame);
+        this.entryColors.put(newGame,rgb);
+    }
 }

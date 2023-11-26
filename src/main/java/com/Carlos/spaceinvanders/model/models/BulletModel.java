@@ -5,7 +5,7 @@ public class BulletModel extends Elements {
     private boolean active;
     private boolean direction;
 
-    BulletModel(PositionModel position, int speed, boolean direction){
+    public BulletModel(PositionModel position, int speed, boolean direction){
        super(position);
        this.speed = speed;
        this.direction = direction;

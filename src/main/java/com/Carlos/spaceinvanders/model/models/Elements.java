@@ -4,7 +4,7 @@ public abstract class Elements implements Model{
     
     protected PositionModel position; // All the subclasses will have a Position position
     
-    Elements(PositionModel position){
+    public Elements(PositionModel position){
         this.position = position;
     }
     

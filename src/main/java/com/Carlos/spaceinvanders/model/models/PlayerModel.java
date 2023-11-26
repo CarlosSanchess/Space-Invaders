@@ -1,10 +1,12 @@
 package com.Carlos.spaceinvanders.model.models;
 
+import java.awt.*;
+
 public class PlayerModel extends Elements {
 
     private int hitPoints; //Vida da Nave
 
-    PlayerModel(PositionModel position, int hitPoints){
+    public PlayerModel(PositionModel position, int hitPoints){
         super(position);
         this.hitPoints = hitPoints;
     }
@@ -13,8 +15,8 @@ public class PlayerModel extends Elements {
     }
 
     public boolean canMove(PositionModel position) { // Premitir escolher tamanho da arena?
-
-        return position.getX() >= 1 && position.getX()  < 80 - 1;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        return position.getX() >= 1 && position.getX()  < screenSize.width - 1;
     }
 
     public void moveLeft(PositionModel position){
