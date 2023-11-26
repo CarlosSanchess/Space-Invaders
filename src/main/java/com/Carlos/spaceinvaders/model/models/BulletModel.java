@@ -18,11 +18,11 @@ public class BulletModel extends Elements {
             position.setY(position.getY() - speed);
         else
             position.setY(position.getY() + speed);
+        active = isActive();
     }
     public boolean isActive(){
-        if (position.getY() <= 0){
+        if (position.getY() < 0){
             active = false;
-            return active;
         }
         return active;
     }
