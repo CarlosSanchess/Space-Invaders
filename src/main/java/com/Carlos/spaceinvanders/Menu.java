@@ -31,7 +31,6 @@ public class Menu {
                 GUI.getScreen().close();
                 game.run();
             }
-
         }
     }
     public PositionModel getScreenSize(){
