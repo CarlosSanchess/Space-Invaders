@@ -1,6 +1,7 @@
 package com.Carlos.spaceinvaders.view.game;
 import com.Carlos.spaceinvanders.gui.LanternaGui;
 import com.Carlos.spaceinvanders.model.models.ArenaModel;
+import com.Carlos.spaceinvanders.model.models.PlayerModel;
 import com.Carlos.spaceinvanders.model.models.PositionModel;
 import com.Carlos.spaceinvanders.model.models.ScoreModel;
 import com.Carlos.spaceinvanders.view.game.DrawGame;
@@ -21,9 +22,14 @@ public class DrawGameTest {
         PositionModel position = new PositionModel(0, 0);
         ScoreModel scoreModel = new ScoreModel(position);
         Mockito.when(arenaModel.getScore()).thenReturn(scoreModel);
+
+        PlayerModel playerModel = Mockito.mock(PlayerModel.class);
+        Mockito.when(playerModel.getPosition()).thenReturn(position);
+        Mockito.when(arenaModel.getPlayer()).thenReturn(playerModel);
+
         gui = Mockito.mock(LanternaGui.class);
         drawGame = new DrawGame(arenaModel);
-}
+    }
 
     @Test
     public void testDraw() {
