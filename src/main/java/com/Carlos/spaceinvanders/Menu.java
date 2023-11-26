@@ -24,7 +24,7 @@ public class Menu {
             drawMenu.lanternaDraw(GUI);
             System.out.println("Press Enter To Go To Game");
             Thread.sleep(200); // Refresh the menu every second
-            KeyStroke key = GUI.getScreen().readInput(); // Apenas para mostrar o game, mal implementado.
+            key = GUI.getScreen().readInput(); // Apenas para mostrar o game, mal implementado.
 
             if(key.getKeyType() ==  KeyType.Enter){
                 Game game = new Game();
