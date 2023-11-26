@@ -7,7 +7,7 @@ public class PositionModel implements Model {
 
         private int x;
         private int y;
-        public PositionModel(int x, int y){ // Problema em por publico?
+        public PositionModel(int x, int y){
             this.x = x;
             this.y = y;
         }

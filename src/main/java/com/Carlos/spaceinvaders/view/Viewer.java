@@ -6,8 +6,7 @@ import com.Carlos.spaceinvaders.gui.LanternaGui;
 
 import java.io.IOException;
 
-public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
-    //Inicializar o viewer e chamar o lanternadraw no gameloop
+public abstract class Viewer <T>{
 
     private final T model;
 

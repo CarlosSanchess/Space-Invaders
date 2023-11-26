@@ -1,10 +1,8 @@
 package com.Carlos.spaceinvaders.model.models;
 
 public class MonsterModel extends Elements {
-    //Se quiser mudar o size da arena, fazer com que a posição nao seja definida aqui.
-    //Criar uma posição random na primeira linha de arena
-    //Impedir que haja duplicação de monsters
-    private int hitPoints;
+
+    private int hitPoints; // Not Used Yet
     boolean direction = false;
     private final int speed;
 

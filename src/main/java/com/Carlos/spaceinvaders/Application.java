@@ -4,9 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 
 //TODO
-//Implementar um drawArena Decente
-//Tirar o processKey do model da Arena
-//Nerfar o shooting, implementar movimentos while shooting
+
 
 public class Application {
     public static void main(String[] args) {

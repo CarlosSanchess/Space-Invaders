@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class PlayerModel extends Elements {
 
-    private int hitPoints; //Vida da Nave
+    private int hitPoints; //Not Used Yet
 
     public PlayerModel(PositionModel position, int hitPoints){
         super(position);

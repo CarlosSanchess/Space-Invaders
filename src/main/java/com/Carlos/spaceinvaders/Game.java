@@ -10,20 +10,17 @@ import com.Carlos.spaceinvaders.view.game.DrawGame;
 import java.awt.*;
 import java.io.IOException;
 
-//TODO
-//Check se o codigo esta blindado do GUI
-//Aplicar o GUI ao Menu ou seja cria duas Screens diferentes
 
 public class Game {
 
     private final LanternaGui GUI;
 
-    ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Valor Fixo?
-    //ArenaModel  arena = new ArenaModel(80,30); // Numero de pixeis do pc/ numero de pixeis do char
+    ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Valor Fixo?Perguntar ao Professor.
+    //ArenaModel  arena = new ArenaModel(80,30);
 
     private final DrawGame drawGame = new DrawGame(arena);
-    Game() throws IOException, InterruptedException, FontFormatException {
-        this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
+    Game() throws IOException, FontFormatException {
+        this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
 
     }
 

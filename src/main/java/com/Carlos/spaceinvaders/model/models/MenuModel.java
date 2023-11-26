@@ -7,9 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-//TODO
-//Organizar o codigo do menu retirar os atributos da classe menu do draw Menu
-//TAlvez ter aqui os atributos com getters
+
 
 public class MenuModel implements Model{
     static String text =
@@ -63,7 +61,7 @@ public class MenuModel implements Model{
         this.text = spaceInvaders;
     }
 
-    public void addEntry(String newGame, TextColor.RGB rgb) {
+    public void addEntry(String newGame, TextColor.RGB rgb) { // Not Used Yet
         this.entries.add(newGame);
         this.entryColors.put(newGame,rgb);
     }

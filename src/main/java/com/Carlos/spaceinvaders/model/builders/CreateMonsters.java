@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-//Criar assim ou como BUilders create Walls
 //TODO
 //Opção de criar mais monstros, default 3
 public class CreateMonsters {
@@ -26,7 +25,7 @@ public class CreateMonsters {
         int randomNumber = random.nextInt(width - 1) + 1;
         return new PositionModel(randomNumber, 1);
     }
-    public List<MonsterModel> addMonsters(int numMonstros){ // Nao podem coincidir na posição
+    public List<MonsterModel> addMonsters(int numMonstros){ // TODO Nao podem coincidir na posição
         for(int i = 0; i < numMonstros; i++){
             monsters.add(new MonsterModel(getRandomPosM(),3,1));
         }

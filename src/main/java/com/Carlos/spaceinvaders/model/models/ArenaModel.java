@@ -27,7 +27,7 @@ public class ArenaModel implements Model {
         this.height = y;
 
         this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
-        this.score = new ScoreModel(new PositionModel(70, y - 3)); // EXprimental position
+        this.score = new ScoreModel(new PositionModel(70, y - 3)); // Posição Exprimental apenas
 
         this.activeBullets = new ArrayList<>();
         this.createMonsters = new CreateMonsters(x);

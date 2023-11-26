@@ -6,6 +6,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
+//Código unused.
 public class ArenaControl {
 
        private KeyStroke key;

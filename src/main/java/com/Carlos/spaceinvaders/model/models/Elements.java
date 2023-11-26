@@ -2,7 +2,7 @@ package com.Carlos.spaceinvaders.model.models;
 
 public abstract class Elements implements Model{
     
-    protected PositionModel position; // All the subclasses will have a Position position
+    protected PositionModel position;
     
     public Elements(PositionModel position){
         this.position = position;
