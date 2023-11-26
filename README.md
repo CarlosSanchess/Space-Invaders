@@ -30,26 +30,26 @@ The model is isolated, view is connected to the model, and the controller depend
 
 ### IMPLEMENTATION
 -**Model**
-
+<img src="Docs/umls/Models">
 <p>Model UML</p>
 The Model is used to encapsulate the data and the logical operations related to it.
 
 -**View**
-
+<img src="Docs/umls/View.png">
 <p>View UML</p>
 The View is responsible for presenting the data to the user. It's the component that defines how the application's data is displayed.
 
 --**UML**
-
+<img src="Docs/umls/Project.png">
 <p>Project UML</p>
 
 #### IMAGES
 --**Menu**
-
+<img src="Docs/Imgs/Menu.png">
 <p>Menu.png</p>
 
 --**Game**
-
+<img src="Docs/Imgs/Game.png">
 <p>Game.png</p>
 
 ### SELF-EVALUATION
