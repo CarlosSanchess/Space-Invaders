@@ -143,5 +143,4 @@ public class LanternaGui {
             return (width - tam - 1) / 2;
         return (width - tam) / 2;
     }
-
 }
