@@ -50,6 +50,7 @@ public class LanternaGui {
         terminalFactory.setInitialTerminalSize(terminalSize);
         Terminal terminal = terminalFactory.createTerminal();
         AWTTerminalFrame terminalFrame = (AWTTerminalFrame) terminal;
+        terminalFrame.setTitle("ACIInvaders");
         windowClosing(terminalFrame);
         return terminal;
     }
