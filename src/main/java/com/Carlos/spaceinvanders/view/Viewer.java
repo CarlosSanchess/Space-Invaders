@@ -20,7 +20,7 @@ public abstract class Viewer <T>{  // Este viewer, da display do jogo e do menu.
         draw(GUI);
         GUI.screenRefresh();
     }
-    protected T getModel(){
+    public T getModel(){
         return model;
     }
     protected abstract void draw(LanternaGui GUI);

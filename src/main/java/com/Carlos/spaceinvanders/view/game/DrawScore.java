@@ -6,7 +6,7 @@ import com.Carlos.spaceinvanders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 
 public class DrawScore  extends Viewer<ScoreModel> implements DrawElement {
-    DrawScore(ScoreModel scoreModel){
+    public DrawScore(ScoreModel scoreModel){
         super(scoreModel);
     }
 

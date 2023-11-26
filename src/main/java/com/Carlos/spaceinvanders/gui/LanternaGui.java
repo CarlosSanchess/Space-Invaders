@@ -136,7 +136,7 @@ public class LanternaGui {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
 
-    private int getStartPoint(String string, int width){
+    public int getStartPoint(String string, int width){
         //NEW GAME
         int tam = string.length(); //8
         if (tam == 4)
