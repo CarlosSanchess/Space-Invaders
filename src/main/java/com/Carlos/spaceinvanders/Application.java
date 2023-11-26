@@ -11,8 +11,11 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args) {
         try {
-           Game menu = new Game();
-           menu.run();
+
+            Menu menu1 = new Menu();
+            menu1.run();
+
+
 
         }catch (IOException | InterruptedException e){
             e.printStackTrace();

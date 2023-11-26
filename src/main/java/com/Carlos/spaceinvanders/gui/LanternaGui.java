@@ -70,7 +70,7 @@ public class LanternaGui {
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25); // 1 char 25 pixeis
+        Font loadedFont = font.deriveFont(Font.PLAIN, 20); // 1 char 25 pixeis
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
@@ -111,6 +111,9 @@ public class LanternaGui {
     public void screenRefresh() throws IOException {
         screen.refresh();
     }
+    public Screen getScreen(){
+        return screen;
+    }
 
     public void drawTitle(String string) {
 
@@ -125,14 +128,14 @@ public class LanternaGui {
 
     public void drawEntries(MenuModel menuModel) {
         List<String> entries = menuModel.getEntries();
-        int y = 10;
+        int y = 14;
         for (String entry : entries) {
             TextColor.RGB color = menuModel.getColor(entry);
             int startPoint = getStartPoint(entry,width);
 
             graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
             drawText(new PositionModel(startPoint, y), entry, color,Boolean.TRUE);
-            y += 3;
+            y += 5;
         }
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
@@ -141,7 +144,8 @@ public class LanternaGui {
         //NEW GAME
         int tam = string.length(); //8
         if (tam == 4)
-            return (width - tam - 1) / 2;
+            return (width - tam - 1) / 2; //Exit
         return (width - tam) / 2;
     }
+
 }

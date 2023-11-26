@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Random;
 //TODO
 //Organizar o codigo do menu retirar os atributos da classe menu do draw Menu
 //TAlvez ter aqui os atributos com getters
@@ -54,6 +54,4 @@ public class MenuModel implements Model{
     public String getText(){
         return text;
     }
-
-
 }

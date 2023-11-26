@@ -16,20 +16,14 @@ import java.io.IOException;
 
 public class Game {
 
-
-
-    private final int xInicial;
-    private final int yInicial;
     private final LanternaGui GUI;
 
-    ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
+    ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Valor Fixo?
     //ArenaModel  arena = new ArenaModel(80,30); // Numero de pixeis do pc/ numero de pixeis do char
 
     private final DrawGame drawGame = new DrawGame(arena);
     Game() throws IOException, InterruptedException, FontFormatException {
-        this.xInicial = getScreenSize().getX() / 25;
-        this.yInicial = getScreenSize().getY() / 25;
-        this.GUI = new LanternaGui(xInicial,yInicial);
+        this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
 
     }
 

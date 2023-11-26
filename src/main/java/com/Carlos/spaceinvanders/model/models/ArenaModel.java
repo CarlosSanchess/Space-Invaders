@@ -22,12 +22,12 @@ public class ArenaModel implements Model {
 
     private PlayerModel player;
 
-    public ArenaModel(int x, int y) throws InterruptedException {
+    public ArenaModel(int x, int y) {
         this.width = x;
         this.height = y;
 
-        this.player = new PlayerModel(new PositionModel(78, y - 2), 3);
-        this.score = new ScoreModel(new PositionModel(77, y - 3)); // EXprimental position
+        this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
+        this.score = new ScoreModel(new PositionModel(70, y - 3)); // EXprimental position
 
         this.activeBullets = new ArrayList<>();
         this.createMonsters = new CreateMonsters(x);
