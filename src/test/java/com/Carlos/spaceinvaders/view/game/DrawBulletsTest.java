@@ -3,6 +3,7 @@ package com.Carlos.spaceinvaders.view.game;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -39,8 +40,9 @@ public class DrawBulletsTest {
 
     @Test
     public void testDraw() {
-        drawBullets.draw(guiMock);
-
-        verify(guiMock, times(2)).drawText(any(),any(),any());
+    
+    drawBullets.draw(guiMock);
+    
+    verify(guiMock, times(2)).drawText(any(PositionModel.class), any(String.class), any(TextColor.RGB.class));
     }
 }
