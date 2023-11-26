@@ -42,6 +42,6 @@ class DrawMonstersTest {
 
         drawMonsters.draw(mockGui);
 
-        verify(mockGui, times(2)).drawText(any(PositionModel.class), any(), any(TextColor.RGB.class));    
+        verify(mockGui, times(2)).drawText(any(PositionModel.class), any(String.class), any(TextColor.RGB.class));    
     }
 }
