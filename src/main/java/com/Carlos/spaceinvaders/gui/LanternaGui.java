@@ -136,12 +136,15 @@ public class LanternaGui {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
 
-    public int getStartPoint(String string, int width){
-        //NEW GAME
-        int tam = string.length(); //8
-        if (tam == 4)
-            return (width - tam - 1) / 2;
-        return (width - tam) / 2;
+    public int getStartPoint(String string, int width) {
+        return Math.round((float)(width - string.length()) / 2);
     }
 
+    public void setScreen(Screen screen) {
+        this.screen = screen;
+    }
+
+    public void setGraphics(TextGraphics graphics) {
+        this.graphics = graphics;
+    }
 }
