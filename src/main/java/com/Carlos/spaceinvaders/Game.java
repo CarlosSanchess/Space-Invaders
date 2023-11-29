@@ -34,12 +34,10 @@ public class Game {
         String Key;
         while(true) {
             Key = GUI.getUserInput();
-            System.out.println(arena.getPlayer().getPosition().getX());
             drawGame.lanternaDraw(GUI);
-            if(Objects.equals(Key, "ArrowLeft"))
-                System.out.println(Key);
+            if(!Objects.equals(Key, null))
                 gameController.toDo(Key);
-            Thread.sleep(FPS.getFps(40));
+            Thread.sleep(FPS.getFps(45));
         }
 
     }

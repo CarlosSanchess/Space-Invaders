@@ -17,12 +17,14 @@ public class PlayerController extends Controller<PlayerModel> {
 
 
     public void moveLeft(){
-            int x = super.getModel().getPosition().getX();
-            super.getModel().getPosition().setX(x - 1);
+            move(-1);
     }
     public void moveRight(){
-            int x = super.getModel().getPosition().getX();
-            super.getModel().getPosition().setX(x + 1);
+            move(1);
+    }
+    private void move(int X) {
+        int x = super.getModel().getPosition().getX();
+        super.getModel().getPosition().setX(x + X);
     }
     public void shoot(){
 
