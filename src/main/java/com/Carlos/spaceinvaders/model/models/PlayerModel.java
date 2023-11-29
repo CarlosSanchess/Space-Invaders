@@ -21,14 +21,4 @@ public class PlayerModel extends Elements {
         return position.getX() >= 1 && position.getX()  < screenSize.width - 1;
     }
 
-    public void moveLeft(PositionModel position){
-        if(canMove(new PositionModel(position.getX() - 1,position.getY()))){
-            position.setX(position.getX() - 1);
-        }
-    }
-    public void moveRight(PositionModel position){
-        if(canMove(new PositionModel(position.getX() + 1,position.getY()))){
-            position.setX(position.getX() + 1);
-        }
-    }
 }

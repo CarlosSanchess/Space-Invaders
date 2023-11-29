@@ -52,7 +52,7 @@ public class PlayerTest {
         PositionModel position = new PositionModel(5, 0);
         PlayerModel player = new PlayerModel(position, 3);
 
-        player.moveLeft(position);
+       // player.moveLeft(position);
 
         assertEquals(4, position.getX());
     }
@@ -62,7 +62,7 @@ public class PlayerTest {
         PositionModel position = new PositionModel(5, 0);
         PlayerModel player = new PlayerModel(position, 3);
 
-        player.moveRight(position);
+        //player.moveRight(position);
 
         assertEquals(6, position.getX());
     }
