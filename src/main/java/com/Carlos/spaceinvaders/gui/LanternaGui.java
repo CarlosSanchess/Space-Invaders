@@ -134,6 +134,10 @@ public class LanternaGui {
     public Screen getScreen(){
         return screen;
     }
+    public void setScreen(Screen screen) {
+        this.screen = screen;
+    }
+
 
     public void drawTitle(String string) {
 
@@ -159,12 +163,37 @@ public class LanternaGui {
         }
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
+    public void drawSelected(MenuModel menuModel){
+
+        String Entry = menuModel.getEntries().get(menuModel.getEntry());
+
+        drawTop(menuModel, Entry);
+        drawBottom(menuModel, Entry);
+        drawLeft(menuModel, Entry);
+        drawRight(menuModel, Entry);
+    }
     public int getStartPoint(String string, int width) {
         return Math.round((float)(width - string.length()) / 2);
     }
 
-    public void setScreen(Screen screen) {
-        this.screen = screen;
+    private void drawTop(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '-');
     }
-
+    private void drawBottom(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '-');
+    }
+    private void drawLeft(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '+');
+    }
+    private void drawRight(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '+');
+    }
 }
