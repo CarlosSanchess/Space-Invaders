@@ -44,14 +44,16 @@ public class MenuTest {
     @Test
     public void testNextEntry() {
         int initialEntry = menuModel.getEntry();
-        menuModel.nextEntry();
+        //TODO
+       // menuModel.nextEntry();
         assertEquals((initialEntry + 1) % 4, menuModel.getEntry());
     }
 
     @Test
     public void testPreviousEntry() {
         int initialEntry = menuModel.getEntry();
-        menuModel.previousEntry();
+        //TODO
+        //menuModel.previousEntry();
         assertEquals((initialEntry - 1 + 4) % 4, menuModel.getEntry());
     }
 
