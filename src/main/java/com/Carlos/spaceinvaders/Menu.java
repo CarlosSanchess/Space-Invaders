@@ -26,7 +26,7 @@ public class Menu {
             Thread.sleep(200); // Refresh the menu every second
             key = GUI.getScreen().readInput(); // Apenas para mostrar o game, mal implementado.
 
-            if(key.getKeyType() ==  KeyType.Enter){
+            if(key.getKeyType() ==  KeyType.Enter) {
                 Game game = new Game();
                 GUI.getScreen().close();
                 game.run();

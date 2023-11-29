@@ -7,6 +7,8 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -19,7 +21,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class LanternaGui {
@@ -85,10 +89,27 @@ public class LanternaGui {
             return null;
         }
     }
+    public String getUserInput() throws IOException {
+        KeyStroke keyStroke = screen.pollInput();
+        if (keyStroke == null) return null;
+        if (keyStroke.getKeyType() == KeyType.EOF) return "Quit";
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return "Quit";
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return "ArrowUp";
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return "ArrowRight";
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return "ArrowDown";
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return "ArrowLeft";
+        if (keyStroke.getKeyType() == KeyType.Enter) return "Enter";
 
+        return null;
+    }
     private TextGraphics createGraphics(Screen screen) {
         return screen.newTextGraphics();
     }
+
+    public void setGraphics(TextGraphics graphics) {
+        this.graphics = graphics;
+    }
+
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor) {
         drawText(position, string, rgbColor, false);
@@ -146,7 +167,4 @@ public class LanternaGui {
         this.screen = screen;
     }
 
-    public void setGraphics(TextGraphics graphics) {
-        this.graphics = graphics;
-    }
 }

@@ -32,7 +32,6 @@ public class DrawBulletsTest {
 
         PositionModel position2 = new PositionModel(2, 2);
         BulletModel bullet2 = new BulletModel(position2, 3, false);
-
         bullets.add(bullet1);
         bullets.add(bullet2);
         drawBullets = new DrawBullets(bullets);
