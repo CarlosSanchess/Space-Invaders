@@ -10,9 +10,10 @@ import java.util.Objects;
 
 public class PlayerController extends Controller<PlayerModel> {
 
-
-    public PlayerController(PlayerModel player){
+    int arenaW;
+    public PlayerController(PlayerModel player, int arenaW){  //TODO Não há maneira melhor de fazer isto-?
         super(player);
+        this.arenaW = arenaW;
     }
 
 
@@ -22,9 +23,13 @@ public class PlayerController extends Controller<PlayerModel> {
     public void moveRight(){
             move(1);
     }
-    private void move(int X) {
-        int x = super.getModel().getPosition().getX();
-        super.getModel().getPosition().setX(x + X);
+    private void move(int direction) {
+        int actualX = super.getModel().getPosition().getX();
+        if(canMove(direction + actualX))
+             super.getModel().getPosition().setX(direction + actualX);
+    }
+    private boolean canMove(int wantedX){ //TODO so se aplica ao player atualmente
+        return wantedX < arenaW - 1 && wantedX > 0;
     }
     public void shoot(){
 
@@ -34,5 +39,6 @@ public class PlayerController extends Controller<PlayerModel> {
     public void toDo( String keyPressed){
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
+
     }
 }
