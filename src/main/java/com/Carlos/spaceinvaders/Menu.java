@@ -35,7 +35,7 @@ public class Menu {
             if(!Objects.equals(key, null))
                 menuController.toDo(key);
 
-            if(Objects.equals(key, "Quit")){
+            if(Objects.equals(key, "Quit")){ // Nao pode estar aqui.
                 Game game = new Game();
                 GUI.getScreen().close();
                 game.run();

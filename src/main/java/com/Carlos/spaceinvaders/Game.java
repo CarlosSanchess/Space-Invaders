@@ -23,6 +23,7 @@ public class Game {
     private final DrawGame drawGame = new DrawGame(this.arena);
     private final GameController gameController = new GameController(this.arena);
 
+    String Key;
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
@@ -31,12 +32,12 @@ public class Game {
 
 
     public void run() throws IOException, InterruptedException {
-        String Key;
+
         while(true) {
             Key = GUI.getUserInput();
             drawGame.lanternaDraw(GUI);
-            if(!Objects.equals(Key, null))
-                gameController.toDo(Key);
+            gameController.toDo(Key);
+
             Thread.sleep(FPS.getFps(45));
         }
 

@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 
 //TODO
-
+//Caixas do Menu estão a desenhar com fundo preto
 
 public class Application {
     public static void main(String[] args) {

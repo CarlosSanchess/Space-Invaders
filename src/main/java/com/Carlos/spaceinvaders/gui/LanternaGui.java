@@ -167,6 +167,8 @@ public class LanternaGui {
 
         String Entry = menuModel.getEntries().get(menuModel.getEntry());
 
+
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
         drawTop(menuModel, Entry);
         drawBottom(menuModel, Entry);
         drawLeft(menuModel, Entry);

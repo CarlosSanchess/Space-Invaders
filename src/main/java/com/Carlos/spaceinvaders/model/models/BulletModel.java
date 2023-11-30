@@ -12,18 +12,16 @@ public class BulletModel extends Elements {
        active = true;
     }
 
-    public void move(){
-
-        if(direction)
-            position.setY(position.getY() - speed);
-        else
-            position.setY(position.getY() + speed);
-        active = isActive();
-    }
     public boolean isActive(){
         if (position.getY() < 0){
             active = false;
         }
         return active;
+    }
+    public boolean getDirection(){
+        return direction;
+    }
+    public int getSpeed() {
+        return speed;
     }
 }

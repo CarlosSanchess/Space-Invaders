@@ -7,21 +7,24 @@ import com.Carlos.spaceinvaders.model.models.PositionModel;
 
 import javax.swing.*;
 import java.security.Key;
+import java.util.Objects;
 
 public class GameController extends Controller<ArenaModel> {
     PlayerModel playerModel;
     PlayerController playerController;
+    BulletsController bulletsController;
     public GameController(ArenaModel arenaModel){
         super(arenaModel);
         //this.playerModel = super.getModel().getPlayer();
         this.playerController = new PlayerController(super.getModel().getPlayer(),super.getModel().getWidth());
+        this.bulletsController = new BulletsController(super.getModel().getActiveBullets());
     }
     public void toDo(String keyPressed){
-        playerController.toDo(keyPressed);
+        if(!Objects.equals(keyPressed, null)){
+            playerController.toDo(keyPressed);
+        }
+        bulletsController.toDo(keyPressed); // Nao espera por nenhum keyboard input
     }
 
-    protected boolean canMove(PositionModel position){ //TODO so se aplica ao player atualmente
-        int arenaWidth = super.getModel().getWidth();
-        return position.getX() < arenaWidth - 1 && position.getX() > 1;
-    }
+
 }
