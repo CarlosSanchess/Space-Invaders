@@ -1,7 +1,5 @@
 package com.Carlos.spaceinvaders.controller;
 
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
-
 public abstract class Controller <T> { //Mesma implementação do Viewer
 
     private final T model;
