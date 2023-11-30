@@ -34,7 +34,6 @@ public class ArenaModel implements Model {
 
         walls = CreateWalls.createWalls(x, y);
         activeMonsters = createMonsters.addMonsters(3);
-        activeBullets.add(new BulletModel(new PositionModel(40, y - 3), 1, true));
     }
 
     public int getWidth() {

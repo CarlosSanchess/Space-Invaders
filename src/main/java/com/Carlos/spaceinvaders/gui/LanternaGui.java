@@ -99,6 +99,7 @@ public class LanternaGui {
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return "ArrowDown";
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return "ArrowLeft";
         if (keyStroke.getKeyType() == KeyType.Enter) return "Enter";
+        if (keyStroke.getKeyType() == KeyType.Backspace) return "BackSpace";
 
         return null;
     }

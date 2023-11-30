@@ -16,7 +16,7 @@ public class GameController extends Controller<ArenaModel> {
     public GameController(ArenaModel arenaModel){
         super(arenaModel);
         //this.playerModel = super.getModel().getPlayer();
-        this.playerController = new PlayerController(super.getModel().getPlayer(),super.getModel().getWidth());
+        this.playerController = new PlayerController(super.getModel().getPlayer(),super.getModel().getWidth(), arenaModel.getActiveBullets());
         this.bulletsController = new BulletsController(super.getModel().getActiveBullets());
     }
     public void toDo(String keyPressed){

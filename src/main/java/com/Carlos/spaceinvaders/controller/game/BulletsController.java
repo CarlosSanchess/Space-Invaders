@@ -15,7 +15,6 @@ public class BulletsController extends Controller<List<BulletModel>> {
     @Override
     public void toDo(String keyPressed) {
         for(BulletModel bullet : super.getModel()){
-            System.out.println("adssad");
                 move(bullet);
         }
     }
