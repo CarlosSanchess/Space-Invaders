@@ -5,10 +5,8 @@ import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class GameController extends Controller<ArenaModel> {
     PlayerModel playerModel;
@@ -17,25 +15,13 @@ public class GameController extends Controller<ArenaModel> {
     private MonsterControllerFactory monsterControllerFactory;
 
     private List<MonsterController> monsterControllers;
-    public GameController(ArenaModel arenaModel,MonsterControllerFactory monsterControllerFactory){
+    public GameController(ArenaModel arenaModel, MonsterControllerFactory monsterControllerFactory) {
         super(arenaModel);
-        //this.playerModel = super.getModel().getPlayer();
-        this.playerController = new PlayerController(super.getModel().getPlayer(),super.getModel().getWidth(), arenaModel.getActiveBullets());
+        this.playerController = new PlayerController(super.getModel().getPlayer(), super.getModel().getWidth(), arenaModel.getActiveBullets());
         this.bulletsController = new BulletsController(super.getModel().getActiveBullets());
         this.monsterControllerFactory = monsterControllerFactory;
-        this.monsterControllers = new ArrayList<>();
-        Random random = new Random();
         for (MonsterModel monster : arenaModel.getActiveMonsters()) {
-            MovementStrategy movementStrategy;
-            int randomNumber = random.nextInt(11);
-            if (randomNumber < 2) {
-                movementStrategy = new ShooterMovementStrategy();
-            } else if (randomNumber < 4) {
-                movementStrategy = new DiagonalMovementStrategy();
-            } else {
-                movementStrategy = new VerticalMovementStrategy();
-            }
-            MonsterController monsterController = monsterControllerFactory.createMonsterController(monster, movementStrategy);
+            MonsterController monsterController = monsterControllerFactory.createMonsterController(monster);
             this.monsterControllers.add(monsterController);
         }
     }
