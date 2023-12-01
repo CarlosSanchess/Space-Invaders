@@ -22,7 +22,7 @@ public class Game {
         PositionModel screenSize = getScreenSize();
         this.gui = new LanternaGui(screenSize.getX() / 25, screenSize.getY() / 25);
         this.arena = new ArenaModel(screenSize.getX() / 25, screenSize.getY() / 25);
-        MonsterControllerFactory monsterControllerFactory = new MonsterControllerFactory();
+        MonsterControllerFactory monsterControllerFactory = new MonsterControllerFactory(arena.getWidth());
         this.gameController = new GameController(this.arena, monsterControllerFactory);
         this.drawGame = new DrawGame(this.arena);
     }

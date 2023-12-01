@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,6 +21,7 @@ public class GameController extends Controller<ArenaModel> {
         this.playerController = new PlayerController(super.getModel().getPlayer(), super.getModel().getWidth(), arenaModel.getActiveBullets());
         this.bulletsController = new BulletsController(super.getModel().getActiveBullets());
         this.monsterControllerFactory = monsterControllerFactory;
+        this.monsterControllers = new ArrayList<>();
         for (MonsterModel monster : arenaModel.getActiveMonsters()) {
             MonsterController monsterController = monsterControllerFactory.createMonsterController(monster);
             this.monsterControllers.add(monsterController);
