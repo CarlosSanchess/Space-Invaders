@@ -1,6 +1,7 @@
 package com.Carlos.spaceinvaders;
 
 import com.Carlos.spaceinvaders.controller.game.GameController;
+import com.Carlos.spaceinvaders.controller.game.MonsterControllerFactory;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.builders.FPS;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
@@ -16,12 +17,14 @@ import java.util.Objects;
 public class Game {
 
     private final LanternaGui GUI;
+    
+    MonsterControllerFactory monsterControllerFactory = new MonsterControllerFactory();
 
     ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Valor Fixo?Perguntar ao Professor.
     //ArenaModel  arena = new ArenaModel(80,30);
 
     private final DrawGame drawGame = new DrawGame(this.arena);
-    private final GameController gameController = new GameController(this.arena);
+    private final GameController gameController = new GameController(this.arena,monsterControllerFactory);
 
     String Key;
 

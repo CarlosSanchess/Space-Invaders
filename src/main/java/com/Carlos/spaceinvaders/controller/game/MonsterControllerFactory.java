@@ -9,7 +9,7 @@ public class MonsterControllerFactory {
         this.movementStrategy = movementStrategy;
     }
 
-    public MonsterController createMonsterController(MonsterModel monster) {
+    public MonsterController createMonsterController(MonsterModel monster,MovementStrategy movementStrategy) {
         return new MonsterController(monster, movementStrategy);
     }
 }
