@@ -1,21 +1,15 @@
 package com.Carlos.spaceinvaders;
 
 import com.Carlos.spaceinvaders.State.GameState;
-import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.State;
-import com.Carlos.spaceinvaders.controller.game.GameController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.builders.FPS;
-import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
-import com.Carlos.spaceinvaders.view.game.DrawGame;
 
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.Objects;
-
 
 public class Game {
 

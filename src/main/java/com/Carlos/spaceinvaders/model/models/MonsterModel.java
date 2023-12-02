@@ -18,6 +18,10 @@ public class MonsterModel extends Elements {
         else
             position.setY(position.getY() + speed);
     }
+
+    public int getSpeed(){
+        return this.speed;
+    }
     public void setDirection(boolean b) {
         this.direction = b;
     }

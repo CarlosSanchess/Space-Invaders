@@ -32,7 +32,7 @@ public class PlayerController extends Controller<PlayerModel> {
         if(canMove(direction + actualX))
              super.getModel().getPosition().setX(direction + actualX);
     }
-    private boolean canMove(int wantedX){ //TODO so se aplica ao player atualmente
+    private boolean canMove(int wantedX){
         return wantedX < arenaW - 1 && wantedX > 0;
     }
     public void shoot(){
@@ -45,7 +45,7 @@ public class PlayerController extends Controller<PlayerModel> {
     }
 
     @Override
-    public void toDo( String keyPressed){
+    public void toDo(String keyPressed){
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
         if(Objects.equals(keyPressed,"BackSpace")) shoot();
