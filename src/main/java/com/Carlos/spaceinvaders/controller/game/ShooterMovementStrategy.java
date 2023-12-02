@@ -14,7 +14,7 @@ public class ShooterMovementStrategy implements MovementStrategy {
 
     public ShooterMovementStrategy(int arenaW) {
         this.arenaW = arenaW;
-        this.xDirection = random.nextBoolean() ? 1 : -1; 
+        this.xDirection = random.nextBoolean() ? 1 : -1;
     }
 
     private boolean canMove(int wantedX){
@@ -26,13 +26,14 @@ public class ShooterMovementStrategy implements MovementStrategy {
         PositionModel currentPosition = monster.getPosition();
 
         int wantedX = currentPosition.getX() + xDirection * monster.getSpeed();
-        if (canMove(wantedX)) {
-            currentPosition.setX(wantedX);
+        currentPosition.setX(wantedX);
 
-            if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
-                xDirection *= -1; // inverte a direção eixo dos x
-            }
+        if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW - 1) {
+            xDirection *= -1;
+            currentPosition.setX(currentPosition.getX() + xDirection * monster.getSpeed());
+        }
 
+        if (canMove(currentPosition.getX())) {
             monster.setPosition(currentPosition);
         }
     }

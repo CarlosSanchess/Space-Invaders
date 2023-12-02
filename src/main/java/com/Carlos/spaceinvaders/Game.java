@@ -32,7 +32,7 @@ public class Game {
             key = gui.getUserInput();
             drawGame.lanternaDraw(gui);
             gameController.toDo(key);
-            Thread.sleep(FPS.getFps(45));
+            Thread.sleep(FPS.getFps(10));
         }
     }
 

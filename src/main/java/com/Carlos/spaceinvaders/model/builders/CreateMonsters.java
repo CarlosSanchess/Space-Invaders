@@ -18,16 +18,15 @@ public class CreateMonsters {
         this.width = width;
     }
 
-    private PositionModel getRandomPosM(){
-        long seed = System.currentTimeMillis();
-
-        Random random = new Random(); //Implementar uma seed, para tornar realmente aleatorio o processo
+    private PositionModel getRandomPosM(int y){
+        Random random = new Random();
         int randomNumber = random.nextInt(width - 1) + 1;
-        return new PositionModel(randomNumber, 1);
+        return new PositionModel(randomNumber, y);
     }
-    public List<MonsterModel> addMonsters(int numMonstros){ // TODO Nao podem coincidir na posição
+    public List<MonsterModel> addMonsters(int numMonstros){
         for(int i = 0; i < numMonstros; i++){
-            monsters.add(new MonsterModel(getRandomPosM(),3,1));
+            int y = i * 2 + 1;
+            monsters.add(new MonsterModel(getRandomPosM(y),3,1));
         }
         return monsters;
     }
