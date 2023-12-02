@@ -26,8 +26,7 @@ public class Game {
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
-        //this.state = new MenuState(new MenuModel());
-         this.state = new GameState(new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25)); //Valor Fixo?
+        this.state = new GameState(new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25)); //Valor Fixo?
     }
 
 
