@@ -1,4 +1,6 @@
 package com.Carlos.spaceinvaders;
+import com.Carlos.spaceinvaders.State.MenuState;
+import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.controller.menu.MenuController;
 import com.Carlos.spaceinvaders.model.builders.FPS;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
@@ -18,28 +20,20 @@ public class Menu {
 
     LanternaGui GUI;
 
-    MenuModel menu = new MenuModel();
-    private final DrawMenu drawMenu = new DrawMenu(menu);
-    private final MenuController menuController = new MenuController(menu);
+   private State state;
 
     Menu() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25, getScreenSize().getY() / 25);
+        this.state = new MenuState(new MenuModel());
+
     }
     public void run() throws InterruptedException, IOException, FontFormatException {
         String key;
 
         while(true) {
             key = GUI.getUserInput();
-            drawMenu.lanternaDraw(GUI);
+            state.step(key,GUI);
 
-            if(!Objects.equals(key, null))
-                menuController.toDo(key);
-
-            if(Objects.equals(key, "Quit")){ // Nao pode estar aqui.
-                Game game = new Game();
-                GUI.getScreen().close();
-                game.run();
-            }
             Thread.sleep(FPS.getFps(45));
         }
     }
