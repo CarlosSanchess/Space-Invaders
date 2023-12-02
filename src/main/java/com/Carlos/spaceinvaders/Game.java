@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders;
 
+import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.controller.game.GameController;
@@ -19,22 +20,14 @@ import java.util.Objects;
 public class Game {
 
     private final LanternaGui GUI;
-
-    MenuModel menu = new MenuModel();
-    private MenuState state = new MenuState(menu);
-
-    ArenaModel  arena = new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Valor Fixo?Perguntar ao Professor.
-    //ArenaModel  arena = new ArenaModel(80,30);
-
-    //private final DrawGame drawGame = new DrawGame(this.arena);
-    //private final GameController gameController = new GameController(this.arena);
+    private State state;
 
     String Key;
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
-       // MenuModel menu = new MenuModel();
-       // this.state = new MenuState(menu);
+        //this.state = new MenuState(new MenuModel());
+         this.state = new GameState(new ArenaModel(getScreenSize().getX() / 25,getScreenSize().getY() / 25)); //Valor Fixo?
     }
 
 
