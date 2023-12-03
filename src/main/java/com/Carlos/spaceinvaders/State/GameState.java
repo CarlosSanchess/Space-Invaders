@@ -14,7 +14,7 @@ public class GameState extends State<ArenaModel> {
     private DrawGame drawGame;
     private GameController gameController;
     private MonsterControllerFactory monsterControllerFactory;
-    public GameState(ArenaModel arenaModel,Game game){
+    public GameState(ArenaModel arenaModel){
         super(arenaModel);
         monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth());
         this.drawGame = new DrawGame(getModel());
@@ -23,8 +23,8 @@ public class GameState extends State<ArenaModel> {
 
 
     @Override
-    public void step(String Key, LanternaGui GUI, long Time) throws IOException {
+    public void step(String Key, LanternaGui GUI, long Time,Game game) throws IOException {
         drawGame.lanternaDraw(GUI);
-        gameController.toDo(Key,Time);
+        gameController.toDo(game,Key,Time);
     }
 }

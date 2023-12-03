@@ -11,11 +11,9 @@ import java.util.Objects;
 public class MenuController extends Controller<MenuModel> {
     //TODO TORNAR MAIS LEGIVEL
     private MenuModel menuModel;
-    private final Game game;
-    
-    public MenuController(MenuModel menuModel,Game game){
+
+    public MenuController(MenuModel menuModel){
         super(menuModel);
-        this.game = game;
     }
 
     private void nextEntry(){
@@ -32,10 +30,10 @@ public class MenuController extends Controller<MenuModel> {
         }
     }
 
-    private void Select(){
+    private void Select(Game game){
         int entry = getModel().getEntry();
 
-        if(entry == 0) newGame();
+        if(entry == 0) newGame(game);
         if(entry == 1) tutorial();
         if(entry == 2) options();
         if(entry == 3) exit();
@@ -51,14 +49,14 @@ public class MenuController extends Controller<MenuModel> {
     private void exit(){
         System.out.println("Exit");
     }
-    public void toDo(String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
+    public void toDo(Game game, String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
-        if(Objects.equals(keyPressed,"Enter")) Select();
+        if(Objects.equals(keyPressed,"Enter")) Select(game);
     }
 
-    private void newGame() {
-        game.setState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25),game));
+    private void newGame(Game game) {
+        game.setState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
 
 }
