@@ -1,4 +1,4 @@
-package com.Carlos.spaceinvaders.controller.game;
+package com.Carlos.spaceinvaders.controller.game.MonstersStrategy;
 
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 

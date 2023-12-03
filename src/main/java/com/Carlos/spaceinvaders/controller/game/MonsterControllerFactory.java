@@ -1,5 +1,9 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.DiagonalMovementStrategy;
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.MovementStrategy;
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.ShooterMovementStrategy;
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovementStrategy;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 

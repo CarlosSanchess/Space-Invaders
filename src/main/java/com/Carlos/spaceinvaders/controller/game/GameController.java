@@ -1,6 +1,5 @@
 package com.Carlos.spaceinvaders.controller.game;
 
-import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;

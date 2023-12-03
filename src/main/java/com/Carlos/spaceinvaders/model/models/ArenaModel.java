@@ -1,6 +1,5 @@
 package com.Carlos.spaceinvaders.model.models;
 
-import com.Carlos.spaceinvaders.controller.game.MovementStrategy;
 import com.Carlos.spaceinvaders.model.builders.CreateWalls;
 import com.Carlos.spaceinvaders.model.builders.CreateMonsters;
 

@@ -1,6 +1,7 @@
 package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.MovementStrategy;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 
 public class MonsterController extends Controller<MonsterModel> {
