@@ -1,7 +1,9 @@
 package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
+import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 
 import java.util.Objects;
@@ -9,9 +11,11 @@ import java.util.Objects;
 public class MenuController extends Controller<MenuModel> {
     //TODO TORNAR MAIS LEGIVEL
     private MenuModel menuModel;
-   // private final Game game;
-    public MenuController(MenuModel menuModel){
+    private final Game game;
+    
+    public MenuController(MenuModel menuModel,Game game){
         super(menuModel);
+        this.game = game;
     }
 
     private void nextEntry(){
@@ -37,9 +41,6 @@ public class MenuController extends Controller<MenuModel> {
         if(entry == 3) exit();
 
     }
-    private void newGame(){
-        System.out.println("New Game");
-    }
 
     private void tutorial(){
         System.out.println("Tutorial");
@@ -54,6 +55,10 @@ public class MenuController extends Controller<MenuModel> {
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select();
+    }
+
+    private void newGame() {
+        game.setState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25),game));
     }
 
 }

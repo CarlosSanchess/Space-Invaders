@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.State;
 
+import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.game.GameController;
 import com.Carlos.spaceinvaders.controller.menu.MenuController;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
@@ -13,14 +14,16 @@ public  class MenuState extends State<MenuModel> {
 
     private  DrawMenu drawMenu;
     private  MenuController menuController;
-    public MenuState(MenuModel menuModel){
+    private Game game;
+    public MenuState(MenuModel menuModel, Game game){
         super(menuModel);
+        this.game = game;
     }
 
     @Override
     public void step(String Key, LanternaGui GUI) throws IOException {
         this.drawMenu = new DrawMenu(super.getModel()); // TODO alternativa para isto
-        this.menuController = new MenuController(super.getModel());
+        this.menuController = new MenuController(super.getModel(),game);
         drawMenu.lanternaDraw(GUI);
         menuController.toDo(Key);
     }
