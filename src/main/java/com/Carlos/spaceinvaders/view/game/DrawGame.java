@@ -12,11 +12,11 @@ public class DrawGame extends Viewer<ArenaModel> {
 
     @Override
     public void draw(LanternaGui GUI) {
-        drawElement(new DrawPlayer(super.getModel().getPlayer()), GUI);
-        drawElement(new DrawMonsters(super.getModel().getActiveMonsters()), GUI);
-        drawElement(new DrawBullets(super.getModel().getActiveBullets()), GUI);
-        drawElement(new DrawOutline(super.getModel().getWalls()), GUI);
-        drawElement(new DrawScore(super.getModel().getScore()),GUI);
+        drawElement(new DrawPlayer(getModel().getPlayer()), GUI);
+        drawElement(new DrawMonsters(getModel().getActiveMonsters()), GUI);
+        drawElement(new DrawBullets(getModel().getActiveBullets()), GUI);
+        drawElement(new DrawOutline(getModel().getWalls()), GUI);
+        drawElement(new DrawScore(getModel().getScore()),GUI);
     }
 
     private void drawElement(DrawElement element, LanternaGui GUI) {

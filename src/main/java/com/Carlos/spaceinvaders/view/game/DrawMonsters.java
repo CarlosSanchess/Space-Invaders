@@ -14,7 +14,7 @@ public class DrawMonsters extends Viewer<List<MonsterModel>> implements DrawElem
 
     @Override
     public void draw(LanternaGui GUI){
-        for (MonsterModel monsterModel : super.getModel()) {
+        for (MonsterModel monsterModel : getModel()) {
             DrawMonster drawMonster = new DrawMonster(monsterModel);
             drawMonster.draw(GUI);
         }

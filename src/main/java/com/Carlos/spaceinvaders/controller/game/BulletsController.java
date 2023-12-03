@@ -14,7 +14,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     @Override
     public void toDo(String keyPressed, long Time) {
-        for(BulletModel bullet : super.getModel()){
+        for(BulletModel bullet : getModel()){
                 move(bullet);
         }
     }

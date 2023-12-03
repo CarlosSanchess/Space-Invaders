@@ -19,8 +19,8 @@ public class GameController extends Controller<ArenaModel> {
     private List<MonsterController> monsterControllers;
     public GameController(ArenaModel arenaModel, MonsterControllerFactory monsterControllerFactory) {
         super(arenaModel);
-        this.playerController = new PlayerController(super.getModel().getPlayer(), super.getModel().getWidth(), arenaModel.getActiveBullets());
-        this.bulletsController = new BulletsController(super.getModel().getActiveBullets());
+        this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets());
+        this.bulletsController = new BulletsController(getModel().getActiveBullets());
         this.monsterControllerFactory = monsterControllerFactory;
         this.monsterControllers = new ArrayList<>();
         for (MonsterModel monster : arenaModel.getActiveMonsters()) {
