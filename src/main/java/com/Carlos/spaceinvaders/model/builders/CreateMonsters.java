@@ -17,11 +17,22 @@ public class CreateMonsters {
         monsters = new ArrayList<>();
         this.width = width;
     }
-
+    private boolean isPositionOccupied(PositionModel position) {
+        for (MonsterModel monster : monsters) {
+            if (monster.getPosition().equals(position)) {
+                return true;
+            }
+        }
+    return false;
+    }   
     private PositionModel getRandomPosM(int y){
         Random random = new Random();
-        int randomNumber = random.nextInt(width - 1) + 1;
-        return new PositionModel(randomNumber, y);
+        PositionModel position;
+        do {
+            int randomNumber = random.nextInt(width - 1) + 1;
+            position = new PositionModel(randomNumber, y);
+        } while (isPositionOccupied(position));
+        return position;
     }
     public List<MonsterModel> addMonsters(int numMonstros){
         for(int i = 0; i < numMonstros; i++){

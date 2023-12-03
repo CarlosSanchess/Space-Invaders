@@ -26,14 +26,14 @@ public class MenuController extends Controller<MenuModel> {
     }
     private void previousEntry() {
         if (super.getModel().getEntry() == 0) {
-            super.getModel().setEntry(super.getModel().getEntriesSize() - 1);
+            getModel().setEntry(getModel().getEntriesSize() - 1);
         } else {
-            super.getModel().setEntry(super.getModel().getEntry() - 1);
+            getModel().setEntry(getModel().getEntry() - 1);
         }
     }
 
     private void Select(){
-        int entry = super.getModel().getEntry();
+        int entry = getModel().getEntry();
 
         if(entry == 0) newGame();
         if(entry == 1) tutorial();
