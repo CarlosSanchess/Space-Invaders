@@ -1,8 +1,10 @@
 package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
+import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
+import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 
@@ -32,7 +34,11 @@ public class GameController extends Controller<ArenaModel> {
     }
     public void toDo(Game game,String keyPressed, long Time){
 
-            if(!Objects.equals(keyPressed, null)){
+            if (keyPressed != null) {
+                if (keyPressed.equals("Escape")) {
+                    game.setState(new MenuState(new MenuModel()));
+                    return;
+                }
                 playerController.toDo(game,keyPressed,Time);
             }
             bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input

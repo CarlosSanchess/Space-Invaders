@@ -93,6 +93,7 @@ public class LanternaGui {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return null;
         if (keyStroke.getKeyType() == KeyType.EOF) return "Quit";
+        if (keyStroke.getKeyType() == KeyType.Escape) return "Escape";
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return "Quit";
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return "ArrowUp";
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return "ArrowRight";
