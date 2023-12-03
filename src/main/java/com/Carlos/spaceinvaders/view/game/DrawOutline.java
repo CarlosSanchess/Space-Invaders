@@ -15,7 +15,7 @@ public class DrawOutline extends Viewer<List<WallModel>> implements DrawElement 
 
     @Override
     public void draw(LanternaGui GUI){
-        for(WallModel wallModel : super.getModel()){
+        for(WallModel wallModel : getModel()){
             DrawWall drawWall = new DrawWall(wallModel);
             drawWall.draw(GUI);
         }

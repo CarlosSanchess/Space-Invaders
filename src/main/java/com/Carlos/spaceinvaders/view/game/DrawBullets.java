@@ -14,7 +14,7 @@ public class DrawBullets extends Viewer<List<BulletModel>> implements DrawElemen
 
     @Override
     public void draw(LanternaGui GUI){
-        for (BulletModel bulletModel : super.getModel()) {
+        for (BulletModel bulletModel : getModel()) {
             DrawBullet drawBullet = new DrawBullet(bulletModel);
             drawBullet.draw(GUI);
         }

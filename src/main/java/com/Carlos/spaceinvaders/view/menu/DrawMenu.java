@@ -14,7 +14,7 @@ public class DrawMenu extends Viewer<MenuModel> {
 
     @Override
     public void draw(LanternaGui GUI) {
-        menuModel = super.getModel();
+        menuModel = getModel();
         String title = menuModel.getText();
         GUI.drawTitle(title);
         GUI.drawEntries(menuModel);

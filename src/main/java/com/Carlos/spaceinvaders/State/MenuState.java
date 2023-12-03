@@ -18,8 +18,8 @@ public  class MenuState extends State<MenuModel> {
     public MenuState(MenuModel menuModel, Game game){
         super(menuModel);
         this.game = game;
-        this.drawMenu = new DrawMenu(super.getModel()); // TODO alternativa para isto
-        this.menuController = new MenuController(super.getModel(),game);
+        this.drawMenu = new DrawMenu(getModel()); // TODO alternativa para isto
+        this.menuController = new MenuController(getModel(),game);
     }
 
     @Override

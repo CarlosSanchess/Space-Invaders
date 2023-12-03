@@ -30,9 +30,9 @@ public class PlayerController extends Controller<PlayerModel> {
             move(1);
     }
     private void move(int direction) {
-        int actualX = super.getModel().getPosition().getX();
+        int actualX = getModel().getPosition().getX();
         if(canMove(direction + actualX))
-             super.getModel().getPosition().setX(direction + actualX);
+             getModel().getPosition().setX(direction + actualX);
     }
     private boolean canMove(int wantedX){
         return wantedX < arenaW - 1 && wantedX > 0;
@@ -45,7 +45,7 @@ public class PlayerController extends Controller<PlayerModel> {
 
     }
     public BulletModel novaBala(){
-        PositionModel playerPosition = super.getModel().getPosition();
+        PositionModel playerPosition = getModel().getPosition();
 
         return new BulletModel( new PositionModel(playerPosition.getX(), playerPosition.getY()),1, true) ;
     }

@@ -19,13 +19,15 @@ public class MenuController extends Controller<MenuModel> {
     }
 
     private void nextEntry(){
-        int entry = super.getModel().getEntry();
-        int lenEntries = super.getModel().getEntriesSize();
+        int entry = getModel().getEntry();
+        int lenEntries = getModel().getEntriesSize();
 
-        super.getModel().setEntry((entry + 1) % lenEntries);
+        getModel().setEntry((entry + 1) % lenEntries);
     }
     private void previousEntry() {
-        if (super.getModel().getEntry() == 0) {
+
+        if (getModel().getEntry() == 0) {
+
             getModel().setEntry(getModel().getEntriesSize() - 1);
         } else {
             getModel().setEntry(getModel().getEntry() - 1);
