@@ -16,16 +16,16 @@ public class GameState extends State<ArenaModel> {
     private MonsterControllerFactory monsterControllerFactory;
     public GameState(ArenaModel arenaModel){
         super(arenaModel);
-        monsterControllerFactory = new MonsterControllerFactory(super.getModel().getWidth());
+        monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth());
+        this.drawGame = new DrawGame(getModel());
+
+        this.gameController = new GameController(getModel(), monsterControllerFactory);
     }
 
 
     @Override
-    public void step(String Key, LanternaGui GUI) throws IOException {
-        this.drawGame = new DrawGame(super.getModel());
-
-        this.gameController = new GameController(super.getModel(), monsterControllerFactory);
+    public void step(String Key, LanternaGui GUI, long Time) throws IOException {
         drawGame.lanternaDraw(GUI);
-        gameController.toDo(Key);
+        gameController.toDo(Key,Time);
     }
 }

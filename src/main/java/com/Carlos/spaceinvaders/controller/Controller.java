@@ -11,7 +11,7 @@ public abstract class Controller <T> { //Mesma implementação do Viewer
         return model;
     }
 
-    public abstract void toDo(String keyPressed);
+    public abstract void toDo(String keyPressed, long Time);
 
 
 

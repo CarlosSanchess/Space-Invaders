@@ -10,6 +10,7 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     private int xDirection; // 1 direita, -1 esquerda
     private int arenaW;
     private Random random = new Random();
+    private long lastMovement;
 
     public DiagonalMovementStrategy(int arenaW) {
         this.arenaW = arenaW;
@@ -23,19 +24,18 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     @Override
     public void move(MonsterModel monster) {
         PositionModel currentPosition = monster.getPosition();
+            int wantedX = currentPosition.getX() + xDirection * monster.getSpeed();
+            if (canMove(wantedX)) {
+                currentPosition.setX(wantedX);
+                currentPosition.setY(currentPosition.getY() + monster.getSpeed());
 
-        int wantedX = currentPosition.getX() + xDirection * monster.getSpeed();
-        if (canMove(wantedX)) {
-            currentPosition.setX(wantedX);
-            currentPosition.setY(currentPosition.getY() + monster.getSpeed());
+                if (random.nextInt(100) < SWITCH_PROBABILITY) {
+                    xDirection *= -1;
+                } else if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
+                    xDirection *= -1;
+                }
 
-            if (random.nextInt(100) < SWITCH_PROBABILITY) {
-                xDirection *= -1;
-            } else if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
-                xDirection *= -1;
+                monster.setPosition(currentPosition);
             }
-
-            monster.setPosition(currentPosition);
-        }
     }
 }

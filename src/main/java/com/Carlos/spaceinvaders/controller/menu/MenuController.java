@@ -50,7 +50,7 @@ public class MenuController extends Controller<MenuModel> {
     private void exit(){
         System.out.println("Exit");
     }
-    public void toDo(String keyPressed){
+    public void toDo(String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select();

@@ -14,10 +14,12 @@ public class PlayerController extends Controller<PlayerModel> {
 
     int arenaW;
     List<BulletModel> bullets;
+    private long lastShoot;
     public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets){  //TODO Não há maneira melhor de fazer isto-?
         super(player);
         this.arenaW = arenaW;
         this.bullets = bullets;
+        this.lastShoot = 0;
     }
 
 
@@ -35,8 +37,12 @@ public class PlayerController extends Controller<PlayerModel> {
     private boolean canMove(int wantedX){
         return wantedX < arenaW - 1 && wantedX > 0;
     }
-    public void shoot(){
-        bullets.add(novaBala());
+    public void shoot(long Time){
+        if(Time - lastShoot > 50){
+            bullets.add(novaBala());
+            this.lastShoot = Time;
+        }
+
     }
     public BulletModel novaBala(){
         PositionModel playerPosition = super.getModel().getPosition();
@@ -45,10 +51,10 @@ public class PlayerController extends Controller<PlayerModel> {
     }
 
     @Override
-    public void toDo(String keyPressed){
+    public void toDo(String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
-        if(Objects.equals(keyPressed,"BackSpace")) shoot();
+        if(Objects.equals(keyPressed,"BackSpace")) shoot(Time);
     }
 
 }

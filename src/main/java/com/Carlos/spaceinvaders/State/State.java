@@ -14,5 +14,5 @@ public abstract class State <T> {
         return model;
     }
 
-    public abstract void step(String Key, LanternaGui GUI) throws IOException;
+    public abstract void step(String Key, LanternaGui GUI, long Time) throws IOException;
 }

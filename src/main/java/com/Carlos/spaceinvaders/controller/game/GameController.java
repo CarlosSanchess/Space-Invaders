@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
@@ -27,13 +28,14 @@ public class GameController extends Controller<ArenaModel> {
             this.monsterControllers.add(monsterController);
         }
     }
-    public void toDo(String keyPressed){
-        if(!Objects.equals(keyPressed, null)){
-            playerController.toDo(keyPressed);
-        }
-        bulletsController.toDo(keyPressed); // Nao espera por nenhum keyboard input
-        for (MonsterController monsterController : monsterControllers) {
-            monsterController.toDo(null);
-        }
+    public void toDo(String keyPressed, long Time){
+
+            if(!Objects.equals(keyPressed, null)){
+                playerController.toDo(keyPressed,Time);
+            }
+            bulletsController.toDo(keyPressed,Time); // Nao espera por nenhum keyboard input
+            for (MonsterController monsterController : monsterControllers) {
+                monsterController.toDo(null,Time);
+            }
     }
 }
