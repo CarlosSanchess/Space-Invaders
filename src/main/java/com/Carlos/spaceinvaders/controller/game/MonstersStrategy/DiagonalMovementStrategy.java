@@ -10,7 +10,6 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     private int xDirection; // 1 direita, -1 esquerda
     private int arenaW;
     private Random random = new Random();
-    private long lastMovement;
 
     public DiagonalMovementStrategy(int arenaW) {
         this.arenaW = arenaW;

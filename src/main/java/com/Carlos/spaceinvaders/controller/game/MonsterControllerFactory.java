@@ -7,21 +7,27 @@ import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovemen
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MonsterControllerFactory {
-    private MovementStrategy movementStrategy;
     private int arenaW;
-    List<BulletModel> bullets;
-    public MonsterControllerFactory(int arenaW, List<BulletModel> bullets) {
+    private List<BulletModel> bullets;
+    private List<MonsterController> monsterControllers;
+    public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
         this.arenaW = arenaW;
         this.bullets = bullets;
+        this.monsterControllers = new ArrayList<>();
+        for (MonsterModel monster : activeMonsters) {
+            MonsterController monsterController = createMonsterController(monster);
+            this.monsterControllers.add(monsterController);
+        }
     }
 
     public MonsterController createMonsterController(MonsterModel monster) {
         MovementStrategy movementStrategy = getRandomMovementStrategy();
-        return new MonsterController(monster,arenaW, movementStrategy);
+        return new MonsterController(monster, movementStrategy);
     }
 
     private MovementStrategy getRandomMovementStrategy() {
@@ -34,5 +40,9 @@ public class MonsterControllerFactory {
         } else {
             return new VerticalMovementStrategy();
         }
+    }
+
+    public List<MonsterController> getMonstersControllers(){
+     return monsterControllers;
     }
 }

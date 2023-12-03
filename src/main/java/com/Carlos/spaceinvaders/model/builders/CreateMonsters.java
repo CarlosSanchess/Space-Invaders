@@ -13,8 +13,8 @@ public class CreateMonsters {
     private int width;
     private List<MonsterModel> monsters;
 
-    public CreateMonsters(int width){
-        monsters = new ArrayList<>();
+    public CreateMonsters(int width, List<MonsterModel> activeMonsters){
+        this.monsters = activeMonsters;
         this.width = width;
     }
     private boolean isPositionOccupied(PositionModel position) {
@@ -36,8 +36,7 @@ public class CreateMonsters {
     }
     public List<MonsterModel> addMonsters(int numMonstros){
         for(int i = 0; i < numMonstros; i++){
-            int y = i * 2 + 1;
-            monsters.add(new MonsterModel(getRandomPosM(y),3,1));
+            monsters.add(new MonsterModel(getRandomPosM(1),3,1));
         }
         return monsters;
     }

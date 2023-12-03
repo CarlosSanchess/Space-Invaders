@@ -8,11 +8,9 @@ import com.Carlos.spaceinvaders.model.models.MonsterModel;
 public class MonsterController extends Controller<MonsterModel> {
 
     private MovementStrategy movementStrategy;
-    private int arenaW;
     private long lastMove;
-    public MonsterController(MonsterModel model, int arenaW ,MovementStrategy movementStrategy) {
+    public MonsterController(MonsterModel model,MovementStrategy movementStrategy) {
         super(model);
-        this.arenaW = arenaW;
         this.movementStrategy = movementStrategy;
     }
     @Override

@@ -12,7 +12,7 @@ public class GameState extends State<ArenaModel> {
 
     private DrawGame drawGame;
     private GameController gameController;
-    private MonsterControllerFactory monsterControllerFactory;
+
 
     public GameState(ArenaModel arenaModel){
         super(arenaModel);

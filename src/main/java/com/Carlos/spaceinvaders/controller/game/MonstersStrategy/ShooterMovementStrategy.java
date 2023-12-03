@@ -35,7 +35,6 @@ public class ShooterMovementStrategy implements MovementStrategy {
 
     private void moveMonster(MonsterModel monster){
             PositionModel currentPosition = monster.getPosition();
-
             int wantedX = currentPosition.getX() + xDirection * monster.getSpeed();
             currentPosition.setX(wantedX);
 

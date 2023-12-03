@@ -15,7 +15,7 @@ public class CreateMonstersTest {
 
     @BeforeEach
     public void setUp() {
-        createMonsters = new CreateMonsters(10);
+      //TODO  createMonsters = new CreateMonsters(10);
     }
 
     @Test
