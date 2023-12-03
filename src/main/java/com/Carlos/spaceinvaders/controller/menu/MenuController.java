@@ -23,7 +23,9 @@ public class MenuController extends Controller<MenuModel> {
         getModel().setEntry((entry + 1) % lenEntries);
     }
     private void previousEntry() {
+
         if (getModel().getEntry() == 0) {
+
             getModel().setEntry(getModel().getEntriesSize() - 1);
         } else {
             getModel().setEntry(getModel().getEntry() - 1);

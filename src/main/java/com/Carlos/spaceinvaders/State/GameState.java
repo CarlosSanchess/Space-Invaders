@@ -14,11 +14,11 @@ public class GameState extends State<ArenaModel> {
     private DrawGame drawGame;
     private GameController gameController;
     private MonsterControllerFactory monsterControllerFactory;
+
     public GameState(ArenaModel arenaModel){
         super(arenaModel);
-        monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth());
         this.drawGame = new DrawGame(getModel());
-        this.gameController = new GameController(getModel(), monsterControllerFactory);
+        this.gameController = new GameController(getModel());
     }
 
 
