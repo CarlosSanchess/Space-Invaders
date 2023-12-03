@@ -18,7 +18,7 @@ public class Game {
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
-        this.state = new MenuState(new MenuModel(),this); //Valor Fixo?
+        this.state = new MenuState(new MenuModel()); //Valor Fixo?
     }
     public static void main(String[] args) {
         try {
@@ -36,7 +36,7 @@ public class Game {
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
             Key = GUI.getUserInput();
-            state.step(Key, GUI, startTime);
+            state.step(Key, GUI, startTime,this);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = updateTime - elapsedTime;

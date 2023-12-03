@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
@@ -13,7 +14,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         super(bullets);
     }
     @Override
-    public void toDo(String keyPressed, long Time) {
+    public void toDo(Game game, String keyPressed, long Time) {
         for(BulletModel bullet : getModel()){
                 move(bullet);
         }

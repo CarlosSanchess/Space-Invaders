@@ -1,5 +1,7 @@
 package com.Carlos.spaceinvaders.controller;
 
+import com.Carlos.spaceinvaders.Game;
+
 public abstract class Controller <T> { //Mesma implementação do Viewer
 
     private final T model;
@@ -11,7 +13,7 @@ public abstract class Controller <T> { //Mesma implementação do Viewer
         return model;
     }
 
-    public abstract void toDo(String keyPressed, long Time);
+    public abstract void toDo(Game game, String keyPressed, long Time);
 
 
 

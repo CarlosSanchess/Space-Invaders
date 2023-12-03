@@ -29,14 +29,14 @@ public class GameController extends Controller<ArenaModel> {
             this.monsterControllers.add(monsterController);
         }
     }
-    public void toDo(String keyPressed, long Time){
+    public void toDo(Game game,String keyPressed, long Time){
 
             if(!Objects.equals(keyPressed, null)){
-                playerController.toDo(keyPressed,Time);
+                playerController.toDo(game,keyPressed,Time);
             }
-            bulletsController.toDo(keyPressed,Time); // Nao espera por nenhum keyboard input
+            bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
             for (MonsterController monsterController : monsterControllers) {
-                monsterController.toDo(null,Time);
+                monsterController.toDo(game,null,Time);
             }
     }
 }

@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
@@ -51,7 +52,7 @@ public class PlayerController extends Controller<PlayerModel> {
     }
 
     @Override
-    public void toDo(String keyPressed, long Time){
+    public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
         if(Objects.equals(keyPressed,"BackSpace")) shoot(Time);
