@@ -1,10 +1,8 @@
 package com.Carlos.spaceinvaders;
 
-import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 
@@ -32,7 +30,7 @@ public class Game {
         }
 
     public void run() throws IOException, InterruptedException {
-        final int UPS = 60;
+        final int UPS = 30;
         final long updateTime = 1000 / UPS;
 
         while(true) {

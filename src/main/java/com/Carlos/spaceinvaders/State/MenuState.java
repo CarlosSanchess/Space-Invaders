@@ -18,12 +18,12 @@ public  class MenuState extends State<MenuModel> {
     public MenuState(MenuModel menuModel, Game game){
         super(menuModel);
         this.game = game;
+        this.drawMenu = new DrawMenu(super.getModel()); // TODO alternativa para isto
+        this.menuController = new MenuController(super.getModel(),game);
     }
 
     @Override
     public void step(String Key, LanternaGui GUI) throws IOException {
-        this.drawMenu = new DrawMenu(super.getModel()); // TODO alternativa para isto
-        this.menuController = new MenuController(super.getModel(),game);
         drawMenu.lanternaDraw(GUI);
         menuController.toDo(Key);
     }
