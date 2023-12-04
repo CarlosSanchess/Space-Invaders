@@ -33,17 +33,14 @@ public class GameController extends Controller<ArenaModel> {
         }
     }
     public void toDo(Game game,String keyPressed, long Time){
-
-            if (keyPressed != null) {
-                if (keyPressed.equals("Escape")) {
-                    game.setState(new MenuState(new MenuModel()));
-                    return;
-                }
-                playerController.toDo(game,keyPressed,Time);
-            }
-            bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
-            for (MonsterController monsterController : monsterControllers) {
-                monsterController.toDo(game,null,Time);
-            }
+        if (keyPressed != null && keyPressed.equals("Escape")) {
+            game.popState();
+            return;
+        }
+        playerController.toDo(game,keyPressed,Time);
+        bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
+        for (MonsterController monsterController : monsterControllers) {
+            monsterController.toDo(game,null,Time);
+        }
     }
 }
