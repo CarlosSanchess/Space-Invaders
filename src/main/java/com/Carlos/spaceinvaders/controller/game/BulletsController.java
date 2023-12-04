@@ -2,10 +2,7 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.model.models.BulletModel;
-import com.Carlos.spaceinvaders.model.models.MonsterModel;
-import com.Carlos.spaceinvaders.model.models.PlayerModel;
-import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.*;
 import com.Carlos.spaceinvaders.view.Viewer;
 
 import java.util.List;
@@ -14,10 +11,12 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
     private List<MonsterModel> activeMonsters;
     private PlayerModel playerModel;
-    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, PlayerModel playerModel){
+    private ScoreModel scoreModel;
+    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, PlayerModel playerModel, ScoreModel scoreModel){
         super(bullets);
         this.activeMonsters = activeMonsters;
         this.playerModel = playerModel;
+        this.scoreModel = scoreModel;
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
@@ -27,25 +26,26 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
 
     public void move(BulletModel bullet) {
-        if (bullet.getDirection()) {
-            colide(new PositionModel(bullet.getPosition().getX(), bullet.getPosition().getY() - bullet.getSpeed())); // Cleaner way?
-            bullet.getPosition().setY(bullet.getPosition().getY() - bullet.getSpeed());
-        }
-        else{
-            colide(new PositionModel(bullet.getPosition().getX(),bullet.getPosition().getY() + bullet.getSpeed()));
-            bullet.getPosition().setY(bullet.getPosition().getY() + bullet.getSpeed());
-        }
+        PositionModel newPosition = calculateNewPosition(bullet); //Cria a posição futura da bala, evita que haja repitição de código.
+        colide(newPosition);
+
+        bullet.getPosition().setY(newPosition.getY());
         bullet.isActive();
+    }
+    private PositionModel calculateNewPosition(BulletModel bullet) {
+        int newY = bullet.getDirection() ? bullet.getPosition().getY() - bullet.getSpeed() : bullet.getPosition().getY() + bullet.getSpeed();
+        return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
     private void colide(PositionModel nextPosition){
         MonsterModel monster = isMonster(nextPosition);
         if(monster != null){
             activeMonsters.remove(monster);
+            this.scoreModel.setScore(scoreModel.getScore() + 1);
         }
         isPlayer(nextPosition);
     }
-    private MonsterModel isMonster(PositionModel nextPosition){
+    private MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
         for(MonsterModel monster : activeMonsters){
             if(monster.getPosition().equals(nextPosition)){
                 return monster;
