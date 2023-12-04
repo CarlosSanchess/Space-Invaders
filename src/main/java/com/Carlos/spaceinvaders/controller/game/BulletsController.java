@@ -26,16 +26,16 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
     }
 
-    public void move(BulletModel bullet){
-        if(bullet.getDirection()){
-            colide(new PositionModel(bullet.getPosition().getX(),bullet.getPosition().getY() - bullet.getSpeed())); // Cleaner way?
-
-            bullet.getPosition().setY(bullet.getPosition().getY() - bullet.getSpeed());}
-
-        else
+    public void move(BulletModel bullet) {
+        if (bullet.getDirection()) {
+            colide(new PositionModel(bullet.getPosition().getX(), bullet.getPosition().getY() - bullet.getSpeed())); // Cleaner way?
+            bullet.getPosition().setY(bullet.getPosition().getY() - bullet.getSpeed());
+        }
+        else{
+            colide(new PositionModel(bullet.getPosition().getX(),bullet.getPosition().getY() + bullet.getSpeed()));
             bullet.getPosition().setY(bullet.getPosition().getY() + bullet.getSpeed());
+        }
         bullet.isActive();
-        System.out.println(activeMonsters);
     }
 
     private void colide(PositionModel nextPosition){
@@ -43,6 +43,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         if(monster != null){
             activeMonsters.remove(monster);
         }
+        isPlayer(nextPosition);
     }
     private MonsterModel isMonster(PositionModel nextPosition){
         for(MonsterModel monster : activeMonsters){
@@ -52,5 +53,9 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return null;
     }
-
+    private void isPlayer(PositionModel nextPosition){
+        if(playerModel.getPosition().equals(nextPosition)){
+            playerModel.setHitPoints(playerModel.getHitPoints() - 1);
+        }
+    }
 }
