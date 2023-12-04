@@ -13,7 +13,7 @@ import java.util.Stack;
 public class Game {
 
     private final LanternaGui GUI;
-    private Stack<State> states;
+    public Stack<State> states;
     private State state;
 
     String Key;

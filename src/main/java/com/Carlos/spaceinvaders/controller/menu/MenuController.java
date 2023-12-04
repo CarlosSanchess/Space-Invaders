@@ -2,6 +2,7 @@ package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.GameState;
+import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.OptionsState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
@@ -40,9 +41,10 @@ public class MenuController extends Controller<MenuModel> {
         int entry = getModel().getEntry();
 
         if(entry == 0) newGame(game);
-        if(entry == 1) tutorial(game);
-        if(entry == 2) options(game);
-        if(entry == 3) exit(game);
+        if(entry == 1) continueGame(game);
+        if(entry == 2) tutorial(game);
+        if(entry == 3) options(game);
+        if(entry == 4) exit(game);
 
     }
 
@@ -51,10 +53,25 @@ public class MenuController extends Controller<MenuModel> {
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select(game);
+        if(Objects.equals(keyPressed,"Quit")) System.exit(0);
     }
 
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
+    }
+    private void continueGame( Game game){
+        while (game.getCurrentState() != null && !(game.getCurrentState() instanceof GameState)) {
+            game.popState();
+        }
+
+        if (game.getCurrentState() instanceof GameState) {
+            GameState gameState = (GameState) game.getCurrentState();
+            game.popState(); // Remove the GameState from the stack
+            game.pushState(gameState);
+        } else {
+
+            game.pushState(new MenuState(new MenuModel()));
+        }
     }
 
     private void tutorial(Game game){
