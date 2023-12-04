@@ -30,6 +30,13 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
+        endGame(game);
         System.out.println(getModel().getPlayer().getHitPoints());
+    }
+
+    private void endGame(Game game){
+        if(getModel().getPlayer().getHitPoints() <= 0) {
+            game.popState();
+        }
     }
 }
