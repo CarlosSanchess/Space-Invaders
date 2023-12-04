@@ -147,17 +147,19 @@ public class LanternaGui {
 
 
     public void drawTitle(String string) {
-
+        int startR;
         if(string.length() == 522){
+            startR = 0;
             startPoint = (width - 64) / 2;
         }else{
+            startR = 3;
             startPoint = (width - 39) / 2;
         }
         String[] lines = string.split("\n");
-        int y = 0;
+
         for (String line : lines) {
-            drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
-            y++;
+            drawText(new PositionModel(startPoint, startR), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
+            startR++;
         }
     }
 

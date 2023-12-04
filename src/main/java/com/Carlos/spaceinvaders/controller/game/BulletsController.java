@@ -41,7 +41,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         MonsterModel monster = isMonster(nextPosition);
         if(monster != null){
             activeMonsters.remove(monster);
-            this.scoreModel.setScore(scoreModel.getScore() + 1);
+            this.scoreModel.incrementScore();
         }
         isPlayer(nextPosition);
     }
@@ -54,9 +54,8 @@ public class BulletsController extends Controller<List<BulletModel>> {
         return null;
     }
     private void isPlayer(PositionModel nextPosition){
-
         if(playerModel.getPosition().equals(nextPosition) || playerModel.getPosition().getLeftBound().equals(nextPosition) || playerModel.getPosition().getRightBound().equals(nextPosition)){
-            playerModel.setHitPoints(playerModel.getHitPoints() - 1);
+            playerModel.decrementHitPoints();
         }
     }
 }

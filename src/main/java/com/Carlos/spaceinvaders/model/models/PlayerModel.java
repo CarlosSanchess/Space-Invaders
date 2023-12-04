@@ -7,10 +7,12 @@ import java.awt.*;
 public class PlayerModel extends Elements {
 
     private int hitPoints; //Not Used Yet
+    private int delayShooting;
 
     public PlayerModel(PositionModel position, int hitPoints){
         super(position);
         this.hitPoints = hitPoints;
+        this.delayShooting = 100;
     }
     public BulletModel playerShoot(){
         return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
@@ -25,7 +27,16 @@ public class PlayerModel extends Elements {
         return hitPoints;
     }
 
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
+    public void incrementHitPoints(){
+        this.hitPoints++;
+    }
+    public void decrementHitPoints(){
+        this.hitPoints--;
+    }
+    public void setDelayShooting(int delayShooting) {
+        this.delayShooting = delayShooting;
+    }
+    public int getDelayShooting() {
+        return delayShooting;
     }
 }

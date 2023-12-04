@@ -16,13 +16,12 @@ public class PlayerController extends Controller<PlayerModel> {
     int arenaW;
     List<BulletModel> bullets;
     private long lastShoot;
-    private int delayShooting;
+
     public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets){  //TODO Não há maneira melhor de fazer isto-?
         super(player);
         this.arenaW = arenaW;
         this.bullets = bullets;
         this.lastShoot = 0;
-        this.delayShooting = 50;
     }
 
 
@@ -39,7 +38,7 @@ public class PlayerController extends Controller<PlayerModel> {
     }
     private boolean canMove(int wantedX){return wantedX < arenaW - 3 && wantedX > 2;} //mudei de return wantedX < arenaW - 1 && wantedX > 0;
     public void shoot(long Time){
-        if(Time - lastShoot > delayShooting){
+        if(Time - lastShoot > getModel().getDelayShooting()){
             bullets.add(novaBala());
             this.lastShoot = Time;
         }
@@ -51,13 +50,6 @@ public class PlayerController extends Controller<PlayerModel> {
         return new BulletModel( new PositionModel(playerPosition.getX() , playerPosition.getY() - 2),1, true) ; //Added -2 because of the spaceship
     }
 
-    public void setDelayShooting(int delayShooting) {
-        this.delayShooting = delayShooting;
-    }
-
-    public int getDelayShooting() {
-        return delayShooting;
-    }
 
     @Override
     public void toDo(Game game, String keyPressed, long Time){
