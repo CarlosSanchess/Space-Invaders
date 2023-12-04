@@ -2,9 +2,11 @@ package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.GameState;
+import com.Carlos.spaceinvaders.State.OptionsState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
+import com.Carlos.spaceinvaders.model.models.OptionsModel;
 
 import java.util.Objects;
 
@@ -37,20 +39,12 @@ public class MenuController extends Controller<MenuModel> {
 
         if(entry == 0) newGame(game);
         if(entry == 1) tutorial();
-        if(entry == 2) options();
+        if(entry == 2) options(game);
         if(entry == 3) exit();
 
     }
 
-    private void tutorial(){
-        System.out.println("Tutorial");
-    }
-    private void options(){
-        System.out.println("Options");
-    }
-    private void exit(){
-        System.out.println("Exit");
-    }
+
     public void toDo(Game game, String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
@@ -59,6 +53,17 @@ public class MenuController extends Controller<MenuModel> {
 
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
+    }
+
+    private void tutorial(){
+        System.out.println("Tutorial");
+    }
+    private void options(Game game){
+
+        game.pushState(new OptionsState(new OptionsModel()));
+    }
+    private void exit(){
+        System.out.println("Exit");
     }
 
 }

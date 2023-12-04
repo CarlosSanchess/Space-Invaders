@@ -1,4 +1,4 @@
 package com.Carlos.spaceinvaders.model.models;
 
-public class Options {
+public class TutorialModel {
 }
