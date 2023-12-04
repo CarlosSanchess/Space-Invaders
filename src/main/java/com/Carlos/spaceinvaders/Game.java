@@ -8,18 +8,20 @@ import com.Carlos.spaceinvaders.gui.LanternaGui;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Stack;
 
 public class Game {
 
     private final LanternaGui GUI;
-    private State state;
-
+    private Stack<State> states;
     String Key;
 
     Game() throws IOException, FontFormatException {
-        this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25); // Numero de pixeis do pc/ numero de pixeis do char
-        this.state = new MenuState(new MenuModel()); //Valor Fixo?
+        this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
+        this.states = new Stack<>();
+        this.states.push(new MenuState(new MenuModel())); 
     }
+
     public static void main(String[] args) {
         try {
             Game game = new Game();
@@ -29,14 +31,14 @@ public class Game {
         }
     }
     public void run() throws IOException, InterruptedException {
-
         int UPS = 50;
         int updateTime = 1000 / UPS;
 
-        while (this.state != null) {
+        while (!this.states.isEmpty()) { 
             long startTime = System.currentTimeMillis();
             Key = GUI.getUserInput();
-            state.step(Key, GUI, startTime,this);
+            State currentState = states.peek(); 
+            currentState.step(Key, GUI, startTime,this);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = updateTime - elapsedTime;
@@ -48,8 +50,15 @@ public class Game {
             }
         }
     }
-    public void setState(State state) {
-        this.state = state;
+    
+    public void pushState(State state) { 
+        this.states.push(state);
+    }
+
+    public void popState() { 
+        if (!states.isEmpty()) {
+            states.pop();
+        }
     }
 
     public PositionModel getScreenSize(){

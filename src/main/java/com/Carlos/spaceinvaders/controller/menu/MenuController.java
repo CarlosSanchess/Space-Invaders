@@ -58,7 +58,7 @@ public class MenuController extends Controller<MenuModel> {
     }
 
     private void newGame(Game game) {
-        game.setState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
+        game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
 
 }

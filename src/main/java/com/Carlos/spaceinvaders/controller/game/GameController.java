@@ -1,13 +1,10 @@
 package com.Carlos.spaceinvaders.controller.game;
 
-import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
-import com.Carlos.spaceinvaders.model.models.MonsterModel;
-
 import com.Carlos.spaceinvaders.Game;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.model.models.ArenaModel;
+
 import java.util.Objects;
 
 public class GameController extends Controller<ArenaModel> {
@@ -25,13 +22,14 @@ public class GameController extends Controller<ArenaModel> {
     }
     public void toDo(Game game,String keyPressed, long Time){
 
-            if(!Objects.equals(keyPressed, null)){
-                playerController.toDo(game,keyPressed,Time);
-            }
-            bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
-
-            for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
-                monsterController.toDo(game,null,Time);
-            }
+        if (keyPressed != null && keyPressed.equals("Escape")) {
+            game.popState();
+            return;
+        }
+        playerController.toDo(game,keyPressed,Time);
+        bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
+        for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
+            monsterController.toDo(game,null,Time);
+        }
     }
 }

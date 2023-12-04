@@ -56,7 +56,6 @@ public class PlayerController extends Controller<PlayerModel> {
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
         if(Objects.equals(keyPressed,"BackSpace")) shoot(Time);
-        System.out.println(getModel().getPosition().getX());
     }
 
 }
