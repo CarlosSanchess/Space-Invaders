@@ -21,4 +21,11 @@ public class PlayerModel extends Elements {
         return position.getX() >= 1 && position.getX()  < screenSize.width - 1;
     }
 
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
 }

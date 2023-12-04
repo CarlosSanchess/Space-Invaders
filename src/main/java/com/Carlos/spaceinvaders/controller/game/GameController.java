@@ -16,7 +16,7 @@ public class GameController extends Controller<ArenaModel> {
         super(arenaModel);
 
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets()); //Passar a arena?
-        this.bulletsController = new BulletsController(getModel().getActiveBullets());
+        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getPlayer());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
 
     }
@@ -30,5 +30,6 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
+        System.out.println(getModel().getPlayer().getHitPoints());
     }
 }
