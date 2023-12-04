@@ -2,8 +2,10 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 
+import com.Carlos.spaceinvaders.State.ResumeMenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
+import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
 import java.util.Objects;
 
@@ -23,7 +25,7 @@ public class GameController extends Controller<ArenaModel> {
     public void toDo(Game game,String keyPressed, long Time){
 
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
-            game.popState();
+            game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input

@@ -2,22 +2,19 @@ package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.GameState;
+import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.OptionsState;
-import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
-import com.Carlos.spaceinvaders.model.models.MenuModel;
-import com.Carlos.spaceinvaders.model.models.OptionsModel;
-import com.Carlos.spaceinvaders.model.models.TutorialModel;
 import com.Carlos.spaceinvaders.State.TutorialState;
+import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.model.models.*;
 
 import java.util.Objects;
 
-public class MenuController extends Controller<MenuModel> {
-    //TODO TORNAR MAIS LEGIVEL
-    private MenuModel menuModel;
+public class ResumeMenuController extends Controller<ResumeMenuModel> {
+    private ResumeMenuModel ResumeMenuModel;
 
-    public MenuController(MenuModel menuModel){
-        super(menuModel);
+    public ResumeMenuController(ResumeMenuModel ResumeMenuModel){
+        super(ResumeMenuModel);
     }
 
     private void nextEntry(){
@@ -39,9 +36,9 @@ public class MenuController extends Controller<MenuModel> {
     private void Select(Game game){
         int entry = getModel().getEntry();
 
-        if(entry == 0) newGame(game);
-        if(entry == 1) tutorial(game);
-        if(entry == 2) options(game);
+        if(entry == 0) resume(game);
+        if(entry == 1) restart(game);
+        if(entry == 2) save_load(game);
         if(entry == 3) exit(game);
 
     }
@@ -54,20 +51,24 @@ public class MenuController extends Controller<MenuModel> {
         if(Objects.equals(keyPressed,"Quit")) System.exit(0);
     }
 
-    private void newGame(Game game) {
+    private void resume(Game game) {
+        if (!game.states.isEmpty()) {
+            game.popState();
+
+
+        }
+        }
+
+    private void restart(Game game){
+
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
+    private void save_load(Game game){
+        game.pushState(game.getCurrentState());
 
-    private void tutorial(Game game){
-
-        game.pushState(new TutorialState(new TutorialModel()));
-    }
-    private void options(Game game){
-
-        game.pushState(new OptionsState(new OptionsModel()));
     }
     private void exit(Game game){
-        System.exit(0);
+        game.pushState(new MenuState(new MenuModel()));
     }
 
 }
