@@ -22,13 +22,14 @@ public class DrawResumeMenu extends Viewer<ResumeMenuModel> {
 
         resumeMenuModel = getModel();
         String title = resumeMenuModel.getText();
+
         GUI.drawTitle(title);
 
         for (int i = 0; i < 4; i++) {
             String entryName = getModel().getEntryName(i);
             PositionModel position;
-            if ("EXIT".equals(entryName)) {
-                position = new PositionModel(35, 15 + 4 * i);
+            if ("GO TO MENU".equals(entryName)) {
+                position = new PositionModel(33, 15 + 4 * i);
             }else if ("SAVE/LOAD".equals(entryName)) {
                 position = new PositionModel(33, 15 + 4 * i);
             } else {

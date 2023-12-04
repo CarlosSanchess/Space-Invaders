@@ -32,7 +32,7 @@ public class LanternaGui {
     private Screen screen;
     private int width;
     private int height;
-
+    private int startPoint;
     public LanternaGui(int width, int height) throws IOException, FontFormatException {
         Terminal terminal = createTerminal(width, height);
         this.width = width;
@@ -148,7 +148,11 @@ public class LanternaGui {
 
     public void drawTitle(String string) {
 
-        int startPoint = (width - 64) / 2;
+        if(string.length() == 522){
+            startPoint = (width - 64) / 2;
+        }else{
+            startPoint = (width - 39) / 2;
+        }
         String[] lines = string.split("\n");
         int y = 0;
         for (String line : lines) {
