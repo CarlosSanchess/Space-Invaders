@@ -33,6 +33,13 @@ public class MenuModel implements Model{
         entryColors.put("OPTIONS",new TextColor.RGB(0,0,255)); // Blue
         entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
     }
+    public int getNumEntries() {
+        return entries.size();
+    }
+
+    public String getEntryName(int i){
+        return entries.get(i);
+    }
 
     public List<String> getEntries() {
         return entries;
@@ -63,4 +70,14 @@ public class MenuModel implements Model{
         this.entries.add(newGame);
         this.entryColors.put(newGame,rgb);
     }
+
+    public boolean isSelected(int i){
+        return i == getCurrentEntry();
+    }
+
+    public int getCurrentEntry() {
+        return entry;
+    }
+
+
 }

@@ -40,7 +40,7 @@ public class MenuController extends Controller<MenuModel> {
         if(entry == 0) newGame(game);
         if(entry == 1) tutorial();
         if(entry == 2) options(game);
-        if(entry == 3) exit();
+        if(entry == 3) exit(game);
 
     }
 
@@ -62,8 +62,8 @@ public class MenuController extends Controller<MenuModel> {
 
         game.pushState(new OptionsState(new OptionsModel()));
     }
-    private void exit(){
-        System.out.println("Exit");
+    private void exit(Game game){
+        System.exit(0);
     }
 
 }

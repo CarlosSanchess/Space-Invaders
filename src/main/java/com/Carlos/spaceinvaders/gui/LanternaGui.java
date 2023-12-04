@@ -176,6 +176,34 @@ public class LanternaGui {
         drawLeft(menuModel, Entry);
         drawRight(menuModel, Entry);
     }
+
+    public void drawTextSelected(PositionModel position, String entryName, TextColor.RGB rgbColor) {
+        int width = entryName.length() + 2; // Adjust width for the surrounding rectangle
+        int height = 3; // Adjust height for the surrounding rectangle
+
+        // Draw the top of the surrounding rectangle
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
+        graphics.putString(position.getX()-1, position.getY()-1, "+");
+        for (int i = 1; i < width - 1; i++) {
+            graphics.putString(position.getX() - 1 + i, position.getY() - 1, "-");
+        }
+        graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1, "+");
+
+        // Draw the text inside the rectangle with '|'
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
+        graphics.putString(position.getX() - 1, position.getY() - 1 + 1, "|");
+        graphics.setForegroundColor(new TextColor.RGB(0, 255 ,0));
+        graphics.putString(position.getX() - 1 + 1, position.getY() - 1 + 1, entryName);
+        graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
+        graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1 + 1, "|");
+
+        // Draw the bottom of the surrounding rectangle
+        graphics.putString(position.getX() - 1, position.getY() - 1 + height - 1, "+");
+        for (int i = 1; i < width - 1; i++) {
+            graphics.putString(position.getX() - 1 + i, position.getY() - 1 + height - 1, "-");
+        }
+        graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1 + height - 1, "+");
+    }
     public int getStartPoint(String string, int width) {
         return Math.round((float)(width - string.length()) / 2);
     }

@@ -14,14 +14,23 @@ public class Game {
 
     private final LanternaGui GUI;
     private Stack<State> states;
+    private State state;
+
     String Key;
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
         this.states = new Stack<>();
-        this.states.push(new MenuState(new MenuModel())); 
-    }
+        state = new MenuState(new MenuModel());
 
+        this.states.push(state);
+    }
+    public State getCurrentState() {
+        if (!states.isEmpty()) {
+            return states.peek();
+        }
+        return null;
+    }
     public static void main(String[] args) {
         try {
             Game game = new Game();
