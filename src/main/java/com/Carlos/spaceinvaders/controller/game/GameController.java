@@ -10,13 +10,13 @@ import java.util.Objects;
 public class GameController extends Controller<ArenaModel> {
     PlayerController playerController;
     BulletsController bulletsController;
-    private MonsterControllerFactory monsterControllerFactory;
+    private final MonsterControllerFactory monsterControllerFactory;
 
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
 
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets()); //Passar a arena?
-        this.bulletsController = new BulletsController(getModel().getActiveBullets());
+        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getPlayer(), getModel().getScore());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
 
     }
@@ -29,6 +29,14 @@ public class GameController extends Controller<ArenaModel> {
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
+        }
+        endGame(game);
+        System.out.println(getModel().getPlayer().getHitPoints());
+    }
+
+    private void endGame(Game game){
+        if(getModel().getPlayer().getHitPoints() <= 0) {
+            game.popState();
         }
     }
 }
