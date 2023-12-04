@@ -25,7 +25,7 @@ public class MenuModel implements Model{
     private final Map<String, TextColor.RGB> entryColors;
     
     public MenuModel(){
-        this.entries = Arrays.asList("NEW GAME","TUTORIAL","OPTIONS","EXIT");
+        this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","OPTIONS","EXIT");
         entry = 0;
         entryColors = new HashMap<>();
         entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red

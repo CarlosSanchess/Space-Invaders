@@ -24,13 +24,15 @@ public class DrawMenu extends Viewer<MenuModel> {
         String title = menuModel.getText();
         GUI.drawTitle(title);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             String entryName = getModel().getEntryName(i);
             PositionModel position;
             if ("EXIT".equals(entryName)) {
-                position = new PositionModel(35, 15 + 4 * i);
+                position = new PositionModel(35, 15 + 4 * i+1);
+            } else if ("CONTINUE GAME". equals(entryName)) {
+                position = new PositionModel(31, 15 + 4 * i+1);
             } else {
-                position = new PositionModel(34, 15 + 4 * i);
+                position = new PositionModel(34, 15 + 4 * i+1);
             }
 
             if (getModel().isSelected(i)) {
