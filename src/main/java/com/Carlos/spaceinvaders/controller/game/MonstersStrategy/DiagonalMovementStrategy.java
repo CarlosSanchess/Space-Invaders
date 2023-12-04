@@ -17,7 +17,7 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     }
 
     private boolean canMove(int wantedX){
-        return wantedX <= arenaW - 1 && wantedX >= 0;
+        return wantedX <= arenaW - 1 && wantedX >= 1;
     }
 
     @Override
