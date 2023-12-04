@@ -22,7 +22,7 @@ public class GameController extends Controller<ArenaModel> {
     }
     public void toDo(Game game,String keyPressed, long Time){
 
-        if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("QUIT")) ) {
+        if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
             game.popState();
             return;
         }

@@ -55,7 +55,7 @@ public class PlayerController extends Controller<PlayerModel> {
     public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowLeft")) moveLeft();
         if(Objects.equals(keyPressed,"ArrowRight")) moveRight();
-        if(Objects.equals(keyPressed,"BackSpace")) shoot(Time);
+        if(Objects.equals(keyPressed,"Space") || Objects.equals(keyPressed,"ArrowUp")) shoot(Time);
     }
 
 }
