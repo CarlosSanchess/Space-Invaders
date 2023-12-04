@@ -17,5 +17,8 @@ public class OptionsController extends Controller<OptionsModel> {
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
         if (Objects.equals(keyPressed, "Enter")) game.pushState(new MenuState(new MenuModel()));
+        if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
+            game.popState();
+        }
     }
 }

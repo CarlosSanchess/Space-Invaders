@@ -24,7 +24,6 @@ public class GameController extends Controller<ArenaModel> {
 
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
             game.popState();
-            return;
         }
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
