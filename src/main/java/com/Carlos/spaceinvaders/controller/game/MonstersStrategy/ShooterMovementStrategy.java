@@ -12,11 +12,13 @@ public class ShooterMovementStrategy implements MovementStrategy {
     private int arenaW;
     private Random random = new Random();
     List<BulletModel> bullets;
+    List<MonsterModel> activeMonsters;
 
-    public ShooterMovementStrategy(int arenaW, List<BulletModel> bullets) {
+    public ShooterMovementStrategy(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
         this.arenaW = arenaW;
         this.xDirection = random.nextBoolean() ? 1 : -1;
         this.bullets = bullets;
+        this.activeMonsters = activeMonsters;
     }
 
     private boolean canMove(int wantedX){
@@ -47,8 +49,10 @@ public class ShooterMovementStrategy implements MovementStrategy {
                 monster.setPosition(currentPosition);
             }
     }
-    public void shootMonster(MonsterModel model) {
+    public void shootMonster(MonsterModel model) { //Esta maneira de fazer monstros, é correta?Nao devia estar sempre a ser passado activeMonsters?
+        if(activeMonsters.contains(model)) {
             bullets.add(newBullet(model));
+        }
     }
     public BulletModel newBullet(MonsterModel monster){
         PositionModel monsterPosition = monster.getPosition();

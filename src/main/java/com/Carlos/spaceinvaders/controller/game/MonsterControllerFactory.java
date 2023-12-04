@@ -15,10 +15,12 @@ public class MonsterControllerFactory {
     private int arenaW;
     private List<BulletModel> bullets;
     private List<MonsterController> monsterControllers;
+    private List<MonsterModel> activeMonsters;
     public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
         this.arenaW = arenaW;
         this.bullets = bullets;
         this.monsterControllers = new ArrayList<>();
+        this.activeMonsters = activeMonsters;
         for (MonsterModel monster : activeMonsters) {
             MonsterController monsterController = createMonsterController(monster);
             this.monsterControllers.add(monsterController);
@@ -34,7 +36,7 @@ public class MonsterControllerFactory {
         Random random = new Random();
         int randomNumber = random.nextInt(11);
         if (randomNumber < 2) {
-            return new ShooterMovementStrategy(arenaW, bullets);
+            return new ShooterMovementStrategy(arenaW, bullets, activeMonsters);
         } else if (randomNumber < 4) {
             return new DiagonalMovementStrategy(arenaW);
         } else {
