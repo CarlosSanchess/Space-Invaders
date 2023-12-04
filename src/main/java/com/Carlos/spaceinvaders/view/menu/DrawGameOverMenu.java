@@ -26,8 +26,8 @@ public class DrawGameOverMenu extends Viewer<GameOverMenuModel> {
         for (int i = 0; i < 2; i++) {
             String entryName = getModel().getEntryName(i);
             PositionModel position;
-            if ("EXIT".equals(entryName)) {
-                position = new PositionModel(36, 15 + 4 * i);
+            if ("EXIT TO MAIN MENU".equals(entryName)) {
+                position = new PositionModel(30, 15 + 4 * i);
             }else {
                 position = new PositionModel(34, 15 + 4 * i);
             }

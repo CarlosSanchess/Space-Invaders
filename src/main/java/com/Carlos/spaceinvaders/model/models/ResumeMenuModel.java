@@ -8,21 +8,20 @@ import java.util.List;
 import java.util.Map;
 
 public class ResumeMenuModel implements Model{
-    static String text = "                          _                     _               \n" +
-            "                         (_)                   | |              \n" +
-            " ___ _ __   __ _  ___ ___ _ _ ____   ____ _  __| | ___ _ __ ___ \n" +
-            "/ __| '_ \\ / _` |/ __/ _ \\ | '_ \\ \\ / / _` |/ _` |/ _ \\ '__/ __|\n" +
-            "\\__ \\.|_) | (_| | (_|  __/ | | | \\ V / (_| | (_| |  __/ |  \\__ \\\n" +
-            "|___/ .__/ \\__,_|\\___\\___|_|_| |_|\\_/ \\__,_|\\__,_|\\___|_|  |___/\n" +
-            "    | |                                                          \n" +
-            "    |_|                                                          \n";
+    static String text = " ___          ____                      \n" +
+            "|_ _|_ __    / ___| __ _ _ __ ___   ___ \n" +
+            " | || '_ \\  | |  _ / _` | '_ ` _ \\ / _ \\\n" +
+            " | || | | | | |_| | (_| | | | | | |  __/\n" +
+            "|___|_| |_|  \\____|\\__,_|_| |_| |_|\\___|\n";
+
+
 
     private final List<String> entries;
     private int entry = 0; // Selecionado
     private final Map<String, TextColor.RGB> entryColors;
 
     public ResumeMenuModel(){
-        this.entries = Arrays.asList("RESUME","RESTART","SAVE/LOAD","EXIT");
+        this.entries = Arrays.asList("RESUME","RESTART","SAVE PROGRESS","GO TO MAIN MENU");
         entry = 0;
         entryColors = new HashMap<>();
         entryColors.put("RESUME",new TextColor.RGB(255,0,0)); // Red

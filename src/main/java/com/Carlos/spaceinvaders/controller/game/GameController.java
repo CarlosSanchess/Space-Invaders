@@ -35,7 +35,6 @@ public class GameController extends Controller<ArenaModel> {
             monsterController.toDo(game,null,Time);
         }
         endGame(game);
-        System.out.println(getModel().getPlayer().getHitPoints());
     }
 
     private void endGame(Game game){

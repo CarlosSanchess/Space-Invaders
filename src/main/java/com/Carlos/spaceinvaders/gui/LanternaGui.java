@@ -33,6 +33,9 @@ public class LanternaGui {
     private int width;
     private int height;
 
+    private int startPoint;
+
+
     public LanternaGui(int width, int height) throws IOException, FontFormatException {
         Terminal terminal = createTerminal(width, height);
         this.width = width;
@@ -147,14 +150,38 @@ public class LanternaGui {
 
 
     public void drawTitle(String string) {
+        if(string.length() == 522){
+            startPoint = (width - 64) / 2;
 
-        int startPoint = (width - 64) / 2;
-        String[] lines = string.split("\n");
-        int y = 0;
-        for (String line : lines) {
-            drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
-            y++;
+            String[] lines = string.split("\n");
+            int y = 2;
+            for (String line : lines) {
+                drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
+                y++;
+            }
+
+
+        }else if(string.length() == 279){
+            startPoint = (width - 56) / 2;
+
+            String[] lines = string.split("\n");
+            int y = 5;
+            for (String line : lines) {
+                drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
+                y++;
+            }
         }
+        else{
+            startPoint = (width - 39) / 2;
+
+            String[] lines = string.split("\n");
+            int y = 5;
+            for (String line : lines) {
+                drawText(new PositionModel(startPoint, y), line, new TextColor.RGB(178, 73, 210),Boolean.TRUE);
+                y++;
+            }
+        }
+
     }
 
     public void drawEntries(MenuModel menuModel) {
