@@ -24,6 +24,12 @@ public class PositionModel implements Model {
         public int getY() {
             return y;
         }
+        public PositionModel getRightBound(){
+            return new PositionModel(x + 1,y);
+        }
+        public PositionModel getLeftBound(){
+            return new PositionModel(x - 1,y);
+        }
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

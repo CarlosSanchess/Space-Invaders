@@ -54,13 +54,10 @@ public class ResumeMenuController extends Controller<ResumeMenuModel> {
     private void resume(Game game) {
         if (!game.states.isEmpty()) {
             game.popState();
-
-
         }
         }
 
     private void restart(Game game){
-
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
     private void save_load(Game game){

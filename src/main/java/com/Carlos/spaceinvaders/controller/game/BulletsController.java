@@ -54,7 +54,8 @@ public class BulletsController extends Controller<List<BulletModel>> {
         return null;
     }
     private void isPlayer(PositionModel nextPosition){
-        if(playerModel.getPosition().equals(nextPosition)){
+
+        if(playerModel.getPosition().equals(nextPosition) || playerModel.getPosition().getLeftBound().equals(nextPosition) || playerModel.getPosition().getRightBound().equals(nextPosition)){
             playerModel.setHitPoints(playerModel.getHitPoints() - 1);
         }
     }

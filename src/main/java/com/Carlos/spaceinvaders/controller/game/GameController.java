@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.ResumeMenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
+import com.Carlos.spaceinvaders.model.models.PlayerModel;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
 import java.util.Objects;
@@ -32,8 +33,8 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
-        endGame(game);
         System.out.println(getModel().getPlayer().getHitPoints());
+        endGame(game);
     }
 
     private void endGame(Game game){
