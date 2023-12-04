@@ -1,4 +1,42 @@
 package com.Carlos.spaceinvaders.view.menu;
 
-public class DrawTutorial {
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.TutorialModel;
+import com.Carlos.spaceinvaders.view.Viewer;
+import com.googlecode.lanterna.TextColor;
+
+public class DrawTutorial extends Viewer<TutorialModel> {
+
+    public DrawTutorial(TutorialModel tutorialModel){
+        super(tutorialModel);
+    }
+
+    @Override
+    protected void draw(LanternaGui gui) {
+
+
+        gui.drawText(new PositionModel(34, 7), "C", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(35, 7), "O", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(36, 7), "N", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(37, 7), "T", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(38, 7), "R", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(39, 7), "O", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(40, 7), "L", new TextColor.RGB(178, 73 ,210));
+        gui.drawText(new PositionModel(41, 7), "S", new TextColor.RGB(178, 73 ,210));
+
+        gui.drawText(new PositionModel(29, 10), "UP/SPACE", new TextColor.RGB(255, 255 ,0));
+        gui.drawText(new PositionModel(38, 10), "SHOOT", new TextColor.RGB(255, 255 ,255));
+        gui.drawText(new PositionModel(29, 12), "LEFT", new TextColor.RGB(255, 255 ,0));
+        gui.drawText(new PositionModel(38, 12), "MOVE LEFT",new TextColor.RGB(255, 255 ,255));
+        gui.drawText(new PositionModel(29, 14), "RIGHT", new TextColor.RGB(255, 255 ,0));
+        gui.drawText(new PositionModel(38, 14), "MOVE RIGHT",new TextColor.RGB(255, 255 ,255));
+
+        gui.drawText(new PositionModel(29, 22), "Q/ESC", new TextColor.RGB(255, 255 ,0));
+        gui.drawText(new PositionModel(38, 22), "EXIT TO MENU",new TextColor.RGB(255, 255 ,255));
+
+
+        gui.drawText(new PositionModel(36, 24),getModel().getEntryName(),new TextColor.RGB(255, 0 ,0));
+
+    }
 }

@@ -94,7 +94,10 @@ public class LanternaGui {
         if (keyStroke == null) return null;
         if (keyStroke.getKeyType() == KeyType.EOF) return "Quit";
         if (keyStroke.getKeyType() == KeyType.Escape) return "Escape";
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return "Quit";
+        if (keyStroke.getKeyType() == KeyType.Character) {
+            char character = keyStroke.getCharacter();
+            if (character == 'q' || character == 'Q') return "Quit";
+        }
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return "ArrowUp";
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return "ArrowRight";
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return "ArrowDown";

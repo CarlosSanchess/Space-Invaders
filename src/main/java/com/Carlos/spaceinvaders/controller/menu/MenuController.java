@@ -7,6 +7,8 @@ import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.OptionsModel;
+import com.Carlos.spaceinvaders.model.models.TutorialModel;
+import com.Carlos.spaceinvaders.State.TutorialState;
 
 import java.util.Objects;
 
@@ -38,7 +40,7 @@ public class MenuController extends Controller<MenuModel> {
         int entry = getModel().getEntry();
 
         if(entry == 0) newGame(game);
-        if(entry == 1) tutorial();
+        if(entry == 1) tutorial(game);
         if(entry == 2) options(game);
         if(entry == 3) exit(game);
 
@@ -55,8 +57,9 @@ public class MenuController extends Controller<MenuModel> {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
 
-    private void tutorial(){
-        System.out.println("Tutorial");
+    private void tutorial(Game game){
+
+        game.pushState(new TutorialState(new TutorialModel()));
     }
     private void options(Game game){
 
