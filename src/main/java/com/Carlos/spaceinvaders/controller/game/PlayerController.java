@@ -48,7 +48,7 @@ public class PlayerController extends Controller<PlayerModel> {
     public BulletModel novaBala(){
         PositionModel playerPosition = getModel().getPosition();
 
-        return new BulletModel( new PositionModel(playerPosition.getX(), playerPosition.getY()),1, true) ;
+        return new BulletModel( new PositionModel(playerPosition.getX() , playerPosition.getY() - 2),1, true) ; //Added -2 because of the spaceship
     }
 
     @Override

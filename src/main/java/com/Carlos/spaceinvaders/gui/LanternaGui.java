@@ -233,4 +233,9 @@ public class LanternaGui {
         TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
         graphics.drawLine(startLine, endLine, '+');
     }
+
+    public TextGraphics getGraphics() {
+        return graphics;
+    }
+
 }
