@@ -29,13 +29,12 @@ public class GameController extends Controller<ArenaModel> {
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
-        powerUpFactory.createPowerUp(Time);
+        powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
-        System.out.println(getModel().getPlayer().getHitPoints());
         endGame(game);
     }
 

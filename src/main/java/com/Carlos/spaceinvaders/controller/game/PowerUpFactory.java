@@ -14,13 +14,14 @@ public class PowerUpFactory {
     long Delay;
     PowerUpFactory(List<PowerUp> activePowerUps){
         this.activePowerUps = activePowerUps;
+        this.Delay = 10000;
 
     }
 
 
-    public void createPowerUp(long Time){
-        if(Time - lastCreation > 1000){
-            PowerUp powerUp = new PowerUp(new PositionModel(40,3),1,1000,true,createRandomPower());
+    public void createPowerUp(long Time, int arenaX){
+        if(Time - lastCreation > Delay){
+            PowerUp powerUp = new PowerUp(createRandomPosition(arenaX),1,1000,true,createRandomPower());
             activePowerUps.add(powerUp);
 
             this.lastCreation = Time;
@@ -34,5 +35,18 @@ public class PowerUpFactory {
         } else {
             return PowerUp.PowerUpType.ScoreBoost;
         }
+    }
+    private PositionModel createRandomPosition(int arenaX){
+        Random random = new Random();
+        int x = random.nextInt(arenaX - 2) + 1; // Generate a random number between 1 and arenaX - 1
+        return new PositionModel(x, 1); // TODO
+    }
+
+    public void setDelay(long delay) {
+        Delay = delay;
+    }
+
+    public long getDelay() {
+        return Delay;
     }
 }
