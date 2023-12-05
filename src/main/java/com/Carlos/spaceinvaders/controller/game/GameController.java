@@ -15,6 +15,7 @@ public class GameController extends Controller<ArenaModel> {
     BulletsController bulletsController;
     private final MonsterControllerFactory monsterControllerFactory;
     private final PowerUpFactory  powerUpFactory;
+    private PowerUpController powerUpController;
 
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
@@ -23,6 +24,7 @@ public class GameController extends Controller<ArenaModel> {
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getPlayer(), getModel().getScore());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
+        this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
     }
     public void toDo(Game game,String keyPressed, long Time){
 
@@ -30,8 +32,10 @@ public class GameController extends Controller<ArenaModel> {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
         powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
+
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
+        powerUpController.toDo(game,keyPressed, Time);
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }

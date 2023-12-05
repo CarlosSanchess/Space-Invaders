@@ -21,7 +21,11 @@ public class PowerUp extends Elements {
         this.active = true;
         this.powerUpType = powerUpType;
     }
-    public void move() {
-            position.setY(position.getY() + speed);
+
+    public PowerUpType getPowerUpType() {
+        return powerUpType;
+    }
+    public int getSpeed(){
+        return speed;
     }
 }

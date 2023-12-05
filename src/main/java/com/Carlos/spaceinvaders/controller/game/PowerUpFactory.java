@@ -15,6 +15,7 @@ public class PowerUpFactory {
     PowerUpFactory(List<PowerUp> activePowerUps){
         this.activePowerUps = activePowerUps;
         this.Delay = 10000;
+        this.lastCreation = 0;
 
     }
 

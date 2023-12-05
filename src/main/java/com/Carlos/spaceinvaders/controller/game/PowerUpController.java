@@ -5,7 +5,9 @@ import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.PowerUp.PowerUp;
 
-public class PowerUpController extends Controller<PowerUp> {
+import java.util.List;
+
+public class PowerUpController extends Controller<List<PowerUp>> {
 
     public enum PowerUpType {
         HealthBoost,
@@ -15,10 +17,17 @@ public class PowerUpController extends Controller<PowerUp> {
     private PowerUpType powerUpType;
     private ArenaModel arenaModel;
     private long lastMove;
-    public PowerUpController(PowerUp PowerUp,ArenaModel arenaModel,PowerUpType powerUpType){
-            super(PowerUp);
-            this.arenaModel = arenaModel;
-            this.powerUpType = powerUpType;
+    public PowerUpController(List<PowerUp> activePowerUp){
+            super(activePowerUp);
+            lastMove = 0;
+
+    }
+    private void move(List<PowerUp> activePowerUp) {
+        for (PowerUp powerUp : getModel()) {
+            int currentY = powerUp.getPosition().getY();
+            int newY = currentY + powerUp.getSpeed();
+            powerUp.getPosition().setY(newY);
+        }
     }
     /*
     private void processPowerUp(PowerUpType powerUpType){
@@ -45,8 +54,9 @@ public class PowerUpController extends Controller<PowerUp> {
      */
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
-        if(Time - lastMove > 1000){
-            getModel().move();
+        if(Time - lastMove > 1500 && !getModel().isEmpty()){
+            move(getModel());
+
             this.lastMove = Time;
         }
     }
