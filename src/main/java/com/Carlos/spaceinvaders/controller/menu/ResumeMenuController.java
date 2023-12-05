@@ -65,6 +65,7 @@ public class ResumeMenuController extends Controller<ResumeMenuModel> {
     }
     private void save_load(Game game){
         game.pushState(game.getCurrentState());
+        game.foundGameRecord();
 
     }
     private void exit(Game game){
