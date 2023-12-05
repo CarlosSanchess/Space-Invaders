@@ -22,7 +22,6 @@ public class Game {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
         this.states = new Stack<>();
         state = new MenuState(new MenuModel());
-
         this.states.push(state);
     }
     public State getCurrentState() {

@@ -3,7 +3,6 @@ package com.Carlos.spaceinvaders.controller.game;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
-import com.Carlos.spaceinvaders.view.Viewer;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
     public void move(BulletModel bullet) {
         PositionModel newPosition = calculateNewPosition(bullet); //Cria a posição futura da bala, evita que haja repitição de código.
-        colide(newPosition);
+        collide(newPosition);
 
         bullet.getPosition().setY(newPosition.getY());
         bullet.isActive();
@@ -37,7 +36,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
-    private void colide(PositionModel nextPosition){
+    private void collide(PositionModel nextPosition){
         MonsterModel monster = isMonster(nextPosition);
         if(monster != null){
             activeMonsters.remove(monster);
