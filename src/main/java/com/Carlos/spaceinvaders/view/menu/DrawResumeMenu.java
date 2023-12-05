@@ -43,5 +43,4 @@ public class DrawResumeMenu extends Viewer<ResumeMenuModel> {
             }
         }
     }
-
 }
