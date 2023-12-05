@@ -18,6 +18,11 @@ public class BulletModel extends Elements {
         }
         return active;
     }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public boolean getDirection(){
         return direction;
     }
