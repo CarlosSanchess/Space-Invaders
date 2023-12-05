@@ -28,20 +28,19 @@ public class DrawResumeMenu extends Viewer<ResumeMenuModel> {
         for (int i = 0; i < 4; i++) {
             String entryName = getModel().getEntryName(i);
             PositionModel position;
-            if ("GO TO MENU".equals(entryName)) {
-                position = new PositionModel(33, 15 + 4 * i);
-            }else if ("SAVE/LOAD".equals(entryName)) {
-                position = new PositionModel(33, 15 + 4 * i);
+            if ("GO TO MAIN MENU".equals(entryName)) {
+                position = new PositionModel(30, 18 + 4 * i);
+            } else if ("SAVE PROGRESS".equals(entryName)) {
+                position = new PositionModel(31, 18 + 4 * i);
             } else {
-                position = new PositionModel(34, 15 + 4 * i);
+                position = new PositionModel(34, 18 + 4 * i);
             }
 
             if (getModel().isSelected(i)) {
-                GUI.drawTextSelected(position, entryName, new TextColor.RGB(0, 255 ,0));
+                GUI.drawTextSelected(position, entryName, new TextColor.RGB(0, 255, 0));
             } else {
-                GUI.drawText(position, entryName, new TextColor.RGB(255, 255 ,255));
+                GUI.drawText(position, entryName, new TextColor.RGB(255, 255, 255));
             }
         }
     }
-
 }

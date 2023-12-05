@@ -32,11 +32,11 @@ public class DrawTutorial extends Viewer<TutorialModel> {
         gui.drawText(new PositionModel(29, 14), "RIGHT", new TextColor.RGB(255, 255 ,0));
         gui.drawText(new PositionModel(38, 14), "MOVE RIGHT",new TextColor.RGB(255, 255 ,255));
 
-        gui.drawText(new PositionModel(29, 22), "Q/ESC", new TextColor.RGB(255, 255 ,0));
-        gui.drawText(new PositionModel(38, 22), "EXIT TO MENU",new TextColor.RGB(255, 255 ,255));
+        gui.drawText(new PositionModel(29, 20), "Q/ESC", new TextColor.RGB(255, 255 ,0));
+        gui.drawText(new PositionModel(38, 20), "OPEN IN GAME MENU",new TextColor.RGB(255, 255 ,255));
 
 
-        gui.drawText(new PositionModel(36, 24),getModel().getEntryName(),new TextColor.RGB(255, 0 ,0));
+        gui.drawText(new PositionModel(36, 31),getModel().getEntryName(),new TextColor.RGB(255, 0 ,0));
 
     }
 }

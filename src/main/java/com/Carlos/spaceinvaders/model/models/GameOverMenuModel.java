@@ -7,27 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ResumeMenuModel implements Model{
-    static String text = " ___          ____                      \n" +
-            "|_ _|_ __    / ___| __ _ _ __ ___   ___ \n" +
-            " | || '_ \\  | |  _ / _` | '_ ` _ \\ / _ \\\n" +
-            " | || | | | | |_| | (_| | | | | | |  __/\n" +
-            "|___|_| |_|  \\____|\\__,_|_| |_| |_|\\___|\n";
+public class GameOverMenuModel implements Model {
+    static String text =
+            "  ____    _    __  __ _____    _____     _______ ____  \n" +
+            " / ___|  / \\  |  \\/  | ____|  / _ \\ \\   / / ____|  _ \\ \n" +
+            "| |  _  / _ \\ | |\\/| |  _|   | | | \\ \\ / /|  _| | |_) |\n" +
+            "| |_| |/ ___ \\| |  | | |___  | |_| |\\ V / | |___|  _ < \n" +
+            " \\____/_/   \\_\\_|  |_|_____|  \\___/  \\_/  |_____|_| \\_\\";
 
 
     private final List<String> entries;
     private int entry = 0; // Selecionado
     private final Map<String, TextColor.RGB> entryColors;
 
-    public ResumeMenuModel(){
-
-        this.entries = Arrays.asList("RESUME","RESTART","SAVE PROGRESS","GO TO MAIN MENU");
+    public GameOverMenuModel(){
+        this.entries = Arrays.asList("NEW GAME","EXIT TO MAIN MENU");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("RESUME",new TextColor.RGB(255,0,0)); // Red
-        entryColors.put("RESTART", new TextColor.RGB(0,255,0)); // Green
-        entryColors.put("SAVE/LOAD",new TextColor.RGB(0,0,255)); // Blue
-        entryColors.put("GO TO MENU", new TextColor.RGB(255,255,0)); // Yellow
+        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
+        entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
     }
     public int getNumEntries() {
         return entries.size();
