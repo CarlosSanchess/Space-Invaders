@@ -2,7 +2,6 @@ package com.Carlos.spaceinvaders.controller;
 
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -30,6 +29,7 @@ public class SoundController {
     public void playSound(String name) {
         Clip clip = clips.get(name);
         if (clip != null) {
+            clip.setFramePosition(0);
             clip.start();
         }
     }

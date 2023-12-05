@@ -69,7 +69,7 @@ public class LanternaGui {
     }
 
     private AWTTerminalFontConfiguration fontLoader() throws FontFormatException, IOException {
-        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("fonts/CosmicAlien.ttf");
+        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("fonts/game.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
