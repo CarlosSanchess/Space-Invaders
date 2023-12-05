@@ -30,6 +30,7 @@ public class SoundController {
     public void playSound(String name) {
         Clip clip = clips.get(name);
         if (clip != null) {
+            clip.setFramePosition(0); // faltava isto para ele dar reset ao audio
             clip.start();
         }
     }
