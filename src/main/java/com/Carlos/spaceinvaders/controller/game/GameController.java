@@ -43,7 +43,7 @@ public class GameController extends Controller<ArenaModel> {
 
     private void endGame(Game game){
         if(getModel().getPlayer().getHitPoints() <= 0) {
-            // soundController.playSound("GameOver");
+            soundController.playSound("GameOver");
             game.popState();
             game.pushState(new GameOverMenuState(new GameOverMenuModel()));
         }

@@ -12,6 +12,7 @@ public class SoundController {
 
     public SoundController() {
         loadSound("Shoot", "/sound/Shoot.wav");
+        loadSound("GameOver","/sound/GameOver.wav");
     }
 
     public void loadSound(String name, String filePath) {
