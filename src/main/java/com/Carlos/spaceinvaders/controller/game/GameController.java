@@ -14,6 +14,7 @@ public class GameController extends Controller<ArenaModel> {
     PlayerController playerController;
     BulletsController bulletsController;
     private final MonsterControllerFactory monsterControllerFactory;
+    private final PowerUpFactory  powerUpFactory;
 
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
@@ -21,13 +22,14 @@ public class GameController extends Controller<ArenaModel> {
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets()); //Passar a arena?
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getPlayer(), getModel().getScore());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
-
+        this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
     }
     public void toDo(Game game,String keyPressed, long Time){
 
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
+        powerUpFactory.createPowerUp(Time);
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
