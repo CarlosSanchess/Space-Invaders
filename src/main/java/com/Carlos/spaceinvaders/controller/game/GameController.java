@@ -20,7 +20,6 @@ public class GameController extends Controller<ArenaModel> {
     private final PowerUpFactory  powerUpFactory;
     private PowerUpController powerUpController;
 
-
     private SoundController soundController;
 
     public GameController(ArenaModel arenaModel) {
@@ -31,7 +30,6 @@ public class GameController extends Controller<ArenaModel> {
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
         this.powerUpController = new PowerUpController(getModel().getActivePowerUps(),getModel());
-        //this.monsterFactory = new MonsterFactory(getModel().getActiveMonsters());
     }
     public void toDo(Game game,String keyPressed, long Time){
 
@@ -39,6 +37,7 @@ public class GameController extends Controller<ArenaModel> {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
         powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
+        monsterControllerFactory.CreateMonstersAndControllers(Time);
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
         powerUpController.toDo(game,keyPressed, Time);

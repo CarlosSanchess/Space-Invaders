@@ -6,6 +6,7 @@ import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.ShooterMovement
 import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovementStrategy;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,23 +17,29 @@ public class MonsterControllerFactory {
     private List<BulletModel> bullets;
     private List<MonsterController> monsterControllers;
     private List<MonsterModel> activeMonsters;
+    private MonsterFactory monsterFactory;
+
     public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
         this.arenaW = arenaW;
         this.bullets = bullets;
         this.monsterControllers = new ArrayList<>();
         this.activeMonsters = activeMonsters;
-        for (MonsterModel monster : activeMonsters) {
-            MonsterController monsterController = createMonsterController(monster);
-            this.monsterControllers.add(monsterController);
-        }
+        this.monsterFactory = new MonsterFactory(activeMonsters);
     }
 
-    public MonsterController createMonsterController(MonsterModel monster) {
+    private MonsterController createMonsterController(MonsterModel monster) {
+
         MovementStrategy movementStrategy = getRandomMovementStrategy();
         return new MonsterController(monster, movementStrategy);
     }
 
-
+    public void CreateMonstersAndControllers(long Time){
+        MonsterModel newMonster = monsterFactory.createMonster(Time,arenaW);
+        if(newMonster != null){
+            MonsterController monsterController = createMonsterController(newMonster);
+            this.monsterControllers.add(monsterController);
+        }
+    }
     private MovementStrategy getRandomMovementStrategy() {
         Random random = new Random();
         int randomNumber = random.nextInt(11);
@@ -48,4 +55,5 @@ public class MonsterControllerFactory {
     public List<MonsterController> getMonstersControllers(){
      return monsterControllers;
     }
+
 }

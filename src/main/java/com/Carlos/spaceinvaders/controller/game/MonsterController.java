@@ -12,11 +12,15 @@ public class MonsterController extends Controller<MonsterModel> {
     public MonsterController(MonsterModel model,MovementStrategy movementStrategy) {
         super(model);
         this.movementStrategy = movementStrategy;
+        this.lastMove = 0;
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
         if(Time - lastMove > 1000){
+            System.out.println(lastMove);
+            System.out.println(Time);
             movementStrategy.move(getModel());
+            System.out.println("dasda");
             this.lastMove = Time;
         }
 

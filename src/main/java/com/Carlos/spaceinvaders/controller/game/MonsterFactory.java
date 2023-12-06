@@ -22,13 +22,15 @@ public class MonsterFactory {
         }
 
 
-        public void createMonster(long Time, int arenaX){
+        public MonsterModel createMonster(long Time, int arenaX){
             if(Time - lastCreation > Delay){
                 MonsterModel monsterModel = new MonsterModel(createRandomPosition(arenaX),1,1);
                 activeMonsters.add(monsterModel);
 
                 this.lastCreation = Time;
+                return monsterModel;
             }
+            return null;
         }
 
         private PositionModel createRandomPosition(int arenaX){
