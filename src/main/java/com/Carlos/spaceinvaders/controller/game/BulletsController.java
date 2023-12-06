@@ -39,10 +39,11 @@ public class BulletsController extends Controller<List<BulletModel>> {
     public void move(BulletModel bullet,long Time) {
         PositionModel newPosition = calculateNewPosition(bullet); //Cria a posição futura da bala, evita que haja repitição de código.
 
-        boolean colidiu = colide(newPosition, Time);
+        boolean colidiu = colide(newPosition, Time, bullet.getDirection());
 
         if(colidiu) {
             bullet.setActive(false);
+
         }else{
             bullet.getPosition().setY(newPosition.getY());
         }
@@ -53,16 +54,16 @@ public class BulletsController extends Controller<List<BulletModel>> {
         return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
-    private boolean colide(PositionModel nextPosition, long Time){ // Passar um controller?
+    private boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
         MonsterModel monster = isMonster(nextPosition);
         PowerUp powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
-        if(monster != null){
+        if(monster != null && direction){ //Impede que a bala mate mais que 1 monstro, o ideal seria retira-la da lista logo.
             activeMonsters.remove(monster);
             this.scoreModel.incrementScore();
             return true;
         }
-        if(powerUp != null){
+        if(powerUp != null){ //
             processPowerUp(powerUp,Time);
             activePowerUps.remove(powerUp);
         }

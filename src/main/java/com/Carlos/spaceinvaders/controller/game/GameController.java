@@ -31,6 +31,7 @@ public class GameController extends Controller<ArenaModel> {
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
         this.powerUpController = new PowerUpController(getModel().getActivePowerUps(),getModel());
+        //this.monsterFactory = new MonsterFactory(getModel().getActiveMonsters());
     }
     public void toDo(Game game,String keyPressed, long Time){
 

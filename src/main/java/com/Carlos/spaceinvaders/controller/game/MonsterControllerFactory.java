@@ -32,6 +32,7 @@ public class MonsterControllerFactory {
         return new MonsterController(monster, movementStrategy);
     }
 
+
     private MovementStrategy getRandomMovementStrategy() {
         Random random = new Random();
         int randomNumber = random.nextInt(11);
