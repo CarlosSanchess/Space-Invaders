@@ -14,16 +14,19 @@ public class MonsterFactory {
         private final List<MonsterModel> activeMonsters;
         long lastCreation;
         long Delay;
+        private int numMonstros;
         MonsterFactory(List<MonsterModel> activeMonsters){
             this.activeMonsters = activeMonsters;
             this.Delay = 2000;
             this.lastCreation = 0;
+            this.numMonstros = 1;
 
         }
 
 
         public MonsterModel createMonster(long Time, int arenaX){
             if(Time - lastCreation > Delay){
+
                 MonsterModel monsterModel = new MonsterModel(createRandomPosition(arenaX),1,1);
                 activeMonsters.add(monsterModel);
 

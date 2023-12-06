@@ -63,7 +63,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
             this.scoreModel.incrementScore();
             return true;
         }
-        if(powerUp != null){ //
+        if(powerUp != null && direction){ //
             processPowerUp(powerUp,Time);
             activePowerUps.remove(powerUp);
         }
