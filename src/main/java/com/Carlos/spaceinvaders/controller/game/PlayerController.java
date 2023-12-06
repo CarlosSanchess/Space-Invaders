@@ -2,6 +2,7 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
@@ -16,12 +17,14 @@ public class PlayerController extends Controller<PlayerModel> {
     int arenaW;
     List<BulletModel> bullets;
     private long lastShoot;
+    private SoundController soundController;
 
-    public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets){  //TODO Não há maneira melhor de fazer isto-?
+    public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets, SoundController soundController){  //TODO Não há maneira melhor de fazer isto-?
         super(player);
         this.arenaW = arenaW;
         this.bullets = bullets;
         this.lastShoot = 0;
+        this.soundController = soundController;
     }
 
 
@@ -41,6 +44,7 @@ public class PlayerController extends Controller<PlayerModel> {
         if(Time - lastShoot > getModel().getDelayShooting()){
             bullets.add(novaBala());
             this.lastShoot = Time;
+            soundController.playSound("Shoot");
         }
 
     }

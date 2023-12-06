@@ -34,7 +34,7 @@ public class ArenaModel implements Model {
         this.createMonsters = new CreateMonsters(x,activeMonsters);
 
         walls = CreateWalls.createWalls(x, y);
-        activeMonsters = createMonsters.addMonsters(3);
+        activeMonsters = createMonsters.addMonsters(20);
     }
 
     public int getWidth() {

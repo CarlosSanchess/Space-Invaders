@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.OptionsState;
 import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.OptionsModel;
@@ -16,9 +17,11 @@ import java.util.Objects;
 public class MenuController extends Controller<MenuModel> {
     //TODO TORNAR MAIS LEGIVEL
     private MenuModel menuModel;
+    private SoundController soundController;
 
     public MenuController(MenuModel menuModel){
         super(menuModel);
+        this.soundController = soundController;
     }
 
     private void nextEntry(){
@@ -58,6 +61,7 @@ public class MenuController extends Controller<MenuModel> {
 
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
+        // soundController.playSound("Menu");
     }
     private void continueGame( Game game){
         while (game.getCurrentState() != null && !(game.getCurrentState() instanceof GameState)) {

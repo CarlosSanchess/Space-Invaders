@@ -80,4 +80,7 @@ public class MenuModel implements Model{
     }
 
 
+    public void nextEntry() {
+        entry = (entry + 1) % getEntriesSize();
+    }
 }

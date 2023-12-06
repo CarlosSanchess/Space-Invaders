@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
 import com.Carlos.spaceinvaders.model.models.PowerUp;
 
+
 import java.util.List;
 
 public class BulletsController extends Controller<List<BulletModel>> {
@@ -37,7 +38,9 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
     public void move(BulletModel bullet,long Time) {
         PositionModel newPosition = calculateNewPosition(bullet); //Cria a posição futura da bala, evita que haja repitição de código.
+
         boolean colidiu = colide(newPosition, Time);
+
         if(colidiu) {
             bullet.setActive(false);
         }else{

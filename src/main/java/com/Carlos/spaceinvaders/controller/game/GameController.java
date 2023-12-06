@@ -2,10 +2,13 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 
+import com.Carlos.spaceinvaders.State.GameOverMenuState;
 import com.Carlos.spaceinvaders.State.ResumeMenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
-import com.Carlos.spaceinvaders.model.models.PlayerModel;
+
+import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
 import java.util.Objects;
@@ -17,10 +20,13 @@ public class GameController extends Controller<ArenaModel> {
     private final PowerUpFactory  powerUpFactory;
     private PowerUpController powerUpController;
 
+
+    private SoundController soundController;
+
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
-
-        this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets()); //Passar a arena?
+        this.soundController = new SoundController();
+        this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController); //Passar a arena?
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
@@ -38,13 +44,14 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
-        System.out.println(getModel().getActivePowerUps().size());
         endGame(game);
     }
 
     private void endGame(Game game){
         if(getModel().getPlayer().getHitPoints() <= 0) {
+            soundController.playSound("GameOver");
             game.popState();
+            game.pushState(new GameOverMenuState(new GameOverMenuModel()));
         }
     }
 }

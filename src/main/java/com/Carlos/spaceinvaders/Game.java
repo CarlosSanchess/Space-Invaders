@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.SharedState;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,15 +15,19 @@ public class Game {
 
     private final LanternaGui GUI;
     public Stack<State> states;
+    ;
     private State state;
 
     String Key;
+
+    public boolean foundGameRecord(){
+        return SharedState.foundGameRecord = true;
+    }
 
     Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
         this.states = new Stack<>();
         state = new MenuState(new MenuModel());
-
         this.states.push(state);
     }
     public State getCurrentState() {
