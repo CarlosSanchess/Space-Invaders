@@ -62,11 +62,6 @@ public class ResumeMenuModel implements Model{
         this.text = spaceInvaders;
     }
 
-    public void addEntry(String newGame, TextColor.RGB rgb) { // Not Used Yet
-        this.entries.add(newGame);
-        this.entryColors.put(newGame,rgb);
-    }
-
     public boolean isSelected(int i){
         return i == getCurrentEntry();
     }
