@@ -12,13 +12,17 @@ public class BulletModel extends Elements {
        active = true;
     }
 
-    public boolean isActive(){
-        if (position.getY() < 0){
-            active = false;
-        }
+    public boolean getActive(){
         return active;
     }
-
+    public void processActive(int bulletY){
+        if (position.getY() < 0 && direction) {
+            active = false;
+        }
+        if(position.getY() > bulletY - 1 && !direction){
+            active = false;
+        }
+    }
     public void setActive(boolean active) {
         this.active = active;
     }

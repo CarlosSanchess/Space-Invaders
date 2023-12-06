@@ -6,6 +6,7 @@ import com.Carlos.spaceinvaders.model.models.*;
 import com.Carlos.spaceinvaders.model.models.PowerUp;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 public class BulletsController extends Controller<List<BulletModel>> {
@@ -16,7 +17,8 @@ public class BulletsController extends Controller<List<BulletModel>> {
     private ScoreModel scoreModel;
     private long lastScoreBoostTime;
     private long upTime;
-    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel){
+    private int arenaH;
+    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel, int arenaH){
         super(bullets);
         this.activeMonsters = activeMonsters;
         this.activePowerUps = activePowerUps;
@@ -24,12 +26,20 @@ public class BulletsController extends Controller<List<BulletModel>> {
         this.scoreModel = scoreModel;
         this.lastScoreBoostTime = 0;
         this.upTime = 10000;
+        this.arenaH = arenaH;
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
-        for(BulletModel bullet : getModel()){
-                move(bullet, Time);
+        Iterator<BulletModel> iterator = getModel().iterator();
+        while (iterator.hasNext()) {
+            BulletModel bullet = iterator.next();
+            move(bullet,Time);
+            bullet.processActive(bullet.getPosition().getY()); //Check if bullet becomes unactive
+            if (!bullet.getActive()){
+                iterator.remove();
+            }
         }
+
         if(lastScoreBoostTime != 0 && Time - lastScoreBoostTime > upTime){
             playerModel.setPowerUpType(null);
             lastScoreBoostTime = 0;
@@ -47,7 +57,6 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }else{
             bullet.getPosition().setY(newPosition.getY());
         }
-        bullet.isActive();
     }
     private PositionModel calculateNewPosition(BulletModel bullet) {
         int newY = bullet.getDirection() ? bullet.getPosition().getY() - bullet.getSpeed() : bullet.getPosition().getY() + bullet.getSpeed();
