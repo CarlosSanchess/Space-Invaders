@@ -25,4 +25,8 @@ public class MonsterModel extends Elements {
     public void setDirection(boolean b) {
         this.direction = b;
     }
+
+    public boolean getDirection() {
+        return direction;
+    }
 }

@@ -3,52 +3,68 @@ package com.Carlos.spaceinvaders.model.models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
-
 public class ArenaTest {
 
-    private ArenaModel arena;
+    private ArenaModel arenaModel;
 
     @BeforeEach
-    public void setUp() throws InterruptedException {
-        arena = new ArenaModel(100, 80);
+    public void setUp() {
+        arenaModel = new ArenaModel(100, 80);
     }
 
     @Test
     public void testGetWidth() {
-        assertEquals(100, arena.getWidth());
+        int expectedWidth = 100;
+        int actualWidth = arenaModel.getWidth();
+        assertEquals(expectedWidth, actualWidth);
     }
 
     @Test
     public void testGetHeight() {
-        assertEquals(80, arena.getHeight());
+        int expectedHeight = 80;
+        int actualHeight = arenaModel.getHeight();
+        assertEquals(expectedHeight, actualHeight);
     }
 
     @Test
     public void testGetPlayer() {
-        assertNotNull(arena.getPlayer());
+        PlayerModel playerModel = arenaModel.getPlayer();
+        assertNotNull(playerModel);
     }
 
     @Test
     public void testGetActiveBullets() {
-        assertNotNull(arena.getActiveBullets());
+        List<BulletModel> activeBullets = arenaModel.getActiveBullets();
+        assertNotNull(activeBullets);
     }
 
     @Test
     public void testGetActiveMonsters() {
-        assertNotNull(arena.getActiveMonsters());
+        List<MonsterModel> activeMonsters = arenaModel.getActiveMonsters();
+        assertNotNull(activeMonsters);
     }
 
     @Test
     public void testGetWalls() {
-        assertNotNull(arena.getWalls());
+        List<WallModel> walls = arenaModel.getWalls();
+        assertNotNull(walls);
     }
 
     @Test
     public void testGetScore() {
-        assertNotNull(arena.getScore());
+        ScoreModel scoreModel = arenaModel.getScore();
+        assertNotNull(scoreModel);
+    }
+
+    @Test
+    public void testGetActivePowerUps() {
+        List<PowerUp> activePowerUps = arenaModel.getActivePowerUps();
+        assertNotNull(activePowerUps);
     }
 }

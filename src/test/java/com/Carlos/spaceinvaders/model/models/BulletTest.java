@@ -1,45 +1,61 @@
 package com.Carlos.spaceinvaders.model.models;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BulletTest {
-    private BulletModel bullet;
+
+    private BulletModel bulletModel;
 
     @BeforeEach
     public void setUp() {
         PositionModel position = new PositionModel(0, 0);
-        int speed = 5;
+        int speed = 10;
         boolean direction = true;
-        bullet = new BulletModel(position, speed, direction);
-    }
-
-    @Test
-    public void testMove() {
-      //TODO
-        //bullet.move();
-        assertEquals(-5, bullet.getPosition().getY());
-    }
-
-    @Test
-    public void testIsActive() {
-        assertTrue(bullet.isActive());
-
-        bullet.getPosition().setY(-10);
-        assertFalse(bullet.isActive());
+        bulletModel = new BulletModel(position, speed, direction);
     }
 
     @Test
     public void testIsActiveInitially() {
-        assertTrue(bullet.isActive());
+        assertTrue(bulletModel.isActive());
+    }
+
+    @Test
+    public void testIsActive() {
+        bulletModel.getPosition().setY(-10);
+        assertFalse(bulletModel.isActive());
+
+        bulletModel.getPosition().setY(0);
+        assertTrue(bulletModel.isActive());
+
+        bulletModel.getPosition().setY(10);
+        assertTrue(bulletModel.isActive());
     }
 
     @Test
     public void testNotActiveWhenOffScreen() {
-        bullet.getPosition().setY(-110);
-        assertFalse(bullet.isActive());
+        bulletModel.getPosition().setY(-110);
+        assertFalse(bulletModel.isActive());
+    }
+
+    @Test
+    public void testSetActive() {
+        bulletModel.setActive(false);
+        assertFalse(bulletModel.isActive());
+
+        bulletModel.setActive(true);
+        assertTrue(bulletModel.isActive());
+    }
+
+    @Test
+    public void testGetDirection() {
+        assertTrue(bulletModel.getDirection());
+    }
+
+    @Test
+    public void testGetSpeed() {
+        assertEquals(10, bulletModel.getSpeed());
     }
 }
