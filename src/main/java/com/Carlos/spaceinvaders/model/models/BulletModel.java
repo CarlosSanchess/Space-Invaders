@@ -15,11 +15,11 @@ public class BulletModel extends Elements {
     public boolean getActive(){
         return active;
     }
-    public void processActive(int bulletY){
+    public void processActive(int arenaH){
         if (position.getY() < 0 && direction) {
             active = false;
         }
-        if(position.getY() > bulletY - 1 && !direction){
+        if(position.getY() > arenaH - 1 && !direction){
             active = false;
         }
     }

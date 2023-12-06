@@ -34,7 +34,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         while (iterator.hasNext()) {
             BulletModel bullet = iterator.next();
             move(bullet,Time);
-            bullet.processActive(bullet.getPosition().getY()); //Check if bullet becomes unactive
+            bullet.processActive(arenaH); //Check if bullet becomes unactive
             if (!bullet.getActive()){
                 iterator.remove();
             }
