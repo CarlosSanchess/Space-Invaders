@@ -8,13 +8,13 @@ import  com.Carlos.spaceinvaders.model.models.PowerUp.PowerUpType;
 public class PlayerModel extends Elements {
 
     private int hitPoints; //Not Used Yet
-    private int delayShooting;
+    private long delayShooting;
     private PowerUpType powerUpType;
 
     public PlayerModel(PositionModel position, int hitPoints, PowerUpType powerUpType){
         super(position);
         this.hitPoints = hitPoints;
-        this.delayShooting = 100;
+        this.delayShooting = 500;
         this.powerUpType = null;
     }
     public BulletModel playerShoot(){
@@ -38,7 +38,7 @@ public class PlayerModel extends Elements {
     public void setDelayShooting(int delayShooting) {
         this.delayShooting = delayShooting;
     }
-    public int getDelayShooting() {
+    public long getDelayShooting() {
         return delayShooting;
     }
     public PowerUpType getPowerUpType() {

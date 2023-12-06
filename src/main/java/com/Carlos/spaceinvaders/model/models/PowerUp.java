@@ -9,13 +9,13 @@ public class PowerUp extends Elements {
     private long upTime;
     PositionModel position;
     private final int speed;
-    private boolean active;
+    private int active; // 0 por atingir 1 em exec 2 para ser elem
     private PowerUpType powerUpType;
     public PowerUp(PositionModel position, int speed, long upTime, boolean active,PowerUpType powerUpType){
         super(position);
         this.speed = speed;
         this.upTime = upTime;
-        this.active = false;
+        this.active = 0;
         this.powerUpType = powerUpType;
     }
 
@@ -26,11 +26,11 @@ public class PowerUp extends Elements {
         return speed;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void incrementActive() {
+        this.active = (this.active + 1) % 3;
     }
 
-    public boolean isActive() {
+    public int isActive() {
         return active;
     }
     public void move(){

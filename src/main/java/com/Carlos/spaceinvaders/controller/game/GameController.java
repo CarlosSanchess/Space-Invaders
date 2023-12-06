@@ -32,13 +32,13 @@ public class GameController extends Controller<ArenaModel> {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
         }
         powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
-
         playerController.toDo(game,keyPressed,Time);
         bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
         powerUpController.toDo(game,keyPressed, Time);
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
+        System.out.println(getModel().getActivePowerUps().size());
         endGame(game);
     }
 
