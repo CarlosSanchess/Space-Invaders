@@ -2,6 +2,7 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 
+import com.Carlos.spaceinvaders.HighScore;
 import com.Carlos.spaceinvaders.State.GameOverMenuState;
 import com.Carlos.spaceinvaders.State.ResumeMenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
@@ -11,7 +12,6 @@ import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
-import java.util.Objects;
 
 public class GameController extends Controller<ArenaModel> {
     PlayerController playerController;
@@ -52,6 +52,13 @@ public class GameController extends Controller<ArenaModel> {
             soundController.playSound("GameOver");
             game.popState();
             game.pushState(new GameOverMenuState(new GameOverMenuModel()));
+
+            int finalScore = getModel().getScore().getScore();
+            int highScore = HighScore.loadHighScore();
+
+            if (finalScore > highScore) {
+                HighScore.saveHighScore(finalScore);
+            }
         }
     }
 }
