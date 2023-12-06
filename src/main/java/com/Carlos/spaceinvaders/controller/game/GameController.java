@@ -21,10 +21,10 @@ public class GameController extends Controller<ArenaModel> {
         super(arenaModel);
 
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets()); //Passar a arena?
-        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getPlayer(), getModel().getScore());
+        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
-        this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
+        this.powerUpController = new PowerUpController(getModel().getActivePowerUps(),getModel());
     }
     public void toDo(Game game,String keyPressed, long Time){
 

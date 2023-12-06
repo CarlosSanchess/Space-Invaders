@@ -2,7 +2,6 @@ package com.Carlos.spaceinvaders.model.models;
 
 import com.Carlos.spaceinvaders.model.builders.CreateWalls;
 import com.Carlos.spaceinvaders.model.builders.CreateMonsters;
-import com.Carlos.spaceinvaders.model.models.PowerUp.PowerUp;
 
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class ArenaModel implements Model {
     public ArenaModel(int x, int y) {
         this.width = x;
         this.height = y;
-        this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
+        this.player = new PlayerModel(new PositionModel(40, y - 2), 3,null);
         this.score = new ScoreModel(new PositionModel(70, y - 3)); // Posição Exprimental apenas
         this.activeBullets = new ArrayList<>();
         this.activeMonsters = new ArrayList<>();

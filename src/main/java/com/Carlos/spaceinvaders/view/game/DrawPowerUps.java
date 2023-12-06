@@ -1,8 +1,7 @@
 package com.Carlos.spaceinvaders.view.game;
 
 import com.Carlos.spaceinvaders.gui.LanternaGui;
-import com.Carlos.spaceinvaders.model.models.MonsterModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUp;
 import com.Carlos.spaceinvaders.view.Viewer;
 
 import java.util.List;

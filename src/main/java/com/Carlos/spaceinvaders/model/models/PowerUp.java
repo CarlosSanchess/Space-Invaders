@@ -1,7 +1,4 @@
-package com.Carlos.spaceinvaders.model.models.PowerUp;
-
-import com.Carlos.spaceinvaders.model.models.Elements;
-import com.Carlos.spaceinvaders.model.models.PositionModel;
+package com.Carlos.spaceinvaders.model.models;
 
 public class PowerUp extends Elements {
 
@@ -18,7 +15,7 @@ public class PowerUp extends Elements {
         super(position);
         this.speed = speed;
         this.upTime = upTime;
-        this.active = true;
+        this.active = false;
         this.powerUpType = powerUpType;
     }
 
@@ -27,5 +24,16 @@ public class PowerUp extends Elements {
     }
     public int getSpeed(){
         return speed;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+    public void move(){
+        getPosition().setY(getPosition().getY() + speed);
     }
 }

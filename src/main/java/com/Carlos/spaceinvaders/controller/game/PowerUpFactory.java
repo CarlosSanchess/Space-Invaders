@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUp;
 
 import java.util.List;
 import java.util.Random;

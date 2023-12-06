@@ -1,18 +1,21 @@
 package com.Carlos.spaceinvaders.model.models;
 
 import java.awt.*;
+import  com.Carlos.spaceinvaders.model.models.PowerUp.PowerUpType;
 
-import java.awt.*;
+
 
 public class PlayerModel extends Elements {
 
     private int hitPoints; //Not Used Yet
     private int delayShooting;
+    private PowerUpType powerUpType;
 
-    public PlayerModel(PositionModel position, int hitPoints){
+    public PlayerModel(PositionModel position, int hitPoints, PowerUpType powerUpType){
         super(position);
         this.hitPoints = hitPoints;
         this.delayShooting = 100;
+        this.powerUpType = null;
     }
     public BulletModel playerShoot(){
         return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
@@ -26,7 +29,6 @@ public class PlayerModel extends Elements {
     public int getHitPoints() {
         return hitPoints;
     }
-
     public void incrementHitPoints(){
         this.hitPoints++;
     }
@@ -38,5 +40,11 @@ public class PlayerModel extends Elements {
     }
     public int getDelayShooting() {
         return delayShooting;
+    }
+    public PowerUpType getPowerUpType() {
+        return powerUpType;
+    }
+    public void setPowerUpType(PowerUpType powerUpType) {
+        this.powerUpType = powerUpType;
     }
 }

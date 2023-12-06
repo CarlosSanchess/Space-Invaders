@@ -3,18 +3,20 @@ package com.Carlos.spaceinvaders.controller.game;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
-import com.Carlos.spaceinvaders.view.Viewer;
+import com.Carlos.spaceinvaders.model.models.PowerUp;
 
 import java.util.List;
 
 public class BulletsController extends Controller<List<BulletModel>> {
 
     private List<MonsterModel> activeMonsters;
+    private List<PowerUp> activePowerUps;
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
-    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, PlayerModel playerModel, ScoreModel scoreModel){
+    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel){
         super(bullets);
         this.activeMonsters = activeMonsters;
+        this.activePowerUps = activePowerUps;
         this.playerModel = playerModel;
         this.scoreModel = scoreModel;
     }
@@ -42,11 +44,15 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
     private boolean colide(PositionModel nextPosition){
         MonsterModel monster = isMonster(nextPosition);
+        PowerUp powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
         if(monster != null){
             activeMonsters.remove(monster);
             this.scoreModel.incrementScore();
             return true;
+        }
+        if(powerUp != null){
+            powerUp.setActive(true);
         }
         return playerhit;
     }
@@ -54,6 +60,14 @@ public class BulletsController extends Controller<List<BulletModel>> {
         for(MonsterModel monster : activeMonsters){
             if(monster.getPosition().equals(nextPosition)){
                 return monster;
+            }
+        }
+        return null;
+    }
+    private PowerUp isPowerUp(PositionModel newPosition) {
+        for (PowerUp powerUp : activePowerUps) {
+            if (newPosition.equals(powerUp.getPosition())) {
+                return powerUp;
             }
         }
         return null;
