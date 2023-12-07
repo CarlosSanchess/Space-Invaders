@@ -1,5 +1,8 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.Game;
+import com.Carlos.spaceinvaders.controller.Controller;
+import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 
@@ -8,17 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MonsterFactory {
+public class MonsterFactory extends Controller<MonsterFactoryModel> {
 
         private final List<MonsterModel> activeMonsters;
         long lastCreation;
         long Delay;
         private int numMonstros;
-        MonsterFactory(List<MonsterModel> activeMonsters){
+        MonsterFactory(MonsterFactoryModel monsterFactoryModel, List<MonsterModel> activeMonsters){
+            super(monsterFactoryModel);
             this.activeMonsters = activeMonsters;
-            this.Delay = 3000;
             this.lastCreation = 0;
-            this.numMonstros = 1;
+            this.Delay = getModel().getDelay();
+            this.numMonstros = getModel().getNumMonstros();
 
         }
 
@@ -43,12 +47,9 @@ public class MonsterFactory {
             return new PositionModel(x, 1); // TODO
         }
 
-        public void setDelay(long delay) {
-            Delay = delay;
-        }
+    @Override
+    public void toDo(Game game, String keyPressed, long Time) { //TODO
 
-        public long getDelay() {
-            return Delay;
-        }
     }
+}
 

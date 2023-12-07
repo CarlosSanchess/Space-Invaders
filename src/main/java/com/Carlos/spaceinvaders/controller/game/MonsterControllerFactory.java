@@ -5,8 +5,8 @@ import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.MovementStrateg
 import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.ShooterMovementStrategy;
 import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovementStrategy;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
+import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
-import com.Carlos.spaceinvaders.model.models.PositionModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +19,12 @@ public class MonsterControllerFactory {
     private List<MonsterModel> activeMonsters;
     private MonsterFactory monsterFactory;
 
-    public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
+    public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters, MonsterFactoryModel monsterFactoryModel) {
         this.arenaW = arenaW;
         this.bullets = bullets;
         this.monsterControllers = new ArrayList<>();
         this.activeMonsters = activeMonsters;
-        this.monsterFactory = new MonsterFactory(activeMonsters);
+        this.monsterFactory = new MonsterFactory(monsterFactoryModel,activeMonsters);
     }
 
     private MonsterController createMonsterController(MonsterModel monster) {
