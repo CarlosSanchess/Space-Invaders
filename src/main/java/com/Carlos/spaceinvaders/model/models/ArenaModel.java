@@ -18,7 +18,7 @@ public class ArenaModel implements Model {
     private List<WallModel> walls;
     private List<MonsterModel> activeMonsters;
     private List<PowerUp> activePowerUps;
-    private CreateMonsters createMonsters;
+    private MonsterFactoryModel monsterFactoryModel;
     private ScoreModel score;
 
     private PlayerModel player;
@@ -28,6 +28,7 @@ public class ArenaModel implements Model {
         this.height = y;
         this.player = new PlayerModel(new PositionModel(40, y - 2), 3,null);
         this.score = new ScoreModel(new PositionModel(70, y - 3)); // Posição Exprimental apenas
+        this.monsterFactoryModel = new MonsterFactoryModel();
         this.activeBullets = new ArrayList<>();
         this.activeMonsters = new ArrayList<>();
         this.activePowerUps = new ArrayList<>();
@@ -65,5 +66,9 @@ public class ArenaModel implements Model {
 
     public List<PowerUp> getActivePowerUps() {
         return activePowerUps;
+    }
+
+    public MonsterFactoryModel getMonsterFactoryModel() {
+        return monsterFactoryModel;
     }
 }

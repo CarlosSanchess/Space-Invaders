@@ -26,10 +26,11 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
         int y = position.getY();
         TextColor.RGB color;
         if(getModel().getPowerUpType() == PowerUp.PowerUpType.ScoreBoost)
-            color = new TextColor.RGB(255,255,0);
-        else{
+        color = new TextColor.RGB(255,255,0);
+        else if(getModel().getPowerUpType() == PowerUp.PowerUpType.FireRateBoost)
+            color = new TextColor.RGB(255,0,0);
+        else
             color = new TextColor.RGB(0,255,0);
-        }
 
         gui.getGraphics().setBackgroundColor(TextColor.Factory.fromString("#010327")); // Use your default background color
         gui.drawText(new PositionModel(x, y - 2), "|", color, false);

@@ -15,7 +15,7 @@ public class DrawBullet extends Viewer<BulletModel> {
     @Override
     public void draw(LanternaGui GUI){
         BulletModel bulletModel = getModel();
-        if(bulletModel.isActive()){
+        if(bulletModel.getActive()){
             if(bulletModel.getDirection()){
                 GUI.drawText(bulletModel.getPosition(),"|",new TextColor.RGB(0,255,0));
             }else{

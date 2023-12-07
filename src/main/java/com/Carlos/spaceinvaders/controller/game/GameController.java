@@ -16,20 +16,23 @@ import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 public class GameController extends Controller<ArenaModel> {
     PlayerController playerController;
     BulletsController bulletsController;
-    MonsterControllerFactory monsterControllerFactory;
-    PowerUpFactory  powerUpFactory;
-    PowerUpController powerUpController;
+    private final MonsterControllerFactory monsterControllerFactory;
+    private final PowerUpFactory  powerUpFactory;
+    private PowerUpController powerUpController;
+    private MonsterFactory monsterFactory;
 
-    SoundController soundController;
+
+    private SoundController soundController;
 
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
         this.soundController = new SoundController();
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController); //Passar a arena?
-        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore());
-        this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
+        this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore(),getModel().getHeight());
+        this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
-        this.powerUpController = new PowerUpController(getModel().getActivePowerUps(),getModel());
+        this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
+        this.monsterFactory = new MonsterFactory(getModel().getMonsterFactoryModel(),getModel().getActiveMonsters());
     }
     public void toDo(Game game,String keyPressed, long Time){
 

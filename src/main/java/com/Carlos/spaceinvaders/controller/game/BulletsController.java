@@ -6,6 +6,7 @@ import com.Carlos.spaceinvaders.model.models.*;
 import com.Carlos.spaceinvaders.model.models.PowerUp;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 public class BulletsController extends Controller<List<BulletModel>> {
@@ -15,25 +16,41 @@ public class BulletsController extends Controller<List<BulletModel>> {
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
     private long lastScoreBoostTime;
+    private long lastFireRateBoostTime;
     private long upTime;
-    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel){
+    private int arenaH;
+    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel, int arenaH){
         super(bullets);
         this.activeMonsters = activeMonsters;
         this.activePowerUps = activePowerUps;
         this.playerModel = playerModel;
         this.scoreModel = scoreModel;
         this.lastScoreBoostTime = 0;
+        this.lastFireRateBoostTime = 0;
         this.upTime = 10000;
+        this.arenaH = arenaH;
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
-        for(BulletModel bullet : getModel()){
-                move(bullet, Time);
+        Iterator<BulletModel> iterator = getModel().iterator();
+        while (iterator.hasNext()) {
+            BulletModel bullet = iterator.next();
+            move(bullet,Time);
+            bullet.processActive(arenaH); //Check if bullet becomes unactive
+            if (!bullet.getActive()){
+                iterator.remove();
+            }
         }
+
         if(lastScoreBoostTime != 0 && Time - lastScoreBoostTime > upTime){
             playerModel.setPowerUpType(null);
             lastScoreBoostTime = 0;
         }
+        if(lastFireRateBoostTime != 0 && Time - lastFireRateBoostTime > upTime){
+            playerModel.setPowerUpType(null);
+            lastFireRateBoostTime = 0;
+        }
+
     }
 
     public void move(BulletModel bullet,long Time) {
@@ -47,7 +64,6 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }else{
             bullet.getPosition().setY(newPosition.getY());
         }
-        bullet.isActive();
     }
     PositionModel calculateNewPosition(BulletModel bullet) {
         int newY = bullet.getDirection() ? bullet.getPosition().getY() - bullet.getSpeed() : bullet.getPosition().getY() + bullet.getSpeed();
@@ -63,7 +79,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
             this.scoreModel.incrementScore();
             return true;
         }
-        if(powerUp != null){ //
+        if(powerUp != null && direction){ //
             processPowerUp(powerUp,Time);
             activePowerUps.remove(powerUp);
         }
@@ -98,6 +114,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
             ScoreBoost();
             lastScoreBoostTime = Time;
         }
+        if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost){
+            FireRateBoost();
+
+        }
 
         powerUp.incrementActive();
     }
@@ -109,5 +129,9 @@ public class BulletsController extends Controller<List<BulletModel>> {
         if(playerModel.getHitPoints() < 3){
             playerModel.incrementHitPoints();
         }
+    }
+    private void FireRateBoost(){
+        playerModel.setDelayShooting(250);
+        playerModel.setPowerUpType(PowerUp.PowerUpType.FireRateBoost);
     }
 }

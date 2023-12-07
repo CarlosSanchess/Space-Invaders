@@ -9,42 +9,41 @@ import java.util.Random;
 public class PowerUpFactory {
 
     private int numPowerUp;
-    private static List<PowerUp> activePowerUps;
-    static long lastCreation;
-    static long Delay;
+    private List<PowerUp> activePowerUps;
+    long lastCreation;
+    long Delay;
     PowerUpFactory(List<PowerUp> activePowerUps){
-        PowerUpFactory.activePowerUps = activePowerUps;
-        Delay = 10000;
-        lastCreation = 0;
+        this.activePowerUps = activePowerUps;
+        this.Delay = 10000;
+        this.lastCreation = 0;
 
     }
 
 
-    public static void createPowerUp(long Time, int arenaX){
+    public void createPowerUp(long Time, int arenaX){
         if(Time - lastCreation > Delay){
             PowerUp powerUp = new PowerUp(createRandomPosition(arenaX),1,1000,true,createRandomPower());
             activePowerUps.add(powerUp);
 
-            lastCreation = Time;
+            this.lastCreation = Time;
         }
     }
 
-    private static PowerUp.PowerUpType createRandomPower() {
+    private PowerUp.PowerUpType createRandomPower() {
         Random random = new Random();
-        if (random.nextFloat() < 0.5) {
+        float chance = random.nextFloat();
+        if (chance < 1.0/3.0) {
             return PowerUp.PowerUpType.HealthBoost;
-        } else {
+        } else if (chance < 2.0/3.0) {
             return PowerUp.PowerUpType.ScoreBoost;
+        } else {
+            return PowerUp.PowerUpType.FireRateBoost;
         }
     }
-    private static PositionModel createRandomPosition(int arenaX){
+    private PositionModel createRandomPosition(int arenaX){
         Random random = new Random();
-        int x = random.nextInt(arenaX - 2) + 1;
-        return new PositionModel(x, 1);
-    }
-
-    public static PowerUp createPowerUp(PowerUp.PowerUpType powerUpType, PositionModel positionModel) {
-        return new PowerUp(positionModel,5,10,true, powerUpType);
+        int x = random.nextInt(arenaX - 2) + 1; // Generate a random number between 1 and arenaX - 1
+        return new PositionModel(x, 1); // TODO
     }
 
     public void setDelay(long delay) {
@@ -53,9 +52,5 @@ public class PowerUpFactory {
 
     public long getDelay() {
         return Delay;
-    }
-
-    public long getLastCreation() {
-        return lastCreation;
     }
 }

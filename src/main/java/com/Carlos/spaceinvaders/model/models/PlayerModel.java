@@ -35,7 +35,7 @@ public class PlayerModel extends Elements {
     public void decrementHitPoints(){
         this.hitPoints--;
     }
-    public void setDelayShooting(int delayShooting) {
+    public void setDelayShooting(long delayShooting) {
         this.delayShooting = delayShooting;
     }
     public long getDelayShooting() {
