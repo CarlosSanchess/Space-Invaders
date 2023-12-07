@@ -77,7 +77,7 @@ public class BulletsControllerTest {
         BulletModel bullet = new BulletModel(new PositionModel(5,10),5,true);
         bullet.setActive(true);
         bullet.setPosition(new PositionModel(0, 0));
-        bullet.setDirection(true); // Assuming true means moving up
+        bullet.setDirection(true);
         bullet.setSpeed(1);
         bullets.add(bullet);
 
@@ -91,7 +91,7 @@ public class BulletsControllerTest {
     public void testCalculateNewPosition_bulletMovingUp() {
         BulletModel bullet = new BulletModel(new PositionModel(5,10),5,true);
         bullet.setPosition(new PositionModel(0, 1));
-        bullet.setDirection(true); // Assuming true means moving up
+        bullet.setDirection(true);
         bullet.setSpeed(1);
 
         PositionModel newPosition = bulletsController.calculateNewPosition(bullet);
