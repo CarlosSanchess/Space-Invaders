@@ -20,7 +20,7 @@ public class DrawGame extends Viewer<ArenaModel> {
         drawElement(new DrawPowerUps(getModel().getActivePowerUps()), GUI);
     }
 
-    private void drawElement(DrawElement element, LanternaGui GUI) {
+    void drawElement(DrawElement element, LanternaGui GUI) {
         element.draw(GUI);
     }
 }
