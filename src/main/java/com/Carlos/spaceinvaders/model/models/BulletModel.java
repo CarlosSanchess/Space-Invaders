@@ -29,4 +29,12 @@ public class BulletModel extends Elements {
     public int getSpeed() {
         return speed;
     }
+
+    public void setDirection(boolean b) {
+        direction = b;
+    }
+
+    public void setSpeed(int i) {
+        speed = i;
+    }
 }

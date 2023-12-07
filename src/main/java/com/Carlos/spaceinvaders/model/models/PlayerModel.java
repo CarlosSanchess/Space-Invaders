@@ -47,4 +47,8 @@ public class PlayerModel extends Elements {
     public void setPowerUpType(PowerUpType powerUpType) {
         this.powerUpType = powerUpType;
     }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
 }
