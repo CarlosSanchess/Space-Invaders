@@ -195,11 +195,23 @@ public class LanternaGui {
         }
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
     }
+    public void drawSelected(MenuModel menuModel){
+
+        String Entry = menuModel.getEntries().get(menuModel.getEntry());
+
+
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
+        drawTop(menuModel, Entry);
+        drawBottom(menuModel, Entry);
+        drawLeft(menuModel, Entry);
+        drawRight(menuModel, Entry);
+    }
 
     public void drawTextSelected(PositionModel position, String entryName, TextColor.RGB rgbColor) {
-        int width = entryName.length() + 2; 
-        int height = 3; 
+        int width = entryName.length() + 2; // Adjust width for the surrounding rectangle
+        int height = 3; // Adjust height for the surrounding rectangle
 
+        // Draw the top of the surrounding rectangle
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX()-1, position.getY()-1, "+");
         for (int i = 1; i < width - 1; i++) {
@@ -207,6 +219,7 @@ public class LanternaGui {
         }
         graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1, "+");
 
+        // Draw the text inside the rectangle with '|'
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX() - 1, position.getY() - 1 + 1, "|");
         graphics.setForegroundColor(new TextColor.RGB(0, 255 ,0));
@@ -214,6 +227,7 @@ public class LanternaGui {
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1 + 1, "|");
 
+        // Draw the bottom of the surrounding rectangle
         graphics.putString(position.getX() - 1, position.getY() - 1 + height - 1, "+");
         for (int i = 1; i < width - 1; i++) {
             graphics.putString(position.getX() - 1 + i, position.getY() - 1 + height - 1, "-");
@@ -222,6 +236,27 @@ public class LanternaGui {
     }
     public int getStartPoint(String string, int width) {
         return Math.round((float)(width - string.length()) / 2);
+    }
+
+    private void drawTop(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '-');
+    }
+    private void drawBottom(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '-');
+    }
+    private void drawLeft(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '+');
+    }
+    private void drawRight(MenuModel menuModel, String Entry){
+        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()));
+        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
+        graphics.drawLine(startLine, endLine, '+');
     }
 
     public TextGraphics getGraphics() {

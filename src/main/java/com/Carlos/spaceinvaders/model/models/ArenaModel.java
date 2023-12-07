@@ -31,10 +31,8 @@ public class ArenaModel implements Model {
         this.activeBullets = new ArrayList<>();
         this.activeMonsters = new ArrayList<>();
         this.activePowerUps = new ArrayList<>();
-        //this.createMonsters = new CreateMonsters(x,activeMonsters);
 
         walls = CreateWalls.createWalls(x, y);
-       // activeMonsters = createMonsters.addMonsters(20);
     }
 
     public int getWidth() {

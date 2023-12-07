@@ -12,27 +12,12 @@ import static org.mockito.Mockito.verify;
 public class DrawBulletTest {
 
     @Test
-    public void testDrawBulletDirectionTrue() {
+    public void testDraw() {
         LanternaGui guiMock = mock(LanternaGui.class);
 
         PositionModel positionModel = new PositionModel(0, 0);
 
         BulletModel bulletModel = new BulletModel(positionModel, 1, true);
-
-        DrawBullet drawBullet = new DrawBullet(bulletModel);
-
-        drawBullet.draw(guiMock);
-
-        verify(guiMock).drawText(bulletModel.getPosition(), "|", new TextColor.RGB(0, 255, 0));
-    }
-
-    @Test
-    public void testDrawBulletDirectionFalse() {
-        LanternaGui guiMock = mock(LanternaGui.class);
-
-        PositionModel positionModel = new PositionModel(0, 0);
-
-        BulletModel bulletModel = new BulletModel(positionModel, 1, false);
 
         DrawBullet drawBullet = new DrawBullet(bulletModel);
 

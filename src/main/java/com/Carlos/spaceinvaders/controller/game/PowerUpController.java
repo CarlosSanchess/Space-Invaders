@@ -14,7 +14,7 @@ public class PowerUpController extends Controller<List<PowerUp>> {
             super(activePowerUp);
             this.lastMove = 0;
     }
-    private void move() { //Mudar o nome da função
+    void move() { //Mudar o nome da função
         for (PowerUp powerUp : getModel()) {
             powerUp.move();
         }
@@ -27,5 +27,13 @@ public class PowerUpController extends Controller<List<PowerUp>> {
             move();
             this.lastMove = Time;
         }
+    }
+
+    public long getLastMove() {
+        return lastMove;
+    }
+
+    public void setLastMove(int move) {
+        lastMove = move;
     }
 }

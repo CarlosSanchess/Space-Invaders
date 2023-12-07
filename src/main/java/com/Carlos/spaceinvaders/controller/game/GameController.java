@@ -16,11 +16,11 @@ import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 public class GameController extends Controller<ArenaModel> {
     PlayerController playerController;
     BulletsController bulletsController;
-    private final MonsterControllerFactory monsterControllerFactory;
-    private final PowerUpFactory  powerUpFactory;
-    private PowerUpController powerUpController;
+    MonsterControllerFactory monsterControllerFactory;
+    PowerUpFactory  powerUpFactory;
+    PowerUpController powerUpController;
 
-    private SoundController soundController;
+    SoundController soundController;
 
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);

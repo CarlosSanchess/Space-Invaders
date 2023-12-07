@@ -33,6 +33,7 @@ public class DrawMenu extends Viewer<MenuModel> {
                 position = new PositionModel(35, 15 + 4 * i + 1);
             } else if ("CONTINUE GAME".equals(entryName)) {
                 if (!gameRecordFound) {
+                    // Game record not found, draw in grey
                     GUI.drawText(new PositionModel(31, 15 + 4 * i + 1), entryName, new TextColor.RGB(128, 128, 128));
 
                     i++;
@@ -53,4 +54,14 @@ public class DrawMenu extends Viewer<MenuModel> {
             i++;
         }
     }
+
+    private void drawTop(TextGraphics graphics){ //Fazer assim ou no Lanterna GUi para manter coerencia?
+        //Get entries start Point
+        // Draw Lines
+        String Entry = menuModel.getEntries().get(menuModel.getEntry());
+
+
+
+    }
+
 }

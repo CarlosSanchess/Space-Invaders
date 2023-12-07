@@ -21,7 +21,7 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
         drawSpaceship(GUI, position);//Added do draw SpaceShip
     }
 
-    void drawSpaceship(LanternaGui gui, PositionModel position) {
+    private void drawSpaceship(LanternaGui gui, PositionModel position) {
         int x = position.getX();
         int y = position.getY();
         TextColor.RGB color;
