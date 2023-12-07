@@ -25,12 +25,12 @@ public class MenuModel implements Model{
     private final Map<String, TextColor.RGB> entryColors;
     
     public MenuModel(){
-        this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","OPTIONS","EXIT");
+        this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","HIGHSCORES","EXIT");
         entry = 0;
         entryColors = new HashMap<>();
         entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
         entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0)); // Green
-        entryColors.put("OPTIONS",new TextColor.RGB(0,0,255)); // Blue
+        entryColors.put("HIGHSCORES",new TextColor.RGB(0,0,255)); // Blue
         entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
     }
     public int getNumEntries() {

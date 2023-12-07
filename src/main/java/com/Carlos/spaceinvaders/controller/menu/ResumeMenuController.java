@@ -3,8 +3,6 @@ package com.Carlos.spaceinvaders.controller.menu;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
-import com.Carlos.spaceinvaders.State.OptionsState;
-import com.Carlos.spaceinvaders.State.TutorialState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
 

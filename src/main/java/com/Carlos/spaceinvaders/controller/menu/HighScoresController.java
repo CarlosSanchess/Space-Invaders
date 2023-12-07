@@ -3,15 +3,14 @@ package com.Carlos.spaceinvaders.controller.menu;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
-import com.Carlos.spaceinvaders.model.models.OptionsModel;
+import com.Carlos.spaceinvaders.model.models.HighScoresModel;
 
 import java.util.Objects;
 
-public class OptionsController extends Controller<OptionsModel> {
-    public OptionsController(OptionsModel option) {
-        super(option);
+public class HighScoresController extends Controller<HighScoresModel> {
+    public HighScoresController(HighScoresModel highScore) {
+        super(highScore);
     }
 
     @Override

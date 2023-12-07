@@ -3,12 +3,12 @@ package com.Carlos.spaceinvaders.controller.menu;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
-import com.Carlos.spaceinvaders.State.OptionsState;
+import com.Carlos.spaceinvaders.State.HighScoresState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
-import com.Carlos.spaceinvaders.model.models.OptionsModel;
+import com.Carlos.spaceinvaders.model.models.HighScoresModel;
 import com.Carlos.spaceinvaders.model.models.TutorialModel;
 import com.Carlos.spaceinvaders.State.TutorialState;
 
@@ -84,7 +84,7 @@ public class MenuController extends Controller<MenuModel> {
     }
     private void options(Game game){
 
-        game.pushState(new OptionsState(new OptionsModel()));
+        game.pushState(new HighScoresState(new HighScoresModel()));
     }
     private void exit(Game game){
         System.exit(0);

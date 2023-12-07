@@ -1,9 +1,9 @@
 package com.Carlos.spaceinvaders.model.models;
 
-public class OptionsModel {
+public class HighScoresModel {
     private final String entry;
 
-    public OptionsModel(){
+    public HighScoresModel(){
         this.entry = "Exit";
     }
 
