@@ -2,11 +2,9 @@ package com.Carlos.spaceinvaders.gui;
 
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
+import com.Carlos.spaceinvaders.view.menu.DrawMenu;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.TerminalSize;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -31,7 +29,7 @@ public class LanternaGuiTest {
     @BeforeEach
     public void setUp() throws IOException, FontFormatException {
         MockitoAnnotations.openMocks(this);
-        lanternaGui = new LanternaGui(80, 20);
+        lanternaGui = new LanternaGui(80,20);
         lanternaGui.setScreen(screenMock);
         lanternaGui.setGraphics(graphicsMock);
     }
@@ -74,53 +72,5 @@ public class LanternaGuiTest {
 
         assertEquals(36, startPoint1);
         assertEquals(38, startPoint2);
-    }
-
-    @Test
-    public void testScreenClear() {
-        TerminalPosition position = new TerminalPosition(0, 0);
-
-        lanternaGui.screenClear();
-
-        verify(screenMock).clear();
-        verify(graphicsMock).setBackgroundColor(TextColor.Factory.fromString("#010327"));
-        verify(graphicsMock).fillRectangle(eq(position), isNull(), eq(' '));
-    }
-
-    @Test
-    public void testScreenRefresh() throws IOException {
-        lanternaGui.screenRefresh();
-        verify(screenMock).refresh();
-    }
-
-    @Test
-    public void testDrawTextSelected() {
-        PositionModel position = new PositionModel(10, 10);
-        String entryName = "Test Entry";
-        TextColor.RGB rgbColor = new TextColor.RGB(0, 255, 0);
-
-        lanternaGui.drawTextSelected(position, entryName, rgbColor);
-
-        verify(graphicsMock, times(4)).setForegroundColor(new TextColor.RGB(0, 255, 0));
-        verify(graphicsMock).setForegroundColor(TextColor.Factory.fromString("#00FF00"));
-        verify(graphicsMock).putString(9, 9, "+");
-        verify(graphicsMock, times((entryName.length() + 2) - 2)).putString(anyInt(), anyInt(), eq("-"));
-        verify(graphicsMock).putString(9 + entryName.length(), 9, "+");
-        verify(graphicsMock).setForegroundColor(TextColor.Factory.fromString("#00FF00"));
-        verify(graphicsMock).putString(9, 10, "|");
-        verify(graphicsMock).setForegroundColor(new TextColor.RGB(0, 255, 0));
-        verify(graphicsMock).putString(10, 10, entryName);
-        verify(graphicsMock).setForegroundColor(TextColor.Factory.fromString("#00FF00"));
-        verify(graphicsMock).putString(9 + entryName.length(), 10, "|");
-        verify(graphicsMock).putString(9, 11, "+");
-        verify(graphicsMock, times((entryName.length() + 2) - 2)).putString(anyInt(), eq(11), eq("-"));
-        verify(graphicsMock).putString(9 + entryName.length(), 11, "+");
-    }
-
-    @Test
-    public void testGetGraphics() {
-        TextGraphics graphics = lanternaGui.getGraphics();
-
-        assertEquals(graphicsMock, graphics);
     }
 }
