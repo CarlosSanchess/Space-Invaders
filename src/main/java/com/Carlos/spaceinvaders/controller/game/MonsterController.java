@@ -17,10 +17,10 @@ public class MonsterController extends Controller<MonsterModel> {
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
         if(Time - lastMove > 1000){
-            System.out.println(lastMove);
-            System.out.println(Time);
+            //System.out.println(lastMove);
+            //System.out.println(Time);
             movementStrategy.move(getModel());
-            System.out.println("dasda");
+            //System.out.println("dasda");
             this.lastMove = Time;
         }
 

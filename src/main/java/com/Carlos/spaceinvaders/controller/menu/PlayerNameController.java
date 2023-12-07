@@ -22,7 +22,12 @@ public class PlayerNameController extends Controller<PlayerNameModel> {
             game.pushState(new MenuState(new MenuModel()));
         } else if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit"))) {
             System.exit(0);
-        } else if (keyPressed != null) {
+        }else if(Objects.equals(keyPressed, "BackSpace")){
+            String currentName = getModel().getName();
+            if (!currentName.isEmpty()) {
+                getModel().setName(currentName.substring(0, currentName.length() - 1));
+            }
+        }else if (keyPressed != null) {
             // Update the player name in the model
             getModel().setName(getModel().getName() + keyPressed);
         }

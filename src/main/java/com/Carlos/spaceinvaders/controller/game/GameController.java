@@ -7,10 +7,7 @@ import com.Carlos.spaceinvaders.State.GameOverMenuState;
 import com.Carlos.spaceinvaders.State.ResumeMenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.controller.SoundController;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
-
-import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
-import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
+import com.Carlos.spaceinvaders.model.models.*;
 
 
 public class GameController extends Controller<ArenaModel> {
@@ -57,11 +54,12 @@ public class GameController extends Controller<ArenaModel> {
             game.pushState(new GameOverMenuState(new GameOverMenuModel()));
 
             int finalScore = getModel().getScore().getScore();
-            int highScore = HighScore.loadHighScore();
+            PlayerModel playerModel = getModel().getPlayer();
+            String playerName = playerModel.getPlayerNameModel();
+            System.out.println(playerName + " " + finalScore);
 
-            if (finalScore > highScore) {
-                HighScore.saveHighScore(finalScore);
-            }
+            HighScore.updateHighScore(playerName, finalScore);
         }
     }
+
 }

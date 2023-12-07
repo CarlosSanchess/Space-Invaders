@@ -2,7 +2,8 @@ package com.Carlos.spaceinvaders.model.models;
 
 public class PlayerNameModel {
     private final String entry;
-    private String name;
+    public static String name;
+
 
 
     public PlayerNameModel(){

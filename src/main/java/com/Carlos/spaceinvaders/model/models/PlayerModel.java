@@ -10,12 +10,15 @@ public class PlayerModel extends Elements {
     private int hitPoints; //Not Used Yet
     private long delayShooting;
     private PowerUpType powerUpType;
+    public PlayerNameModel playerNameModel;
 
     public PlayerModel(PositionModel position, int hitPoints, PowerUpType powerUpType){
         super(position);
         this.hitPoints = hitPoints;
         this.delayShooting = 500;
         this.powerUpType = null;
+        this.playerNameModel = playerNameModel;
+
     }
     public BulletModel playerShoot(){
         return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
@@ -46,5 +49,15 @@ public class PlayerModel extends Elements {
     }
     public void setPowerUpType(PowerUpType powerUpType) {
         this.powerUpType = powerUpType;
+    }
+
+    public String getPlayerNameModel() {
+        System.out.println("aaaa");
+        System.out.println(playerNameModel);
+        return PlayerNameModel.name;
+    }
+
+    public void setPlayerNameModel(PlayerNameModel playerNameModel) {
+        this.playerNameModel = playerNameModel;
     }
 }

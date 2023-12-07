@@ -110,7 +110,7 @@ public class LanternaGui {
         if (keyStroke == null || keyStroke.getKeyType() != KeyType.Character) {
             return null;  // Not a valid character input
         }
-        return ch + keyStroke.getCharacter();
+        return ch + Character.toString(keyStroke.getCharacter()).toUpperCase();
 
 
     }
