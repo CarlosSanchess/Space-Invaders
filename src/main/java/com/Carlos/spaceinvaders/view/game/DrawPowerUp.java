@@ -19,6 +19,8 @@ public class DrawPowerUp extends Viewer<PowerUp> implements DrawElement {
                 GUI.drawText(powerUp.getPosition(),"+",new TextColor.RGB(0,255,0));
             if(powerUp.getPowerUpType() == PowerUp.PowerUpType.ScoreBoost)
                 GUI.drawText(powerUp.getPosition(),"★",new TextColor.RGB(255,255,0));
+            if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost)
+                GUI.drawText(powerUp.getPosition(),"F",new TextColor.RGB(255,0,0));
         }
     }
 }

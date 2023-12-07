@@ -16,6 +16,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
     private long lastScoreBoostTime;
+    private long lastFireRateBoostTime;
     private long upTime;
     private int arenaH;
     public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel, int arenaH){
@@ -25,6 +26,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         this.playerModel = playerModel;
         this.scoreModel = scoreModel;
         this.lastScoreBoostTime = 0;
+        this.lastFireRateBoostTime = 0;
         this.upTime = 10000;
         this.arenaH = arenaH;
     }
@@ -44,6 +46,11 @@ public class BulletsController extends Controller<List<BulletModel>> {
             playerModel.setPowerUpType(null);
             lastScoreBoostTime = 0;
         }
+        if(lastFireRateBoostTime != 0 && Time - lastFireRateBoostTime > upTime){
+            playerModel.setPowerUpType(null);
+            lastFireRateBoostTime = 0;
+        }
+
     }
 
     public void move(BulletModel bullet,long Time) {
@@ -107,6 +114,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
             ScoreBoost();
             lastScoreBoostTime = Time;
         }
+        if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost){
+            FireRateBoost();
+
+        }
 
         powerUp.incrementActive();
     }
@@ -118,5 +129,9 @@ public class BulletsController extends Controller<List<BulletModel>> {
         if(playerModel.getHitPoints() < 3){
             playerModel.incrementHitPoints();
         }
+    }
+    private void FireRateBoost(){
+        playerModel.setDelayShooting(250);
+        playerModel.setPowerUpType(PowerUp.PowerUpType.FireRateBoost);
     }
 }

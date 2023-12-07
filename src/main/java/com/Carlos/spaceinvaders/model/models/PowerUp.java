@@ -4,7 +4,8 @@ public class PowerUp extends Elements {
 
     public enum PowerUpType{
         HealthBoost,
-        ScoreBoost
+        ScoreBoost,
+        FireRateBoost
     }
     private long upTime;
     PositionModel position;

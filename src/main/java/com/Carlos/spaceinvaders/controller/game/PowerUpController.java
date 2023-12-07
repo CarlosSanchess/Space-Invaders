@@ -10,7 +10,7 @@ import java.util.List;
 public class PowerUpController extends Controller<List<PowerUp>> {
     //Apenas move os powerUps
     private long lastMove;
-    public PowerUpController(List<PowerUp> activePowerUp, ArenaModel arenaModel){
+    public PowerUpController(List<PowerUp> activePowerUp){
             super(activePowerUp);
             this.lastMove = 0;
     }

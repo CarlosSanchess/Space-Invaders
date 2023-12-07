@@ -20,6 +20,7 @@ public class GameController extends Controller<ArenaModel> {
     private final PowerUpFactory  powerUpFactory;
     private PowerUpController powerUpController;
 
+
     private SoundController soundController;
 
     public GameController(ArenaModel arenaModel) {
@@ -29,7 +30,7 @@ public class GameController extends Controller<ArenaModel> {
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore(),getModel().getHeight());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
-        this.powerUpController = new PowerUpController(getModel().getActivePowerUps(),getModel());
+        this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
     }
     public void toDo(Game game,String keyPressed, long Time){
 

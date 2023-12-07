@@ -34,10 +34,12 @@ public class MonsterControllerFactory {
     }
 
     public void CreateMonstersAndControllers(long Time){
-        MonsterModel newMonster = monsterFactory.createMonster(Time,arenaW);
+        List<MonsterModel> newMonster = monsterFactory.createMonster(Time,arenaW);
         if(newMonster != null){
-            MonsterController monsterController = createMonsterController(newMonster);
-            this.monsterControllers.add(monsterController);
+            for( MonsterModel monster: newMonster){
+                MonsterController monsterController = createMonsterController(monster);
+                this.monsterControllers.add(monsterController);
+            }
         }
     }
     private MovementStrategy getRandomMovementStrategy() {
