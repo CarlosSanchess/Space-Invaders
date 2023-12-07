@@ -25,4 +25,8 @@ public class MonsterController extends Controller<MonsterModel> {
         }
 
     }
+
+    public long getLastMove() {
+        return lastMove;
+    }
 }
