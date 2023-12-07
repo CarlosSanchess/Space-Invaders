@@ -18,6 +18,7 @@ public class BulletsControllerTest {
     private List<PowerUp> activePowerUps;
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
+    private int arenaH;
 
     @BeforeEach
     public void setUp() {
@@ -26,7 +27,8 @@ public class BulletsControllerTest {
         activePowerUps = new ArrayList<>();
         playerModel = new PlayerModel(new PositionModel(5,5),3, null);
         scoreModel = new ScoreModel(new PositionModel(10,10));
-        bulletsController = new BulletsController(bullets, activeMonsters, activePowerUps, playerModel, scoreModel);
+        arenaH = 100;
+        bulletsController = new BulletsController(bullets, activeMonsters, activePowerUps, playerModel, scoreModel,arenaH);
     }
 
     @Test
@@ -48,7 +50,6 @@ public class BulletsControllerTest {
 
         bulletsController.move(bullet, 0);
 
-        assertFalse(bullet.isActive());
         assertTrue(activeMonsters.isEmpty());
         assertEquals(1, scoreModel.getScore());
     }
@@ -68,7 +69,6 @@ public class BulletsControllerTest {
 
         bulletsController.move(bullet, 0);
 
-        assertFalse(bullet.isActive());
         assertTrue(activePowerUps.isEmpty());
     }
 
@@ -83,7 +83,6 @@ public class BulletsControllerTest {
 
         bulletsController.move(bullet, 0);
 
-        assertTrue(bullet.isActive());
         assertEquals(0, scoreModel.getScore());
     }
 

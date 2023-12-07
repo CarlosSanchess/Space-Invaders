@@ -3,8 +3,6 @@ package com.Carlos.spaceinvaders.model.models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
@@ -19,33 +17,23 @@ public class PlayerTest {
 
     @Test
     public void testPlayerShoot() {
-        BulletModel bulletModel = playerModel.playerShoot();
-        assertNotNull(bulletModel);
-        assertEquals(0, bulletModel.getPosition().getX());
-        assertEquals(0, bulletModel.getPosition().getY());
-        assertEquals(1, bulletModel.getSpeed());
-        assertTrue(bulletModel.isActive());
+        BulletModel bullet = playerModel.playerShoot();
+        assertNotNull(bullet);
+        assertEquals(0, bullet.getPosition().getX());
+        assertEquals(0, bullet.getPosition().getY());
+        assertEquals(1, bullet.getDamage());
     }
 
     @Test
     public void testCanMove() {
-        PositionModel position1 = new PositionModel(1, 0);
+        PositionModel position1 = new PositionModel(5, 0);
         assertTrue(playerModel.canMove(position1));
 
-        PositionModel position2 = new PositionModel(0, 0);
+        PositionModel position2 = new PositionModel(-1, 0);
         assertFalse(playerModel.canMove(position2));
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        PositionModel position3 = new PositionModel(screenSize.width - 1, 0);
+        PositionModel position3 = new PositionModel(100, 0);
         assertFalse(playerModel.canMove(position3));
-
-        PositionModel position4 = new PositionModel(screenSize.width, 0);
-        assertFalse(playerModel.canMove(position4));
-    }
-
-    @Test
-    public void testGetHitPoints() {
-        assertEquals(3, playerModel.getHitPoints());
     }
 
     @Test
@@ -61,20 +49,23 @@ public class PlayerTest {
     }
 
     @Test
-    public void testSetDelayShooting() {
-        playerModel.setDelayShooting(1000);
-        assertEquals(1000, playerModel.getDelayShooting());
+    public void testSetAndGetDelayShooting() {
+        long delay = 1000;
+        playerModel.setDelayShooting(delay);
+        assertEquals(delay, playerModel.getDelayShooting());
     }
 
     @Test
-    public void testGetPowerUpType() {
-        assertNull(playerModel.getPowerUpType());
-    }
-
-    @Test
-    public void testSetPowerUpType() {
-        PowerUp.PowerUpType powerUpType = PowerUp.PowerUpType.HealthBoost;
+    public void testSetAndGetPowerUpType() {
+        PowerUp.PowerUpType powerUpType = PowerUp.PowerUpType.ScoreBoost;
         playerModel.setPowerUpType(powerUpType);
         assertEquals(powerUpType, playerModel.getPowerUpType());
+    }
+
+    @Test
+    public void testSetAndGetHitPoints() {
+        int hitPoints = 5;
+        playerModel.setHitPoints(hitPoints);
+        assertEquals(hitPoints, playerModel.getHitPoints());
     }
 }

@@ -12,41 +12,33 @@ public class BulletTest {
     @BeforeEach
     public void setUp() {
         PositionModel position = new PositionModel(0, 0);
-        int speed = 10;
-        boolean direction = true;
-        bulletModel = new BulletModel(position, speed, direction);
+        bulletModel = new BulletModel(position, 10, true);
     }
 
     @Test
-    public void testIsActiveInitially() {
-        assertTrue(bulletModel.isActive());
+    public void testGetActive() {
+        assertTrue(bulletModel.getActive());
     }
 
     @Test
-    public void testIsActive() {
-        bulletModel.getPosition().setY(-10);
-        assertFalse(bulletModel.isActive());
-
-        bulletModel.getPosition().setY(0);
-        assertTrue(bulletModel.isActive());
-
-        bulletModel.getPosition().setY(10);
-        assertTrue(bulletModel.isActive());
+    public void testProcessActiveWhenDirectionIsTrue() {
+        bulletModel.getPosition().setY(-1);
+        bulletModel.processActive(10);
+        assertFalse(bulletModel.getActive());
     }
 
     @Test
-    public void testNotActiveWhenOffScreen() {
-        bulletModel.getPosition().setY(-110);
-        assertFalse(bulletModel.isActive());
+    public void testProcessActiveWhenDirectionIsFalse() {
+        bulletModel.getPosition().setY(11);
+        bulletModel.setDirection(false);
+        bulletModel.processActive(10);
+        assertFalse(bulletModel.getActive());
     }
 
     @Test
     public void testSetActive() {
         bulletModel.setActive(false);
-        assertFalse(bulletModel.isActive());
-
-        bulletModel.setActive(true);
-        assertTrue(bulletModel.isActive());
+        assertFalse(bulletModel.getActive());
     }
 
     @Test
@@ -57,5 +49,23 @@ public class BulletTest {
     @Test
     public void testGetSpeed() {
         assertEquals(10, bulletModel.getSpeed());
+    }
+
+    @Test
+    public void testSetDirection() {
+        bulletModel.setDirection(false);
+        assertFalse(bulletModel.getDirection());
+    }
+
+    @Test
+    public void testSetSpeed() {
+        bulletModel.setSpeed(20);
+        assertEquals(20, bulletModel.getSpeed());
+    }
+
+    @Test
+    public void testGetDamage() {
+        // Assuming getDamage() returns a constant value
+        assertEquals(0, bulletModel.getDamage());
     }
 }
