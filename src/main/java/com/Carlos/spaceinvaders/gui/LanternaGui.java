@@ -45,12 +45,12 @@ public class LanternaGui {
     private Terminal createTerminal(int width, int height) throws IOException, FontFormatException {
         TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
-        
+
         AWTTerminalFontConfiguration fontConfig = fontLoader();
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
-        
+
         terminalFactory.setForceAWTOverSwing(true);
-        
+
         terminalFactory.setInitialTerminalSize(terminalSize);
         Terminal terminal = terminalFactory.createTerminal();
         AWTTerminalFrame terminalFrame = (AWTTerminalFrame) terminal;
@@ -92,6 +92,7 @@ public class LanternaGui {
     }
     public String getUserInput() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
+        String ch = "";
         if (keyStroke == null) return null;
         if (keyStroke.getKeyType() == KeyType.EOF) return "Quit";
         if (keyStroke.getKeyType() == KeyType.Escape) return "Escape";
@@ -106,9 +107,12 @@ public class LanternaGui {
         if (keyStroke.getKeyType() == KeyType.Enter) return "Enter";
         if (keyStroke.getKeyType() == KeyType.Backspace) return "BackSpace";
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return "Space";
+        if (keyStroke == null || keyStroke.getKeyType() != KeyType.Character) {
+            return null;  // Not a valid character input
+        }
+        return ch + keyStroke.getCharacter();
 
 
-        return null;
     }
     private TextGraphics createGraphics(Screen screen) {
         return screen.newTextGraphics();
