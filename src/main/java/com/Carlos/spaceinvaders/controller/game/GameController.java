@@ -56,6 +56,9 @@ public class GameController extends Controller<ArenaModel> {
             int finalScore = getModel().getScore().getScore();
             PlayerModel playerModel = getModel().getPlayer();
             String playerName = playerModel.getPlayerNameModel();
+            if (playerName == null) {
+                playerName = playerModel.getPlayerNameModel();
+            }
             System.out.println(playerName + " " + finalScore);
 
             HighScore.updateHighScore(playerName, finalScore);

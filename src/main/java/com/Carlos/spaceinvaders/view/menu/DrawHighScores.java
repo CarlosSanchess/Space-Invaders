@@ -35,18 +35,12 @@ public class DrawHighScores extends Viewer<HighScoresModel> {
         try {
             List<String> lines = Files.readAllLines(Paths.get(filePath));
 
-            // Remove title line
-            /*if (!lines.isEmpty()) {
-                lines.remove(0);
-            }*/
-
-            // Sort by score
-            //lines.sort(Comparator.comparingInt(line -> Integer.parseInt(line.split(",")[1])).reversed());
             lines.sort(Comparator.comparingInt(line -> Integer.parseInt(((String) line).split(",")[1])).reversed());
 
             // Draw sorted scores
             int row = 14;
-            for (String line : lines) {
+            for (int i = 0; i < lines.size(); i++) {
+                String line = lines.get(i);
                 String[] parts = line.split(",");
                 String name = parts[0];
                 String score = parts[1];

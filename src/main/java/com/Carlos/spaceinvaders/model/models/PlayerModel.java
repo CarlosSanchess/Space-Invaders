@@ -11,6 +11,7 @@ public class PlayerModel extends Elements {
     private long delayShooting;
     private PowerUpType powerUpType;
     public PlayerNameModel playerNameModel;
+    public static int i;
 
     public PlayerModel(PositionModel position, int hitPoints, PowerUpType powerUpType){
         super(position);
@@ -18,6 +19,7 @@ public class PlayerModel extends Elements {
         this.delayShooting = 500;
         this.powerUpType = null;
         this.playerNameModel = playerNameModel;
+        this.i = 1;
 
     }
     public BulletModel playerShoot(){
@@ -54,6 +56,9 @@ public class PlayerModel extends Elements {
     public String getPlayerNameModel() {
         System.out.println("aaaa");
         System.out.println(playerNameModel);
+        if(playerNameModel == null){
+            return PlayerNameModel.name = "Guest" + i;
+        }
         return PlayerNameModel.name;
     }
 

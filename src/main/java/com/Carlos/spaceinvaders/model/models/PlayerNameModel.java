@@ -5,7 +5,6 @@ public class PlayerNameModel {
     public static String name;
 
 
-
     public PlayerNameModel(){
         this.entry = "Enter";
         this.name = "";
@@ -23,4 +22,6 @@ public class PlayerNameModel {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }
