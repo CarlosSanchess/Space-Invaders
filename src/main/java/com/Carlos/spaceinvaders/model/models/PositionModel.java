@@ -24,6 +24,11 @@ public class PositionModel implements Model {
         public int getY() {
             return y;
         }
+
+        public void setPosition(PositionModel wantedPosition){
+            this.x = wantedPosition.getX();
+            this.y = wantedPosition.getY();
+        }
         public PositionModel getRightBound(){
             return new PositionModel(x + 1,y);
         }

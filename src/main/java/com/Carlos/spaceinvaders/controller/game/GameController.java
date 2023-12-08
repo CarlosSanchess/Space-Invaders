@@ -26,7 +26,7 @@ public class GameController extends Controller<ArenaModel> {
         this.soundController = new SoundController();
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController); //Passar a arena?
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore(),getModel().getHeight());
-        this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
+        this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(),getModel().getHeight(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
         this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
         this.monsterFactory = new MonsterFactory(getModel().getMonsterFactoryModel(),getModel().getActiveMonsters());
@@ -58,7 +58,7 @@ public class GameController extends Controller<ArenaModel> {
     }
 
     private void endGame(Game game){
-        if(getModel().getPlayer().getHitPoints() <= 0) {
+        if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
             game.popState();
             game.pushState(new GameOverMenuState(new GameOverMenuModel()));

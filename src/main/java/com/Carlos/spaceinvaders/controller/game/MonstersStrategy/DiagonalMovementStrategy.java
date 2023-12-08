@@ -33,7 +33,6 @@ public class DiagonalMovementStrategy implements MovementStrategy {
                 } else if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
                     xDirection *= -1;
                 }
-
                 monster.setPosition(currentPosition);
             }
     }
