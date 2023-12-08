@@ -17,6 +17,7 @@ public class GameController extends Controller<ArenaModel> {
     private final PowerUpFactory  powerUpFactory;
     private PowerUpController powerUpController;
     private MonsterFactory monsterFactory;
+    private WallFactory wallFactory;
 
 
     private SoundController soundController;
@@ -24,6 +25,7 @@ public class GameController extends Controller<ArenaModel> {
     public GameController(ArenaModel arenaModel) {
         super(arenaModel);
         this.soundController = new SoundController();
+        this.wallFactory = new WallFactory(getModel().getWidth(), getModel().getHeight(), getModel().getWalls());
         this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController); //Passar a arena?
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore(),getModel().getHeight());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(),getModel().getHeight(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
