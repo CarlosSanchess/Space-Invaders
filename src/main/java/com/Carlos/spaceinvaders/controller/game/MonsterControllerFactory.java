@@ -14,13 +14,15 @@ import java.util.Random;
 
 public class MonsterControllerFactory {
     private int arenaW;
+    private int arenaH;
     private List<BulletModel> bullets;
     private List<MonsterController> monsterControllers;
     private List<MonsterModel> activeMonsters;
     private MonsterFactory monsterFactory;
 
-    public MonsterControllerFactory(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters, MonsterFactoryModel monsterFactoryModel) {
+    public MonsterControllerFactory(int arenaW,int arenaH, List<BulletModel> bullets, List<MonsterModel> activeMonsters, MonsterFactoryModel monsterFactoryModel) {
         this.arenaW = arenaW;
+        this.arenaH = arenaH;
         this.bullets = bullets;
         this.monsterControllers = new ArrayList<>();
         this.activeMonsters = activeMonsters;
@@ -30,7 +32,7 @@ public class MonsterControllerFactory {
     MonsterController createMonsterController(MonsterModel monster) {
 
         MovementStrategy movementStrategy = getRandomMovementStrategy();
-        return new MonsterController(monster, movementStrategy);
+        return new MonsterController(monster, movementStrategy,arenaH);
     }
 
     public void CreateMonstersAndControllers(long Time){
@@ -56,6 +58,14 @@ public class MonsterControllerFactory {
 
     public List<MonsterController> getMonstersControllers(){
      return monsterControllers;
+    }
+    public boolean checkWinMonster() {
+        for (MonsterController monsterController : monsterControllers) {
+            if (monsterController.isWinMonster()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public MonsterFactory getMonsterFactory() {

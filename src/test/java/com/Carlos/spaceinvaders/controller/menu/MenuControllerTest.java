@@ -1,7 +1,6 @@
 package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
-import com.Carlos.spaceinvaders.State.OptionsState;
 import com.Carlos.spaceinvaders.State.TutorialState;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import org.junit.jupiter.api.BeforeEach;

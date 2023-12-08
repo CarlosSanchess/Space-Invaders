@@ -43,12 +43,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
 
         if(lastScoreBoostTime != 0 && Time - lastScoreBoostTime > upTime){
-            playerModel.setPowerUpType(null);
-            lastScoreBoostTime = 0;
+            revertScoreBoost();
         }
         if(lastFireRateBoostTime != 0 && Time - lastFireRateBoostTime > upTime){
-            playerModel.setPowerUpType(null);
-            lastFireRateBoostTime = 0;
+            revertFireRateBoost();
         }
 
     }
@@ -65,12 +63,12 @@ public class BulletsController extends Controller<List<BulletModel>> {
             bullet.getPosition().setY(newPosition.getY());
         }
     }
-    PositionModel calculateNewPosition(BulletModel bullet) {
+    private PositionModel calculateNewPosition(BulletModel bullet) {
         int newY = bullet.getDirection() ? bullet.getPosition().getY() - bullet.getSpeed() : bullet.getPosition().getY() + bullet.getSpeed();
         return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
-    boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
+    private boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
         MonsterModel monster = isMonster(nextPosition);
         PowerUp powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
@@ -85,7 +83,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return playerhit;
     }
-    MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
+    private MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
         for(MonsterModel monster : activeMonsters){
             if(monster.getPosition().equals(nextPosition)){
                 return monster;
@@ -93,14 +91,14 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return null;
     }
-    boolean isPlayer(PositionModel nextPosition){
+    private boolean isPlayer(PositionModel nextPosition){
         if(playerModel.getPosition().equals(nextPosition) || playerModel.getPosition().getLeftBound().equals(nextPosition) || playerModel.getPosition().getRightBound().equals(nextPosition)){
             playerModel.decrementHitPoints();
             return true;
         }
         return false;
     }
-    PowerUp isPowerUp(PositionModel newPosition) {
+    private PowerUp isPowerUp(PositionModel newPosition) {
         for (PowerUp powerUp : activePowerUps) {
             if (newPosition.equals(powerUp.getPosition())) {
                 return powerUp;
@@ -108,7 +106,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return null;
     }
-    void processPowerUp(PowerUp powerUp, long Time){
+    private void processPowerUp(PowerUp powerUp, long Time){
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.HealthBoost) HealthBoost();
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.ScoreBoost){
             ScoreBoost();
@@ -116,16 +114,22 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost){
             FireRateBoost();
+            lastFireRateBoostTime = Time;
 
         }
 
         powerUp.incrementActive();
     }
-    void ScoreBoost(){
+    private void ScoreBoost(){
         scoreModel.setIncrementValue(5); // Permanente, Tornar posível reverter passado X segundos.
         playerModel.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
     }
-    void HealthBoost(){
+    private void revertScoreBoost(){
+        scoreModel.setIncrementValue(1);
+        playerModel.setPowerUpType(null);
+        lastScoreBoostTime = 0;
+    }
+    private void HealthBoost(){
         if(playerModel.getHitPoints() < 3){
             playerModel.incrementHitPoints();
         }
@@ -133,5 +137,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
     private void FireRateBoost(){
         playerModel.setDelayShooting(250);
         playerModel.setPowerUpType(PowerUp.PowerUpType.FireRateBoost);
+    }
+    private void revertFireRateBoost(){
+        playerModel.setDelayShooting(500);
+        playerModel.setPowerUpType(null);
+        lastFireRateBoostTime = 0;
     }
 }

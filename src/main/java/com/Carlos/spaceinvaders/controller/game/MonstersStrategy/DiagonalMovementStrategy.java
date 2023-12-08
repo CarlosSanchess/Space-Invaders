@@ -17,7 +17,7 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     }
 
     private boolean canMove(int wantedX){
-        return wantedX <= arenaW - 1 && wantedX >= 1;
+        return wantedX < arenaW - 1 && wantedX >= 1;
     }
 
     @Override
@@ -33,7 +33,6 @@ public class DiagonalMovementStrategy implements MovementStrategy {
                 } else if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
                     xDirection *= -1;
                 }
-
                 monster.setPosition(currentPosition);
             }
     }

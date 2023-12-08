@@ -23,15 +23,15 @@ public class MenuModel implements Model{
     private final List<String> entries;
     private int entry = 0; // Selecionado
     private final Map<String, TextColor.RGB> entryColors;
-    
+
     public MenuModel(){
-        this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","OPTIONS","EXIT");
+        this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","HIGHSCORES","EXIT");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0));
-        entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0));
-        entryColors.put("OPTIONS",new TextColor.RGB(0,0,255));
-        entryColors.put("EXIT", new TextColor.RGB(255,255,0));
+        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
+        entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0)); // Green
+        entryColors.put("HIGHSCORES",new TextColor.RGB(0,0,255)); // Blue
+        entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
     }
     public int getNumEntries() {
         return entries.size();
@@ -64,6 +64,11 @@ public class MenuModel implements Model{
 
     public void setText(String spaceInvaders) {
         this.text = spaceInvaders;
+    }
+
+    public void addEntry(String newGame, TextColor.RGB rgb) { // Not Used Yet
+        this.entries.add(newGame);
+        this.entryColors.put(newGame,rgb);
     }
 
     public boolean isSelected(int i){

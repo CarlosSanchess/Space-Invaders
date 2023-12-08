@@ -1,10 +1,9 @@
 package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
+import com.Carlos.spaceinvaders.HighScore;
 import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
-import com.Carlos.spaceinvaders.State.OptionsState;
-import com.Carlos.spaceinvaders.State.TutorialState;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
 
@@ -66,7 +65,7 @@ public class ResumeMenuController extends Controller<ResumeMenuModel> {
         exit(game);
     }
     private void exit(Game game){
-        game.pushState(new MenuState(new MenuModel()));
+        game.pushState(new MenuState(new MenuModel())); // implementar aqui tmb para guardar highscores mesmo nao tendo morrido
     }
 
 }

@@ -30,6 +30,7 @@ public class ShooterMovementStrategy implements MovementStrategy {
        boolean aux = random.nextBoolean();
        if(aux){
            moveMonster(monster);
+
        }else{
            shootMonster(monster);
        }

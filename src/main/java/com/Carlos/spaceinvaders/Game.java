@@ -1,8 +1,10 @@
 package com.Carlos.spaceinvaders;
 
 import com.Carlos.spaceinvaders.State.MenuState;
+import com.Carlos.spaceinvaders.State.PlayerNameState;
 import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
+import com.Carlos.spaceinvaders.model.models.PlayerNameModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.SharedState;
@@ -27,8 +29,11 @@ public class Game {
     public Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
         this.states = new Stack<>();
-        state = new MenuState(new MenuModel());
+        state = new PlayerNameState(new PlayerNameModel());
         this.states.push(state);
+
+        /*state = new MenuState(new MenuModel());
+        this.states.push(state);*/
     }
     public State getCurrentState() {
         if (!states.isEmpty()) {
@@ -48,10 +53,10 @@ public class Game {
         int UPS = 50;
         int updateTime = 1000 / UPS;
 
-        while (!this.states.isEmpty()) { 
+        while (!this.states.isEmpty()) {
             long startTime = System.currentTimeMillis();
             Key = GUI.getUserInput();
-            State currentState = states.peek(); 
+            State currentState = states.peek();
             currentState.step(Key, GUI, startTime,this);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
@@ -64,15 +69,19 @@ public class Game {
             }
         }
     }
-    
-    public void pushState(State state) { 
+
+    public void pushState(State state) {
         this.states.push(state);
     }
 
-    public void popState() { 
+    public void popState() {
         if (!states.isEmpty()) {
             states.pop();
         }
+    }
+
+    public LanternaGui getGUI(){
+        return GUI;
     }
 
     public PositionModel getScreenSize(){
