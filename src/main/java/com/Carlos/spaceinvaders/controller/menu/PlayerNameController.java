@@ -27,7 +27,7 @@ public class PlayerNameController extends Controller<PlayerNameModel> {
             if (!currentName.isEmpty()) {
                 getModel().setName(currentName.substring(0, currentName.length() - 1));
             }
-        }else if (keyPressed != null & getModel().getName().length() < 15) {
+        }else if (keyPressed != null && keyPressed.length() == 1&&  getModel().getName().length() < 15) {
             // Update the player name in the model
             getModel().setName(getModel().getName() + keyPressed);
         }
