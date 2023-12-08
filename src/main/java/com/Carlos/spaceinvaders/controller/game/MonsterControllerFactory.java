@@ -61,8 +61,7 @@ public class MonsterControllerFactory {
      return monsterControllers;
     }
 
-    //private void cleanC
-    public boolean checkWinMonster() { //Also Cleans Controllers
+    public boolean checkWinMonster() { //Also Cleans Controllers need to change function name
         Iterator<MonsterController> iterator = monsterControllers.iterator();
 
         while (iterator.hasNext()) {
