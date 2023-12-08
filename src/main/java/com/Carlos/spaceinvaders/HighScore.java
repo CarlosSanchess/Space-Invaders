@@ -2,10 +2,10 @@ package com.Carlos.spaceinvaders;
 import java.io.*;
 import java.nio.file.*;
 import java.util.List;
-import java.util.Objects;
 
 public class HighScore {
     public static String absolutePath = System.getProperty("user.dir") + "/src/main/resources/HighScore.csv";
+
 
     public static void updateHighScore(String playerName, int score) {
         List<String> lines;
@@ -17,7 +17,8 @@ public class HighScore {
         }
 
         boolean playerFound = false;
-
+        int lowestScoreIndex = -1;
+        int lowestScore = Integer.MAX_VALUE;
 
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
@@ -33,15 +34,20 @@ public class HighScore {
                     }
                     break;
                 }
+
+                if (storedScore < lowestScore) {
+                    lowestScore = storedScore;
+                    lowestScoreIndex = i;
+                }
             }
         }
 
-        if (!playerFound && !playerName.isEmpty()) {
-            lines.add(playerName + "," + score);
-        }
-
-        while (lines.size() > 10) {
-            lines.remove(lines.size() - 1);
+        if (!playerFound) {
+            if (lines.size() < 10) { // 10 é o numero maximo de scores
+                lines.add(playerName + "," + score);
+            } else if (score > lowestScore) {
+                lines.set(lowestScoreIndex, playerName + "," + score);
+            }
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(absolutePath))) {
