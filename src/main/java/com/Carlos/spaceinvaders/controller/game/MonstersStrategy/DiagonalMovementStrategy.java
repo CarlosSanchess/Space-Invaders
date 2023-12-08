@@ -9,7 +9,7 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     private static final int SWITCH_PROBABILITY = 20;
     private int xDirection; // 1 direita, -1 esquerda
     private int arenaW;
-    private Random random = new Random();
+    public Random random = new Random();
 
     public DiagonalMovementStrategy(int arenaW) {
         this.arenaW = arenaW;

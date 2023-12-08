@@ -21,6 +21,6 @@ public class DrawMonsterTest {
 
         drawMonster.draw(guiMock);
 
-        verify(guiMock).drawText(monsterModel.getPosition(), "M", new TextColor.RGB(255, 0, 0));
+        verify(guiMock).drawText(monsterModel.getPosition(), "]", new TextColor.RGB(255, 0, 0));
     }
 }

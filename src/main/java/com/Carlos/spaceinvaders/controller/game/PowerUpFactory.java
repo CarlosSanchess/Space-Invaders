@@ -30,16 +30,16 @@ public class PowerUpFactory {
     }
 
     private PowerUp.PowerUpType createRandomPower() {
-    Random random = new Random();
-    float chance = random.nextFloat();
-    if (chance < 1.0/3.0) {
-        return PowerUp.PowerUpType.HealthBoost;
-    } else if (chance < 2.0/3.0) {
-        return PowerUp.PowerUpType.ScoreBoost;
-    } else {
-        return PowerUp.PowerUpType.FireRateBoost;
+        Random random = new Random();
+        float chance = random.nextFloat();
+        if (chance < 1.0/3.0) {
+            return PowerUp.PowerUpType.HealthBoost;
+        } else if (chance < 2.0/3.0) {
+            return PowerUp.PowerUpType.ScoreBoost;
+        } else {
+            return PowerUp.PowerUpType.FireRateBoost;
+        }
     }
-}
     private PositionModel createRandomPosition(int arenaX){
         Random random = new Random();
         int x = random.nextInt(arenaX - 2) + 1; // Generate a random number between 1 and arenaX - 1
@@ -52,5 +52,9 @@ public class PowerUpFactory {
 
     public long getDelay() {
         return Delay;
+    }
+
+    public long getLastCreation() {
+        return lastCreation;
     }
 }

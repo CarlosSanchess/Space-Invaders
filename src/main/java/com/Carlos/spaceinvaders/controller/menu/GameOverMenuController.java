@@ -17,13 +17,13 @@ public class GameOverMenuController extends Controller<GameOverMenuModel> {
         super(GameOverMenuModel);
     }
 
-    private void nextEntry(){
+    void nextEntry(){
         int entry = getModel().getEntry();
         int lenEntries = getModel().getEntriesSize();
 
         getModel().setEntry((entry + 1) % lenEntries);
     }
-    private void previousEntry() {
+    void previousEntry() {
 
         if (getModel().getEntry() == 0) {
 
@@ -33,7 +33,7 @@ public class GameOverMenuController extends Controller<GameOverMenuModel> {
         }
     }
 
-    private void Select(Game game){
+    void Select(Game game){
         int entry = getModel().getEntry();
 
         if(entry == 0) newGame(game);
@@ -49,12 +49,12 @@ public class GameOverMenuController extends Controller<GameOverMenuModel> {
         if(Objects.equals(keyPressed,"Quit")) System.exit(0);
     }
 
-    private void newGame(Game game) {
+    void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
 
 
-    private void exit(Game game){
+    void exit(Game game){
         game.pushState(new MenuState(new MenuModel()));
     }
 }

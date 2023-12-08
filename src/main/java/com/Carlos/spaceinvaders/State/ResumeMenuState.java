@@ -25,4 +25,12 @@ public class ResumeMenuState extends State<ResumeMenuModel> {
         drawResumeMenu.lanternaDraw(GUI);
         ResumeMenuController.toDo(game,Key, Time);
     }
+
+    public void setDrawResumeMenu(DrawResumeMenu drawResumeMenu) {
+        this.drawResumeMenu = drawResumeMenu;
+    }
+
+    public void setResumeMenuController(com.Carlos.spaceinvaders.controller.menu.ResumeMenuController resumeMenuController) {
+        ResumeMenuController = resumeMenuController;
+    }
 }

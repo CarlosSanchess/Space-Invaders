@@ -23,7 +23,7 @@ public class MenuModel implements Model{
     private final List<String> entries;
     private int entry = 0; // Selecionado
     private final Map<String, TextColor.RGB> entryColors;
-    
+
     public MenuModel(){
         this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","HIGHSCORES","EXIT");
         entry = 0;

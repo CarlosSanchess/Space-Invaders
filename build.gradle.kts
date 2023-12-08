@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("application")
+    id("info.solidsoft.pitest") version "1.9.0"
 }
 
 group = "com.Carlos.spaceinvaders"
@@ -8,6 +9,10 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+pitest {
+    junit5PluginVersion = "1.0.0"
 }
 
 dependencies {

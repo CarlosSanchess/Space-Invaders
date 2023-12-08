@@ -37,4 +37,7 @@ public class PowerUp extends Elements {
     public void move(){
         getPosition().setY(getPosition().getY() + speed);
     }
+    public void setPowerUpType(PowerUpType powerUpType) {
+        this.powerUpType = powerUpType;
+    }
 }

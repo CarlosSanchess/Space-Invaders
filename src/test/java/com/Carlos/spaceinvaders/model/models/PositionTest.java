@@ -41,7 +41,18 @@ public class PositionTest {
         Assertions.assertEquals(position1, position2);
         Assertions.assertNotEquals(position1, position3);
     }
-
+    @Test
+    public void testGetRightBound() {
+        PositionModel position = new PositionModel(10, 20);
+        PositionModel expectedRightBound = new PositionModel(11, 20);
+        Assertions.assertEquals(expectedRightBound, position.getRightBound());
+    }
+    @Test
+    public void testGetLeftBound() {
+        PositionModel position = new PositionModel(10, 20);
+        PositionModel expectedLeftBound = new PositionModel(9, 20);
+        Assertions.assertEquals(expectedLeftBound, position.getLeftBound());
+    }
     @Test
     public void testHashCode() {
         PositionModel position1 = new PositionModel(10, 20);

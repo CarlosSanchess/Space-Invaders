@@ -34,5 +34,4 @@ public class HighScoresModel {
     public TextColor.RGB getColor(int i){
         return entries.get(i);
     }
-
 }

@@ -26,7 +26,7 @@ public class Game {
         return SharedState.foundGameRecord = true;
     }
 
-    Game() throws IOException, FontFormatException {
+    public Game() throws IOException, FontFormatException {
         this.GUI = new LanternaGui(getScreenSize().getX() / 25,getScreenSize().getY() / 25);
         this.states = new Stack<>();
         state = new PlayerNameState(new PlayerNameModel());
@@ -87,5 +87,9 @@ public class Game {
     public PositionModel getScreenSize(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         return new PositionModel(screenSize.width, screenSize.height);
+    }
+
+    public State getState() {
+        return state;
     }
 }

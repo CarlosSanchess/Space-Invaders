@@ -23,6 +23,6 @@ public class DrawBulletTest {
 
         drawBullet.draw(guiMock);
 
-        verify(guiMock).drawText(bulletModel.getPosition(), "|", new TextColor.RGB(255, 0, 0));
+        verify(guiMock).drawText(bulletModel.getPosition(), "|", new TextColor.RGB(0, 255, 0));
     }
 }

@@ -46,7 +46,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
             revertScoreBoost();
         }
         if(lastFireRateBoostTime != 0 && Time - lastFireRateBoostTime > upTime){
-           revertFireRateBoost();
+            revertFireRateBoost();
         }
 
     }
@@ -63,12 +63,12 @@ public class BulletsController extends Controller<List<BulletModel>> {
             bullet.getPosition().setY(newPosition.getY());
         }
     }
-    private PositionModel calculateNewPosition(BulletModel bullet) {
+    PositionModel calculateNewPosition(BulletModel bullet) {
         int newY = bullet.getDirection() ? bullet.getPosition().getY() - bullet.getSpeed() : bullet.getPosition().getY() + bullet.getSpeed();
         return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
-    private boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
+    boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
         MonsterModel monster = isMonster(nextPosition);
         PowerUp powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
@@ -83,7 +83,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return playerhit;
     }
-    private MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
+    MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
         for(MonsterModel monster : activeMonsters){
             if(monster.getPosition().equals(nextPosition)){
                 return monster;
@@ -91,14 +91,14 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return null;
     }
-    private boolean isPlayer(PositionModel nextPosition){
+    boolean isPlayer(PositionModel nextPosition){
         if(playerModel.getPosition().equals(nextPosition) || playerModel.getPosition().getLeftBound().equals(nextPosition) || playerModel.getPosition().getRightBound().equals(nextPosition)){
             playerModel.decrementHitPoints();
             return true;
         }
         return false;
     }
-    private PowerUp isPowerUp(PositionModel newPosition) {
+    PowerUp isPowerUp(PositionModel newPosition) {
         for (PowerUp powerUp : activePowerUps) {
             if (newPosition.equals(powerUp.getPosition())) {
                 return powerUp;
@@ -106,7 +106,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return null;
     }
-    private void processPowerUp(PowerUp powerUp, long Time){
+    void processPowerUp(PowerUp powerUp, long Time){
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.HealthBoost) HealthBoost();
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.ScoreBoost){
             ScoreBoost();
@@ -120,7 +120,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
         powerUp.incrementActive();
     }
-    private void ScoreBoost(){
+    void ScoreBoost(){
         scoreModel.setIncrementValue(5); // Permanente, Tornar posível reverter passado X segundos.
         playerModel.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
     }
@@ -129,7 +129,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         playerModel.setPowerUpType(null);
         lastScoreBoostTime = 0;
     }
-    private void HealthBoost(){
+    void HealthBoost(){
         if(playerModel.getHitPoints() < 3){
             playerModel.incrementHitPoints();
         }

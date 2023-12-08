@@ -25,4 +25,15 @@ public class ScoreModel extends Elements{
     public void setIncrementValue(int incrementValue) {
         this.incrementValue = incrementValue;
     }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getHighScore() {
+        return score;
+    }
+    public void setHighScore(int highScore){
+        score = highScore;
+    }
 }

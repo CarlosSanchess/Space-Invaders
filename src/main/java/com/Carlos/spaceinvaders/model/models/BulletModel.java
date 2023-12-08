@@ -1,9 +1,9 @@
 package com.Carlos.spaceinvaders.model.models;
 
 public class BulletModel extends Elements {
-    private final int  speed;
+    private int  speed;
     private boolean active = true;
-    private final boolean direction;
+    private boolean direction;
 
     public BulletModel(PositionModel position, int speed, boolean direction){
        super(position);
@@ -31,5 +31,17 @@ public class BulletModel extends Elements {
     }
     public int getSpeed() {
         return speed;
+    }
+
+    public void setDirection(boolean b) {
+        direction = b;
+    }
+
+    public void setSpeed(int i) {
+        speed = i;
+    }
+
+    public int getDamage() {
+        return getDamage();
     }
 }

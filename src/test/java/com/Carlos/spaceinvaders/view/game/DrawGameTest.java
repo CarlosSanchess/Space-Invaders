@@ -5,6 +5,7 @@ import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.model.models.ScoreModel;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -29,6 +30,9 @@ public class DrawGameTest {
         Mockito.when(arenaModel.getPlayer()).thenReturn(playerModel);
 
         gui = Mockito.mock(LanternaGui.class);
+        TextGraphics graphics = Mockito.mock(TextGraphics.class);
+        Mockito.when(gui.getGraphics()).thenReturn(graphics);
+
         drawGame = new DrawGame(arenaModel);
     }
 

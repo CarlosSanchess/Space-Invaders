@@ -4,7 +4,7 @@ public class MonsterFactoryModel {
 
     private long Delay;
     private int numMonstros;
-    MonsterFactoryModel(){
+    public MonsterFactoryModel(){
         this.Delay = 3000;
         this.numMonstros = 1;
     }

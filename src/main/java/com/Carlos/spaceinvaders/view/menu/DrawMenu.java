@@ -56,14 +56,4 @@ public class DrawMenu extends Viewer<MenuModel> {
             i++;
         }
     }
-
-    private void drawTop(TextGraphics graphics){ //Fazer assim ou no Lanterna GUi para manter coerencia?
-        //Get entries start Point
-        // Draw Lines
-        String Entry = menuModel.getEntries().get(menuModel.getEntry());
-
-
-
-    }
-
 }

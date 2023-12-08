@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.model.models;
 
+import com.Carlos.spaceinvaders.controller.game.MonsterFactory;
 import com.Carlos.spaceinvaders.model.builders.CreateWalls;
 import com.Carlos.spaceinvaders.model.builders.CreateMonsters;
 
@@ -70,5 +71,17 @@ public class ArenaModel implements Model {
 
     public MonsterFactoryModel getMonsterFactoryModel() {
         return monsterFactoryModel;
+    }
+
+    public void setPlayer(PlayerModel playerModel) {
+        this.player = playerModel;
+    }
+
+    public void setScore(ScoreModel score) {
+        this.score = score;
+    }
+
+    public void setMonsterFactoryModel(MonsterFactoryModel monsterFactoryModel) {
+        this.monsterFactoryModel = monsterFactoryModel;
     }
 }

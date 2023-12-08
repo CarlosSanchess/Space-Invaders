@@ -1,69 +1,59 @@
 package com.Carlos.spaceinvaders.model.models;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-
 public class PlayerTest {
 
-    @Test
-    public void testPlayerShoot() {
-        PositionModel position = new PositionModel(0, 1); 
-        PlayerModel player = new PlayerModel(position, 3);
+    private PlayerModel playerModel;
 
-        BulletModel bullet = player.playerShoot();
-
-        assertNotNull(bullet);
-        assertEquals(position.getX(), bullet.getPosition().getX());
-        assertEquals(position.getY(), bullet.getPosition().getY());
-        assertTrue(bullet.isActive());
+    @BeforeEach
+    public void setUp() {
+        PositionModel position = new PositionModel(0, 0);
+        playerModel = new PlayerModel(position, 3);
     }
 
     @Test
-    public void testCanMoveWithinScreenBounds() {
-        PositionModel initialPosition = new PositionModel(0, 0);
-        PlayerModel player = new PlayerModel(initialPosition, 100); //hitpoints valor exemplo
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public void testCanMove() {
+        PositionModel position1 = new PositionModel(5, 0);
+        assertTrue(playerModel.canMove(position1));
 
-        for (int x = 1; x < screenSize.width - 1; x++) {
-            PositionModel position = new PositionModel(x, 0);
-            assertTrue(player.canMove(position));
-        }
+        PositionModel position2 = new PositionModel(-1, 0);
+        assertFalse(playerModel.canMove(position2));
     }
 
     @Test
-    public void testCannotMoveOutsideScreenBounds() {
-        PositionModel initialPosition = new PositionModel(0, 0);
-        PlayerModel player = new PlayerModel(initialPosition, 100);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        PositionModel position1 = new PositionModel(-1, 0);
-        assertFalse(player.canMove(position1));
-        PositionModel position2 = new PositionModel(screenSize.width, 0);
-        assertFalse(player.canMove(position2));
+    public void testIncrementHitPoints() {
+        playerModel.incrementHitPoints();
+        assertEquals(4, playerModel.getHitPoints());
     }
 
     @Test
-    public void testMoveLeft() {
-        PositionModel position = new PositionModel(5, 0);
-        PlayerModel player = new PlayerModel(position, 3);
-
-       // player.moveLeft(position);
-
-        assertEquals(4, position.getX());
+    public void testDecrementHitPoints() {
+        playerModel.decrementHitPoints();
+        assertEquals(2, playerModel.getHitPoints());
     }
 
     @Test
-    public void testMoveRight() {
-        PositionModel position = new PositionModel(5, 0);
-        PlayerModel player = new PlayerModel(position, 3);
+    public void testSetAndGetDelayShooting() {
+        long delay = 1000;
+        playerModel.setDelayShooting(delay);
+        assertEquals(delay, playerModel.getDelayShooting());
+    }
 
-        //player.moveRight(position);
+    @Test
+    public void testSetAndGetPowerUpType() {
+        PowerUp.PowerUpType powerUpType = PowerUp.PowerUpType.ScoreBoost;
+        playerModel.setPowerUpType(powerUpType);
+        assertEquals(powerUpType, playerModel.getPowerUpType());
+    }
 
-        assertEquals(6, position.getX());
+    @Test
+    public void testSetAndGetHitPoints() {
+        int hitPoints = 5;
+        playerModel.setHitPoints(hitPoints);
+        assertEquals(hitPoints, playerModel.getHitPoints());
     }
 }

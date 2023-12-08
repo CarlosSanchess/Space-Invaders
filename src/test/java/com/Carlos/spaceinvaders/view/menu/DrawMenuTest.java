@@ -1,36 +1,38 @@
 package com.Carlos.spaceinvaders.view.menu;
 
-import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
+import com.Carlos.spaceinvaders.gui.LanternaGui;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.Carlos.spaceinvaders.model.models.SharedState;
+import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class DrawMenuTest {
 
-    @Mock
-    private LanternaGui guiMock;
-
+    private LanternaGui gui;
+    private MenuModel menuModel;
     private DrawMenu drawMenu;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
-        MenuModel menuModel = new MenuModel();
+        gui = mock(LanternaGui.class);
+        menuModel = mock(MenuModel.class);
         drawMenu = new DrawMenu(menuModel);
     }
 
     @Test
     public void testDraw() {
-        MenuModel menuModel = drawMenu.getModel();
-        menuModel.setText("Space Invaders");
+        when(menuModel.getText()).thenReturn("Test Title");
+        when(menuModel.getEntryName(anyInt())).thenReturn("Test Entry");
+        when(menuModel.isSelected(anyInt())).thenReturn(false);
 
-        drawMenu.draw(guiMock);
+        drawMenu.draw(gui);
 
-        verify(guiMock).drawTitle("Space Invaders");
-        verify(guiMock).drawEntries(menuModel);
+        verify(gui).drawTitle("Test Title");
+        verify(gui, times(5)).drawText(any(PositionModel.class), eq("Test Entry"), any(TextColor.RGB.class));
     }
 }
