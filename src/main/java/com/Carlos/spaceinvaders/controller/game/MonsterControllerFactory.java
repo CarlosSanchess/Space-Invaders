@@ -58,4 +58,7 @@ public class MonsterControllerFactory {
      return monsterControllers;
     }
 
+    public MonsterFactory getMonsterFactory() {
+        return monsterFactory;
+    }
 }

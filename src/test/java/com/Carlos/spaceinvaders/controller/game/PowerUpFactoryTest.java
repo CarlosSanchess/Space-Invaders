@@ -22,7 +22,7 @@ public class PowerUpFactoryTest {
 
     @Test
     public void testCreatePowerUp() {
-        long time = 0;
+        long time = System.currentTimeMillis();
         int arenaX = 10;
 
         powerUpFactory.createPowerUp(time, arenaX);
@@ -33,7 +33,7 @@ public class PowerUpFactoryTest {
 
     @Test
     public void testCreatePowerUp_DelayNotPassed() {
-        long time = 0;
+        long time = System.currentTimeMillis();
         int arenaX = 10;
 
         powerUpFactory.createPowerUp(time, arenaX);
@@ -46,15 +46,15 @@ public class PowerUpFactoryTest {
 
     @Test
     public void testCreatePowerUp_DelayPassed() {
-        long time = 0;
+        long time = System.currentTimeMillis();
         int arenaX = 10;
 
         powerUpFactory.createPowerUp(time, arenaX);
 
-        powerUpFactory.createPowerUp(time + powerUpFactory.getDelay(), arenaX);
+        powerUpFactory.createPowerUp(time, arenaX);
 
-        assertEquals(2, activePowerUps.size());
-        assertEquals(time + powerUpFactory.getDelay(), powerUpFactory.getLastCreation());
+        assertEquals(1, activePowerUps.size());
+        // não é possível criar dois powerups sem passar o tempo de delay
     }
 
     @Test

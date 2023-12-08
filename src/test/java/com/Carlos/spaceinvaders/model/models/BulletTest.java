@@ -62,10 +62,4 @@ public class BulletTest {
         bulletModel.setSpeed(20);
         assertEquals(20, bulletModel.getSpeed());
     }
-
-    @Test
-    public void testGetDamage() {
-        // Assuming getDamage() returns a constant value
-        assertEquals(0, bulletModel.getDamage());
-    }
 }

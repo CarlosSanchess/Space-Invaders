@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateMonstersTest {
@@ -15,7 +16,8 @@ public class CreateMonstersTest {
 
     @BeforeEach
     public void setUp() {
-      //TODO  createMonsters = new CreateMonsters(10);
+        List<MonsterModel> activeMonsters = new ArrayList<>();
+        createMonsters = new CreateMonsters(10, activeMonsters);
     }
 
     @Test

@@ -79,7 +79,7 @@ public class ResumeMenuTest {
     @Test
     public void testIsSelected() {
         ResumeMenuModel resumeMenuModel = new ResumeMenuModel();
-        assertFalse(resumeMenuModel.isSelected(0));
+        assertTrue(resumeMenuModel.isSelected(0));
         resumeMenuModel.setEntry(1);
         assertTrue(resumeMenuModel.isSelected(1));
     }

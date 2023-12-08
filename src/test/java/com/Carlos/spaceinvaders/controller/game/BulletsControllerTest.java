@@ -30,22 +30,17 @@ public class BulletsControllerTest {
         arenaH = 100;
         bulletsController = new BulletsController(bullets, activeMonsters, activePowerUps, playerModel, scoreModel,arenaH);
     }
-
-    @Test
-    public void testToDo() {
-    }
-
     @Test
     public void testMove_bulletCollidesWithMonster() {
-        BulletModel bullet = new BulletModel(new PositionModel(5,10),5,true);
+        BulletModel bullet = new BulletModel(new PositionModel(5,10),1,true);
         bullet.setActive(true);
-        bullet.setPosition(new PositionModel(0, 0));
+        bullet.setPosition(new PositionModel(0, 1));
         bullet.setDirection(true);
         bullet.setSpeed(1);
         bullets.add(bullet);
 
-        MonsterModel monster = new MonsterModel(new PositionModel(10,10),1,5);
-        monster.setPosition(new PositionModel(0, 1));
+        MonsterModel monster = new MonsterModel(new PositionModel(5,11),1,1);
+        monster.setPosition(new PositionModel(0, 0));
         activeMonsters.add(monster);
 
         bulletsController.move(bullet, 0);
@@ -56,20 +51,21 @@ public class BulletsControllerTest {
 
     @Test
     public void testMove_bulletCollidesWithPowerUp() {
-        BulletModel bullet = new BulletModel(new PositionModel(5,10),5,true);
+        BulletModel bullet = new BulletModel(new PositionModel(5,10),1,true);
         bullet.setActive(true);
-        bullet.setPosition(new PositionModel(0, 0));
+        bullet.setPosition(new PositionModel(0, 1));
         bullet.setDirection(true);
         bullet.setSpeed(1);
         bullets.add(bullet);
 
         PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
-        powerUp.setPosition(new PositionModel(0, 1));
+        powerUp.setPosition(new PositionModel(0, 0));
         activePowerUps.add(powerUp);
 
         bulletsController.move(bullet, 0);
 
         assertTrue(activePowerUps.isEmpty());
+        assertEquals(1, powerUp.isActive());
     }
 
     @Test

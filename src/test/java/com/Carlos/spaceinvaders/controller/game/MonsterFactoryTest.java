@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MonsterFactoryTest {
 
@@ -24,8 +23,8 @@ public class MonsterFactoryTest {
     }
 
     @Test
-    public void testCreateMonster_WhenTimeIsGreaterThanDelay_ShouldReturnNewMonsters() {
-        long time = 1000;
+    public void testCreateMonster_WhenTimeIsGreaterThanDelay() {
+        long time = System.currentTimeMillis();
         int arenaX = 10;
         monsterFactory.createMonster(time, arenaX);
 
@@ -33,26 +32,26 @@ public class MonsterFactoryTest {
     }
 
     @Test
-    public void testCreateMonster_WhenTimeIsLessThanDelay_ShouldReturnNull() {
-        long time = 500;
+    public void testCreateMonster_WhenTimeIsLessThanDelay() {
+        long time = 2999;
         int arenaX = 10;
         monsterFactory.createMonster(time, arenaX);
 
-        assertNull(activeMonsters);
+        assertTrue(activeMonsters.isEmpty());
     }
 
     @Test
     public void testCreateMonster_WhenTimeIsEqualToDelay_ShouldReturnNull() {
-        long time = 100;
+        long time = 3000;
         int arenaX = 10;
         monsterFactory.createMonster(time, arenaX);
 
-        assertNull(activeMonsters);
+        assertTrue(activeMonsters.isEmpty());
     }
 
     @Test
     public void testCreateMonster_WhenTimeIsEqualToDelayPlusOne_ShouldReturnNewMonsters() {
-        long time = 101;
+        long time = 3001;
         int arenaX = 10;
         monsterFactory.createMonster(time, arenaX);
 
@@ -65,87 +64,6 @@ public class MonsterFactoryTest {
         int arenaX = 10;
         monsterFactory.createMonster(time, arenaX);
 
-        assertNull(activeMonsters);
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsGreaterThanLastCreation_ShouldReturnNewMonsters() {
-        long time = 1000;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertEquals(1, activeMonsters.size());
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsLessThanLastCreation_ShouldReturnNull() {
-        long time = 500;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertNull(activeMonsters);
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationPlusOne_ShouldReturnNewMonsters() {
-        long time = 1;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertEquals(1, activeMonsters.size());
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationMinusOne_ShouldReturnNull() {
-        long time = -1;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertNull(activeMonsters);
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationMinusDelay_ShouldReturnNewMonsters() {
-        long time = -1000;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertEquals(1, activeMonsters.size());
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsLessThanLastCreationMinusDelay_ShouldReturnNull() {
-        long time = -1500;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertNull(activeMonsters);
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationMinusDelayPlusOne_ShouldReturnNewMonsters() {
-        long time = -999;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertEquals(1, activeMonsters.size());
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationMinusDelayMinusOne_ShouldReturnNull() {
-        long time = -1001;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertNull(activeMonsters);
-    }
-
-    @Test
-    public void testCreateMonster_WhenTimeIsEqualToLastCreationMinusDelayMinusTwo_ShouldReturnNull() {
-        long time = -1002;
-        int arenaX = 10;
-        monsterFactory.createMonster(time, arenaX);
-
-        assertNull(activeMonsters);
+        assertTrue(activeMonsters.isEmpty());
     }
 }

@@ -24,13 +24,13 @@ public class MenuController extends Controller<MenuModel> {
         this.soundController = soundController;
     }
 
-    private void nextEntry(){
+    void nextEntry(){
         int entry = getModel().getEntry();
         int lenEntries = getModel().getEntriesSize();
 
         getModel().setEntry((entry + 1) % lenEntries);
     }
-    private void previousEntry() {
+    void previousEntry() {
 
         if (getModel().getEntry() == 0) {
 
@@ -40,7 +40,7 @@ public class MenuController extends Controller<MenuModel> {
         }
     }
 
-    private void Select(Game game){
+    void Select(Game game){
         int entry = getModel().getEntry();
 
         if(entry == 0) newGame(game);

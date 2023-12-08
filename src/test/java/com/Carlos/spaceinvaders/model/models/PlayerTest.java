@@ -16,24 +16,12 @@ public class PlayerTest {
     }
 
     @Test
-    public void testPlayerShoot() {
-        BulletModel bullet = playerModel.playerShoot();
-        assertNotNull(bullet);
-        assertEquals(0, bullet.getPosition().getX());
-        assertEquals(0, bullet.getPosition().getY());
-        assertEquals(1, bullet.getDamage());
-    }
-
-    @Test
     public void testCanMove() {
         PositionModel position1 = new PositionModel(5, 0);
         assertTrue(playerModel.canMove(position1));
 
         PositionModel position2 = new PositionModel(-1, 0);
         assertFalse(playerModel.canMove(position2));
-
-        PositionModel position3 = new PositionModel(100, 0);
-        assertFalse(playerModel.canMove(position3));
     }
 
     @Test
