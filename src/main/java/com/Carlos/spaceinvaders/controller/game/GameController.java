@@ -5,11 +5,13 @@ import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.HighScore;
 import com.Carlos.spaceinvaders.State.GameOverMenuState;
 import com.Carlos.spaceinvaders.State.ResumeMenuState;
+import com.Carlos.spaceinvaders.State.State;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 
 import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
+import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
 
@@ -50,7 +52,7 @@ public class GameController extends Controller<ArenaModel> {
         endGame(game);
     }
 
-    private void endGame(Game game){
+    void endGame(Game game){
         if(getModel().getPlayer().getHitPoints() <= 0) {
             soundController.playSound("GameOver");
             game.popState();
@@ -63,5 +65,34 @@ public class GameController extends Controller<ArenaModel> {
                 HighScore.saveHighScore(finalScore);
             }
         }
+    }
+
+    public SoundController getSoundController() {
+        return soundController;
+    }
+
+    public BulletsController getBulletsController() {
+        return bulletsController;
+    }
+
+    public PlayerController getPlayerController() {
+        return playerController;
+    }
+
+    public PowerUpController getPowerUpController() {
+        return powerUpController;
+    }
+
+
+    public PowerUpFactory getPowerUpFactory() {
+        return powerUpFactory;
+    }
+
+    public MonsterControllerFactory getMonsterControllerFactory() {
+        return monsterControllerFactory;
+    }
+
+    public MonsterFactory getMonsterFactory() {
+        return monsterFactory;
     }
 }

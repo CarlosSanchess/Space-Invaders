@@ -24,4 +24,12 @@ public class GameOverMenuState extends State<GameOverMenuModel>{
         drawGameOverMenu.lanternaDraw(GUI);
         GameOverMenuController.toDo(game,Key, Time);
     }
+
+    public void setDrawGameOverMenu(DrawGameOverMenu drawGameOverMenu) {
+        this.drawGameOverMenu = drawGameOverMenu;
+    }
+
+    public void setGameOverMenuController(com.Carlos.spaceinvaders.controller.menu.GameOverMenuController gameOverMenuController) {
+        GameOverMenuController = gameOverMenuController;
+    }
 }

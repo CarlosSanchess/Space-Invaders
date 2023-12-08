@@ -24,4 +24,12 @@ public class OptionsState extends State<OptionsModel>{
         drawOptions.lanternaDraw(GUI);
         optionsController.toDo(game,Key, Time);
     }
+
+    public void setDrawOptions(DrawOptions drawOptions) {
+        this.drawOptions = drawOptions;
+    }
+
+    public void setOptionsController(OptionsController optionsController) {
+        this.optionsController = optionsController;
+    }
 }

@@ -53,4 +53,8 @@ public class PowerUpFactory {
     public long getDelay() {
         return Delay;
     }
+
+    public long getLastCreation() {
+        return lastCreation;
+    }
 }

@@ -4,7 +4,7 @@ public class MonsterModel extends Elements {
 
     private int hitPoints; // Not Used Yet
     boolean direction = false;
-    private final int speed;
+    private int speed;
 
     public MonsterModel(PositionModel position, int hitPoints, int speed) {
         super(position);
@@ -28,5 +28,9 @@ public class MonsterModel extends Elements {
 
     public boolean getDirection() {
         return direction;
+    }
+
+    public void setSpeed(int i) {
+        speed = i;
     }
 }

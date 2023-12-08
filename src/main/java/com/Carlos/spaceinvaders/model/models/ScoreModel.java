@@ -29,4 +29,11 @@ public class ScoreModel extends Elements{
     public void setScore(int score) {
         this.score = score;
     }
+
+    public int getHighScore() {
+        return score;
+    }
+    public void setHighScore(int highScore){
+        score = highScore;
+    }
 }

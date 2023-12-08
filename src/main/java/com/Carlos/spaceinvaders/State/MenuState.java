@@ -26,4 +26,11 @@ public  class MenuState extends State<MenuModel> {
         menuController.toDo(game,Key, Time);
     }
 
+    public void setDrawMenu(DrawMenu drawMenu) {
+        this.drawMenu = drawMenu;
+    }
+
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
 }

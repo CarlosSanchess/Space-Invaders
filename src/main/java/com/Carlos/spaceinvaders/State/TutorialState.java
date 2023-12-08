@@ -24,4 +24,12 @@ public class TutorialState extends State<TutorialModel>{
         drawTutorial.lanternaDraw(GUI);
         tutorialController.toDo(game,Key, Time);
     }
+
+    public void setDrawTutorial(DrawTutorial drawTutorial) {
+        this.drawTutorial = drawTutorial;
+    }
+
+    public void setTutorialController(TutorialController tutorialController) {
+        this.tutorialController = tutorialController;
+    }
 }

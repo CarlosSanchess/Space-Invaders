@@ -26,4 +26,20 @@ public class GameState extends State<ArenaModel> {
         drawGame.lanternaDraw(GUI);
         gameController.toDo(game,Key,Time);
     }
+
+    public void setDrawGame(DrawGame drawGame) {
+        this.drawGame = drawGame;
+    }
+
+    public void setGameController(GameController gameController) {
+        this.gameController = gameController;
+    }
+
+    public DrawGame getDrawGame() {
+        return drawGame;
+    }
+
+    public GameController getGameController() {
+        return gameController;
+    }
 }

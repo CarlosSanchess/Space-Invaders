@@ -27,7 +27,7 @@ public class MonsterControllerFactory {
         this.monsterFactory = new MonsterFactory(monsterFactoryModel,activeMonsters);
     }
 
-    private MonsterController createMonsterController(MonsterModel monster) {
+    MonsterController createMonsterController(MonsterModel monster) {
 
         MovementStrategy movementStrategy = getRandomMovementStrategy();
         return new MonsterController(monster, movementStrategy);
