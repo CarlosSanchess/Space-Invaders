@@ -61,14 +61,14 @@ public class PlayerModel extends Elements {
 
     public String getPlayerNameModel() {
         System.out.println("aaaa");
-        System.out.println(playerNameModel);
+        System.out.println(PlayerNameModel.name);
 
-        if (playerNameModel == null) {
+        if (PlayerNameModel.name == "") {
             int highestGuestNumber = findHighestGuestNumber();
             return "Guest" + (highestGuestNumber + 1);
         }
 
-        return playerNameModel.getName();
+        return PlayerNameModel.name;
     }
 
     private int findHighestGuestNumber() {

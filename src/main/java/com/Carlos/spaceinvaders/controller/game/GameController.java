@@ -35,6 +35,16 @@ public class GameController extends Controller<ArenaModel> {
 
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {
             game.pushState(new ResumeMenuState(new ResumeMenuModel()));
+
+            int finalScore = getModel().getScore().getScore();
+            PlayerModel playerModel = getModel().getPlayer();
+            String playerName = playerModel.getPlayerNameModel();
+            if (playerName == null) {
+                playerName = playerModel.getPlayerNameModel();
+            }
+            System.out.println(playerName + " " + finalScore);
+
+            HighScore.updateHighScore(playerName, finalScore);
         }
         powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
         monsterControllerFactory.CreateMonstersAndControllers(Time);
