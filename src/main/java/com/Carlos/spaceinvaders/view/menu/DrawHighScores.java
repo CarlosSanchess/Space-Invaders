@@ -38,14 +38,31 @@ public class DrawHighScores extends Viewer<HighScoresModel> {
             lines.sort(Comparator.comparingInt(line -> Integer.parseInt(((String) line).split(",")[1])).reversed());
 
             // Draw sorted scores
+            //A
             int row = 14;
             for (int i = 0; i < lines.size(); i++) {
                 String line = lines.get(i);
                 String[] parts = line.split(",");
                 String name = parts[0];
                 String score = parts[1];
-                gui.drawText(new PositionModel(32, row), name, new TextColor.RGB(255, 255, 255), false);
-                gui.drawText(new PositionModel(42, row), score, new TextColor.RGB(255, 255, 255), false);
+                if(row == 14){
+                    gui.drawText(new PositionModel(32, row), name, getModel().getColor(0), false);
+                    gui.drawText(new PositionModel(42, row), score, getModel().getColor(0), false);
+                }else{
+                    if(row == 16)
+                    {
+                        gui.drawText(new PositionModel(32, row), name, getModel().getColor(1), false);
+                        gui.drawText(new PositionModel(42, row), score,getModel().getColor(1), false);
+                    }else{
+                        if(row == 18){
+                            gui.drawText(new PositionModel(32, row), name, getModel().getColor(2), false);
+                            gui.drawText(new PositionModel(42, row), score, getModel().getColor(2), false);
+                        }else{
+                            gui.drawText(new PositionModel(32, row), name, getModel().getColor(3), false);
+                            gui.drawText(new PositionModel(42, row), score, getModel().getColor(3), false);
+                        }
+                    }
+                }
                 row += 2;
             }
         } catch (IOException e) {
