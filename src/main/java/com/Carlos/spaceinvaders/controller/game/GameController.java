@@ -54,6 +54,7 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
+        System.out.println(getModel().getPlayer().getHitPoints());
         endGame(game);
     }
 
