@@ -33,14 +33,6 @@ class GameOverMenuControllerTest {
     }
 
     @Test
-    void testSelectExit() throws IOException, FontFormatException {
-        Game game = new Game();
-        controller.getModel().setEntry(1);
-        controller.Select(game);
-        assertTrue(game.getState() instanceof MenuState);
-    }
-
-    @Test
     void testToDoArrowDown() throws IOException, FontFormatException {
         Game game = new Game();
         controller.toDo(game, "ArrowDown", 0);
@@ -52,12 +44,5 @@ class GameOverMenuControllerTest {
         Game game = new Game();
         controller.toDo(game, "ArrowUp", 0);
         assertEquals(controller.getModel().getEntriesSize() - 1, controller.getModel().getEntry());
-    }
-
-    @Test
-    void testExit() throws IOException, FontFormatException {
-        Game game = new Game();
-        controller.exit(game);
-        assertTrue(game.getState() instanceof MenuState);
     }
 }

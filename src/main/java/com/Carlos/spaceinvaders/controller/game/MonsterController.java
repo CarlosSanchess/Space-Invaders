@@ -37,4 +37,8 @@ public class MonsterController extends Controller<MonsterModel> {
     public boolean isWinMonster() {
         return winMonster;
     }
+
+    public long getLastMove() {
+        return lastMove;
+    }
 }

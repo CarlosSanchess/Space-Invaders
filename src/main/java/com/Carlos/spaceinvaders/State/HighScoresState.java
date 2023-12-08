@@ -24,4 +24,12 @@ public class HighScoresState extends State<HighScoresModel>{
         drawHighScores.lanternaDraw(GUI);
         highScoresController.toDo(game,Key, Time);
     }
+
+    public void setDrawHighScores(DrawHighScores drawHighScores) {
+        this.drawHighScores = drawHighScores;
+    }
+
+    public void setHighScoresController(HighScoresController highScoresController) {
+        this.highScoresController = highScoresController;
+    }
 }

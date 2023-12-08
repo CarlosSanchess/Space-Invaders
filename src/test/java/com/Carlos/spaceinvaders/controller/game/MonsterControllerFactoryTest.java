@@ -24,10 +24,11 @@ public class MonsterControllerFactoryTest {
     @BeforeEach
     public void setUp() {
         int arenaW = 100;
+        int arenaH = 100;
         bullets = new ArrayList<>();
         activeMonsters = new ArrayList<>();
         monsterFactoryModel = mock(MonsterFactoryModel.class);
-        monsterControllerFactory = new MonsterControllerFactory(arenaW, bullets, activeMonsters, monsterFactoryModel);
+        monsterControllerFactory = new MonsterControllerFactory(arenaW, arenaH,bullets, activeMonsters,monsterFactoryModel);
     }
 
     @Test

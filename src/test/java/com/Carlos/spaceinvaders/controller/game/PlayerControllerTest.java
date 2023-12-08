@@ -22,7 +22,7 @@ public class PlayerControllerTest {
 
     @BeforeEach
     public void setUp() {
-        PlayerModel playerModel = new PlayerModel(new PositionModel(10,5),3, PowerUp.PowerUpType.HealthBoost);
+        PlayerModel playerModel = new PlayerModel(new PositionModel(10,5),3);
         int arenaW = 10;
         bullets = new ArrayList<>();
         soundController = new SoundController();

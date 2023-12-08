@@ -25,7 +25,7 @@ public class MenuTest {
         assertEquals("NEW GAME", entries.get(0));
         assertEquals("CONTINUE GAME", entries.get(1));
         assertEquals("TUTORIAL", entries.get(2));
-        assertEquals("OPTIONS", entries.get(3));
+        assertEquals("HIGHSCORES", entries.get(3));
         assertEquals("EXIT", entries.get(4));
     }
 
@@ -55,7 +55,7 @@ public class MenuTest {
         assertEquals("NEW GAME", menuModel.getEntryName(0));
         assertEquals("CONTINUE GAME", menuModel.getEntryName(1));
         assertEquals("TUTORIAL", menuModel.getEntryName(2));
-        assertEquals("OPTIONS", menuModel.getEntryName(3));
+        assertEquals("HIGHSCORES", menuModel.getEntryName(3));
         assertEquals("EXIT", menuModel.getEntryName(4));
     }
 

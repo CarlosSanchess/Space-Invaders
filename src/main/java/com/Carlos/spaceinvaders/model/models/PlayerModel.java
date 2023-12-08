@@ -103,4 +103,8 @@ public class PlayerModel extends Elements {
     public void setPlayerNameModel(PlayerNameModel playerNameModel) {
         this.playerNameModel = playerNameModel;
     }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
 }

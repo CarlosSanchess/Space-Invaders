@@ -24,13 +24,13 @@ public class DrawHighScores extends Viewer<HighScoresModel> {
         drawScores(gui);
     }
 
-    private void drawTitle(LanternaGui gui) {
+    void drawTitle(LanternaGui gui) {
         gui.drawText(new PositionModel(33, 7), "HIGH SCORES", new TextColor.RGB(178, 73, 210), false);
         gui.drawText(new PositionModel(32, 11), "NAME", new TextColor.RGB(178, 73, 210), false);
         gui.drawText(new PositionModel(42, 11), "SCORE", new TextColor.RGB(178, 73, 210), false);
     }
 
-    private void drawScores(LanternaGui gui) {
+    void drawScores(LanternaGui gui) {
         String filePath = getModel().getFilePath();
         try {
             List<String> lines = Files.readAllLines(Paths.get(filePath));

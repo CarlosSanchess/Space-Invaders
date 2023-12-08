@@ -12,7 +12,7 @@ public class PlayerTest {
     @BeforeEach
     public void setUp() {
         PositionModel position = new PositionModel(0, 0);
-        playerModel = new PlayerModel(position, 3, null);
+        playerModel = new PlayerModel(position, 3);
     }
 
     @Test

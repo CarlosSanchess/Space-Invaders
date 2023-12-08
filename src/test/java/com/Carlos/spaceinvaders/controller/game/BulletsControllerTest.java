@@ -25,7 +25,7 @@ public class BulletsControllerTest {
         bullets = new ArrayList<>();
         activeMonsters = new ArrayList<>();
         activePowerUps = new ArrayList<>();
-        playerModel = new PlayerModel(new PositionModel(5,5),3, null);
+        playerModel = new PlayerModel(new PositionModel(5,5),3);
         scoreModel = new ScoreModel(new PositionModel(10,10));
         arenaH = 100;
         bulletsController = new BulletsController(bullets, activeMonsters, activePowerUps, playerModel, scoreModel,arenaH);

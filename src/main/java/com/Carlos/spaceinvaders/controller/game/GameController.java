@@ -58,7 +58,7 @@ public class GameController extends Controller<ArenaModel> {
         endGame(game);
     }
 
-    private void endGame(Game game){
+    void endGame(Game game){
 
         if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
@@ -77,4 +77,27 @@ public class GameController extends Controller<ArenaModel> {
         }
     }
 
+    public SoundController getSoundController() {
+        return soundController;
+    }
+
+    public PowerUpController getPowerUpController() {
+        return powerUpController;
+    }
+
+    public MonsterControllerFactory getMonsterControllerFactory() {
+        return monsterControllerFactory;
+    }
+
+    public BulletsController getBulletsController() {
+        return bulletsController;
+    }
+
+    public PlayerController getPlayerController() {
+        return playerController;
+    }
+
+    public PowerUpFactory getPowerUpFactory() {
+        return powerUpFactory;
+    }
 }

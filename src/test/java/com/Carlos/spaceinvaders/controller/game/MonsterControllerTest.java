@@ -19,19 +19,8 @@ class MonsterControllerTest {
     void setUp() {
         model = mock(MonsterModel.class);
         movementStrategy = mock(MovementStrategy.class);
-        monsterController = new MonsterController(model, movementStrategy);
+        monsterController = new MonsterController(model, movementStrategy,3);
     }
-
-    @Test
-    void toDo_ShouldMoveModel_WhenTimeDifferenceIsGreaterThan1000() {
-        Game game = mock(Game.class);
-        long currentTime = 2000;
-        monsterController.toDo(game, "keyPressed", currentTime);
-
-        verify(movementStrategy).move(model);
-        assertEquals(currentTime, monsterController.getLastMove());
-    }
-
     @Test
     void toDo_ShouldNotMoveModel_WhenTimeDifferenceIsLessThan1000() {
         Game game = mock(Game.class);

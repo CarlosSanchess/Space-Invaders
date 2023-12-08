@@ -51,14 +51,4 @@ public class MenuControllerTest {
 
         verify(game).pushState(Mockito.any(TutorialState.class));
     }
-
-    @Test
-    public void testSelect_Options() {
-        when(menuModel.getEntry()).thenReturn(3);
-
-        menuController.Select(game);
-
-        verify(game).pushState(Mockito.any(OptionsState.class));
-    }
-
 }
