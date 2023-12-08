@@ -59,7 +59,6 @@ public class PlayerModel extends Elements {
     }
 
     public String getPlayerNameModel() {
-        System.out.println("aaaa");
         System.out.println(PlayerNameModel.name);
 
         if (PlayerNameModel.name == "") {

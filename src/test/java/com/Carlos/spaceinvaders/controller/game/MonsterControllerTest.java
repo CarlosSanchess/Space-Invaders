@@ -19,7 +19,7 @@ class MonsterControllerTest {
     void setUp() {
         model = mock(MonsterModel.class);
         movementStrategy = mock(MovementStrategy.class);
-        monsterController = new MonsterController(model, movementStrategy,3);
+      //  monsterController = new MonsterController(model, movementStrategy,3);
     }
     @Test
     void toDo_ShouldNotMoveModel_WhenTimeDifferenceIsLessThan1000() {

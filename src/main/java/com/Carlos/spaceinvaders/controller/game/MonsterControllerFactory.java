@@ -32,7 +32,7 @@ public class MonsterControllerFactory {
     MonsterController createMonsterController(MonsterModel monster) {
 
         MovementStrategy movementStrategy = getRandomMovementStrategy();
-        return new MonsterController(monster, movementStrategy,arenaH);
+        return new MonsterController(monster, movementStrategy,arenaH, activeMonsters);
     }
 
     public void CreateMonstersAndControllers(long Time){

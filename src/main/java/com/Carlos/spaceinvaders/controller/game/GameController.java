@@ -44,7 +44,6 @@ public class GameController extends Controller<ArenaModel> {
             if (playerName == null) {
                 playerName = playerModel.getPlayerNameModel();
             }
-            System.out.println(playerName + " " + finalScore);
 
             HighScore.updateHighScore(playerName, finalScore);
         }
@@ -61,7 +60,8 @@ public class GameController extends Controller<ArenaModel> {
     }
 
     void endGame(Game game){
-
+        System.out.println(getModel().getPlayer().getHitPoints() <= 0 );
+        System.out.println(monsterControllerFactory.checkWinMonster());
         if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
             game.popState();
@@ -73,7 +73,6 @@ public class GameController extends Controller<ArenaModel> {
             if (playerName == null) {
                 playerName = playerModel.getPlayerNameModel();
             }
-            System.out.println(playerName + " " + finalScore);
 
             HighScore.updateHighScore(playerName, finalScore);
         }
