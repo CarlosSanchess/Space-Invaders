@@ -1,6 +1,12 @@
 package com.Carlos.spaceinvaders.model.models;
 
 import java.awt.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+import com.Carlos.spaceinvaders.HighScore;
 import  com.Carlos.spaceinvaders.model.models.PowerUp.PowerUpType;
 
 
@@ -56,11 +62,44 @@ public class PlayerModel extends Elements {
     public String getPlayerNameModel() {
         System.out.println("aaaa");
         System.out.println(playerNameModel);
-        if(playerNameModel == null){
-            return PlayerNameModel.name = "Guest" + i;
+
+        if (playerNameModel == null) {
+            int highestGuestNumber = findHighestGuestNumber();
+            return "Guest" + (highestGuestNumber + 1);
         }
-        return PlayerNameModel.name;
+
+        return playerNameModel.getName();
     }
+
+    private int findHighestGuestNumber() {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(HighScore.absolutePath));
+
+            int highestGuestNumber = 1;
+
+            for (String line : lines) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    String storedPlayerName = parts[0];
+
+                    if (storedPlayerName.startsWith("Guest")) {
+                        try {
+                            int guestNumber = Integer.parseInt(storedPlayerName.substring(5));
+                            highestGuestNumber = Math.max(highestGuestNumber, guestNumber);
+                        } catch (NumberFormatException ignored) {
+                            // Ignore if the number couldn't be parsed
+                        }
+                    }
+                }
+            }
+
+            return highestGuestNumber;
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception according to your needs
+            return 0;
+        }
+    }
+
 
     public void setPlayerNameModel(PlayerNameModel playerNameModel) {
         this.playerNameModel = playerNameModel;
