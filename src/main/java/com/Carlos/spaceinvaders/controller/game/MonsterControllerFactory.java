@@ -9,6 +9,7 @@ import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -59,16 +60,21 @@ public class MonsterControllerFactory {
     public List<MonsterController> getMonstersControllers(){
      return monsterControllers;
     }
-    public boolean checkWinMonster() {
-        for (MonsterController monsterController : monsterControllers) {
+
+    //private void cleanC
+    public boolean checkWinMonster() { //Also Cleans Controllers
+        Iterator<MonsterController> iterator = monsterControllers.iterator();
+
+        while (iterator.hasNext()) {
+            MonsterController monsterController = iterator.next();
+            if(!activeMonsters.contains(monsterController.getMonster()))
+                iterator.remove();
+
             if (monsterController.isWinMonster()) {
                 return true;
             }
         }
-        return false;
-    }
 
-    public MonsterFactory getMonsterFactory() {
-        return monsterFactory;
+        return false;
     }
 }

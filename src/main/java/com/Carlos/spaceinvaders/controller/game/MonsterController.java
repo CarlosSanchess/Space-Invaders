@@ -31,8 +31,7 @@ public class MonsterController extends Controller<MonsterModel> {
 
     }
     private void checkWin(MonsterModel model){
-        if(model.getPosition().getY() >=  arenaH - 1 && activeMonsters.contains(model)){
-            System.out.println(model.getPosition().getY());
+        if(model.getPosition().getY() >=  arenaH - 1){
             winMonster = true;
         }
     }
@@ -43,5 +42,8 @@ public class MonsterController extends Controller<MonsterModel> {
 
     public long getLastMove() {
         return lastMove;
+    }
+    public MonsterModel getMonster(){
+        return getModel();
     }
 }
