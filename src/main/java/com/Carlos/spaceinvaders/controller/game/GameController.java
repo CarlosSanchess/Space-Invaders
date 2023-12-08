@@ -102,4 +102,8 @@ public class GameController extends Controller<ArenaModel> {
     public PowerUpFactory getPowerUpFactory() {
         return powerUpFactory;
     }
+
+    public void setSoundController(SoundController soundController) {
+        this.soundController = soundController;
+    }
 }
