@@ -29,7 +29,7 @@ public class HighScoresModel {
         entries.add(new TextColor.RGB(255, 240, 0));
         entries.add(new TextColor.RGB(220, 220, 220));
         entries.add(new TextColor.RGB(205, 133, 63));
-        entries.add(new TextColor.RGB( 128, 0, 128));
+        entries.add(new TextColor.RGB( 216, 61, 190));
     }
     public TextColor.RGB getColor(int i){
         return entries.get(i);
