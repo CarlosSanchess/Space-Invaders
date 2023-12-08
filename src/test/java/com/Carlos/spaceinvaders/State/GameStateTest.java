@@ -29,6 +29,9 @@ public class GameStateTest {
         arenaModel = mock(ArenaModel.class);
         drawGame = mock(DrawGame.class);
         gameController = mock(GameController.class);
+        MonsterFactoryModel monsterFactoryModel = mock(MonsterFactoryModel.class);
+        when(arenaModel.getMonsterFactoryModel()).thenReturn(monsterFactoryModel);
+        when(monsterFactoryModel.getDelay()).thenReturn(3000L);
         gameState = new GameState(arenaModel);
         gameState.setDrawGame(drawGame);
         gameState.setGameController(gameController);
