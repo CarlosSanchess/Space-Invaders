@@ -43,12 +43,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
 
         if(lastScoreBoostTime != 0 && Time - lastScoreBoostTime > upTime){
-            playerModel.setPowerUpType(null);
-            lastScoreBoostTime = 0;
+            revertScoreBoost();
         }
         if(lastFireRateBoostTime != 0 && Time - lastFireRateBoostTime > upTime){
-            playerModel.setPowerUpType(null);
-            lastFireRateBoostTime = 0;
+           revertFireRateBoost();
         }
 
     }
@@ -116,6 +114,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost){
             FireRateBoost();
+            lastFireRateBoostTime = Time;
 
         }
 
@@ -125,6 +124,11 @@ public class BulletsController extends Controller<List<BulletModel>> {
         scoreModel.setIncrementValue(5); // Permanente, Tornar posível reverter passado X segundos.
         playerModel.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
     }
+    private void revertScoreBoost(){
+        scoreModel.setIncrementValue(1);
+        playerModel.setPowerUpType(null);
+        lastScoreBoostTime = 0;
+    }
     private void HealthBoost(){
         if(playerModel.getHitPoints() < 3){
             playerModel.incrementHitPoints();
@@ -133,5 +137,10 @@ public class BulletsController extends Controller<List<BulletModel>> {
     private void FireRateBoost(){
         playerModel.setDelayShooting(250);
         playerModel.setPowerUpType(PowerUp.PowerUpType.FireRateBoost);
+    }
+    private void revertFireRateBoost(){
+        playerModel.setDelayShooting(500);
+        playerModel.setPowerUpType(null);
+        lastFireRateBoostTime = 0;
     }
 }

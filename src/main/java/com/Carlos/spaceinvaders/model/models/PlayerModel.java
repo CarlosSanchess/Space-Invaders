@@ -19,12 +19,11 @@ public class PlayerModel extends Elements {
     public PlayerNameModel playerNameModel;
     public static int i;
 
-    public PlayerModel(PositionModel position, int hitPoints, PowerUpType powerUpType){
+    public PlayerModel(PositionModel position, int hitPoints){
         super(position);
         this.hitPoints = hitPoints;
         this.delayShooting = 500;
         this.powerUpType = null;
-        this.playerNameModel = playerNameModel;
         this.i = 1;
 
     }

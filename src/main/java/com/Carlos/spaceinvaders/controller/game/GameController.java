@@ -54,11 +54,12 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
-        System.out.println(getModel().getPlayer().getHitPoints());
+
         endGame(game);
     }
 
     private void endGame(Game game){
+
         if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
             game.popState();
