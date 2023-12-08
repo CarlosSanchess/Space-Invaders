@@ -7,8 +7,6 @@ import java.util.Objects;
 public class HighScore {
     public static String absolutePath = System.getProperty("user.dir") + "/src/main/resources/HighScore.csv";
 
-
-
     public static void updateHighScore(String playerName, int score) {
         List<String> lines;
         try {
@@ -42,7 +40,9 @@ public class HighScore {
             lines.add(playerName + "," + score);
         }
 
-
+        while (lines.size() > 10) {
+            lines.remove(lines.size() - 1);
+        }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(absolutePath))) {
             for (String line : lines) {
