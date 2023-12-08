@@ -41,8 +41,8 @@ public class DrawPlayerName extends Viewer<PlayerNameModel> {
         gui.drawText(new PositionModel(41, 15), "E",  new TextColor.RGB(178, 73 ,210), false);
         gui.drawText(new PositionModel(42, 15), ":",  new TextColor.RGB(178, 73 ,210), false);
 
-
-        gui.drawText(new PositionModel(35, 19), getModel().getEntryName(), new TextColor.RGB(255, 0, 0), false);
+        gui.drawRectangleName(gui,new TextColor.RGB(178, 73 ,210) );
+        gui.drawText(new PositionModel(35, 21), getModel().getEntryName(), new TextColor.RGB(255, 0, 0), false);
 
     }
 }

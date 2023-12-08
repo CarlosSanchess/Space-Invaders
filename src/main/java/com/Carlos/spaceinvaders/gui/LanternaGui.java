@@ -134,6 +134,23 @@ public class LanternaGui {
         graphics.putString(position.getX(), position.getY(), string);
     }
 
+    public void drawRectangleName(LanternaGui gui, TextColor.RGB rgbColor){
+        for (int col = 30; col <= 44; col++) {
+            gui.drawText(new PositionModel(col, 17), "-", rgbColor, false);
+        }
+
+        // Draw vertical lines
+        for (int row = 18; row <= 18; row++) {
+            gui.drawText(new PositionModel(29, row), "|", rgbColor, false);
+            gui.drawText(new PositionModel(45, row), "|", rgbColor, false);
+        }
+
+        // Draw another horizontal line
+        for (int col = 30; col <= 44; col++) {
+            gui.drawText(new PositionModel(col, 19), "-", rgbColor, false);
+        }
+    }
+
     public void screenClear() {
         screen.clear();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));

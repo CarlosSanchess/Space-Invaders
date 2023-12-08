@@ -27,13 +27,13 @@ public class PlayerNameController extends Controller<PlayerNameModel> {
             if (!currentName.isEmpty()) {
                 getModel().setName(currentName.substring(0, currentName.length() - 1));
             }
-        }else if (keyPressed != null) {
+        }else if (keyPressed != null & getModel().getName().length() < 15) {
             // Update the player name in the model
             getModel().setName(getModel().getName() + keyPressed);
         }
 
         // Draw the player name on the screen
-        game.getGUI().drawText(new PositionModel(30, 17), getModel().getName(), new TextColor.RGB(255, 255, 255));
+        game.getGUI().drawText(new PositionModel(30, 18), getModel().getName(), new TextColor.RGB(255, 255, 255));
 
         try {
             game.getGUI().screenRefresh();
