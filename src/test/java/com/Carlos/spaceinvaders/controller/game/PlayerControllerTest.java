@@ -54,7 +54,7 @@ public class PlayerControllerTest {
         playerController.moveLeft();
         int newX = playerController.getModel().getPosition().getX();
 
-        assertEquals(2, newX);
+        assertEquals(1, newX);
     }
 
     @Test
