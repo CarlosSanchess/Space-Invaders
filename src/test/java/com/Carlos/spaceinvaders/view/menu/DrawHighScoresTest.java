@@ -6,58 +6,51 @@ import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class DrawHighScoresTest {
 
-    @Mock
     private LanternaGui gui;
-
-    @Mock
-    private HighScoresModel highScoresModel;
-
+    private HighScoresModel model;
     private DrawHighScores drawHighScores;
 
     @BeforeEach
     public void setup() {
-        MockitoAnnotations.openMocks(this);
-        drawHighScores = new DrawHighScores(highScoresModel);
+        gui = mock(LanternaGui.class);
+        model = mock(HighScoresModel.class);
+        drawHighScores = new DrawHighScores(model);
     }
 
     @Test
     public void testDrawTitle() {
         drawHighScores.drawTitle(gui);
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("HIGH SCORES"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("NAME"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("SCORE"), any(TextColor.RGB.class), eq(false));
+
+        verify(gui, times(1)).drawText(new PositionModel(33, 7), "HIGH SCORES", new TextColor.RGB(178, 73, 210), false);
+        verify(gui, times(1)).drawText(new PositionModel(32, 11), "NAME", new TextColor.RGB(178, 73, 210), false);
+        verify(gui, times(1)).drawText(new PositionModel(42, 11), "SCORE", new TextColor.RGB(178, 73, 210), false);
     }
 
     @Test
-    public void testDrawScores() throws IOException {
-        when(highScoresModel.getFilePath()).thenReturn("testPath");
-        when(highScoresModel.getEntryName()).thenReturn("Exit");
-        Path path = Paths.get("testPath");
-        Files.write(path, Arrays.asList("John,100", "Jane,200"));
+    public void testDrawScores() throws Exception {
+        when(model.getFilePath()).thenReturn("scores.txt");
+        when(model.getColor(anyInt())).thenReturn(new TextColor.RGB(178, 73, 210));
+        when(model.getEntryName()).thenReturn("Test");
+
+        Path path = Files.createTempFile("scores", ".txt");
+        Files.write(path, Arrays.asList("Julio,100", "Joana,200"));
+
+        when(model.getFilePath()).thenReturn(path.toString());
 
         drawHighScores.drawScores(gui);
 
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("John"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("100"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("Jane"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("200"), any(TextColor.RGB.class), eq(false));
-        verify(gui, times(1)).drawText(any(PositionModel.class), eq("Exit"), any(TextColor.RGB.class), eq(false));
+        verify(gui, times(1)).drawText(new PositionModel(32, 14), "Joana", new TextColor.RGB(178, 73, 210), false);
+        verify(gui, times(1)).drawText(new PositionModel(42, 14), "200", new TextColor.RGB(178, 73, 210), false);
+        verify(gui, times(1)).drawText(new PositionModel(32, 16), "Julio", new TextColor.RGB(178, 73, 210), false);
+        verify(gui, times(1)).drawText(new PositionModel(42, 16), "100", new TextColor.RGB(178, 73, 210), false);
     }
 }
