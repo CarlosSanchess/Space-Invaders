@@ -60,8 +60,8 @@ public class GameController extends Controller<ArenaModel> {
     }
 
     void endGame(Game game){
-        System.out.println(getModel().getPlayer().getHitPoints() <= 0 );
-        System.out.println(monsterControllerFactory.checkWinMonster());
+        //System.out.println(getModel().getPlayer().getHitPoints() <= 0 );
+        //System.out.println(monsterControllerFactory.checkWinMonster());
         if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
             game.popState();

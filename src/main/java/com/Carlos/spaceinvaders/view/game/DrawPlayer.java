@@ -42,6 +42,11 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
         gui.drawText(new PositionModel(x + 2, y), ">", color, false);
         gui.drawText(new PositionModel(x - 1, y), "___", color, false);
 
+        int i = getModel().getHitPoints();
+        while (i != 0){
+            gui.drawText(new PositionModel(48+25 , 41 - i), "♥", new TextColor.RGB(255, 0 ,0), false);
+            i--;
+        }
     }
 }
 
