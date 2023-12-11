@@ -130,9 +130,8 @@ public class BulletsController extends Controller<List<BulletModel>> {
         lastScoreBoostTime = 0;
     }
     void HealthBoost(){
-        if(playerModel.getHitPoints() < 3){
-            playerModel.incrementHitPoints();
-        }
+        playerModel.incrementHitPoints();
+
     }
     private void FireRateBoost(){
         playerModel.setDelayShooting(250);
