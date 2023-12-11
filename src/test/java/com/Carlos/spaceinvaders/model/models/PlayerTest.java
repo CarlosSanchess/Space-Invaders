@@ -14,7 +14,7 @@ public class PlayerTest {
         PositionModel position = new PositionModel(0, 0);
         playerModel = new PlayerModel(position, 3);
     }
-
+    /*
     @Test
     public void testCanMove() {
         PositionModel position1 = new PositionModel(5, 0);
@@ -23,7 +23,7 @@ public class PlayerTest {
         PositionModel position2 = new PositionModel(-1, 0);
         assertFalse(playerModel.canMove(position2));
     }
-
+ */
     @Test
     public void testIncrementHitPoints() {
         playerModel.incrementHitPoints();

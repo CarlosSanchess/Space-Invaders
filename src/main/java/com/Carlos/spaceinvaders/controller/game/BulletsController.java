@@ -126,7 +126,8 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     private void revertScoreBoost(){
         scoreModel.setIncrementValue(1);
-        playerModel.setPowerUpType(null);
+        if(!checkActivity())
+            playerModel.setPowerUpType(null);
         lastScoreBoostTime = 0;
     }
     void HealthBoost(){
@@ -139,7 +140,16 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     private void revertFireRateBoost(){
         playerModel.setDelayShooting(500);
-        playerModel.setPowerUpType(null);
+        if(!checkActivity()) // See if there is other powerUp running
+             playerModel.setPowerUpType(null);
         lastFireRateBoostTime = 0;
+    }
+    private boolean checkActivity(){
+        for(PowerUp powerup : activePowerUps){
+            if(powerup.isActive() == 1){
+                return true;
+            }
+        }
+        return false;
     }
 }
