@@ -40,7 +40,8 @@ public class PlayerModel extends Elements {
         return hitPoints;
     }
     public void incrementHitPoints(){
-        this.hitPoints++;
+        if(getHitPoints() < 5)
+            this.hitPoints++;
     }
     public void decrementHitPoints(){
         this.hitPoints--;
