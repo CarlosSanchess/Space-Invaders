@@ -42,7 +42,7 @@ public class DrawTutorial extends Viewer<TutorialModel> {
 
         gui.drawText(new PositionModel(29, 24-2), "+", new TextColor.RGB(0, 255 ,0));
         gui.drawText(new PositionModel(31, 24-2), "★", new TextColor.RGB(255, 255 ,0));
-        gui.drawText(new PositionModel(33, 24-2), "F", new TextColor.RGB(0, 0 ,255));
+        gui.drawText(new PositionModel(33, 24-2), "$", new TextColor.RGB(0, 0 ,255));
         gui.drawText(new PositionModel(38, 24-2), "SHOOT THE POWERUPS TO GAIN POWERS",new TextColor.RGB(255, 255 ,255));
         gui.drawText(new PositionModel(29, 24), "♥",new TextColor.RGB(255, 0 ,0));
         gui.drawText(new PositionModel(38, 24), "YOU HAVE ONLY 3 LIVES",new TextColor.RGB(255, 255 ,255));
@@ -54,12 +54,12 @@ public class DrawTutorial extends Viewer<TutorialModel> {
         gui.drawText(new PositionModel(38, 30), "EXTRA LIFE",new TextColor.RGB(255, 255 ,255));
         gui.drawText(new PositionModel(29, 32), "★", new TextColor.RGB(255, 255 ,0));
         gui.drawText(new PositionModel(38, 32), "5X SCORE BOOST",new TextColor.RGB(255, 255 ,255));
-        gui.drawText(new PositionModel(29, 34), "F", new TextColor.RGB(0, 0 ,255));
+        gui.drawText(new PositionModel(29, 34), "$", new TextColor.RGB(0, 0 ,255));
         gui.drawText(new PositionModel(38, 34), "FIRE RATE BOOST",new TextColor.RGB(255, 255 ,255));
 
 
 
-        gui.drawText(new PositionModel(36, 36),getModel().getEntryName(),new TextColor.RGB(255, 0 ,0));
+        gui.drawText(new PositionModel(36, 38),getModel().getEntryName(),new TextColor.RGB(255, 0 ,0));
 
     }
 }
