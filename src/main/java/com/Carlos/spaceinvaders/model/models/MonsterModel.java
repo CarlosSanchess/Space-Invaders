@@ -5,11 +5,17 @@ public class MonsterModel extends Elements {
     private int hitPoints; // Not Used Yet
     boolean direction = false;
     private int speed;
-
+    private MoveType moveType;
+    public enum MoveType{
+        Diagonal,
+        Vertical,
+        Shooter
+    }
     public MonsterModel(PositionModel position, int hitPoints, int speed) {
         super(position);
         this.hitPoints = hitPoints;
         this.speed = speed;
+        this.moveType = null;
     }
 
     public void move() {
@@ -30,6 +36,13 @@ public class MonsterModel extends Elements {
         return direction;
     }
 
+    public MoveType getMoveType() {
+        return moveType;
+    }
+
+    public void setMoveType(MoveType moveType) {
+        this.moveType = moveType;
+    }
     public void setSpeed(int i) {
         speed = i;
     }

@@ -25,15 +25,20 @@ public class DiagonalMovementStrategy implements MovementStrategy {
         PositionModel currentPosition = monster.getPosition();
             int wantedX = currentPosition.getX() + xDirection * monster.getSpeed();
             if (canMove(wantedX)) {
-                currentPosition.setX(wantedX);
+               changePosition(wantedX, monster, currentPosition);
+            }else{
+                wantedX = currentPosition.getX() - xDirection * monster.getSpeed(); // fixed bug
+                changePosition(wantedX, monster, currentPosition);
+            }
+    }
+    private void changePosition(int wantedX, MonsterModel monster, PositionModel currentPosition){
+         currentPosition.setX(wantedX);
                 currentPosition.setY(currentPosition.getY() + monster.getSpeed());
-
                 if (random.nextInt(100) < SWITCH_PROBABILITY) {
                     xDirection *= -1;
                 } else if (currentPosition.getX() <= 0 || currentPosition.getX() >= arenaW) {
                     xDirection *= -1;
                 }
                 monster.setPosition(currentPosition);
-            }
     }
 }

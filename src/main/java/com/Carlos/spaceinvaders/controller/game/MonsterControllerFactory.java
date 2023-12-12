@@ -7,11 +7,14 @@ import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovemen
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
+import com.Carlos.spaceinvaders.model.models.MonsterModel.MoveType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+
 
 public class MonsterControllerFactory {
     private int arenaW;
@@ -33,6 +36,8 @@ public class MonsterControllerFactory {
     MonsterController createMonsterController(MonsterModel monster) {
 
         MovementStrategy movementStrategy = getRandomMovementStrategy();
+        linkWithMove(movementStrategy, monster);
+
         return new MonsterController(monster, movementStrategy,arenaH, activeMonsters);
     }
 
@@ -75,5 +80,10 @@ public class MonsterControllerFactory {
         }
 
         return false;
+    }
+    private void linkWithMove(MovementStrategy movementStrategy, MonsterModel monster){
+        if(movementStrategy instanceof DiagonalMovementStrategy) monster.setMoveType(MoveType.Diagonal);
+        if(movementStrategy instanceof ShooterMovementStrategy) monster.setMoveType(MoveType.Shooter);
+        if(movementStrategy instanceof VerticalMovementStrategy) monster.setMoveType(MoveType.Vertical);
     }
 }

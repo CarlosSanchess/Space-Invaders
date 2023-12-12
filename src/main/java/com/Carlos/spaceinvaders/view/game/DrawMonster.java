@@ -15,6 +15,9 @@ public class DrawMonster extends Viewer<MonsterModel> implements DrawElement {
     @Override
     public void draw(LanternaGui GUI){
         MonsterModel monsterModel = getModel();
-        GUI.drawText(monsterModel.getPosition(),"]",new TextColor.RGB(255,0,0));
+        if(monsterModel.getMoveType() == MonsterModel.MoveType.Vertical) GUI.drawText(monsterModel.getPosition(),"]",new TextColor.RGB(255, 0, 0));
+        if(monsterModel.getMoveType() == MonsterModel.MoveType.Shooter) GUI.drawText(monsterModel.getPosition(),"[",new TextColor.RGB(0, 100, 0));
+        if(monsterModel.getMoveType() == MonsterModel.MoveType.Diagonal) GUI.drawText(monsterModel.getPosition(),"]",new TextColor.RGB (255, 0, 0));
+
     }
 }
