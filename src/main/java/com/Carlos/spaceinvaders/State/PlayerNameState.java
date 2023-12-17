@@ -26,4 +26,12 @@ public class PlayerNameState extends State<PlayerNameModel> {
         drawPlayerNameModel.draw(gui);
         playerNameController.toDo(game, key, time);
     }
+
+    public void setDrawPlayerNameModel(DrawPlayerName drawPlayerNameModel) {
+        this.drawPlayerNameModel = drawPlayerNameModel;
+    }
+
+    public void setPlayerNameController(PlayerNameController playerNameController) {
+        this.playerNameController = playerNameController;
+    }
 }

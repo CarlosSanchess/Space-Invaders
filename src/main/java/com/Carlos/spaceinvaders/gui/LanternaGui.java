@@ -42,7 +42,7 @@ public class LanternaGui {
         graphics = createGraphics(screen);
     }
 
-    private Terminal createTerminal(int width, int height) throws IOException, FontFormatException {
+    Terminal createTerminal(int width, int height) throws IOException, FontFormatException {
         TerminalSize terminalSize = new TerminalSize(width, height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
 
@@ -118,10 +118,6 @@ public class LanternaGui {
         return screen.newTextGraphics();
     }
 
-    public void setGraphics(TextGraphics graphics) {
-        this.graphics = graphics;
-    }
-
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor) {
         drawText(position, string, rgbColor, false);
@@ -159,12 +155,6 @@ public class LanternaGui {
 
     public void screenRefresh() throws IOException {
         screen.refresh();
-    }
-    public Screen getScreen(){
-        return screen;
-    }
-    public void setScreen(Screen screen) {
-        this.screen = screen;
     }
 
 
