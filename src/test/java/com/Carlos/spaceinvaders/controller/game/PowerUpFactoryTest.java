@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PowerUpFactoryTest {
 
     private PowerUpFactory powerUpFactory;
-    private List<PowerUp> activePowerUps;
+    private List<PowerUpModel> activePowerUps;
 
     @BeforeEach
     public void setUp() {

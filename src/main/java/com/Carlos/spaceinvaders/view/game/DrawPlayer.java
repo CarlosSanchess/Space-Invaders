@@ -2,7 +2,7 @@ package com.Carlos.spaceinvaders.view.game;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 
@@ -25,9 +25,9 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
         int x = position.getX();
         int y = position.getY();
         TextColor.RGB color;
-        if(getModel().getPowerUpType() == PowerUp.PowerUpType.ScoreBoost)
+        if(getModel().getPowerUpType() == PowerUpModel.PowerUpType.ScoreBoost)
         color = new TextColor.RGB(255,255,0);
-        else if(getModel().getPowerUpType() == PowerUp.PowerUpType.FireRateBoost)
+        else if(getModel().getPowerUpType() == PowerUpModel.PowerUpType.FireRateBoost)
             color = new TextColor.RGB(0,255,255);
         else
             color = new TextColor.RGB(0,255,0);

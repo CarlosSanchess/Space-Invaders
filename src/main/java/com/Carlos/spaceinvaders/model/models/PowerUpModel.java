@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvaders.model.models;
 
-public class PowerUp extends Elements {
+public class PowerUpModel extends Elements {
 
     public enum PowerUpType{
         HealthBoost,
@@ -12,7 +12,7 @@ public class PowerUp extends Elements {
     private final int speed;
     private int active; // 0 por atingir 1 em exec 2 para ser elem
     private PowerUpType powerUpType;
-    public PowerUp(PositionModel position, int speed, long upTime, boolean active,PowerUpType powerUpType){
+    public PowerUpModel(PositionModel position, int speed, long upTime, PowerUpType powerUpType){
         super(position);
         this.speed = speed;
         this.upTime = upTime;

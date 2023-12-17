@@ -3,7 +3,6 @@ package com.Carlos.spaceinvaders.model.models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -64,7 +63,7 @@ public class ArenaTest {
 
     @Test
     public void testGetActivePowerUps() {
-        List<PowerUp> activePowerUps = arenaModel.getActivePowerUps();
+        List<PowerUpModel> activePowerUps = arenaModel.getActivePowerUps();
         assertNotNull(activePowerUps);
     }
 }

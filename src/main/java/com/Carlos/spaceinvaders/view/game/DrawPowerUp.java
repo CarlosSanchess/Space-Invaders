@@ -2,24 +2,24 @@ package com.Carlos.spaceinvaders.view.game;
 
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 
-public class DrawPowerUp extends Viewer<PowerUp> implements DrawElement {
+public class DrawPowerUp extends Viewer<PowerUpModel> implements DrawElement {
 
-    public DrawPowerUp(PowerUp powerUp){
+    public DrawPowerUp(PowerUpModel powerUp){
         super(powerUp);
     }
     @Override
     public void draw(LanternaGui GUI){
-        PowerUp powerUp = getModel();
+        PowerUpModel powerUp = getModel();
         if(powerUp.isActive() != 2){
-            if(powerUp.getPowerUpType() == PowerUp.PowerUpType.HealthBoost)
+            if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.HealthBoost)
                 GUI.drawText(powerUp.getPosition(),"+",new TextColor.RGB(0,255,0));
-            if(powerUp.getPowerUpType() == PowerUp.PowerUpType.ScoreBoost)
+            if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.ScoreBoost)
                 GUI.drawText(powerUp.getPosition(),"★",new TextColor.RGB(255,255,0));
-            if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost)
+            if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.FireRateBoost)
                 GUI.drawText(powerUp.getPosition(),"$",new TextColor.RGB(0,255,255));
         }
     }

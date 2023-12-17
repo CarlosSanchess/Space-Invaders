@@ -15,7 +15,7 @@ public class BulletsControllerTest {
     private BulletsController bulletsController;
     private List<BulletModel> bullets;
     private List<MonsterModel> activeMonsters;
-    private List<PowerUp> activePowerUps;
+    private List<PowerUpModel> activePowerUps;
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
     private int arenaH;
@@ -58,7 +58,7 @@ public class BulletsControllerTest {
         bullet.setSpeed(1);
         bullets.add(bullet);
 
-        PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
         powerUp.setPosition(new PositionModel(0, 0));
         activePowerUps.add(powerUp);
 
@@ -125,7 +125,7 @@ public class BulletsControllerTest {
     @Test
     public void testColide_bulletCollidesWithPowerUp() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
         powerUp.setPosition(nextPosition);
         activePowerUps.add(powerUp);
 
@@ -188,11 +188,11 @@ public class BulletsControllerTest {
     @Test
     public void testIsPowerUp_nextPositionIsPowerUp() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        PowerUp powerUp = new PowerUp(new PositionModel(10,5),3,10,true, PowerUp.PowerUpType.HealthBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),3,1, PowerUpModel.PowerUpType.HealthBoost);
         powerUp.setPosition(nextPosition);
         activePowerUps.add(powerUp);
 
-        PowerUp result = bulletsController.isPowerUp(nextPosition);
+        PowerUpModel result = bulletsController.isPowerUp(nextPosition);
 
         assertEquals(powerUp, result);
     }
@@ -201,20 +201,20 @@ public class BulletsControllerTest {
     public void testIsPowerUp_nextPositionIsNotPowerUp() {
         PositionModel nextPosition = new PositionModel(0, 1);
 
-        PowerUp result = bulletsController.isPowerUp(nextPosition);
+        PowerUpModel result = bulletsController.isPowerUp(nextPosition);
 
         assertNull(result);
     }
 
     @Test
     public void testProcessPowerUp_scoreBoost() {
-        PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
-        powerUp.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
+        powerUp.setPowerUpType(PowerUpModel.PowerUpType.ScoreBoost);
 
         bulletsController.processPowerUp(powerUp, 0);
 
         assertEquals(5, scoreModel.getIncrementValue());
-        assertEquals(PowerUp.PowerUpType.ScoreBoost, playerModel.getPowerUpType());
+        assertEquals(PowerUpModel.PowerUpType.ScoreBoost, playerModel.getPowerUpType());
     }
 
     @Test
@@ -224,7 +224,7 @@ public class BulletsControllerTest {
         bulletsController.ScoreBoost();
 
         assertEquals(5, scoreModel.getIncrementValue());
-        assertEquals(PowerUp.PowerUpType.ScoreBoost, playerModel.getPowerUpType());
+        assertEquals(PowerUpModel.PowerUpType.ScoreBoost, playerModel.getPowerUpType());
     }
 
     @Test

@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import com.Carlos.spaceinvaders.HighScore;
-import  com.Carlos.spaceinvaders.model.models.PowerUp.PowerUpType;
+import  com.Carlos.spaceinvaders.model.models.PowerUpModel.PowerUpType;
 
 
 

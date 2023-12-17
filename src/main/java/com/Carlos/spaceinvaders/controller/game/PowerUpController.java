@@ -2,20 +2,19 @@ package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import java.util.List;
 
 
-public class PowerUpController extends Controller<List<PowerUp>> {
+public class PowerUpController extends Controller<List<PowerUpModel>> {
     //Apenas move os powerUps
     private long lastMove;
-    public PowerUpController(List<PowerUp> activePowerUp){
+    public PowerUpController(List<PowerUpModel> activePowerUp){
             super(activePowerUp);
             this.lastMove = 0;
     }
     void move() { //Mudar o nome da função
-        for (PowerUp powerUp : getModel()) {
+        for (PowerUpModel powerUp : getModel()) {
             powerUp.move();
         }
     }

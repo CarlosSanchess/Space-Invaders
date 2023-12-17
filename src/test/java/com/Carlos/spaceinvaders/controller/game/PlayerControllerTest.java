@@ -4,7 +4,6 @@ import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

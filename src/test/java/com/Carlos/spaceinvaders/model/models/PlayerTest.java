@@ -45,7 +45,7 @@ public class PlayerTest {
 
     @Test
     public void testSetAndGetPowerUpType() {
-        PowerUp.PowerUpType powerUpType = PowerUp.PowerUpType.ScoreBoost;
+        PowerUpModel.PowerUpType powerUpType = PowerUpModel.PowerUpType.ScoreBoost;
         playerModel.setPowerUpType(powerUpType);
         assertEquals(powerUpType, playerModel.getPowerUpType());
     }

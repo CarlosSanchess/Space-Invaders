@@ -1,7 +1,7 @@
 package com.Carlos.spaceinvaders.controller.game;
 
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 
 import java.util.List;
 import java.util.Random;
@@ -9,10 +9,10 @@ import java.util.Random;
 public class PowerUpFactory {
 
     private int numPowerUp;
-    private List<PowerUp> activePowerUps;
+    private List<PowerUpModel> activePowerUps;
     long lastCreation;
     long Delay;
-    PowerUpFactory(List<PowerUp> activePowerUps){
+    PowerUpFactory(List<PowerUpModel> activePowerUps){
         this.activePowerUps = activePowerUps;
         this.Delay = 17500;
         this.lastCreation = 0;
@@ -22,22 +22,22 @@ public class PowerUpFactory {
 
     public void createPowerUp(long Time, int arenaX){
         if(Time - lastCreation > Delay){
-            PowerUp powerUp = new PowerUp(createRandomPosition(arenaX),1,1000,true,createRandomPower());
+            PowerUpModel powerUp = new PowerUpModel(createRandomPosition(arenaX),1,100,createRandomPower());
             activePowerUps.add(powerUp);
 
             this.lastCreation = Time;
         }
     }
 
-    private PowerUp.PowerUpType createRandomPower() {
+    private PowerUpModel.PowerUpType createRandomPower() {
         Random random = new Random();
         float chance = random.nextFloat();
         if (chance < 1.0/3.0) {
-            return PowerUp.PowerUpType.HealthBoost;
+            return PowerUpModel.PowerUpType.HealthBoost;
         } else if (chance < 2.0/3.0) {
-            return PowerUp.PowerUpType.ScoreBoost;
+            return PowerUpModel.PowerUpType.ScoreBoost;
         } else {
-            return PowerUp.PowerUpType.FireRateBoost;
+            return PowerUpModel.PowerUpType.FireRateBoost;
         }
     }
     private PositionModel createRandomPosition(int arenaX){

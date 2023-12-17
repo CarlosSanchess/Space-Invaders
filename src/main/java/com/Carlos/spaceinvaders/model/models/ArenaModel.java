@@ -1,9 +1,5 @@
 package com.Carlos.spaceinvaders.model.models;
 
-import com.Carlos.spaceinvaders.controller.game.MonsterFactory;
-import com.Carlos.spaceinvaders.model.builders.CreateWalls;
-import com.Carlos.spaceinvaders.model.builders.CreateMonsters;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +14,7 @@ public class ArenaModel implements Model {
     private List<BulletModel> activeBullets;
     private List<WallModel> walls;
     private List<MonsterModel> activeMonsters;
-    private List<PowerUp> activePowerUps;
+    private List<PowerUpModel> activePowerUps;
     private MonsterFactoryModel monsterFactoryModel;
     private ScoreModel score;
 
@@ -65,7 +61,7 @@ public class ArenaModel implements Model {
         return score;
     }
 
-    public List<PowerUp> getActivePowerUps() {
+    public List<PowerUpModel> getActivePowerUps() {
         return activePowerUps;
     }
 

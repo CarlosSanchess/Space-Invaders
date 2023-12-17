@@ -3,7 +3,7 @@ package com.Carlos.spaceinvaders.controller.game;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.*;
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 
 
 import java.util.Iterator;
@@ -12,14 +12,14 @@ import java.util.List;
 public class BulletsController extends Controller<List<BulletModel>> {
 
     private List<MonsterModel> activeMonsters;
-    private List<PowerUp> activePowerUps;
+    private List<PowerUpModel> activePowerUps;
     private PlayerModel playerModel;
     private ScoreModel scoreModel;
     private long lastScoreBoostTime;
     private long lastFireRateBoostTime;
     private long upTime;
     private int arenaH;
-    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUp> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel, int arenaH){
+    public BulletsController(List<BulletModel> bullets, List<MonsterModel> activeMonsters, List<PowerUpModel> activePowerUps, PlayerModel playerModel, ScoreModel scoreModel, int arenaH){
         super(bullets);
         this.activeMonsters = activeMonsters;
         this.activePowerUps = activePowerUps;
@@ -70,7 +70,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
 
     boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
         MonsterModel monster = isMonster(nextPosition);
-        PowerUp powerUp = isPowerUp(nextPosition);
+        PowerUpModel powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
         if(monster != null && direction){ //Impede que a bala mate mais que 1 monstro, o ideal seria retira-la da lista logo.
             activeMonsters.remove(monster);
@@ -98,21 +98,21 @@ public class BulletsController extends Controller<List<BulletModel>> {
         }
         return false;
     }
-    PowerUp isPowerUp(PositionModel newPosition) {
-        for (PowerUp powerUp : activePowerUps) {
+    PowerUpModel isPowerUp(PositionModel newPosition) {
+        for (PowerUpModel powerUp : activePowerUps) {
             if (newPosition.equals(powerUp.getPosition())) {
                 return powerUp;
             }
         }
         return null;
     }
-    void processPowerUp(PowerUp powerUp, long Time){
-        if(powerUp.getPowerUpType() == PowerUp.PowerUpType.HealthBoost) HealthBoost();
-        if(powerUp.getPowerUpType() == PowerUp.PowerUpType.ScoreBoost){
+    void processPowerUp(PowerUpModel powerUp, long Time){
+        if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.HealthBoost) HealthBoost();
+        if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.ScoreBoost){
             ScoreBoost();
             lastScoreBoostTime = Time;
         }
-        if(powerUp.getPowerUpType() == PowerUp.PowerUpType.FireRateBoost){
+        if(powerUp.getPowerUpType() == PowerUpModel.PowerUpType.FireRateBoost){
             FireRateBoost();
             lastFireRateBoostTime = Time;
 
@@ -122,7 +122,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     void ScoreBoost(){
         scoreModel.setIncrementValue(5); // Permanente, Tornar posível reverter passado X segundos.
-        playerModel.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
+        playerModel.setPowerUpType(PowerUpModel.PowerUpType.ScoreBoost);
     }
     private void revertScoreBoost(){
         scoreModel.setIncrementValue(1);
@@ -136,7 +136,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     private void FireRateBoost(){
         playerModel.setDelayShooting(250);
-        playerModel.setPowerUpType(PowerUp.PowerUpType.FireRateBoost);
+        playerModel.setPowerUpType(PowerUpModel.PowerUpType.FireRateBoost);
     }
     private void revertFireRateBoost(){
         playerModel.setDelayShooting(500);
@@ -145,7 +145,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         lastFireRateBoostTime = 0;
     }
     private boolean checkActivity(){
-        for(PowerUp powerup : activePowerUps){
+        for(PowerUpModel powerup : activePowerUps){
             if(powerup.isActive() == 1){
                 return true;
             }

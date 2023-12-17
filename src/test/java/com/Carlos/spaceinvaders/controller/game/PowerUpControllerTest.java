@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
-import com.Carlos.spaceinvaders.model.models.PowerUp;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 public class PowerUpControllerTest {
 
     private PowerUpController powerUpController;
-    private List<PowerUp> powerUps;
+    private List<PowerUpModel> powerUps;
 
     @BeforeEach
     public void setUp() {
@@ -23,8 +23,8 @@ public class PowerUpControllerTest {
 
     @Test
     public void testMove() {
-        PowerUp powerUp1 = mock(PowerUp.class);
-        PowerUp powerUp2 = mock(PowerUp.class);
+        PowerUpModel powerUp1 = mock(PowerUpModel.class);
+        PowerUpModel powerUp2 = mock(PowerUpModel.class);
         powerUps.add(powerUp1);
         powerUps.add(powerUp2);
 
