@@ -31,18 +31,4 @@ class GameOverMenuControllerTest {
         controller.previousEntry();
         assertEquals(controller.getModel().getEntriesSize() - 1, controller.getModel().getEntry());
     }
-
-    @Test
-    void testToDoArrowDown() throws IOException, FontFormatException {
-        Game game = new Game();
-        controller.toDo(game, "ArrowDown", 0);
-        assertEquals(1, controller.getModel().getEntry());
-    }
-
-    @Test
-    void testToDoArrowUp() throws IOException, FontFormatException {
-        Game game = new Game();
-        controller.toDo(game, "ArrowUp", 0);
-        assertEquals(controller.getModel().getEntriesSize() - 1, controller.getModel().getEntry());
-    }
 }

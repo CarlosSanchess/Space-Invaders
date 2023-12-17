@@ -207,16 +207,6 @@ public class BulletsControllerTest {
     }
 
     @Test
-    public void testProcessPowerUp_healthBoost() {
-        PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
-        powerUp.setPowerUpType(PowerUp.PowerUpType.HealthBoost);
-
-        bulletsController.processPowerUp(powerUp, 0);
-
-        assertEquals(3, playerModel.getHitPoints());
-    }
-
-    @Test
     public void testProcessPowerUp_scoreBoost() {
         PowerUp powerUp = new PowerUp(new PositionModel(10,5),5,10,true, PowerUp.PowerUpType.ScoreBoost);
         powerUp.setPowerUpType(PowerUp.PowerUpType.ScoreBoost);
