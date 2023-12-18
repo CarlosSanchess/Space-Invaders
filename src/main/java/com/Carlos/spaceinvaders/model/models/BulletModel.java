@@ -40,8 +40,4 @@ public class BulletModel extends Elements {
     public void setSpeed(int i) {
         speed = i;
     }
-
-    public int getDamage() {
-        return getDamage();
-    }
 }

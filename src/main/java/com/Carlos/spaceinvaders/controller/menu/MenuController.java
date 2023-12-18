@@ -9,7 +9,6 @@ import com.Carlos.spaceinvaders.model.models.*;
 import java.util.Objects;
 
 public class MenuController extends Controller<MenuModel> {
-    //TODO TORNAR MAIS LEGIVEL
     private MenuModel menuModel;
     private SoundController soundController;
 
@@ -58,7 +57,6 @@ public class MenuController extends Controller<MenuModel> {
     }
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
-        // soundController.playSound("Menu");
     }
     private void continueGame( Game game){
         while (game.getCurrentState() != null && !(game.getCurrentState() instanceof GameState)) {
@@ -67,7 +65,7 @@ public class MenuController extends Controller<MenuModel> {
 
         if (game.getCurrentState() instanceof GameState) {
             GameState gameState = (GameState) game.getCurrentState();
-            game.popState(); // Remove the GameState from the stack
+            game.popState();
             game.pushState(gameState);
         } else {
 

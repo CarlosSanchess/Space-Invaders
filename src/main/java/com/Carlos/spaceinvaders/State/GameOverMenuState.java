@@ -15,7 +15,7 @@ public class GameOverMenuState extends State<GameOverMenuModel>{
     private com.Carlos.spaceinvaders.controller.menu.GameOverMenuController GameOverMenuController;
     public GameOverMenuState(GameOverMenuModel GameOverMenuModel){
         super(GameOverMenuModel);
-        this.drawGameOverMenu = new DrawGameOverMenu(getModel()); // TODO alternativa para isto
+        this.drawGameOverMenu = new DrawGameOverMenu(getModel());
         this.GameOverMenuController = new GameOverMenuController(getModel());
     }
 

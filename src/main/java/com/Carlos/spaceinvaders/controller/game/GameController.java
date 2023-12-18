@@ -26,7 +26,7 @@ public class GameController extends Controller<ArenaModel> {
         super(arenaModel);
         this.soundController = new SoundController();
         this.wallFactory = new WallFactory(getModel().getWidth(), getModel().getHeight(), getModel().getWalls());
-        this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController); //Passar a arena?
+        this.playerController = new PlayerController(getModel().getPlayer(), getModel().getWidth(), arenaModel.getActiveBullets(),soundController);
         this.bulletsController = new BulletsController(getModel().getActiveBullets(), getModel().getActiveMonsters(),getModel().getActivePowerUps(), getModel().getPlayer(), getModel().getScore(),getModel().getHeight());
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(),getModel().getHeight(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
@@ -47,10 +47,10 @@ public class GameController extends Controller<ArenaModel> {
 
             HighScore.updateHighScore(playerName, finalScore);
         }
-        powerUpFactory.createPowerUp(Time, getModel().getWidth()); // Fazer os monstros serem criados aqui?
+        powerUpFactory.createPowerUp(Time, getModel().getWidth());
         monsterControllerFactory.CreateMonstersAndControllers(Time);
         playerController.toDo(game,keyPressed,Time);
-        bulletsController.toDo(game,keyPressed,Time); // Nao espera por nenhum keyboard input
+        bulletsController.toDo(game,keyPressed,Time);
         powerUpController.toDo(game,keyPressed, Time);
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
@@ -60,8 +60,6 @@ public class GameController extends Controller<ArenaModel> {
     }
 
     void endGame(Game game){
-        //System.out.println(getModel().getPlayer().getHitPoints() <= 0 );
-        //System.out.println(monsterControllerFactory.checkWinMonster());
         if(getModel().getPlayer().getHitPoints() <= 0 || monsterControllerFactory.checkWinMonster()) {
             soundController.playSound("GameOver");
             game.popState();
@@ -77,31 +75,6 @@ public class GameController extends Controller<ArenaModel> {
             HighScore.updateHighScore(playerName, finalScore);
         }
     }
-
-    public SoundController getSoundController() {
-        return soundController;
-    }
-
-    public PowerUpController getPowerUpController() {
-        return powerUpController;
-    }
-
-    public MonsterControllerFactory getMonsterControllerFactory() {
-        return monsterControllerFactory;
-    }
-
-    public BulletsController getBulletsController() {
-        return bulletsController;
-    }
-
-    public PlayerController getPlayerController() {
-        return playerController;
-    }
-
-    public PowerUpFactory getPowerUpFactory() {
-        return powerUpFactory;
-    }
-
     public void setSoundController(SoundController soundController) {
         this.soundController = soundController;
     }

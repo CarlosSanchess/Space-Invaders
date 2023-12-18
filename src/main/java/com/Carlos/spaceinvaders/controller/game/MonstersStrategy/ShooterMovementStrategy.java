@@ -8,14 +8,15 @@ import java.util.List;
 import java.util.Random;
 
 public class ShooterMovementStrategy implements MovementStrategy {
-    private int xDirection = 1; // 1 direita, -1 esquerda
+    private int xDirection = 1;
     private int arenaW;
-    private Random random = new Random();
+    private Random random;
     List<BulletModel> bullets;
     List<MonsterModel> activeMonsters;
 
     public ShooterMovementStrategy(int arenaW, List<BulletModel> bullets, List<MonsterModel> activeMonsters) {
         this.arenaW = arenaW;
+        this.random = new Random();
         this.xDirection = random.nextBoolean() ? 1 : -1;
         this.bullets = bullets;
         this.activeMonsters = activeMonsters;
@@ -50,7 +51,7 @@ public class ShooterMovementStrategy implements MovementStrategy {
                 monster.setPosition(currentPosition);
             }
     }
-    public void shootMonster(MonsterModel model) { //Esta maneira de fazer monstros, é correta?Nao devia estar sempre a ser passado activeMonsters?
+    public void shootMonster(MonsterModel model) {
         if(activeMonsters.contains(model)) {
             bullets.add(newBullet(model));
         }

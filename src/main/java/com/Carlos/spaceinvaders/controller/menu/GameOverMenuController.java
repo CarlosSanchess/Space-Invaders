@@ -42,7 +42,7 @@ public class GameOverMenuController extends Controller<GameOverMenuModel> {
     }
 
 
-    public void toDo(Game game, String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
+    public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select(game);

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-//TODO
-//Opção de criar mais monstros, default 3
 public class CreateMonsters {
 
     private int width;

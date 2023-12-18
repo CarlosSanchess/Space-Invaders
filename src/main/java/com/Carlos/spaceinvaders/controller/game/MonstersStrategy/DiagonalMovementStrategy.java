@@ -9,10 +9,11 @@ public class DiagonalMovementStrategy implements MovementStrategy {
     private static final int SWITCH_PROBABILITY = 20;
     private int xDirection; // 1 direita, -1 esquerda
     private int arenaW;
-    public Random random = new Random();
+    public Random random;
 
-    public DiagonalMovementStrategy(int arenaW) {
+    public DiagonalMovementStrategy(int arenaW,Random random) {
         this.arenaW = arenaW;
+        this.random = random;
         this.xDirection = random.nextBoolean() ? 1 : -1;
     }
 
@@ -41,4 +42,9 @@ public class DiagonalMovementStrategy implements MovementStrategy {
                 }
                 monster.setPosition(currentPosition);
     }
+
+    public int getXDirection() {
+        return xDirection;
+    }
+
 }

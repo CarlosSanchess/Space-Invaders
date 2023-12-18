@@ -24,8 +24,8 @@ public class GameOverMenuModel implements Model {
         this.entries = Arrays.asList("NEW GAME","EXIT TO MAIN MENU");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
-        entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
+        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0));
+        entryColors.put("EXIT", new TextColor.RGB(255,255,0));
     }
     public int getNumEntries() {
         return entries.size();

@@ -42,8 +42,8 @@ public class PowerUpFactory {
     }
     private PositionModel createRandomPosition(int arenaX){
         Random random = new Random();
-        int x = random.nextInt(arenaX - 2) + 1; // Generate a random number between 1 and arenaX - 1
-        return new PositionModel(x, 1); // TODO
+        int x = random.nextInt(arenaX - 2) + 1;
+        return new PositionModel(x, 1);
     }
 
     public void setDelay(long delay) {

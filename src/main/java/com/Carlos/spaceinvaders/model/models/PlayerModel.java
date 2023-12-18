@@ -13,7 +13,7 @@ import  com.Carlos.spaceinvaders.model.models.PowerUpModel.PowerUpType;
 
 public class PlayerModel extends Elements {
 
-    private int hitPoints; //Not Used Yet
+    private int hitPoints;
     private long delayShooting;
     private PowerUpType powerUpType;
     public PlayerNameModel playerNameModel;
@@ -27,15 +27,6 @@ public class PlayerModel extends Elements {
         this.i = 1;
 
     }
-    public BulletModel playerShoot(){
-        return new BulletModel(new PositionModel(getPosition().getX(), getPosition().getY()),1,true); // Criar novo objeto para nao alterar o movimento da nave
-    }
-
-    public boolean canMove(PositionModel position) { // Permitir escolher tamanho da arena?
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        return position.getX() >= 1 && position.getX()  < screenSize.width - 1;
-    }
-
     public int getHitPoints() {
         return hitPoints;
     }
@@ -60,7 +51,6 @@ public class PlayerModel extends Elements {
     }
 
     public String getPlayerNameModel() {
-        //System.out.println(PlayerNameModel.name);
 
         if (PlayerNameModel.name == "") {
             int highestGuestNumber = findHighestGuestNumber();
@@ -86,7 +76,6 @@ public class PlayerModel extends Elements {
                             int guestNumber = Integer.parseInt(storedPlayerName.substring(5));
                             highestGuestNumber = Math.max(highestGuestNumber, guestNumber);
                         } catch (NumberFormatException ignored) {
-                            // Ignore if the number couldn't be parsed
                         }
                     }
                 }
@@ -94,7 +83,7 @@ public class PlayerModel extends Elements {
 
             return highestGuestNumber;
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception according to your needs
+            e.printStackTrace();
             return 0;
         }
     }

@@ -65,7 +65,7 @@ public class ResumeMenuController extends Controller<ResumeMenuModel> {
         exit(game);
     }
     private void exit(Game game){
-        game.pushState(new MenuState(new MenuModel())); // implementar aqui tmb para guardar highscores mesmo nao tendo morrido
+        game.pushState(new MenuState(new MenuModel()));
     }
 
 }

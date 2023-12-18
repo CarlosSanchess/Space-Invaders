@@ -1,9 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
-import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.DiagonalMovementStrategy;
-import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.MovementStrategy;
-import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.ShooterMovementStrategy;
-import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.VerticalMovementStrategy;
+import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.*;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
@@ -56,7 +53,7 @@ public class MonsterControllerFactory {
         if (randomNumber < 2) {
             return new ShooterMovementStrategy(arenaW, bullets, activeMonsters);
         } else if (randomNumber < 4) {
-            return new DiagonalMovementStrategy(arenaW);
+            return new DiagonalMovementStrategy(arenaW,random);
         } else {
             return new VerticalMovementStrategy();
         }
@@ -66,7 +63,7 @@ public class MonsterControllerFactory {
      return monsterControllers;
     }
 
-    public boolean checkWinMonster() { //Also Cleans Controllers need to change function name
+    public boolean checkWinMonster() {
         Iterator<MonsterController> iterator = monsterControllers.iterator();
 
         while (iterator.hasNext()) {

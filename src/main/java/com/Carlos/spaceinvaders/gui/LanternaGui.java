@@ -29,7 +29,7 @@ import java.util.Map;
 public class LanternaGui {
 
     private TextGraphics graphics;
-    private Screen screen;
+    Screen screen;
     private int width;
     private int height;
     private int startPoint;
@@ -64,7 +64,7 @@ public class LanternaGui {
             @Override
             public void windowClosing(WindowEvent close) {
                 close.getWindow().dispose();
-                System.exit(0); //To stop exec
+                System.exit(0);
             }
         });
     }
@@ -107,8 +107,8 @@ public class LanternaGui {
         if (keyStroke.getKeyType() == KeyType.Enter) return "Enter";
         if (keyStroke.getKeyType() == KeyType.Backspace) return "BackSpace";
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return "Space";
-        if (keyStroke == null || keyStroke.getKeyType() != KeyType.Character) {
-            return null;  // Not a valid character input
+        if (keyStroke.getKeyType() != KeyType.Character) {
+            return null;
         }
         return ch + Character.toString(keyStroke.getCharacter()).toUpperCase();
 
@@ -135,13 +135,11 @@ public class LanternaGui {
             gui.drawText(new PositionModel(col, 17), "-", rgbColor, false);
         }
 
-        // Draw vertical lines
         for (int row = 18; row <= 18; row++) {
             gui.drawText(new PositionModel(29, row), "|", rgbColor, false);
             gui.drawText(new PositionModel(45, row), "|", rgbColor, false);
         }
 
-        // Draw another horizontal line
         for (int col = 30; col <= 44; col++) {
             gui.drawText(new PositionModel(col, 19), "-", rgbColor, false);
         }
@@ -192,37 +190,10 @@ public class LanternaGui {
         }
 
     }
-
-    public void drawEntries(MenuModel menuModel) {
-        List<String> entries = menuModel.getEntries();
-        int y = 14;
-        for (String entry : entries) {
-            TextColor.RGB color = menuModel.getColor(entry);
-            int startPoint = getStartPoint(entry,width);
-
-            graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
-            drawText(new PositionModel(startPoint, y), entry, color,Boolean.TRUE);
-            y += 5;
-        }
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-    }
-    public void drawSelected(MenuModel menuModel){
-
-        String Entry = menuModel.getEntries().get(menuModel.getEntry());
-
-
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#010327"));
-        drawTop(menuModel, Entry);
-        drawBottom(menuModel, Entry);
-        drawLeft(menuModel, Entry);
-        drawRight(menuModel, Entry);
-    }
-
     public void drawTextSelected(PositionModel position, String entryName, TextColor.RGB rgbColor) {
-        int width = entryName.length() + 2; // Adjust width for the surrounding rectangle
-        int height = 3; // Adjust height for the surrounding rectangle
+        int width = entryName.length() + 2;
+        int height = 3;
 
-        // Draw the top of the surrounding rectangle
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX()-1, position.getY()-1, "+");
         for (int i = 1; i < width - 1; i++) {
@@ -230,7 +201,6 @@ public class LanternaGui {
         }
         graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1, "+");
 
-        // Draw the text inside the rectangle with '|'
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX() - 1, position.getY() - 1 + 1, "|");
         graphics.setForegroundColor(new TextColor.RGB(0, 255 ,0));
@@ -238,40 +208,13 @@ public class LanternaGui {
         graphics.setForegroundColor(TextColor.Factory.fromString("#00FF00"));
         graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1 + 1, "|");
 
-        // Draw the bottom of the surrounding rectangle
         graphics.putString(position.getX() - 1, position.getY() - 1 + height - 1, "+");
         for (int i = 1; i < width - 1; i++) {
             graphics.putString(position.getX() - 1 + i, position.getY() - 1 + height - 1, "-");
         }
         graphics.putString(position.getX() - 1 + width - 1, position.getY() - 1 + height - 1, "+");
     }
-    public int getStartPoint(String string, int width) {
-        return Math.round((float)(width - string.length()) / 2);
-    }
-
-    private void drawTop(MenuModel menuModel, String Entry){
-        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
-        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()) );
-        graphics.drawLine(startLine, endLine, '-');
-    }
-    private void drawBottom(MenuModel menuModel, String Entry){
-        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()));
-        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
-        graphics.drawLine(startLine, endLine, '-');
-    }
-    private void drawLeft(MenuModel menuModel, String Entry){
-        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 12 + (5 *  menuModel.getEntry()));
-        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) - 3, 16 + (5 *  menuModel.getEntry()) );
-        graphics.drawLine(startLine, endLine, '+');
-    }
-    private void drawRight(MenuModel menuModel, String Entry){
-        TerminalPosition startLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 12 + (5 *  menuModel.getEntry()));
-        TerminalPosition endLine = new TerminalPosition(getStartPoint(Entry,width) + Entry.length() + 2, 16 + (5 *  menuModel.getEntry()) );
-        graphics.drawLine(startLine, endLine, '+');
-    }
-
     public TextGraphics getGraphics() {
         return graphics;
     }
-
 }

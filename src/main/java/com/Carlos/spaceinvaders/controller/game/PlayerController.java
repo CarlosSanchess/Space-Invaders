@@ -39,7 +39,7 @@ public class PlayerController extends Controller<PlayerModel> {
         if(canMove(direction + actualX))
              getModel().getPosition().setX(direction + actualX);
     }
-    private boolean canMove(int wantedX){return wantedX < arenaW - 1 && wantedX > 0;} //mudei de return wantedX < arenaW - 1 && wantedX > 0;
+    private boolean canMove(int wantedX){return wantedX < arenaW - 1 && wantedX > 0;}
     public void shoot(long Time){
         if(Time - lastShoot > getModel().getDelayShooting()){
             bullets.add(novaBala());
@@ -51,7 +51,7 @@ public class PlayerController extends Controller<PlayerModel> {
     public BulletModel novaBala(){
         PositionModel playerPosition = getModel().getPosition();
 
-        return new BulletModel( new PositionModel(playerPosition.getX() , playerPosition.getY() - 2),1, true) ; //Added -2 because of the spaceship
+        return new BulletModel( new PositionModel(playerPosition.getX() , playerPosition.getY() - 2),1, true) ;
     }
 
 

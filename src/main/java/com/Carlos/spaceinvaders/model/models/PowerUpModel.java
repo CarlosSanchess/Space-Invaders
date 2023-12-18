@@ -10,7 +10,7 @@ public class PowerUpModel extends Elements {
     private long upTime;
     PositionModel position;
     private final int speed;
-    private int active; // 0 por atingir 1 em exec 2 para ser elem
+    private int active;
     private PowerUpType powerUpType;
     public PowerUpModel(PositionModel position, int speed, long upTime, PowerUpType powerUpType){
         super(position);

@@ -31,9 +31,6 @@ public class Game {
         this.states = new Stack<>();
         state = new PlayerNameState(new PlayerNameModel());
         this.states.push(state);
-
-        /*state = new MenuState(new MenuModel());
-        this.states.push(state);*/
     }
     public State getCurrentState() {
         if (!states.isEmpty()) {

@@ -2,7 +2,7 @@ package com.Carlos.spaceinvaders.controller;
 
 import com.Carlos.spaceinvaders.Game;
 
-public abstract class Controller <T> { //Mesma implementação do Viewer
+public abstract class Controller <T> {
 
     private final T model;
     public Controller(T model){

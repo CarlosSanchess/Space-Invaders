@@ -16,7 +16,7 @@ public class ResumeMenuState extends State<ResumeMenuModel> {
     private ResumeMenuController ResumeMenuController;
     public ResumeMenuState(ResumeMenuModel ResumeMenuModel){
         super(ResumeMenuModel);
-        this.drawResumeMenu = new DrawResumeMenu(getModel()); // TODO alternativa para isto
+        this.drawResumeMenu = new DrawResumeMenu(getModel());
         this.ResumeMenuController = new ResumeMenuController(getModel());
     }
 

@@ -24,7 +24,7 @@ public class ArenaModel implements Model {
         this.width = x;
         this.height = y;
         this.player = new PlayerModel(new PositionModel(40, y - 2), 3);
-        this.score = new ScoreModel(new PositionModel(70, y - 3)); // Posição Exprimental apenas
+        this.score = new ScoreModel(new PositionModel(70, y - 3));
         this.monsterFactoryModel = new MonsterFactoryModel();
         this.activeBullets = new ArrayList<>();
         this.activeMonsters = new ArrayList<>();
@@ -67,17 +67,5 @@ public class ArenaModel implements Model {
 
     public MonsterFactoryModel getMonsterFactoryModel() {
         return monsterFactoryModel;
-    }
-
-    public void setPlayer(PlayerModel playerModel) {
-        this.player = playerModel;
-    }
-
-    public void setScore(ScoreModel score) {
-        this.score = score;
-    }
-
-    public void setMonsterFactoryModel(MonsterFactoryModel monsterFactoryModel) {
-        this.monsterFactoryModel = monsterFactoryModel;
     }
 }

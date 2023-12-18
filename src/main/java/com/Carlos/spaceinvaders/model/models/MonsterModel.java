@@ -43,7 +43,4 @@ public class MonsterModel extends Elements {
     public void setMoveType(MoveType moveType) {
         this.moveType = moveType;
     }
-    public void setSpeed(int i) {
-        speed = i;
-    }
 }

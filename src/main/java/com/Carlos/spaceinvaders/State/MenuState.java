@@ -16,7 +16,7 @@ public  class MenuState extends State<MenuModel> {
     private  MenuController menuController;
     public MenuState(MenuModel menuModel){
         super(menuModel);
-        this.drawMenu = new DrawMenu(getModel()); // TODO alternativa para isto
+        this.drawMenu = new DrawMenu(getModel());
         this.menuController = new MenuController(getModel());
     }
 

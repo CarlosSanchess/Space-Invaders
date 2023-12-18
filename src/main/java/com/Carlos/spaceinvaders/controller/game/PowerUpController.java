@@ -13,7 +13,7 @@ public class PowerUpController extends Controller<List<PowerUpModel>> {
             super(activePowerUp);
             this.lastMove = 0;
     }
-    void move() { //Mudar o nome da função
+    void move() {
         for (PowerUpModel powerUp : getModel()) {
             powerUp.move();
         }

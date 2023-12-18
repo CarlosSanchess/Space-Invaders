@@ -68,7 +68,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         return new PositionModel(bullet.getPosition().getX(), newY);
     }
 
-    boolean colide(PositionModel nextPosition, long Time, boolean direction){ // Passar um controller?
+    boolean colide(PositionModel nextPosition, long Time, boolean direction){
         MonsterModel monster = isMonster(nextPosition);
         PowerUpModel powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
