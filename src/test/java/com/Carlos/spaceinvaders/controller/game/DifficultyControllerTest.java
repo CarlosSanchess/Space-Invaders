@@ -17,37 +17,43 @@ public class DifficultyControllerTest {
     @BeforeEach
     public void setUp() {
         monsterFactoryModel = new MonsterFactoryModel();
-        scoreModel = new ScoreModel(new PositionModel(10,10));
+        scoreModel = new ScoreModel(new PositionModel(10, 10));
         difficultyController = new DifficultyController(monsterFactoryModel, scoreModel);
     }
 
     @Test
-    public void testToDo_ScoreMultipleOf75() {
+    public void testToDoScoreMultipleOf75() {
         scoreModel.setScore(75);
+        difficultyController.toDo(null, null, 0);
+
+        assertEquals(2, monsterFactoryModel.getNumMonstros());
+    }
+
+    @Test
+    public void testToDoScoreMultipleOf20() {
+        scoreModel.setScore(20);
+        difficultyController.toDo(null, null, 0);
+
+        assertEquals(2900, monsterFactoryModel.getDelay());
+    }
+
+    @Test
+    public void testToDoScoreNotMultipleOf75Or20() {
+        scoreModel.setScore(50);
 
         difficultyController.toDo(null, null, 0);
 
+        assertEquals(3000, monsterFactoryModel.getDelay());
         assertEquals(1, monsterFactoryModel.getNumMonstros());
     }
 
     @Test
-    public void testToDo_ScoreMultipleOf20() {
-        scoreModel.setScore(20);
-        monsterFactoryModel.setDelay(100);
+    public void testToDoScoreZero() {
+        scoreModel.setScore(0);
 
         difficultyController.toDo(null, null, 0);
 
-        assertEquals(100, monsterFactoryModel.getDelay());
-    }
-
-    @Test
-    public void testToDo_ScoreNotMultipleOf75Or20() {
-        scoreModel.setScore(50);
-        monsterFactoryModel.setDelay(100);
-
-        difficultyController.toDo(null, null, 0);
-
-        assertEquals(100, monsterFactoryModel.getDelay());
+        assertEquals(3000, monsterFactoryModel.getDelay());
         assertEquals(1, monsterFactoryModel.getNumMonstros());
     }
 }

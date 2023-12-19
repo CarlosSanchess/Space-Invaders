@@ -16,8 +16,9 @@ public class GameController extends Controller<ArenaModel> {
     private final MonsterControllerFactory monsterControllerFactory;
     private final PowerUpFactory  powerUpFactory;
     private PowerUpController powerUpController;
-    private MonsterFactory monsterFactory;
+    private MonsterFactoryController monsterFactory;
     private WallFactory wallFactory;
+    private DifficultyController difficultyController;
 
 
     private SoundController soundController;
@@ -31,7 +32,8 @@ public class GameController extends Controller<ArenaModel> {
         this.monsterControllerFactory = new MonsterControllerFactory(getModel().getWidth(),getModel().getHeight(), getModel().getActiveBullets(), getModel().getActiveMonsters(), getModel().getMonsterFactoryModel());
         this.powerUpFactory = new PowerUpFactory(getModel().getActivePowerUps());
         this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
-        this.monsterFactory = new MonsterFactory(getModel().getMonsterFactoryModel(),getModel().getActiveMonsters());
+        this.monsterFactory = new MonsterFactoryController(getModel().getMonsterFactoryModel(),getModel().getActiveMonsters());
+        this.difficultyController = new DifficultyController(getModel().getMonsterFactoryModel(), getModel().getScore());
     }
     public void toDo(Game game,String keyPressed, long Time){
 
@@ -55,6 +57,7 @@ public class GameController extends Controller<ArenaModel> {
         for (MonsterController monsterController : monsterControllerFactory.getMonstersControllers()) {
             monsterController.toDo(game,null,Time);
         }
+        difficultyController.toDo(null,null,0);
 
         endGame(game);
     }

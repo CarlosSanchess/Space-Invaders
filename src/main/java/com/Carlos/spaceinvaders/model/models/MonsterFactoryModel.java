@@ -20,4 +20,8 @@ public class MonsterFactoryModel {
     public int getNumMonstros() {
         return numMonstros;
     }
+
+    public void setNumMonstros(int numMonstros) {
+        this.numMonstros = numMonstros;
+    }
 }

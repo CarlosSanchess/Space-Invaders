@@ -1,16 +1,9 @@
 package com.Carlos.spaceinvaders.controller.menu;
-
-import com.Carlos.spaceinvaders.Game;
-import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOverMenuControllerTest {
     private GameOverMenuController controller;

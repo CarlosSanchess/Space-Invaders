@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MonsterFactory extends Controller<MonsterFactoryModel> {
+public class MonsterFactoryController extends Controller<MonsterFactoryModel> {
 
         private final List<MonsterModel> activeMonsters;
         long lastCreation;
         long Delay;
         private int numMonstros;
-        MonsterFactory(MonsterFactoryModel monsterFactoryModel, List<MonsterModel> activeMonsters){
+        MonsterFactoryController(MonsterFactoryModel monsterFactoryModel, List<MonsterModel> activeMonsters){
             super(monsterFactoryModel);
             this.activeMonsters = activeMonsters;
             this.lastCreation = 0;

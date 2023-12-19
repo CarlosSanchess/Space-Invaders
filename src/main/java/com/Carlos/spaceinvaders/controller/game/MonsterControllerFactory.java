@@ -19,7 +19,7 @@ public class MonsterControllerFactory {
     private List<BulletModel> bullets;
     private List<MonsterController> monsterControllers;
     private List<MonsterModel> activeMonsters;
-    private MonsterFactory monsterFactory;
+    private MonsterFactoryController monsterFactory;
 
     public MonsterControllerFactory(int arenaW,int arenaH, List<BulletModel> bullets, List<MonsterModel> activeMonsters, MonsterFactoryModel monsterFactoryModel) {
         this.arenaW = arenaW;
@@ -27,7 +27,7 @@ public class MonsterControllerFactory {
         this.bullets = bullets;
         this.monsterControllers = new ArrayList<>();
         this.activeMonsters = activeMonsters;
-        this.monsterFactory = new MonsterFactory(monsterFactoryModel,activeMonsters);
+        this.monsterFactory = new MonsterFactoryController(monsterFactoryModel,activeMonsters);
     }
 
     MonsterController createMonsterController(MonsterModel monster) {
