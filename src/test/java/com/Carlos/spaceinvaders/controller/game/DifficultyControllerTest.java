@@ -29,12 +29,20 @@ public class DifficultyControllerTest {
         assertEquals(2, monsterFactoryModel.getNumMonstros());
     }
 
+
     @Test
     public void testToDoScoreMultipleOf20() {
         scoreModel.setScore(20);
         difficultyController.toDo(null, null, 0);
 
         assertEquals(2900, monsterFactoryModel.getDelay());
+    }
+    @Test
+    public void testToDoScoreMultipleOf2000() { //Testar o mecanismo de diminuição do retiro de delay em altos scores
+        scoreModel.setScore(2000);
+        difficultyController.toDo(null, null, 0);
+
+        assertEquals(2967, monsterFactoryModel.getDelay());
     }
 
     @Test
@@ -46,6 +54,7 @@ public class DifficultyControllerTest {
         assertEquals(3000, monsterFactoryModel.getDelay());
         assertEquals(1, monsterFactoryModel.getNumMonstros());
     }
+
 
     @Test
     public void testToDoScoreZero() {
