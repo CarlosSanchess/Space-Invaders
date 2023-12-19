@@ -28,4 +28,23 @@ public class SoundControllerTest {
         assertTrue(clips.containsKey(name));
         assertNotNull(clips.get(name));
     }
+    @Test
+    public void testPlaySound() throws IOException {
+        String name = "Shoot";
+        String filePath = "/sound/Shoot.wav";
+        soundController.loadSound(name, filePath);
+
+        soundController.playSound(name);
+
+        Clip clip = soundController.getClips().get(name);
+        assertNotNull(clip);
+        assertEquals(11025, clip.getFramePosition());
+        assertTrue(clip.isRunning());
+    }
+    @Test
+    public void testPlayNonExistentSound() {
+        String name = "NonExistentSound";
+        assertDoesNotThrow(() -> soundController.playSound(name));
+    }
+
 }

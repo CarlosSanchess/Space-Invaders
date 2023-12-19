@@ -30,7 +30,20 @@ class MonsterControllerTest {
         verifyNoInteractions(movementStrategy);
         assertNotEquals(currentTime, monsterController.getLastMove());
     }
+    @Test
+    void getLastMoveShouldReturnLastMoveValue() {
+        assertEquals(0, monsterController.getLastMove());
+    }
+    /*
+    @Test
+    void toDo_ShouldMoveModel_WhenTimeDifferenceIsGreaterThan1000() {
+        Game game = mock(Game.class);
+        long currentTime = System.currentTimeMillis();
+        monsterController.toDo(game, null, currentTime);
 
-
+        verify(movementStrategy, times(1)).move(model);
+        assertEquals(currentTime, monsterController.getLastMove());
+    }
+     */
 
 }
