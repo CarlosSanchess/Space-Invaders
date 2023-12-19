@@ -51,7 +51,7 @@ To get started with the Space Invaders game, follow these steps:
     - Introduces a strategic element to the game. Players start with 3 health points and can stack up to 5, requiring careful management for prolonged gameplay.
 
 - **Power-Ups**
-    - There are Randomly spawning power-ups. Power-ups include increased bullet fire rate, additional health points, and a 2x score multiplier for hitting aliens.
+    - There are Randomly spawning power-ups. Power-ups include increased bullet fire rate, additional health points, and a 5x score multiplier for hitting aliens.
 
 - **Game Over**
     - Signals the end of the game when the player runs out of health or when alien invaders breach the arena bottom.
