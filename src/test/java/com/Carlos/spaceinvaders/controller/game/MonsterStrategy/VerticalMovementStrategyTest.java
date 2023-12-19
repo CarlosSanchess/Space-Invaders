@@ -5,8 +5,9 @@ import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.ArgumentCaptor;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class VerticalMovementStrategyTest {
@@ -27,6 +28,11 @@ public class VerticalMovementStrategyTest {
     @Test
     public void testMove() {
         verticalMovementStrategy.move(monster);
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
+
+        ArgumentCaptor<PositionModel> positionCaptor = ArgumentCaptor.forClass(PositionModel.class);
+        verify(monster, times(1)).setPosition(positionCaptor.capture());
+
+        assertEquals(5, positionCaptor.getValue().getX());
+        assertEquals(6, positionCaptor.getValue().getY());
     }
 }
