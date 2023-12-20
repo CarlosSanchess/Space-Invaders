@@ -32,7 +32,6 @@ public class ShooterMovementStrategyTest {
         shooterMovementStrategy = new ShooterMovementStrategy(10, bullets, activeMonsters);
     }
 
-
     @Test
     public void testShootMonster() {
         // Test with an active monster
