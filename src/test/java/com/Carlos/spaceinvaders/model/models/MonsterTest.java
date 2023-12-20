@@ -11,7 +11,6 @@ public class MonsterTest {
     @BeforeEach
     public void setUp() {
         PositionModel position = new PositionModel(0, 0);
-        int hitPoints = 10;
         int speed = 5;
         monster = new MonsterModel(position, speed);
     }

@@ -64,7 +64,6 @@ class LanternaGuiTest {
     }
     @Test
     void testDrawTextWithNullPosition() {
-        PositionModel position = null;
         String string = "Test";
         TextColor.RGB rgbColor = new TextColor.RGB(255, 255, 255);
 
