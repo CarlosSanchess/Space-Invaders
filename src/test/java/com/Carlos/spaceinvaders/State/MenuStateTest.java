@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.*;
 
 class MenuStateTest {
@@ -33,6 +34,24 @@ class MenuStateTest {
         menuState = new MenuState(menuModel);
         menuState.setDrawMenu(drawMenu);
         menuState.setMenuController(menuController);
+    }
+
+    @Test
+    void setDrawMenu_ShouldSetDrawMenu() {
+        DrawMenu newDrawMenu = mock(DrawMenu.class);
+
+        menuState.setDrawMenu(newDrawMenu);
+
+        assertSame(newDrawMenu, menuState.getDrawMenu());
+    }
+
+    @Test
+    void setMenuController_ShouldSetMenuController() {
+        MenuController newMenuController = mock(MenuController.class);
+
+        menuState.setMenuController(newMenuController);
+
+        assertSame(newMenuController, menuState.getMenuController());
     }
 
     @Test
