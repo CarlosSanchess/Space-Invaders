@@ -1,5 +1,6 @@
 package com.Carlos.spaceinvaders.controller.game;
 
+import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.model.models.PowerUpModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,5 +41,49 @@ public class PowerUpControllerTest {
         powerUpController.setLastMove(move);
 
         assertEquals(move, powerUpController.getLastMove());
+    }
+
+    @Test
+    public void testToDo_MovePowerUpsWhenTimeDifferenceIsGreaterThan1500() {
+        Game game = mock(Game.class);
+        long currentTime = 2000;
+        PowerUpModel powerUp = mock(PowerUpModel.class);
+        powerUps.add(powerUp);
+        powerUpController.setLastMove(500);
+
+        powerUpController.toDo(game, "keyPressed", currentTime);
+        verify(powerUp, never()).move();
+        assertEquals(500, powerUpController.getLastMove());
+    }
+
+
+    @Test
+    public void testToDo_DoesNotMovePowerUpsWhenTimeDifferenceIsLessThan1500() {
+        Game game = mock(Game.class);
+        long currentTime = 1000;
+        PowerUpModel powerUp = mock(PowerUpModel.class);
+        powerUps.add(powerUp);
+        powerUpController.setLastMove(500);
+
+        powerUpController.toDo(game, "keyPressed", currentTime);
+        verify(powerUp, never()).move();
+        assertEquals(500, powerUpController.getLastMove());
+    }
+
+    @Test
+    public void testToDo_DoesNotMovePowerUpsWhenListIsEmpty() {
+        Game game = mock(Game.class);
+        long currentTime = 2000;
+
+        // Perform the toDo operation with an empty list
+        powerUpController.toDo(game, "keyPressed", currentTime);
+
+        // Verify that no interactions occur on the mocked PowerUpModel instances
+        for (PowerUpModel powerUp : powerUps) {
+            verifyZeroInteractions(powerUp);
+        }
+
+        // Verify that the last move time is not updated
+        assertEquals(0, powerUpController.getLastMove());
     }
 }

@@ -33,4 +33,11 @@ public  class MenuState extends State<MenuModel> {
     public void setMenuController(MenuController menuController) {
         this.menuController = menuController;
     }
+    public DrawMenu getDrawMenu() {
+        return drawMenu;
+    }
+
+    public MenuController getMenuController() {
+        return menuController;
+    }
 }

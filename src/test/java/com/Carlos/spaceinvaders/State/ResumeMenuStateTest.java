@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class ResumeMenuStateTest {
@@ -44,5 +45,22 @@ class ResumeMenuStateTest {
 
         verify(mockDrawResumeMenu).lanternaDraw(gui);
         verify(mockResumeMenuController).toDo(game, key, time);
+    }
+    @Test
+    void setDrawResumeMenu_ShouldSetDrawResumeMenu() {
+        DrawResumeMenu newDrawResumeMenu = mock(DrawResumeMenu.class);
+
+        resumeMenuState.setDrawResumeMenu(newDrawResumeMenu);
+
+        assertEquals(newDrawResumeMenu, resumeMenuState.getDrawResumeMenu());
+    }
+
+    @Test
+    void setResumeMenuController_ShouldSetResumeMenuController() {
+        ResumeMenuController newResumeMenuController = mock(ResumeMenuController.class);
+
+        resumeMenuState.setResumeMenuController(newResumeMenuController);
+
+        assertEquals(newResumeMenuController, resumeMenuState.getResumeMenuController());
     }
 }

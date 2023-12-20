@@ -32,4 +32,12 @@ public class GameOverMenuState extends State<GameOverMenuModel>{
     public void setGameOverMenuController(com.Carlos.spaceinvaders.controller.menu.GameOverMenuController gameOverMenuController) {
         this.GameOverMenuController = gameOverMenuController;
     }
+
+    public DrawGameOverMenu getDrawGameOverMenu() {
+        return drawGameOverMenu;
+    }
+
+    public com.Carlos.spaceinvaders.controller.menu.GameOverMenuController getGameOverMenuController() {
+        return GameOverMenuController;
+    }
 }

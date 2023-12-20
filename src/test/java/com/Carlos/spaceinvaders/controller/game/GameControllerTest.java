@@ -65,4 +65,39 @@ public class GameControllerTest {
         verify(game, times(1)).popState();
         verify(game, times(1)).pushState(any(GameOverMenuState.class));
     }
+    @Test
+    public void testToDoEscapeKey() {
+        when(playerModel.getHitPoints()).thenReturn(1);
+        when(monsterFactoryModel.getDelay()).thenReturn(3000L);
+
+        gameController.toDo(game, "Escape", 1000L);
+
+        verify(game, times(1)).pushState(any(ResumeMenuState.class));
+        verify(soundController, never()).playSound("GameOver");
+    }
+
+    @Test
+    public void testToDoQuitKey() {
+        when(playerModel.getHitPoints()).thenReturn(1);
+        when(monsterFactoryModel.getDelay()).thenReturn(3000L);
+
+        gameController.toDo(game, "Quit", 1000L);
+
+        verify(game, times(1)).pushState(any(ResumeMenuState.class));
+        verify(soundController, never()).playSound("GameOver");
+    }
+
+    @Test
+    public void testToDoGameOver() {
+        when(playerModel.getHitPoints()).thenReturn(0);
+
+        gameController.toDo(game, null, 1000L);
+
+        verify(soundController, times(1)).playSound("GameOver");
+        verify(game, times(1)).popState();
+        verify(game, times(1)).pushState(any(GameOverMenuState.class));
+    }
+
+
+
 }

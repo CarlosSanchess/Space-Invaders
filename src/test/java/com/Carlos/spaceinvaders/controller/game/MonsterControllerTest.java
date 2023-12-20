@@ -3,8 +3,12 @@ package com.Carlos.spaceinvaders.controller.game;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.game.MonstersStrategy.MovementStrategy;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
+import com.Carlos.spaceinvaders.model.models.PositionModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.*;
         import static org.mockito.Mockito.*;
@@ -31,6 +35,60 @@ class MonsterControllerTest {
         assertNotEquals(currentTime, monsterController.getLastMove());
     }
 
+    @Test
+    void toDo_ShouldMoveModel_WhenTimeDifferenceIsGreaterThan1000() {
+        Game game = mock(Game.class);
+        long currentTime = 1500;
+
+        monsterController.toDo(game, "keyPressed", 1000); // First call to set the lastMove
+        monsterController.toDo(game, "keyPressed", currentTime);
+
+        verify(movementStrategy, times(1)).move(model);
+        assertEquals(currentTime, monsterController.getLastMove());
+    }
+
+    @Test
+    void checkWin_ShouldSetWinMonsterToTrue_WhenPositionIsAtArenaHeightMinusOne() {
+        when(model.getPosition()).thenReturn(new PositionModel(0, 2)); // Assuming arena height is 3
+
+        monsterController.checkWin(model);
+
+        assertTrue(monsterController.isWinMonster());
+    }
+
+    @Test
+    void checkWin_ShouldNotSetWinMonsterToTrue_WhenPositionIsBelowArenaHeightMinusOne() {
+        MonsterModel model = mock(MonsterModel.class);
+        when(model.getPosition()).thenReturn(new PositionModel(0, 1)); // Assuming arena height is 3
+
+        monsterController.checkWin(model);
+
+        assertFalse(monsterController.isWinMonster());
+    }
+
+    /*@Test
+    void toDo_ShouldNotMoveModel_WhenWinMonsterIsTrue() {
+        Game game = mock(Game.class);
+        long currentTime = 1500;
+        monsterController.checkWin(model); // Set winMonster to true
+
+        monsterController.toDo(game, "keyPressed", currentTime);
+
+        verifyNoInteractions(movementStrategy);
+        assertNotEquals(currentTime, monsterController.getLastMove());
+    }*/
+
+    @Test
+    void toDo_ShouldMoveModel_WhenWinMonsterIsFalse() {
+        Game game = mock(Game.class);
+        long currentTime = 1500;
+        monsterController.checkWin(model); // Set winMonster to false
+
+        monsterController.toDo(game, "keyPressed", currentTime);
+
+        verify(movementStrategy, times(1)).move(model);
+        assertEquals(currentTime, monsterController.getLastMove());
+    }
 
 
 }
