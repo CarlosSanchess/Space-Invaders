@@ -23,15 +23,15 @@ public class MonsterController extends Controller<MonsterModel> {
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {
-        if(Time - lastMove > 1000){
+        if(!winMonster && Time - lastMove > 1000){
             movementStrategy.move(getModel());
             checkWin(getModel());
             this.lastMove = Time;
         }
 
     }
-    private void checkWin(MonsterModel model){
-        if(model.getPosition().getY() >=  arenaH - 1){
+    public void checkWin(MonsterModel model){
+        if(model.getPosition() != null && model.getPosition().getY() >=  arenaH - 1){
             winMonster = true;
         }
     }
