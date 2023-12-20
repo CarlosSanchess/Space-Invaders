@@ -33,4 +33,10 @@ public class ResumeMenuState extends State<ResumeMenuModel> {
     public void setResumeMenuController(com.Carlos.spaceinvaders.controller.menu.ResumeMenuController resumeMenuController) {
         ResumeMenuController = resumeMenuController;
     }
+    public DrawResumeMenu getDrawResumeMenu() {
+        return drawResumeMenu;
+    }
+    public ResumeMenuController getResumeMenuController() {
+        return ResumeMenuController;
+    }
 }
