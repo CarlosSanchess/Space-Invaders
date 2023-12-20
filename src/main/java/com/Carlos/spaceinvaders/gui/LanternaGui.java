@@ -26,7 +26,7 @@ public class LanternaGui {
 
     private final TextGraphics graphics;
     Screen screen;
-    private final int width;
+    private int width;
 
     public LanternaGui(int width, int height) throws IOException, FontFormatException {
         Terminal terminal = createTerminal(width, height);
@@ -34,6 +34,11 @@ public class LanternaGui {
         screen = createScreen(terminal);
         assert screen != null;
         graphics = createGraphics(screen);
+    }
+
+    public LanternaGui(Screen screen) {
+        this.screen = screen;
+        this.graphics = screen.newTextGraphics();
     }
 
     Terminal createTerminal(int width, int height) throws IOException, FontFormatException {
@@ -119,6 +124,12 @@ public class LanternaGui {
     }
 
     public void drawText(PositionModel position, String string, TextColor.RGB rgbColor, boolean bold) {
+        if (string == null) {
+            throw new NullPointerException("String cannot be null");
+        }
+        if (rgbColor == null) {
+            throw new NullPointerException("Color cannot be null");
+        }
         if (bold)
             graphics.enableModifiers(SGR.BOLD);
         graphics.setForegroundColor(rgbColor);
