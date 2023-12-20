@@ -11,10 +11,9 @@ import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
 import java.util.Objects;
 
 public class GameOverMenuController extends Controller<GameOverMenuModel> {
-    private com.Carlos.spaceinvaders.model.models.GameOverMenuModel GameOverMenuModel;
 
-    public GameOverMenuController(GameOverMenuModel GameOverMenuModel){
-        super(GameOverMenuModel);
+    public GameOverMenuController(GameOverMenuModel GameOverModel){
+        super(GameOverModel);
     }
 
     void nextEntry(){
@@ -41,7 +40,7 @@ public class GameOverMenuController extends Controller<GameOverMenuModel> {
 
     }
 
-
+    @Override
     public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();

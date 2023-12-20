@@ -2,7 +2,6 @@ package com.Carlos.spaceinvaders.model.builders;
 import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -34,7 +33,7 @@ public class CreateMonsters {
     }
     public List<MonsterModel> addMonsters(int numMonstros){
         for(int i = 0; i < numMonstros; i++){
-            monsters.add(new MonsterModel(getRandomPosM(1),3,1));
+            monsters.add(new MonsterModel(getRandomPosM(1), 1));
         }
         return monsters;
     }

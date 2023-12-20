@@ -1,14 +1,14 @@
 package com.Carlos.spaceinvaders.model.models;
 
-import java.awt.*;
+import com.Carlos.spaceinvaders.HighScore;
+import com.Carlos.spaceinvaders.model.models.PowerUpModel.PowerUpType;
+import com.google.common.base.Splitter;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-
-import com.Carlos.spaceinvaders.HighScore;
-import  com.Carlos.spaceinvaders.model.models.PowerUpModel.PowerUpType;
-
+import java.util.Objects;
 
 
 public class PlayerModel extends Elements {
@@ -16,16 +16,13 @@ public class PlayerModel extends Elements {
     private int hitPoints;
     private long delayShooting;
     private PowerUpType powerUpType;
-    public PlayerNameModel playerNameModel;
-    public static int i;
+    public static int i = 1;
 
     public PlayerModel(PositionModel position, int hitPoints){
         super(position);
         this.hitPoints = hitPoints;
         this.delayShooting = 500;
         this.powerUpType = null;
-        this.i = 1;
-
     }
     public int getHitPoints() {
         return hitPoints;
@@ -52,7 +49,7 @@ public class PlayerModel extends Elements {
 
     public String getPlayerNameModel() {
 
-        if (PlayerNameModel.name == "") {
+        if (Objects.equals(PlayerNameModel.name, "")) {
             int highestGuestNumber = findHighestGuestNumber();
             return "Guest" + (highestGuestNumber + 1);
         }
@@ -67,15 +64,16 @@ public class PlayerModel extends Elements {
             int highestGuestNumber = 1;
 
             for (String line : lines) {
-                String[] parts = line.split(",");
-                if (parts.length == 2) {
-                    String storedPlayerName = parts[0];
+                List<String> parts = Splitter.on(',').splitToList(line);
+                if (parts.size() == 2) {
+                    String storedPlayerName = parts.get(0);
 
                     if (storedPlayerName.startsWith("Guest")) {
                         try {
                             int guestNumber = Integer.parseInt(storedPlayerName.substring(5));
                             highestGuestNumber = Math.max(highestGuestNumber, guestNumber);
-                        } catch (NumberFormatException ignored) {
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -87,12 +85,6 @@ public class PlayerModel extends Elements {
             return 0;
         }
     }
-
-
-    public void setPlayerNameModel(PlayerNameModel playerNameModel) {
-        this.playerNameModel = playerNameModel;
-    }
-
     public void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
     }

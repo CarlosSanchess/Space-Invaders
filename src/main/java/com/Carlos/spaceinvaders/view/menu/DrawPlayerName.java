@@ -14,7 +14,7 @@ public class DrawPlayerName extends Viewer<PlayerNameModel> {
     public DrawPlayerName(PlayerNameModel playerNameModel) {
         super(playerNameModel);
     }
-
+    @Override
     public void draw(LanternaGui gui) {
         gui.screenClear();
         String text =
