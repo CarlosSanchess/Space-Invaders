@@ -37,7 +37,7 @@ public class ShooterMovementStrategyTest {
         shooterMovementStrategy.move(monster);
         try {
             verify(monster, atLeastOnce()).setPosition(any(PositionModel.class));
-            assert(bullets.isEmpty());
+            assert bullets.isEmpty();
         } catch (org.mockito.exceptions.verification.WantedButNotInvoked e) {
             assert(bullets.size() == 1);
         }
