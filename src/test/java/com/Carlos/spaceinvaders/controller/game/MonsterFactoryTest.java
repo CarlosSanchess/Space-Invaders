@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MonsterFactoryTest {
 
-    private MonsterFactory monsterFactory;
+    private MonsterFactoryController monsterFactory;
     private List<MonsterModel> activeMonsters;
 
     @BeforeEach
     public void setUp() {
         MonsterFactoryModel monsterFactoryModel = new MonsterFactoryModel();
         activeMonsters = new ArrayList<>();
-        monsterFactory = new MonsterFactory(monsterFactoryModel, activeMonsters);
+        monsterFactory = new MonsterFactoryController(monsterFactoryModel, activeMonsters);
     }
 
     @Test

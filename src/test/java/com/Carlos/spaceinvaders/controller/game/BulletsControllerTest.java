@@ -39,7 +39,7 @@ public class BulletsControllerTest {
         bullet.setSpeed(1);
         bullets.add(bullet);
 
-        MonsterModel monster = new MonsterModel(new PositionModel(5,11),1,1);
+        MonsterModel monster = new MonsterModel(new PositionModel(5,11), 1);
         monster.setPosition(new PositionModel(0, 0));
         activeMonsters.add(monster);
 
@@ -58,7 +58,7 @@ public class BulletsControllerTest {
         bullet.setSpeed(1);
         bullets.add(bullet);
 
-        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5, PowerUpModel.PowerUpType.ScoreBoost);
         powerUp.setPosition(new PositionModel(0, 0));
         activePowerUps.add(powerUp);
 
@@ -111,7 +111,7 @@ public class BulletsControllerTest {
     @Test
     public void testColide_bulletCollidesWithMonster() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        MonsterModel monster = new MonsterModel(new PositionModel(10,10),1,5);
+        MonsterModel monster = new MonsterModel(new PositionModel(10,10), 5);
         monster.setPosition(nextPosition);
         activeMonsters.add(monster);
 
@@ -125,7 +125,7 @@ public class BulletsControllerTest {
     @Test
     public void testColide_bulletCollidesWithPowerUp() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5, PowerUpModel.PowerUpType.ScoreBoost);
         powerUp.setPosition(nextPosition);
         activePowerUps.add(powerUp);
 
@@ -147,7 +147,7 @@ public class BulletsControllerTest {
     @Test
     public void testIsMonster_nextPositionIsMonster() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        MonsterModel monster = new MonsterModel(new PositionModel(10,10),1,5);
+        MonsterModel monster = new MonsterModel(new PositionModel(10,10), 5);
         monster.setPosition(nextPosition);
         activeMonsters.add(monster);
 
@@ -188,7 +188,7 @@ public class BulletsControllerTest {
     @Test
     public void testIsPowerUp_nextPositionIsPowerUp() {
         PositionModel nextPosition = new PositionModel(0, 1);
-        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),3,1, PowerUpModel.PowerUpType.HealthBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),3, PowerUpModel.PowerUpType.HealthBoost);
         powerUp.setPosition(nextPosition);
         activePowerUps.add(powerUp);
 
@@ -208,7 +208,7 @@ public class BulletsControllerTest {
 
     @Test
     public void testProcessPowerUp_scoreBoost() {
-        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5,10, PowerUpModel.PowerUpType.ScoreBoost);
+        PowerUpModel powerUp = new PowerUpModel(new PositionModel(10,5),5, PowerUpModel.PowerUpType.ScoreBoost);
         powerUp.setPowerUpType(PowerUpModel.PowerUpType.ScoreBoost);
 
         bulletsController.processPowerUp(powerUp, 0);

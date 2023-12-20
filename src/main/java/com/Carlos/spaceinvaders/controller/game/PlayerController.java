@@ -19,7 +19,7 @@ public class PlayerController extends Controller<PlayerModel> {
     private long lastShoot;
     private SoundController soundController;
 
-    public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets, SoundController soundController){  //TODO Não há maneira melhor de fazer isto-?
+    public PlayerController(PlayerModel player, int arenaW, List<BulletModel> bullets, SoundController soundController){
         super(player);
         this.arenaW = arenaW;
         this.bullets = bullets;

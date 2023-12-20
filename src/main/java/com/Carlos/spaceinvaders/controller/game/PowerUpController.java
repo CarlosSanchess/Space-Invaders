@@ -7,7 +7,6 @@ import java.util.List;
 
 
 public class PowerUpController extends Controller<List<PowerUpModel>> {
-    //Apenas move os powerUps
     private long lastMove;
     public PowerUpController(List<PowerUpModel> activePowerUp){
             super(activePowerUp);

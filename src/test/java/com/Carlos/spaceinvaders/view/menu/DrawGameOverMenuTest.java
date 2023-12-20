@@ -35,7 +35,7 @@ public class DrawGameOverMenuTest {
         drawGameOverMenu.draw(gui);
 
         verify(gui).drawTitle(title);
-        verify(gui).drawTextSelected(new PositionModel(30, 17), "EXIT TO MAIN MENU", new TextColor.RGB(0, 255, 0));
+        verify(gui).drawTextSelected(new PositionModel(30, 17), "EXIT TO MAIN MENU");
         verify(gui).drawText(new PositionModel(34, 21), "RESTART GAME", new TextColor.RGB(255, 255, 255));
     }
 
@@ -52,7 +52,7 @@ public class DrawGameOverMenuTest {
 
         verify(gui).drawTitle(title);
         verify(gui).drawText(new PositionModel(30, 17), "EXIT TO MAIN MENU", new TextColor.RGB(255, 255, 255));
-        verify(gui).drawTextSelected(new PositionModel(34, 21), "RESTART GAME", new TextColor.RGB(0, 255, 0));
+        verify(gui).drawTextSelected(new PositionModel(34, 21), "RESTART GAME");
     }
 
     @Test

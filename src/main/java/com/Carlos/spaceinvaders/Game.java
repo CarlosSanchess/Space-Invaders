@@ -89,4 +89,8 @@ public class Game {
     public State getState() {
         return state;
     }
+
+    public Stack<State> getStates() {
+        return states;
+    }
 }

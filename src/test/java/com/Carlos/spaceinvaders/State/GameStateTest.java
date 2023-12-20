@@ -3,8 +3,6 @@ package com.Carlos.spaceinvaders.State;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.game.GameController;
 
-import com.Carlos.spaceinvaders.controller.game.MonsterControllerFactory;
-import com.Carlos.spaceinvaders.controller.game.MonsterFactory;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
