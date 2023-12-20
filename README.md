@@ -238,6 +238,19 @@ Similarly, the `PowerUpFactory` class employs a random creation strategy to intr
 - [PowerUpController](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpController.java)
 - [PowerUpFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpFactory.java)
 
+## TESTING
+
+### Challenges with Movement Strategies
+During our testing phase, one of the significant challenges encountered revolved around testing the movement strategies of monsters and the creation of power-ups. The inherent randomness embedded within these entities posed complexities in establishing consistent and deterministic test scenarios.
+In the future one way to address this issue could be to use a random seed that initializes the behavior of monsters and power-ups. By setting a specific random seed, we can ensure reproducibility in our tests. This means that while the behavior remains random, it will be consistent across multiple test runs. 
+
+### Code Coverage Report
+For detailed insights into the code coverage metrics [Code Coverage Report](build/reports/coveragereport/index.html).
+
+### Mutation Testing with Pitest
+To evaluate the robustness of our tests, we utilized Pitest. A Pitest report provides a comprehensive mutation testing analysis to identify gaps in test coverage and assess the effectiveness of our test suite.
+For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312201826/index.html).
+
 ## Screenshots
 
 The following screenshots ilustrate the general look of our game, as well as the divergent functionalities:
