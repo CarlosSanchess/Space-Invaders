@@ -15,8 +15,8 @@ public class GameController extends Controller<ArenaModel> {
     BulletsController bulletsController;
     private final MonsterControllerFactory monsterControllerFactory;
     private final PowerUpFactory  powerUpFactory;
-    private PowerUpController powerUpController;
-    private MonsterFactory monsterFactory;
+    private final PowerUpController powerUpController;
+    private final MonsterFactory monsterFactory;
     private WallFactory wallFactory;
 
 

@@ -13,7 +13,7 @@ public class MonsterTest {
         PositionModel position = new PositionModel(0, 0);
         int hitPoints = 10;
         int speed = 5;
-        monster = new MonsterModel(position, hitPoints, speed);
+        monster = new MonsterModel(position, speed);
     }
 
     @Test

@@ -1,16 +1,16 @@
 package com.Carlos.spaceinvaders.controller.menu;
 
 import com.Carlos.spaceinvaders.Game;
-import com.Carlos.spaceinvaders.HighScore;
 import com.Carlos.spaceinvaders.State.GameState;
 import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.model.models.*;
+import com.Carlos.spaceinvaders.model.models.ArenaModel;
+import com.Carlos.spaceinvaders.model.models.MenuModel;
+import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 
 import java.util.Objects;
 
 public class ResumeMenuController extends Controller<ResumeMenuModel> {
-    private ResumeMenuModel ResumeMenuModel;
 
     public ResumeMenuController(ResumeMenuModel ResumeMenuModel){
         super(ResumeMenuModel);
@@ -42,8 +42,8 @@ public class ResumeMenuController extends Controller<ResumeMenuModel> {
 
     }
 
-
-    public void toDo(Game game, String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
+    @Override
+    public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select(game);

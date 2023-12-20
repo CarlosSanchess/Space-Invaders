@@ -3,7 +3,6 @@ package com.Carlos.spaceinvaders.view.menu;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.SharedState;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,5 @@
 package com.Carlos.spaceinvaders.gui;
 
-import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
@@ -21,24 +20,19 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class LanternaGui {
 
-    private TextGraphics graphics;
+    private final TextGraphics graphics;
     Screen screen;
-    private int width;
-    private int height;
-    private int startPoint;
+    private final int width;
 
     public LanternaGui(int width, int height) throws IOException, FontFormatException {
         Terminal terminal = createTerminal(width, height);
         this.width = width;
-        this.height = height;
         screen = createScreen(terminal);
+        assert screen != null;
         graphics = createGraphics(screen);
     }
 
@@ -71,6 +65,7 @@ public class LanternaGui {
 
     private AWTTerminalFontConfiguration fontLoader() throws FontFormatException, IOException {
         InputStream fontStream = getClass().getClassLoader().getResourceAsStream("fonts/game.ttf");
+        assert fontStream != null;
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
@@ -135,7 +130,7 @@ public class LanternaGui {
             gui.drawText(new PositionModel(col, 17), "-", rgbColor, false);
         }
 
-        for (int row = 18; row <= 18; row++) {
+        for (int row = 18; row == 18; row++) {
             gui.drawText(new PositionModel(29, row), "|", rgbColor, false);
             gui.drawText(new PositionModel(45, row), "|", rgbColor, false);
         }
@@ -157,6 +152,7 @@ public class LanternaGui {
 
 
     public void drawTitle(String string) {
+        int startPoint;
         if(string.length() == 522){
             startPoint = (width - 64) / 2;
 
@@ -190,7 +186,7 @@ public class LanternaGui {
         }
 
     }
-    public void drawTextSelected(PositionModel position, String entryName, TextColor.RGB rgbColor) {
+    public void drawTextSelected(PositionModel position, String entryName) {
         int width = entryName.length() + 2;
         int height = 3;
 

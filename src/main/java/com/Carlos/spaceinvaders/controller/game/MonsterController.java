@@ -18,8 +18,8 @@ public class MonsterController extends Controller<MonsterModel> {
         this.movementStrategy = movementStrategy;
         this.lastMove = 0;
         this.arenaH = arenaH;
-        winMonster = false;
         this.activeMonsters = activeMonsters;
+        winMonster = false;
     }
     @Override
     public void toDo(Game game, String keyPressed, long Time) {

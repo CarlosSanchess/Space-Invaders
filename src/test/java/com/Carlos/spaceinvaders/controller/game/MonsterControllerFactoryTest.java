@@ -33,7 +33,7 @@ public class MonsterControllerFactoryTest {
 
     @Test
     public void testCreateMonsterController() {
-        MonsterModel monster = new MonsterModel(new PositionModel(10,5),3,2);
+        MonsterModel monster = new MonsterModel(new PositionModel(10,5), 2);
         MonsterController monsterController = monsterControllerFactory.createMonsterController(monster);
         assertNotNull(monsterController);
     }

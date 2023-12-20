@@ -2,18 +2,16 @@ package com.Carlos.spaceinvaders.model.models;
 
 public class MonsterModel extends Elements {
 
-    private int hitPoints; // Not Used Yet
     boolean direction = false;
-    private int speed;
+    private final int speed;
     private MoveType moveType;
     public enum MoveType{
         Diagonal,
         Vertical,
         Shooter
     }
-    public MonsterModel(PositionModel position, int hitPoints, int speed) {
+    public MonsterModel(PositionModel position, int speed) {
         super(position);
-        this.hitPoints = hitPoints;
         this.speed = speed;
         this.moveType = null;
     }

@@ -14,7 +14,7 @@ public class MonsterFactoryModel {
     }
 
     public void setDelay(long delay) {
-        Delay = delay;
+        this.Delay = delay;
     }
 
     public int getNumMonstros() {

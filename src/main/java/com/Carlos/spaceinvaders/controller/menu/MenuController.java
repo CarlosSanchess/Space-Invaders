@@ -3,18 +3,14 @@ package com.Carlos.spaceinvaders.controller.menu;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.State.*;
 import com.Carlos.spaceinvaders.controller.Controller;
-import com.Carlos.spaceinvaders.controller.SoundController;
 import com.Carlos.spaceinvaders.model.models.*;
 
 import java.util.Objects;
 
 public class MenuController extends Controller<MenuModel> {
-    private MenuModel menuModel;
-    private SoundController soundController;
 
     public MenuController(MenuModel menuModel){
         super(menuModel);
-        this.soundController = soundController;
     }
 
     void nextEntry(){
@@ -40,12 +36,12 @@ public class MenuController extends Controller<MenuModel> {
         if(entry == 1) continueGame(game);
         if(entry == 2) tutorial(game);
         if(entry == 3) highscores(game);
-        if(entry == 4) exit(game);
+        if(entry == 4) exit();
 
     }
 
-
-    public void toDo(Game game, String keyPressed, long Time){ // TODO FAZ SENTIDO TER O TIME AQUI?
+    @Override
+    public void toDo(Game game, String keyPressed, long Time){
         if(Objects.equals(keyPressed, "ArrowDown")) nextEntry();
         if(Objects.equals(keyPressed,"ArrowUp")) previousEntry();
         if(Objects.equals(keyPressed,"Enter")) Select(game);
@@ -58,7 +54,8 @@ public class MenuController extends Controller<MenuModel> {
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));
     }
-    private void continueGame( Game game){
+    
+    private void continueGame(Game game) {
         while (game.getCurrentState() != null && !(game.getCurrentState() instanceof GameState)) {
             game.popState();
         }
@@ -68,7 +65,6 @@ public class MenuController extends Controller<MenuModel> {
             game.popState();
             game.pushState(gameState);
         } else {
-
             game.pushState(new MenuState(new MenuModel()));
         }
     }
@@ -82,7 +78,7 @@ public class MenuController extends Controller<MenuModel> {
         game.pushState(new HighScoresState(new HighScoresModel()));
     }
 
-    private void exit(Game game){
+    private void exit(){
         System.exit(0);
     }
 

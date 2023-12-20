@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class PowerUpFactory {
 
-    private int numPowerUp;
     private List<PowerUpModel> activePowerUps;
     long lastCreation;
     long Delay;
@@ -22,7 +21,7 @@ public class PowerUpFactory {
 
     public void createPowerUp(long Time, int arenaX){
         if(Time - lastCreation > Delay){
-            PowerUpModel powerUp = new PowerUpModel(createRandomPosition(arenaX),1,100,createRandomPower());
+            PowerUpModel powerUp = new PowerUpModel(createRandomPosition(arenaX),1, createRandomPower());
             activePowerUps.add(powerUp);
 
             this.lastCreation = Time;
@@ -47,7 +46,7 @@ public class PowerUpFactory {
     }
 
     public void setDelay(long delay) {
-        Delay = delay;
+        this.Delay = delay;
     }
 
     public long getDelay() {

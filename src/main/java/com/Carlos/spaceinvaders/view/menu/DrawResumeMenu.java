@@ -3,7 +3,6 @@ package com.Carlos.spaceinvaders.view.menu;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
-import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
 import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 
@@ -37,7 +36,7 @@ public class DrawResumeMenu extends Viewer<ResumeMenuModel> {
             }
 
             if (getModel().isSelected(i)) {
-                GUI.drawTextSelected(position, entryName, new TextColor.RGB(0, 255, 0));
+                GUI.drawTextSelected(position, entryName);
             } else {
                 GUI.drawText(position, entryName, new TextColor.RGB(255, 255, 255));
             }
