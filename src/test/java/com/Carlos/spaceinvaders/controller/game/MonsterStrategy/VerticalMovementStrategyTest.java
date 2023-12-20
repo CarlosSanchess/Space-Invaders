@@ -36,3 +36,5 @@ public class VerticalMovementStrategyTest {
         assertEquals(6, positionCaptor.getValue().getY());
     }
 }
+
+

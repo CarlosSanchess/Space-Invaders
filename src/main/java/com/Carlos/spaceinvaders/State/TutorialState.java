@@ -32,4 +32,11 @@ public class TutorialState extends State<TutorialModel>{
     public void setTutorialController(TutorialController tutorialController) {
         this.tutorialController = tutorialController;
     }
+
+    public DrawTutorial getDrawTutorial() {
+        return drawTutorial;
+    }
+    public TutorialController getTutorialController() {
+        return tutorialController;
+    }
 }

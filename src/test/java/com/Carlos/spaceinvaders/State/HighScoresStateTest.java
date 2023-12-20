@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class HighScoresStateTest {
@@ -43,4 +44,25 @@ public class HighScoresStateTest {
         verify(drawHighScores).lanternaDraw(gui);
         verify(highScoresController).toDo(game, key, time);
     }
+    @Test
+    public void testSetDrawHighScores() {
+        DrawHighScores newDrawHighScores = mock(DrawHighScores.class);
+        highScoresState.setDrawHighScores(newDrawHighScores);
+        assertEquals(newDrawHighScores, highScoresState.getDrawHighScores());
+    }
+
+    @Test
+    public void testSetHighScoresController() {
+        HighScoresController newHighScoresController = mock(HighScoresController.class);
+        highScoresState.setHighScoresController(newHighScoresController);
+        assertEquals(newHighScoresController, highScoresState.getHighScoresController());
+    }
+
+    @Test
+    public void testConstructor() {
+        assertEquals(highScoresModel, highScoresState.getModel());
+        assertEquals(drawHighScores, highScoresState.getDrawHighScores());
+        assertEquals(highScoresController, highScoresState.getHighScoresController());
+    }
+
 }

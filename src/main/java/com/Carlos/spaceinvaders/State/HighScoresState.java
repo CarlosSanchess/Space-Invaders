@@ -32,4 +32,11 @@ public class HighScoresState extends State<HighScoresModel>{
     public void setHighScoresController(HighScoresController highScoresController) {
         this.highScoresController = highScoresController;
     }
+    public DrawHighScores getDrawHighScores() {
+        return drawHighScores;
+    }
+
+    public HighScoresController getHighScoresController() {
+        return highScoresController;
+    }
 }

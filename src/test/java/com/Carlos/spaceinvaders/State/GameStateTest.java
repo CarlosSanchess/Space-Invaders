@@ -54,4 +54,18 @@ public class GameStateTest {
         assertEquals(drawGame, gameState.getDrawGame());
         assertEquals(gameController, gameState.getGameController());
     }
+    @Test
+    public void testSetDrawGame() {
+        DrawGame newDrawGame = mock(DrawGame.class);
+        gameState.setDrawGame(newDrawGame);
+        assertEquals(newDrawGame, gameState.getDrawGame());
+    }
+
+    @Test
+    public void testSetGameController() {
+        GameController newGameController = mock(GameController.class);
+        gameState.setGameController(newGameController);
+        assertEquals(newGameController, gameState.getGameController());
+    }
+
 }

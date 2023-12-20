@@ -34,4 +34,10 @@ public class PlayerNameState extends State<PlayerNameModel> {
     public void setPlayerNameController(PlayerNameController playerNameController) {
         this.playerNameController = playerNameController;
     }
+    public DrawPlayerName getDrawPlayerNameModel() {
+        return drawPlayerNameModel;
+    }
+    public PlayerNameController getPlayerNameController() {
+        return playerNameController;
+    }
 }
