@@ -103,32 +103,30 @@ The model is isolated, view is connected to the model, and the controller depend
 ## IMPLEMENTATION OF MVC
 
 ## - Model
-![Model UML](Docs/umls/Models.png)
-**Fig. 1: Model UML**
+<a href="Docs/imgs/model.png">
+  <img src="Docs/imgs/model.png" alt="Model UML" width="1000" height="1300"/>
+</a>
 
-The Model encapsulates the data and related logical operations within the application.
+**Fig. 1: Model UML** - The Model encapsulates the data and related logical operations within the application.
 
-## - View
-![View UML](Docs/umls/View.png)
-**Fig. 2: View UML**
+## View
+[![View UML](Docs/imgs/view.png)](Docs/imgs/view.png)
+**Fig. 2: View UML** - The View is responsible for presenting the data to the user. It defines how the application's data is displayed.
 
-The View is responsible for presenting the data to the user. It defines how the application's data is displayed.
-
-## - Controller
-![Controller UML](Docs/umls/Controller.png)
-**Fig. 3: Controller UML**
+## Controller
+[![Controller UML](Docs/imgs/controller.png)](Docs/imgs/controller.png)
+**Fig. 3: Controller UML** - The Controller acts as an intermediary between the Model and View. It manages user input, updates the Model, and ensures that changes in the Model are reflected in the View.
 
 The Controller acts as an intermediary between the Model and View. It manages user input, updates the Model, and ensures that changes in the Model are reflected in the View.
 
-## - UML Overview
-![Project UML](Docs/umls/Project.png)
-**Fig. 4: Project UML**
+## UML Overview
+[Fig. 4: Project UML](Docs/imgs/project.png) - This is a clickable reference to the UML overview of the entire project.
 
 The UML diagram provides an overview of the project's structure, showcasing the relationships between the Model, View, and other components.
 
-## Design Patterns
+# Design Patterns
 
-### Observer Pattern (Sound Effects)
+## Observer Pattern (Sound Effects)
 The Observer Pattern is employed to manage sound effects in the game. Sound effect subscribe to specific events (firing bullets or game over), and upon occurrence, these observers are notified to play the corresponding sound effects.
 
 #### Implementation Details:
@@ -137,7 +135,8 @@ The Observer Pattern is employed to manage sound effects in the game. Sound effe
 - [**PlayerController:**](src/main/java/com/Carlos/spaceinvaders/controller/game/PlayerController.java) Communicates with SoundController to play sound effects associated with firing bullets.
 
 ### UML Interaction Diagram
-![UML Interaction](path/to/UML_Image.png)
+![UML Interaction](Docs/imgs/observerint.png)
+
 **Fig. 5: Observers Interaction Diagram**
 
 The UML interaction diagram illustrates the communication flow between SoundController, GameController, and PlayerController in the context of sound effects management. This visual representation provides an overview of how these components interact during gameplay.
@@ -149,7 +148,7 @@ The UML interaction diagram illustrates the communication flow between SoundCont
 
 3. **Dynamic Behavior:** Observers can dynamically subscribe or unsubscribe to events, providing flexibility in managing the playability of different sound effects based on game events.
 
-### State Pattern (Game States)
+## State Pattern (Game States)
 The State Pattern is applied to manage different game states, such as the menu state, game state, and tutorial menu state. Each state is represented by a separate class, and the game context can transition between these states seamlessly.
 
 #### Implementation Details:
@@ -164,7 +163,7 @@ The State Pattern is applied to manage different game states, such as the menu s
 - [**TutorialState:**](src/main/java/com/Carlos/spaceinvaders/State/TutorialState.java) Represents the state during the tutorial.
 
 ### UML Interaction Diagram
-![UML Interaction](path/to/UML_Image.png)
+![UML Interaction](Docs/imgs/stateinteraction.png)
 **Fig. 6: State Interaction Diagram**
 
 #### Advantages:
@@ -185,9 +184,7 @@ The stack data structure plays a vital role in managing the hierarchical order o
 
 The stack ensures that the current state is always at the top, simplifying access and manipulation during the game. As the game progresses, different states are pushed onto and popped off the stack based on user interactions and events.
 
-This stack-based approach provides a memory-efficient solution, allowing the game to focus on managing only the necessary states at any given time.
-
-### Strategy Pattern (Alien Invader Movement Strategies)
+## Strategy Pattern (Alien Invader Movement Strategies)
 The Strategy Pattern is implemented to manage the movement strategies of alien invaders. Three different movement strategies (diagonal, horizontal, and vertical) are represented as separate strategy classes. The game can dynamically switch between these strategies during runtime.
 
 #### Advantages:
@@ -204,49 +201,42 @@ The Strategy Pattern is implemented to manage the movement strategies of alien i
 - [**VerticalMovementStrategy.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/VerticalMovementStrategy.java) Implements the vertical movement strategy for alien invaders.
 - [**MovementStrategy.java (interface):**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/MovementStrategy.java) Defines the common interface for all movement strategies.
 
-#### Related Controllers:
+#### Related Controller:
 
-- [**BulletsController.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/BulletsController.java) Manages the bullets fired by alien invaders with horizontal movement.
 - [**MonsterControllerFactory.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonsterControllerFactory.java) Creates controllers for different types of monsters, applying a random movement strategy on spawn.
 
 ### UML Interaction Diagram
-![UML Interaction](path/to/UML_Image.png)
-**Fig. 7: MonsterStrategy and Controllers Interaction Diagram**
+![UML Interaction](Docs/imgs/stratint.png)
+**Fig. 7: MonsterStrategy and Controller Interaction Diagram**
 
-## Factory Method Pattern
+## OTHER DETAILS OF OUR PROJECT IMPLEMENTATION
+
+### - Randomized Creation Strategies
 
 ### MonsterFactory
-The Factory Method Pattern is a creational design pattern, and we applied it to the `MonsterFactory` class, which is responsible for creating different types of monsters in the game. This pattern encapsulates the monster creation logic, allowing subclasses to alter the type of monsters created.
-At the start of the project we didn't know how many different powerups we would have so this pattern made it easier to add more power ups without changing the overall structure of the rest of the code, and the game logic.
-#### Advantages:
-1. **Abstraction of Creation Logic:** The Factory Method Pattern abstracts the creation of monster objects, providing a method (`createMonster`) that subclasses implement to create specific types of monsters.
+The `MonsterFactory` class incorporates a random creation strategy to diversify the types of monsters generated in the game. Instead of predetermining specific monster types, this approach uses randomness to introduce variability in monsters making use of the different strategies previously defined.
 
-2. **Flexibility in Monster Creation:** Subclasses of `MonsterFactory` can override the factory method to produce different variations of monsters. This flexibility allows the game to introduce new types of monsters without modifying existing code.
+By utilizing a random strategy players encounter different monster types with varying movement patterns.
 
-3. **Code Reusability:** The pattern promotes code reusability, as the generic monster creation process is implemented in the base class (`MonsterFactory`), and specific monster types are created by subclasses.
+### Advantages:
+1. **Dynamic Gameplay:** Randomized monster creation injects unpredictability into the game, ensuring that players face diverse challenges with each gameplay session.
+2. **Difficulty**: This randomness made it easier for us to implement the difficulty controller that increases the rate of spawn of these random monsters as the score increases. 
 
-Click for Implementation Details:  [MonsterFactoryModel](src/main/java/com/Carlos/spaceinvaders/model/models/MonsterFactoryModel.java), [MonsterFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/MonsterFactory.java), [MonsterControllerFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/MonsterControllerFactory.java).
+#### Click for Implementation Details:
+- [MonsterFactoryModel](src/main/java/com/Carlos/spaceinvaders/model/models/MonsterFactoryModel.java)
+- [MonsterFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/MonsterFactoryController.java)
+- [MonsterControllerFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/MonsterControllerFactory.java)
 
-### PowerUpFactory
-Similarly, the Factory Method Pattern is employed in the `PowerUpFactory` class, responsible for creating various power-ups in the game. This pattern abstracts the creation process, allowing subclasses to define the specific power-ups to be generated.
+## PowerUpFactory
+Similarly, the `PowerUpFactory` class employs a random creation strategy to introduce a wide range of power-ups during gameplay. Instead of static power-up behaviors, this approach ensures that players receive power-ups with varied effects and durations.
 
-#### Advantages:
-1. **Centralized Creation Logic:** The Factory Method Pattern centralizes the creation logic for power-ups. The base class (`PowerUpFactory`) provides a method (`createPowerUp`) that subclasses implement to create distinct power-ups.
+### Consequence:
+1. **Diverse Power-Up Experience:** Randomized power-up creation ensures that players encounter a variety of power-ups, each offering unique benefits and gameplay enhancements.
 
-2. **Scalability:** Subclasses of `PowerUpFactory` can extend the system by introducing new power-up types without modifying existing code. This scalability is crucial for adding diversity to the game's power-up system.
-
-3. **Maintainability:** The pattern enhances maintainability by encapsulating the creation process. Changes to power-up creation logic can be localized to specific subclasses, minimizing the impact on other parts of the code.
-
-Click for Implementation Details: [PowerUpModel](src/main/java/com/Carlos/spaceinvaders/model/models/PowerUpModel.java), [PowerUpController](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpController.java), [PowerUpFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpFactory.java).
-
-
-### UML Interaction Diagram
-![UML Interaction](path/to/UML_Image.png)
-**Fig. 8: MonsterFactory Interaction Diagram**
-
-### UML Interaction Diagram
-![UML Interaction](path/to/UML_Image.png)
-**Fig. 9: PowerUpFactory Interaction Diagram**
+#### Click for Implementation Details:
+- [PowerUpModel](src/main/java/com/Carlos/spaceinvaders/model/models/PowerUpModel.java)
+- [PowerUpController](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpController.java)
+- [PowerUpFactory](src/main/java/com/Carlos/spaceinvaders/controller/game/PowerUpFactory.java)
 
 ## Screenshots
 
@@ -274,16 +264,16 @@ The following screenshots ilustrate the general look of our game, as well as the
 
 ### Menus
 
-#### Fig 10. Player ID
+#### Fig 8. Player ID
 ![Player ID](Docs/imgs/PlayerID.png)
 
-#### Fig 11. Main Menu
+#### Fig 9. Main Menu
 ![Main Menu](Docs/imgs/MainMenu.png)
 
-#### Fig 12. Tutorial
+#### Fig 10. Tutorial
 ![Tutorial](Docs/imgs/Tutorial.png)
 
-#### Fig 13. In-Game
+#### Fig 11. In-Game
 ![In-Game](Docs/imgs/In-Game.png)
 
 
@@ -314,7 +304,7 @@ The following screenshots ilustrate the general look of our game, as well as the
   <img src="Docs/imgs/gameover.png" alt="Lost message"/>
 </p>
 <p align="center">
-  <b><i>Fig 14. Game Over!</i></b>
+  <b><i>Fig 12. Game Over!</i></b>
 </p>
 
 <br>
@@ -327,15 +317,6 @@ The following screenshots ilustrate the general look of our game, as well as the
   <b><i>Gif 5. Losing the Game</i></b>
 </p>
 
-<br>
-<br />
-
-<p align="center">
-  <img src="Docs/gifs/highscores2.gif" alt="High Scores"/>
-</p>
-<p align="center">
-  <b><i>Gif 6. Checking the Highest Scores!</i></b>
-</p>
 <br>
 <br />
 
