@@ -2,19 +2,19 @@ package com.Carlos.spaceinvaders.model.models;
 
 public class MonsterFactoryModel {
 
-    private long Delay;
+    private long delay;
     private int numMonstros;
     public MonsterFactoryModel(){
-        this.Delay = 3000;
+        this.delay = 3000;
         this.numMonstros = 1;
     }
 
     public long getDelay() {
-        return Delay;
+        return delay;
     }
 
-    public void setDelay(long delay) {
-        Delay = delay;
+    public void setDelay(long delayArg) {
+        this.delay = delayArg;
     }
 
     public int getNumMonstros() {

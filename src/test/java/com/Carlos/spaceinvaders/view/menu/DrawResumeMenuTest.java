@@ -3,7 +3,6 @@ package com.Carlos.spaceinvaders.view.menu;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.model.models.ResumeMenuModel;
-import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,10 +38,10 @@ public class DrawResumeMenuTest {
         drawResumeMenu.draw(GUI);
 
         verify(GUI).drawTitle("Resume Menu");
-        verify(GUI).drawTextSelected(new PositionModel(30, 18), "GO TO MAIN MENU", new TextColor.RGB(0, 255, 0));
+        verify(GUI).drawTextSelected(new PositionModel(30, 18), "GO TO MAIN MENU");
         verify(GUI).drawText(new PositionModel(31, 22), "SAVE PROGRESS", new TextColor.RGB(255, 255, 255));
         verify(GUI).drawText(new PositionModel(34, 26), "ENTRY 2", new TextColor.RGB(255, 255, 255));
-        verify(GUI).drawTextSelected(new PositionModel(34, 30), "ENTRY 3", new TextColor.RGB(0, 255, 0));
+        verify(GUI).drawTextSelected(new PositionModel(34, 30), "ENTRY 3");
         verifyNoMoreInteractions(GUI);
     }
 }

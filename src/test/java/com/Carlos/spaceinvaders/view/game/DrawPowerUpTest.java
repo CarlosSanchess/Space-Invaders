@@ -22,7 +22,7 @@ public class DrawPowerUpTest {
     public void setup() {
         guiMock = mock(LanternaGui.class);
         positionModel = new PositionModel(40,1);
-        powerUpModel = new PowerUpModel(positionModel, 0, 0,null);
+        powerUpModel = new PowerUpModel(positionModel, 0, null);
         drawPowerUp = new DrawPowerUp(powerUpModel);
     }
     @Test

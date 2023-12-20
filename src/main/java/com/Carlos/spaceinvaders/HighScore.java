@@ -1,7 +1,12 @@
 package com.Carlos.spaceinvaders;
+import com.google.common.base.Splitter;
+
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.List;
+
+import static com.Carlos.spaceinvaders.model.models.PlayerModel.i;
 
 public class HighScore {
     public static String absolutePath = System.getProperty("user.dir") + "/src/main/resources/HighScore.csv";
@@ -20,12 +25,11 @@ public class HighScore {
         int lowestScoreIndex = -1;
         int lowestScore = Integer.MAX_VALUE;
 
-        for (int i = 0; i < lines.size(); i++) {
-            String line = lines.get(i);
-            String[] parts = line.split(",");
-            if (parts.length == 2) {
-                String storedPlayerName = parts[0];
-                int storedScore = Integer.parseInt(parts[1]);
+        for (String line : lines) {
+            List<String> parts = Splitter.on(',').splitToList(line);
+            if (parts.size() == 2) {
+                String storedPlayerName = parts.get(0);
+                int storedScore = Integer.parseInt(parts.get(1));
 
                 if (storedPlayerName.equals(playerName)) {
                     playerFound = true;
@@ -50,7 +54,7 @@ public class HighScore {
             }
         }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(absolutePath))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(absolutePath), StandardCharsets.UTF_8)) {
             for (String line : lines) {
                 writer.write(line);
                 writer.newLine();

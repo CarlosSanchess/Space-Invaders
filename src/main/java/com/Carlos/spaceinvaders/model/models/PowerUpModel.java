@@ -7,15 +7,13 @@ public class PowerUpModel extends Elements {
         ScoreBoost,
         FireRateBoost
     }
-    private long upTime;
-    PositionModel position;
+
     private final int speed;
     private int active;
     private PowerUpType powerUpType;
-    public PowerUpModel(PositionModel position, int speed, long upTime, PowerUpType powerUpType){
+    public PowerUpModel(PositionModel position, int speed, PowerUpType powerUpType){
         super(position);
         this.speed = speed;
-        this.upTime = upTime;
         this.active = 0;
         this.powerUpType = powerUpType;
     }

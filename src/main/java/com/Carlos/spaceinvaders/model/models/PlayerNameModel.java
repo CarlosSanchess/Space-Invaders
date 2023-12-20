@@ -20,7 +20,7 @@ public class PlayerNameModel {
     }
 
     public void setName(String name) {
-        this.name = name;
+        PlayerNameModel.name = name;
     }
 
 

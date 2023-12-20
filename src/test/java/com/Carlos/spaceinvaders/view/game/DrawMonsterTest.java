@@ -22,7 +22,7 @@ public class DrawMonsterTest {
     public void setup() {
         guiMock = mock(LanternaGui.class);
         positionModel = new PositionModel(40,1);
-        monsterModel = new MonsterModel(positionModel, 1, 1);
+        monsterModel = new MonsterModel(positionModel, 1);
         drawMonster = new DrawMonster(monsterModel);
     }
 

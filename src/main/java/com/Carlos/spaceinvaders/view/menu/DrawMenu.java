@@ -6,7 +6,6 @@ import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.model.models.SharedState;
 import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class DrawMenu extends Viewer<MenuModel> {
 
@@ -48,7 +47,7 @@ public class DrawMenu extends Viewer<MenuModel> {
             }
 
             if (getModel().isSelected(i)) {
-                GUI.drawTextSelected(position, entryName, new TextColor.RGB(0, 255, 0));
+                GUI.drawTextSelected(position, entryName);
             } else {
                 GUI.drawText(position, entryName, new TextColor.RGB(255, 255, 255));
             }
