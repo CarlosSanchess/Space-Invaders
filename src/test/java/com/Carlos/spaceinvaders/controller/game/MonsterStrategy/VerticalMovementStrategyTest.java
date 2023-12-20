@@ -28,13 +28,37 @@ public class VerticalMovementStrategyTest {
     @Test
     public void testMove() {
         verticalMovementStrategy.move(monster);
+        verify(monster, times(1)).setPosition(any(PositionModel.class));
+    }
+    @Test
+    public void testMoveWithNegativeSpeed() {
+        when(monster.getSpeed()).thenReturn(-1);
+        verticalMovementStrategy.move(monster);
+        verify(monster, times(1)).setPosition(argThat(position -> position.getY() == 4));
+    }
 
-        ArgumentCaptor<PositionModel> positionCaptor = ArgumentCaptor.forClass(PositionModel.class);
-        verify(monster, times(1)).setPosition(positionCaptor.capture());
 
-        assertEquals(5, positionCaptor.getValue().getX());
-        assertEquals(6, positionCaptor.getValue().getY());
+    @Test
+    public void testMoveWithZeroSpeed() {
+        when(monster.getSpeed()).thenReturn(0);
+        verticalMovementStrategy.move(monster);
+        verify(monster, times(1)).setPosition(argThat(position -> position.getY() == 5));
+    }
+
+    @Test
+    public void testMoveMultipleTimes() {
+        when(monster.getSpeed()).thenReturn(2);
+        PositionModel initialPosition = new PositionModel(positionModel.getX(), positionModel.getY());
+        verticalMovementStrategy.move(monster);
+        verticalMovementStrategy.move(monster);
+        verify(monster, times(2)).setPosition(argThat(position -> position.getY() == initialPosition.getY() + 4));
+    }
+
+
+    @Test
+    public void testMoveWithLargeSpeed() {
+        when(monster.getSpeed()).thenReturn(10);
+        verticalMovementStrategy.move(monster);
+        verify(monster, times(1)).setPosition(argThat(position -> position.getY() == 15));
     }
 }
-
-

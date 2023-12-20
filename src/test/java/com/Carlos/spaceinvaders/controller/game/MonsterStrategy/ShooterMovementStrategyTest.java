@@ -34,24 +34,34 @@ public class ShooterMovementStrategyTest {
 
     @Test
     public void testMove() {
+        // Test for moveMonster branch
         shooterMovementStrategy.move(monster);
-        try {
-            verify(monster, atLeastOnce()).setPosition(any(PositionModel.class));
-            assert(bullets.isEmpty());
-        } catch (org.mockito.exceptions.verification.WantedButNotInvoked e) {
-            assert(bullets.size() == 1);
-        }
+        verify(monster, atLeastOnce()).setPosition(any(PositionModel.class));
+        assert bullets.isEmpty();
+
+        // Test for shootMonster branch
+        activeMonsters.clear();  // Reset activeMonsters to test the shootMonster branch
+        activeMonsters.add(monster);
+        shooterMovementStrategy.move(monster);
+        assert bullets.size() == 1;
     }
+
     @Test
     public void testShootMonster() {
+        // Test with an active monster
         shooterMovementStrategy.shootMonster(monster);
-        assert(bullets.size() == 1);
+        assert bullets.size() == 1;
+
+        // Test with an inactive monster
+        activeMonsters.clear();
+        shooterMovementStrategy.shootMonster(monster);
+        assert bullets.size() == 1;  // Should not add a bullet for an inactive monster
     }
 
     @Test
     public void testNewBullet() {
         BulletModel bullet = shooterMovementStrategy.newBullet(monster);
-        assert(bullet.getPosition().getX() == positionModel.getX());
-        assert(bullet.getPosition().getY() == positionModel.getY());
+        assert bullet.getPosition().getX() == positionModel.getX();
+        assert bullet.getPosition().getY() == positionModel.getY();
     }
 }
