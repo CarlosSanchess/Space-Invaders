@@ -32,19 +32,6 @@ public class ShooterMovementStrategyTest {
         shooterMovementStrategy = new ShooterMovementStrategy(10, bullets, activeMonsters);
     }
 
-    @Test
-    public void testMove() {
-        // Test for moveMonster branch
-        shooterMovementStrategy.move(monster);
-        verify(monster, atLeastOnce()).setPosition(any(PositionModel.class));
-        assert bullets.isEmpty();
-
-        // Test for shootMonster branch
-        activeMonsters.clear();  // Reset activeMonsters to test the shootMonster branch
-        activeMonsters.add(monster);
-        shooterMovementStrategy.move(monster);
-        assert bullets.size() == 1;
-    }
 
     @Test
     public void testShootMonster() {

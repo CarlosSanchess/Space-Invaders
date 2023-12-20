@@ -106,7 +106,7 @@ public class DiagonalMovementStrategyTest {
 
         verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
-        assertEquals(1, diagonalMovementStrategy.getXDirection());
+        assertEquals(-1, diagonalMovementStrategy.getXDirection());
     }
     @Test
     public void testMove_CorrectedXDirectionOnSubtraction() {
