@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class TutorialStateTest {
@@ -46,5 +47,23 @@ class TutorialStateTest {
 
         verify(drawTutorial).lanternaDraw(gui);
         verify(tutorialController).toDo(game, key, time);
+    }
+
+    @Test
+    void setDrawTutorial_ShouldSetDrawTutorial() {
+        DrawTutorial newDrawTutorial = mock(DrawTutorial.class);
+
+        tutorialState.setDrawTutorial(newDrawTutorial);
+
+        assertEquals(newDrawTutorial, tutorialState.getDrawTutorial());
+    }
+
+    @Test
+    void setTutorialController_ShouldSetTutorialController() {
+        TutorialController newTutorialController = mock(TutorialController.class);
+
+        tutorialState.setTutorialController(newTutorialController);
+
+        assertEquals(newTutorialController, tutorialState.getTutorialController());
     }
 }
