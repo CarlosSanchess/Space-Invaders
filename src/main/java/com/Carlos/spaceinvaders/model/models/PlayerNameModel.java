@@ -7,7 +7,7 @@ public class PlayerNameModel {
 
     public PlayerNameModel(){
         this.entry = "Enter";
-        name = "";
+        this.name = "";
 
     }
 

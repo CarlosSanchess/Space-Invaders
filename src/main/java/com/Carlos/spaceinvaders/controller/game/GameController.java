@@ -17,7 +17,7 @@ public class GameController extends Controller<ArenaModel> {
     private final PowerUpFactory  powerUpFactory;
     private final PowerUpController powerUpController;
     private final MonsterFactory monsterFactory;
-    private WallFactory wallFactory;
+    private final WallFactory wallFactory;
 
 
     private SoundController soundController;
@@ -33,6 +33,7 @@ public class GameController extends Controller<ArenaModel> {
         this.powerUpController = new PowerUpController(getModel().getActivePowerUps());
         this.monsterFactory = new MonsterFactory(getModel().getMonsterFactoryModel(),getModel().getActiveMonsters());
     }
+    @Override
     public void toDo(Game game,String keyPressed, long Time){
 
         if (keyPressed != null && (keyPressed.equals("Escape") || keyPressed.equals("Quit")) ) {

@@ -12,8 +12,8 @@ import java.util.Objects;
 
 public class ResumeMenuController extends Controller<ResumeMenuModel> {
 
-    public ResumeMenuController(ResumeMenuModel ResumeMenuModel){
-        super(ResumeMenuModel);
+    public ResumeMenuController(ResumeMenuModel ResumeModel){
+        super(ResumeModel);
     }
 
     void nextEntry(){

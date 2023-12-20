@@ -1,6 +1,7 @@
 package com.Carlos.spaceinvaders.gui;
 
 import com.Carlos.spaceinvaders.model.models.PositionModel;
+import com.google.common.base.Ascii;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
@@ -110,8 +111,7 @@ public class LanternaGui {
         if (keyStroke.getKeyType() != KeyType.Character) {
             return null;
         }
-        return ch + Character.toString(keyStroke.getCharacter()).toUpperCase();
-
+        return ch + Ascii.toUpperCase(Character.toString(keyStroke.getCharacter()));
 
     }
     private TextGraphics createGraphics(Screen screen) {

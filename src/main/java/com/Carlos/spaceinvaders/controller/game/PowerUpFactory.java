@@ -10,17 +10,17 @@ public class PowerUpFactory {
 
     private List<PowerUpModel> activePowerUps;
     long lastCreation;
-    long Delay;
+    long delay;
     PowerUpFactory(List<PowerUpModel> activePowerUps){
         this.activePowerUps = activePowerUps;
-        this.Delay = 17500;
+        this.delay = 17500;
         this.lastCreation = 0;
 
     }
 
 
     public void createPowerUp(long Time, int arenaX){
-        if(Time - lastCreation > Delay){
+        if(Time - lastCreation > delay){
             PowerUpModel powerUp = new PowerUpModel(createRandomPosition(arenaX),1, createRandomPower());
             activePowerUps.add(powerUp);
 
@@ -45,12 +45,12 @@ public class PowerUpFactory {
         return new PositionModel(x, 1);
     }
 
-    public void setDelay(long delay) {
-        this.Delay = delay;
+    public void setDelay(long delayArg) {
+        this.delay = delayArg;
     }
 
     public long getDelay() {
-        return Delay;
+        return delay;
     }
 
     public long getLastCreation() {

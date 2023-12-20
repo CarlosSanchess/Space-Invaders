@@ -12,8 +12,8 @@ import java.util.Objects;
 
 public class GameOverMenuController extends Controller<GameOverMenuModel> {
 
-    public GameOverMenuController(GameOverMenuModel GameOverMenuModel){
-        super(GameOverMenuModel);
+    public GameOverMenuController(GameOverMenuModel GameOverModel){
+        super(GameOverModel);
     }
 
     void nextEntry(){

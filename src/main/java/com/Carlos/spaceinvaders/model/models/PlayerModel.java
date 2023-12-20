@@ -16,15 +16,13 @@ public class PlayerModel extends Elements {
     private int hitPoints;
     private long delayShooting;
     private PowerUpType powerUpType;
-    public static int i;
+    public static int i = 1;
 
     public PlayerModel(PositionModel position, int hitPoints){
         super(position);
         this.hitPoints = hitPoints;
         this.delayShooting = 500;
         this.powerUpType = null;
-        i = 1;
-
     }
     public int getHitPoints() {
         return hitPoints;
@@ -74,7 +72,8 @@ public class PlayerModel extends Elements {
                         try {
                             int guestNumber = Integer.parseInt(storedPlayerName.substring(5));
                             highestGuestNumber = Math.max(highestGuestNumber, guestNumber);
-                        } catch (NumberFormatException ignored) {
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
                         }
                     }
                 }

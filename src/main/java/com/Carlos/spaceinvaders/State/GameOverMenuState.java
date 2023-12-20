@@ -4,7 +4,6 @@ import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.menu.GameOverMenuController;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
-import com.Carlos.spaceinvaders.model.models.GameOverMenuModel;
 import com.Carlos.spaceinvaders.view.menu.DrawGameOverMenu;
 
 import java.io.IOException;
@@ -12,32 +11,32 @@ import java.io.IOException;
 public class GameOverMenuState extends State<GameOverMenuModel>{
 
     private DrawGameOverMenu drawGameOverMenu;
-    private com.Carlos.spaceinvaders.controller.menu.GameOverMenuController GameOverMenuController;
+    private GameOverMenuController gameOverMenuController;
     public GameOverMenuState(GameOverMenuModel GameOverMenuModel){
         super(GameOverMenuModel);
         this.drawGameOverMenu = new DrawGameOverMenu(getModel());
-        this.GameOverMenuController = new GameOverMenuController(getModel());
+        this.gameOverMenuController = new GameOverMenuController(getModel());
     }
 
     @Override
     public void step(String Key, LanternaGui GUI, long Time, Game game) throws IOException {
         drawGameOverMenu.lanternaDraw(GUI);
-        GameOverMenuController.toDo(game,Key, Time);
+        gameOverMenuController.toDo(game,Key, Time);
     }
 
     public void setDrawGameOverMenu(DrawGameOverMenu drawGameOverMenu) {
         this.drawGameOverMenu = drawGameOverMenu;
     }
 
-    public void setGameOverMenuController(com.Carlos.spaceinvaders.controller.menu.GameOverMenuController gameOverMenuController) {
-        this.GameOverMenuController = gameOverMenuController;
+    public void setGameOverMenuController(GameOverMenuController gameOverMenuController) {
+        this.gameOverMenuController = gameOverMenuController;
     }
 
     public DrawGameOverMenu getDrawGameOverMenu() {
         return drawGameOverMenu;
     }
 
-    public com.Carlos.spaceinvaders.controller.menu.GameOverMenuController getGameOverMenuController() {
-        return GameOverMenuController;
+    public GameOverMenuController getGameOverMenuController() {
+        return gameOverMenuController;
     }
 }
