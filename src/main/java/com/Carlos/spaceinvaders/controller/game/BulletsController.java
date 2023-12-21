@@ -117,7 +117,6 @@ public class BulletsController extends Controller<List<BulletModel>> {
             lastFireRateBoostTime = Time;
 
         }
-
         powerUp.incrementActive();
     }
     void ScoreBoost(){
