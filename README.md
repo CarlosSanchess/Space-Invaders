@@ -249,7 +249,7 @@ For detailed insights into the code coverage metrics [Code Coverage Report](buil
 
 ### Mutation Testing with Pitest
 To evaluate the robustness of our tests, we utilized Pitest. A Pitest report provides a comprehensive mutation testing analysis to identify gaps in test coverage and assess the effectiveness of our test suite.
-For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312201826/index.html).
+For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312201653/index.html).
 
 ## Known Code Smells 
 ### -Refused Bequest:
@@ -258,7 +258,7 @@ We face this code smell in `MonsterFactoryController`, when the class which inre
 This could be also found, in controllers which doesn t depend on the time of the game to perform their actions, leading to unnecessary arguments on the inherited function. <br>
 
 We think that the payoff of the refactor wouldn t be worth, the work, so we decided to leave it like this.
-### -Inappropriate Intimacy
+### -Inappropriate Intimacy:
 This happens when one class accesses the internal fields and methods of another class.<br>
 We encounter this code smell while creating a monster and its controller within the `MonsterControllerFactory` when using methods from the `MonsterFactoryController`.<br>
 We chose to perform the creation of monsters, their controllers, and the association with their movement in this manner, believing it would be a reliable approach to the problem.In the future a refactor could be an option to achieve a cleaner code and maintainable code.
