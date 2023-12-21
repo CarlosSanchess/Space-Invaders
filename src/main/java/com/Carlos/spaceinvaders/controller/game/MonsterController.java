@@ -12,13 +12,12 @@ public class MonsterController extends Controller<MonsterModel> {
     private int arenaH;
     private long lastMove;
     private boolean winMonster;
-    private List<MonsterModel> activeMonsters;
-    public MonsterController(MonsterModel model,MovementStrategy movementStrategy, int arenaH, List<MonsterModel> activeMonsters) {
+
+    public MonsterController(MonsterModel model,MovementStrategy movementStrategy, int arenaH) {
         super(model);
         this.movementStrategy = movementStrategy;
         this.lastMove = 0;
         this.arenaH = arenaH;
-        this.activeMonsters = activeMonsters;
         winMonster = false;
     }
     @Override

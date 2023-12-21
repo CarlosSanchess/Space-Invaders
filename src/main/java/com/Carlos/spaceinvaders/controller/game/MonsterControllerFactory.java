@@ -35,7 +35,7 @@ public class MonsterControllerFactory {
         MovementStrategy movementStrategy = getRandomMovementStrategy();
         linkWithMove(movementStrategy, monster);
 
-        return new MonsterController(monster, movementStrategy,arenaH, activeMonsters);
+        return new MonsterController(monster, movementStrategy,arenaH);
     }
 
     public void CreateMonstersAndControllers(long Time){
