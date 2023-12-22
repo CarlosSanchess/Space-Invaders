@@ -245,11 +245,11 @@ During our testing phase, one of the significant challenges encountered revolved
 In the future one way to address this issue could be to use a random seed that initializes the behavior of monsters and power-ups. By setting a specific random seed, we can ensure reproducibility in our tests. This means that while the behavior remains random, it will be consistent across multiple test runs. 
 
 ### Code Coverage Report
-For detailed insights into the code coverage metrics [Code Coverage Report](build/reports/coveragereport/index.html).
+For detailed insights into the code coverage metrics [Code Coverage Report](reports/coveragereport/index.html).
 
 ### Mutation Testing with Pitest
 To evaluate the robustness of our tests, we utilized Pitest. A Pitest report provides a comprehensive mutation testing analysis to identify gaps in test coverage and assess the effectiveness of our test suite.
-For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312221917/index.html).
+For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](reports/pitest/202312221917/index.html).
 
 ## Known Code Smells 
 ### -Refused Bequest:

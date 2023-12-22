@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.Carlos.spaceinvaders.controller.menu.MenuControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.009">
-  <properties/>
-  <testcase name="testPreviousEntry()" classname="com.Carlos.spaceinvaders.controller.menu.MenuControllerTest" time="0.002"/>
-  <testcase name="testNextEntry()" classname="com.Carlos.spaceinvaders.controller.menu.MenuControllerTest" time="0.003"/>
-  <testcase name="testSelect_Tutorial()" classname="com.Carlos.spaceinvaders.controller.menu.MenuControllerTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

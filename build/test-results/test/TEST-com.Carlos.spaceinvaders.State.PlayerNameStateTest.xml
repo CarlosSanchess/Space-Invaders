@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.Carlos.spaceinvaders.State.PlayerNameStateTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:14" hostname="rebelojoao-NBLB-WAX9N" time="0.032">
-  <properties/>
-  <testcase name="testStep()" classname="com.Carlos.spaceinvaders.State.PlayerNameStateTest" time="0.027"/>
-  <testcase name="testGetPlayerNameController()" classname="com.Carlos.spaceinvaders.State.PlayerNameStateTest" time="0.001"/>
-  <testcase name="testGetDrawPlayerNameModel()" classname="com.Carlos.spaceinvaders.State.PlayerNameStateTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

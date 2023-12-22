@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.Carlos.spaceinvaders.State.GameOverMenuStateTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:13" hostname="rebelojoao-NBLB-WAX9N" time="0.442">
-  <properties/>
-  <testcase name="setDrawGameOverMenu_ShouldSetDrawGameOverMenu()" classname="com.Carlos.spaceinvaders.State.GameOverMenuStateTest" time="0.357"/>
-  <testcase name="setGameOverMenuController_ShouldSetGameOverMenuController()" classname="com.Carlos.spaceinvaders.State.GameOverMenuStateTest" time="0.002"/>
-  <testcase name="step_ShouldCallLanternaDrawAndToDoMethods()" classname="com.Carlos.spaceinvaders.State.GameOverMenuStateTest" time="0.079"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
