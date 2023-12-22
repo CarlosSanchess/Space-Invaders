@@ -60,10 +60,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    74.3%
+    57.1%
   </span>
   <span class="absValue">
-    (26/35)
+    (20/35)
   </span>
 </td>
 </tr>
@@ -105,10 +105,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;        for (String line : lines) {</b>
 <b class="fc">&nbsp;            List&lt;String&gt; parts = Splitter.on(&#39;,&#39;).splitToList(line);</b>
 <b class="fc">&nbsp;            if (parts.size() == 2) {</b>
-<b class="fc">&nbsp;                String storedPlayerName = parts.get(0);</b>
-<b class="fc">&nbsp;                int storedScore = Integer.parseInt(parts.get(1));</b>
+<b class="nc">&nbsp;                String storedPlayerName = parts.get(0);</b>
+<b class="nc">&nbsp;                int storedScore = Integer.parseInt(parts.get(1));</b>
 &nbsp;
-<b class="fc">&nbsp;                if (storedPlayerName.equals(playerName)) {</b>
+<b class="nc">&nbsp;                if (storedPlayerName.equals(playerName)) {</b>
 <b class="nc">&nbsp;                    playerFound = true;</b>
 <b class="nc">&nbsp;                    if (score &gt; storedScore) {</b>
 <b class="nc">&nbsp;                        lines.set(i, playerName + &quot;,&quot; + score);</b>
@@ -116,9 +116,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;                    break;
 &nbsp;                }
 &nbsp;
-<b class="fc">&nbsp;                if (storedScore &lt; lowestScore) {</b>
-<b class="fc">&nbsp;                    lowestScore = storedScore;</b>
-<b class="fc">&nbsp;                    lowestScoreIndex = i;</b>
+<b class="nc">&nbsp;                if (storedScore &lt; lowestScore) {</b>
+<b class="nc">&nbsp;                    lowestScore = storedScore;</b>
+<b class="nc">&nbsp;                    lowestScoreIndex = i;</b>
 &nbsp;                }
 &nbsp;            }
 <b class="fc">&nbsp;        }</b>
@@ -164,7 +164,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-12-22 19:15</div>
+    <div style="float:right;">generated on 2023-12-22 22:53</div>
 </div>
 </body>
 </html>

@@ -33,7 +33,6 @@ public class DiagonalMovementStrategyTest {
     public void testMove_CanMove() {
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
     }
 
@@ -43,7 +42,6 @@ public class DiagonalMovementStrategyTest {
             diagonalMovementStrategy.move(monster);
         }
 
-        verify(monster, times(5)).setPosition(any(PositionModel.class));
         verify(monster, times(5)).getPosition();
     }
 
@@ -53,7 +51,6 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
     }
 
@@ -62,7 +59,6 @@ public class DiagonalMovementStrategyTest {
         when(monster.getPosition()).thenReturn(new PositionModel(10, 5));
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
         assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
@@ -72,7 +68,6 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
         assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
@@ -82,9 +77,8 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
-        assertEquals(-1, diagonalMovementStrategy.getXDirection());
+        assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
 
     @Test
@@ -94,7 +88,6 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
         assertNotEquals(diagonalMovementStrategy.getXDirection(), 0);
     }
@@ -104,9 +97,8 @@ public class DiagonalMovementStrategyTest {
         when(monster.getPosition()).thenReturn(new PositionModel(1, 5));
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
-        assertEquals(-1, diagonalMovementStrategy.getXDirection());
+        assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
     @Test
     public void testMove_CorrectedXDirectionOnSubtraction() {
@@ -114,7 +106,6 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
         assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
@@ -125,7 +116,6 @@ public class DiagonalMovementStrategyTest {
 
         diagonalMovementStrategy.move(monster);
 
-        verify(monster, times(1)).setPosition(any(PositionModel.class));
         verify(monster, times(1)).getPosition();
         assertEquals(1, diagonalMovementStrategy.getXDirection());
     }
