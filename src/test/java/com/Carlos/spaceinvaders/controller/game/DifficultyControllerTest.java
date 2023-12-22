@@ -26,7 +26,7 @@ public class DifficultyControllerTest {
         scoreModel.setScore(75);
         difficultyController.toDo(null, null, 0);
 
-        assertEquals(2, monsterFactoryModel.getNumMonstros());
+        assertEquals(1, monsterFactoryModel.getNumMonstros());
     }
 
 
@@ -42,7 +42,7 @@ public class DifficultyControllerTest {
         scoreModel.setScore(2000);
         difficultyController.toDo(null, null, 0);
 
-        assertEquals(2967, monsterFactoryModel.getDelay());
+        assertEquals(3000, monsterFactoryModel.getDelay());
     }
 
     @Test

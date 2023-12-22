@@ -15,22 +15,19 @@ public class MonsterFactoryController extends Controller<MonsterFactoryModel> {
 
         private final List<MonsterModel> activeMonsters;
         long lastCreation;
-        long Delay;
-        private int numMonstros;
+
         MonsterFactoryController(MonsterFactoryModel monsterFactoryModel, List<MonsterModel> activeMonsters){
             super(monsterFactoryModel);
             this.activeMonsters = activeMonsters;
             this.lastCreation = 0;
-            this.Delay = getModel().getDelay();
-            this.numMonstros = getModel().getNumMonstros();
-
         }
 
 
     public List<MonsterModel> createMonster(long Time, int arenaX){
-        if(Time - lastCreation > Delay){
+        if(Time - lastCreation > getModel().getDelay()){
             List<MonsterModel> newMonsters = new ArrayList<>();
-            for(int i = 0; i < numMonstros; i++){
+            for(int i = 0; i < getModel().getNumMonstros(); i++){
+                System.out.println(getModel().getDelay());
                 MonsterModel monsterModel = new MonsterModel(createRandomPosition(arenaX), 1);
                 activeMonsters.add(monsterModel);
                 newMonsters.add(monsterModel);
