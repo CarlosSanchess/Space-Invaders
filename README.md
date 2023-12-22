@@ -90,7 +90,7 @@ To get started with the Space Invaders game, follow these steps:
     - Enables players to save their game progress, allowing them to pick up where they left off in subsequent sessions.
 
 ## ARCHITECTURAL DESIGN PATTERN
-This project follows the Model-View-Controller (MVC) design architecture. MVC is a architectural pattern in software development that separates an application into three components: Model, View, and Controller. 
+This project follows the Model-View-Controller (MVC) design architecture. MVC is an architectural pattern in software development that separates an application into three components: Model, View, and Controller. 
 Each component has a specific role and responsibility, contributing to a clean and maintainable source code.
 The model is isolated, view is connected to the model, and the controller depends on both.
 
@@ -249,15 +249,15 @@ For detailed insights into the code coverage metrics [Code Coverage Report](buil
 
 ### Mutation Testing with Pitest
 To evaluate the robustness of our tests, we utilized Pitest. A Pitest report provides a comprehensive mutation testing analysis to identify gaps in test coverage and assess the effectiveness of our test suite.
-For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312201653/index.html).
+For detailed insights into the mutation testing results, you can check it here ! [Pitest Report](build/reports/pitest/202312221917/index.html).
 
 ## Known Code Smells 
 ### -Refused Bequest:
 This happens when a subclass uses only some of the methods and properties inherited from its parents. <br>
-We face this code smell in `MonsterFactoryController`, when the class which inrehits the controller, abstract class doesn t have the toDo method implemented. <br>
-This could be also found, in controllers which doesn t depend on the time of the game to perform their actions, leading to unnecessary arguments on the inherited function. <br>
+We face this code smell in `MonsterFactoryController`, when the class which inrehits the controller, abstract class doesn't t have the toDo method implemented. <br>
+This could be also found, in controllers which doesn't depend on the time of the game to perform their actions, leading to unnecessary arguments on the inherited function. <br>
 
-We think that the payoff of the refactor wouldn t be worth, the work, so we decided to leave it like this.
+We think that the payoff of the refactor wouldn't be worth, the work, so we decided to leave it like this.
 ### -Inappropriate Intimacy:
 This happens when one class accesses the internal fields and methods of another class.<br>
 We encounter this code smell while creating a monster and its controller within the `MonsterControllerFactory` when using methods from the `MonsterFactoryController`.<br>

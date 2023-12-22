@@ -24,10 +24,10 @@ public class ResumeMenuModel implements Model{
         this.entries = Arrays.asList("RESUME","RESTART","SAVE PROGRESS","GO TO MAIN MENU");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("RESUME",new TextColor.RGB(255,0,0)); // Red
-        entryColors.put("RESTART", new TextColor.RGB(0,255,0)); // Green
-        entryColors.put("SAVE/LOAD",new TextColor.RGB(0,0,255)); // Blue
-        entryColors.put("GO TO MENU", new TextColor.RGB(255,255,0)); // Yellow
+        entryColors.put("RESUME",new TextColor.RGB(255,0,0));
+        entryColors.put("RESTART", new TextColor.RGB(0,255,0));
+        entryColors.put("SAVE/LOAD",new TextColor.RGB(0,0,255));
+        entryColors.put("GO TO MENU", new TextColor.RGB(255,255,0));
     }
     public int getNumEntries() {
         return entries.size();

@@ -62,7 +62,7 @@ public class DrawHighScores extends Viewer<HighScoresModel> {
                 row += 2;
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception according to your needs
+            e.printStackTrace();
         }
 
         gui.drawText(new PositionModel(35, 35), getModel().getEntryName(), new TextColor.RGB(255, 0, 0), false);

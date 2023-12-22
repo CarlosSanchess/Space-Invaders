@@ -34,14 +34,12 @@ public class ShooterMovementStrategyTest {
 
     @Test
     public void testShootMonster() {
-        // Test with an active monster
         shooterMovementStrategy.shootMonster(monster);
         assert bullets.size() == 1;
 
-        // Test with an inactive monster
         activeMonsters.clear();
         shooterMovementStrategy.shootMonster(monster);
-        assert bullets.size() == 1;  // Should not add a bullet for an inactive monster
+        assert bullets.size() == 1;
     }
 
     @Test
