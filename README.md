@@ -159,7 +159,7 @@ The State Pattern is applied to manage different game states, such as the menu s
 - [**MenuState:**](src/main/java/com/Carlos/spaceinvaders/State/MenuState.java) Represents the main menu state.
 - [**PlayerNameState:**](src/main/java/com/Carlos/spaceinvaders/State/PlayerNameState.java) Manages the player name input state.
 - [**ResumeMenuState:**](src/main/java/com/Carlos/spaceinvaders/State/ResumeMenuState.java) Handles the state when the player wants to resume the game.
-- [**State (abstract):**](src/main/java/com/Carlos/spaceinvaders/State/State.java) An abstract class defining the interface for all concrete states.
+- [**State (abstract):**](src/main/java/com/Carlos/spaceinvaders/State/State.java) An abstract class defining the core for all concrete states.
 - [**TutorialState:**](src/main/java/com/Carlos/spaceinvaders/State/TutorialState.java) Represents the state during the tutorial.
 
 ### UML Interaction Diagram
@@ -199,7 +199,7 @@ The Strategy Pattern is implemented to manage the movement strategies of alien i
 - [**DiagonalMovementStrategy.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/DiagonalMovementStrategy.java) Implements the diagonal movement strategy for alien invaders.
 - [**ShooterMovementStrategy.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/ShooterMovementStrategy.java) Implements the horizontal movement strategy for alien invaders that can also shoot.
 - [**VerticalMovementStrategy.java:**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/VerticalMovementStrategy.java) Implements the vertical movement strategy for alien invaders.
-- [**MovementStrategy.java (interface):**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/MovementStrategy.java) Defines the common interface for all movement strategies.
+- [**MovementStrategy.java (abstract):**](src/main/java/com/Carlos/spaceinvaders/controller/game/MonstersStrategy/MovementStrategy.java) Defines the common interface for all movement strategies.
 
 #### Related Controller:
 
