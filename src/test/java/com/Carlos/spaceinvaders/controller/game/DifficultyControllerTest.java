@@ -31,18 +31,11 @@ public class DifficultyControllerTest {
 
 
     @Test
-    public void testToDoScoreMultipleOf20() {
-        scoreModel.setScore(20);
+    public void testToDoScoreMultipleOf16() {
+        scoreModel.setScore(16);
         difficultyController.toDo(null, null, 0);
 
-        assertEquals(2900, monsterFactoryModel.getDelay());
-    }
-    @Test
-    public void testToDoScoreMultipleOf2000() {
-        scoreModel.setScore(2000);
-        difficultyController.toDo(null, null, 0);
-
-        assertEquals(3000, monsterFactoryModel.getDelay());
+        assertEquals(2925, monsterFactoryModel.getDelay());
     }
 
     @Test
