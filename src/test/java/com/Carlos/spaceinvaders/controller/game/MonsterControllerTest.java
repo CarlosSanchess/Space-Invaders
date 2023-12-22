@@ -6,10 +6,6 @@ import com.Carlos.spaceinvaders.model.models.MonsterModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import static org.junit.jupiter.api.Assertions.*;
         import static org.mockito.Mockito.*;
 
@@ -23,7 +19,7 @@ class MonsterControllerTest {
     void setUp() {
         model = mock(MonsterModel.class);
         movementStrategy = mock(MovementStrategy.class);
-        monsterController = new MonsterController(model, movementStrategy,3,null);
+        monsterController = new MonsterController(model, movementStrategy,3);
     }
     @Test
     void toDo_ShouldNotMoveModel_WhenTimeDifferenceIsLessThan1000() {
@@ -38,18 +34,7 @@ class MonsterControllerTest {
     void getLastMoveShouldReturnLastMoveValue() {
         assertEquals(0, monsterController.getLastMove());
     }
-    /*
-    @Test
-    void toDo_ShouldMoveModel_WhenTimeDifferenceIsGreaterThan1000() {
-        Game game = mock(Game.class);
-        long currentTime = System.currentTimeMillis();
-        monsterController.toDo(game, null, currentTime);
 
-<<<<<<< HEAD
-        verify(movementStrategy, times(1)).move(model);
-        assertEquals(currentTime, monsterController.getLastMove());
-    }
-     */
     @Test
     void toDo_ShouldMoveModel_WhenTimeDifferenceIsGreaterThan1000() {
         Game game = mock(Game.class);
@@ -80,18 +65,6 @@ class MonsterControllerTest {
 
         assertFalse(monsterController.isWinMonster());
     }
-
-    /*@Test
-    void toDo_ShouldNotMoveModel_WhenWinMonsterIsTrue() {
-        Game game = mock(Game.class);
-        long currentTime = 1500;
-        monsterController.checkWin(model); // Set winMonster to true
-
-        monsterController.toDo(game, "keyPressed", currentTime);
-
-        verifyNoInteractions(movementStrategy);
-        assertNotEquals(currentTime, monsterController.getLastMove());
-    }*/
 
     @Test
     void toDo_ShouldMoveModel_WhenWinMonsterIsFalse() {

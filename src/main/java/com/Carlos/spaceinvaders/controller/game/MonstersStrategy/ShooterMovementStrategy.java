@@ -7,7 +7,7 @@ import com.Carlos.spaceinvaders.model.models.BulletModel;
 import java.util.List;
 import java.util.Random;
 
-public class ShooterMovementStrategy implements MovementStrategy {
+public class ShooterMovementStrategy extends MovementStrategy {
     private int xDirection = 1;
     private int arenaW;
     private Random random;
@@ -22,9 +22,6 @@ public class ShooterMovementStrategy implements MovementStrategy {
         this.activeMonsters = activeMonsters;
     }
 
-    private boolean canMove(int wantedX){
-        return wantedX < arenaW - 1 && wantedX > 0;
-    }
 
     @Override
     public void move(MonsterModel monster) {
@@ -47,7 +44,7 @@ public class ShooterMovementStrategy implements MovementStrategy {
                 currentPosition.setX(currentPosition.getX() + xDirection * monster.getSpeed());
             }
 
-            if (canMove(currentPosition.getX())) {
+            if (canMove(currentPosition.getX(),arenaW)) {
                 monster.setPosition(currentPosition);
             }
     }

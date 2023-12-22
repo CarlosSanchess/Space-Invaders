@@ -44,11 +44,11 @@ public class MonsterFactoryController extends Controller<MonsterFactoryModel> {
         private PositionModel createRandomPosition(int arenaX){
             Random random = new Random();
             int x = random.nextInt(arenaX - 2) + 1;
-            return new PositionModel(x, 1); // TODO
+            return new PositionModel(x, 1);
         }
 
     @Override
-    public void toDo(Game game, String keyPressed, long Time) { //TODO
+    public void toDo(Game game, String keyPressed, long Time) {
 
     }
 }
