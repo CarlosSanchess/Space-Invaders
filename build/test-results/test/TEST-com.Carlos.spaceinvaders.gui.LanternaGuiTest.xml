@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.gui.LanternaGuiTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.072">
+  <properties/>
+  <testcase name="getGraphics()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.049"/>
+  <testcase name="testGetUserInputWithNoInput()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.002"/>
+  <testcase name="testDrawTextWithNullString()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.003"/>
+  <testcase name="drawText()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.002"/>
+  <testcase name="testDrawTextBold()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.003"/>
+  <testcase name="testDrawTextWithNullColor()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.002"/>
+  <testcase name="testScreenRefresh()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.002"/>
+  <testcase name="testDrawTextWithNullPosition()" classname="com.Carlos.spaceinvaders.gui.LanternaGuiTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

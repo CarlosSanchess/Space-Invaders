@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.013">
+  <properties/>
+  <testcase name="testToDo_OtherKey_NoAction()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.001"/>
+  <testcase name="testToDo_QuitKey_GamePopState()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.001"/>
+  <testcase name="testToDo_NullKey_NoAction()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.0"/>
+  <testcase name="testToDo_EscapeKey_GamePopState()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.002"/>
+  <testcase name="testToDo_NullKeyAndGame_NoAction()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.004"/>
+  <testcase name="testToDo_EnterKey_GamePushState()" classname="com.Carlos.spaceinvaders.controller.menu.TutorialControllerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

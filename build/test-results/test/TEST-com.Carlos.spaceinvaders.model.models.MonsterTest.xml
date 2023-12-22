@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.model.models.MonsterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.007">
+  <properties/>
+  <testcase name="testGetSpeed()" classname="com.Carlos.spaceinvaders.model.models.MonsterTest" time="0.001"/>
+  <testcase name="testMove()" classname="com.Carlos.spaceinvaders.model.models.MonsterTest" time="0.001"/>
+  <testcase name="testMoveWithDirection()" classname="com.Carlos.spaceinvaders.model.models.MonsterTest" time="0.001"/>
+  <testcase name="testSetDirection()" classname="com.Carlos.spaceinvaders.model.models.MonsterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:14" hostname="rebelojoao-NBLB-WAX9N" time="0.028">
+  <properties/>
+  <testcase name="testMove_bulletCollidesWithPowerUp()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.002"/>
+  <testcase name="testColide_bulletCollidesWithMonster()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testProcessPowerUp_scoreBoost()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testMove_bulletCollidesWithMonster()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testIsPowerUp_nextPositionIsNotPowerUp()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testIsPowerUp_nextPositionIsPowerUp()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testIsPlayer_nextPositionIsNotPlayer()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.002"/>
+  <testcase name="testColide_bulletDoesNotCollide()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testColide_bulletCollidesWithPowerUp()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testScoreBoost()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testCalculateNewPosition_bulletMovingUp()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testCalculateNewPosition_bulletMovingDown()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testMove_bulletDoesNotCollide()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testIsPlayer_nextPositionIsPlayer()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testHealthBoost()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <testcase name="testIsMonster_nextPositionIsNotMonster()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.0"/>
+  <testcase name="testIsMonster_nextPositionIsMonster()" classname="com.Carlos.spaceinvaders.controller.game.BulletsControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

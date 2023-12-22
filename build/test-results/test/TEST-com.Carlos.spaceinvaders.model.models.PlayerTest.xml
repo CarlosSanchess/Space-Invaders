@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.model.models.PlayerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.009">
+  <properties/>
+  <testcase name="testDecrementHitPoints()" classname="com.Carlos.spaceinvaders.model.models.PlayerTest" time="0.002"/>
+  <testcase name="testSetAndGetDelayShooting()" classname="com.Carlos.spaceinvaders.model.models.PlayerTest" time="0.001"/>
+  <testcase name="testSetAndGetPowerUpType()" classname="com.Carlos.spaceinvaders.model.models.PlayerTest" time="0.0"/>
+  <testcase name="testIncrementHitPoints()" classname="com.Carlos.spaceinvaders.model.models.PlayerTest" time="0.0"/>
+  <testcase name="testSetAndGetHitPoints()" classname="com.Carlos.spaceinvaders.model.models.PlayerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

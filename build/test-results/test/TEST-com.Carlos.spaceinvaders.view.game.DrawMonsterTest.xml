@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.view.game.DrawMonsterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.005">
+  <properties/>
+  <testcase name="testDrawWithShooterMove()" classname="com.Carlos.spaceinvaders.view.game.DrawMonsterTest" time="0.001"/>
+  <testcase name="testDrawWithDiagonalMove()" classname="com.Carlos.spaceinvaders.view.game.DrawMonsterTest" time="0.001"/>
+  <testcase name="testDrawWithVerticalMove()" classname="com.Carlos.spaceinvaders.view.game.DrawMonsterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

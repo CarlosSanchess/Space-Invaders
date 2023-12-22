@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.Carlos.spaceinvaders.model.models.ArenaTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-12-22T19:23:15" hostname="rebelojoao-NBLB-WAX9N" time="0.013">
+  <properties/>
+  <testcase name="testGetScore()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <testcase name="testGetWalls()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.002"/>
+  <testcase name="testGetWidth()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <testcase name="testGetActiveMonsters()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.0"/>
+  <testcase name="testGetActivePowerUps()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <testcase name="testGetHeight()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <testcase name="testGetActiveBullets()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <testcase name="testGetPlayer()" classname="com.Carlos.spaceinvaders.model.models.ArenaTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
