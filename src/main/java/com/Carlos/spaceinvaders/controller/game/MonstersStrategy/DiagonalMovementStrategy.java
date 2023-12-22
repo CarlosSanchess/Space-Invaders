@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class DiagonalMovementStrategy extends MovementStrategy {
     private static final int SWITCH_PROBABILITY = 20;
-    private int xDirection; // 1 direita, -1 esquerda
+    private int xDirection;
     private int arenaW;
     public Random random;
 

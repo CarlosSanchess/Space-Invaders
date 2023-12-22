@@ -36,7 +36,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         while (iterator.hasNext()) {
             BulletModel bullet = iterator.next();
             move(bullet,Time);
-            bullet.processActive(arenaH); //Check if bullet becomes unactive
+            bullet.processActive(arenaH);
             if (!bullet.getActive()){
                 iterator.remove();
             }
@@ -52,7 +52,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
 
     public void move(BulletModel bullet,long Time) {
-        PositionModel newPosition = calculateNewPosition(bullet); //Cria a posição futura da bala, evita que haja repitição de código.
+        PositionModel newPosition = calculateNewPosition(bullet);
 
         boolean colidiu = colide(newPosition, Time, bullet.getDirection());
 
@@ -72,18 +72,18 @@ public class BulletsController extends Controller<List<BulletModel>> {
         MonsterModel monster = isMonster(nextPosition);
         PowerUpModel powerUp = isPowerUp(nextPosition);
         boolean playerhit = isPlayer(nextPosition);
-        if(monster != null && direction){ //Impede que a bala mate mais que 1 monstro, o ideal seria retira-la da lista logo.
+        if(monster != null && direction){
             activeMonsters.remove(monster);
             this.scoreModel.incrementScore();
             return true;
         }
-        if(powerUp != null && direction){ //
+        if(powerUp != null && direction){
             processPowerUp(powerUp,Time);
             activePowerUps.remove(powerUp);
         }
         return playerhit;
     }
-    MonsterModel isMonster(PositionModel nextPosition){     //Usar uma função génerica??
+    MonsterModel isMonster(PositionModel nextPosition){
         for(MonsterModel monster : activeMonsters){
             if(monster.getPosition().equals(nextPosition)){
                 return monster;
@@ -120,7 +120,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
         powerUp.incrementActive();
     }
     void ScoreBoost(){
-        scoreModel.setIncrementValue(5); // Permanente, Tornar posível reverter passado X segundos.
+        scoreModel.setIncrementValue(5);
         playerModel.setPowerUpType(PowerUpModel.PowerUpType.ScoreBoost);
     }
     private void revertScoreBoost(){
@@ -139,7 +139,7 @@ public class BulletsController extends Controller<List<BulletModel>> {
     }
     private void revertFireRateBoost(){
         playerModel.setDelayShooting(500);
-        if(!checkActivity()) // See if there is other powerUp running
+        if(!checkActivity())
              playerModel.setPowerUpType(null);
         lastFireRateBoostTime = 0;
     }

@@ -17,7 +17,7 @@ public class GameOverMenuModel implements Model {
 
 
     private final List<String> entries;
-    private int entry = 0; // Selecionado
+    private int entry = 0;
     private final Map<String, TextColor.RGB> entryColors;
 
     public GameOverMenuModel(){

@@ -54,7 +54,6 @@ public class PowerUpFactoryTest {
         powerUpFactory.createPowerUp(time, arenaX);
 
         assertEquals(1, activePowerUps.size());
-        // não é possível criar dois powerups sem passar o tempo de delay
     }
 
     @Test

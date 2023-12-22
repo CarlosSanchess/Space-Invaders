@@ -17,8 +17,8 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
     @Override
     public void draw(LanternaGui GUI) {
         PlayerModel playerModel = getModel();
-        PositionModel position = playerModel.getPosition();//Added do draw SpaceShip
-        drawSpaceship(GUI, position);//Added do draw SpaceShip
+        PositionModel position = playerModel.getPosition();
+        drawSpaceship(GUI, position);
     }
 
     private void drawSpaceship(LanternaGui gui, PositionModel position) {
@@ -32,7 +32,7 @@ public class DrawPlayer extends Viewer<PlayerModel> implements DrawElement {
         else
             color = new TextColor.RGB(0,255,0);
 
-        gui.getGraphics().setBackgroundColor(TextColor.Factory.fromString("#010327")); // Use your default background color
+        gui.getGraphics().setBackgroundColor(TextColor.Factory.fromString("#010327"));
         gui.drawText(new PositionModel(x, y - 2), "|", color, false);
         gui.drawText(new PositionModel(x - 2, y - 1), " /",  color, false);
         gui.drawText(new PositionModel(x, y - 1), " ", color, false);

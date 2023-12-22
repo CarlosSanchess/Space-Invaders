@@ -34,7 +34,6 @@ public class DrawMenu extends Viewer<MenuModel> {
                 position = new PositionModel(33, 15 + 4 * i + 1);
             }else if ("CONTINUE GAME".equals(entryName)) {
                 if (!gameRecordFound) {
-                    // Game record not found, draw in grey
                     GUI.drawText(new PositionModel(31, 15 + 4 * i + 1), entryName, new TextColor.RGB(128, 128, 128));
 
                     i++;

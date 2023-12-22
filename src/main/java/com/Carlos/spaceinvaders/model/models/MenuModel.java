@@ -21,17 +21,17 @@ public class MenuModel implements Model{
                     "    |_|                                                          \n";
 
     private final List<String> entries;
-    private int entry = 0; // Selecionado
+    private int entry = 0;
     private final Map<String, TextColor.RGB> entryColors;
 
     public MenuModel(){
         this.entries = Arrays.asList("NEW GAME", "CONTINUE GAME", "TUTORIAL","HIGHSCORES","EXIT");
         entry = 0;
         entryColors = new HashMap<>();
-        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0)); // Red
-        entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0)); // Green
-        entryColors.put("HIGHSCORES",new TextColor.RGB(0,0,255)); // Blue
-        entryColors.put("EXIT", new TextColor.RGB(255,255,0)); // Yellow
+        entryColors.put("NEW GAME",new TextColor.RGB(255,0,0));
+        entryColors.put("TUTORIAL", new TextColor.RGB(0,255,0));
+        entryColors.put("HIGHSCORES",new TextColor.RGB(0,0,255));
+        entryColors.put("EXIT", new TextColor.RGB(255,255,0));
     }
     public int getNumEntries() {
         return entries.size();

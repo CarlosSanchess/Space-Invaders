@@ -49,7 +49,7 @@ public class MenuController extends Controller<MenuModel> {
     }
 
     private void playerName(Game game){
-        game.pushState(new PlayerNameState(new PlayerNameModel())); // talvez vá haver um problema com os nomes, por na estar a dar Pop do menu anterior
+        game.pushState(new PlayerNameState(new PlayerNameModel()));
     }
     private void newGame(Game game) {
         game.pushState(new GameState(new ArenaModel(game.getScreenSize().getX() / 25, game.getScreenSize().getY() / 25)));

@@ -5,7 +5,7 @@ import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.model.models.MonsterFactoryModel;
 import com.Carlos.spaceinvaders.model.models.ScoreModel;
 
-public class DifficultyController extends Controller<MonsterFactoryModel> { // Neste controller vamos manipular o delay da criação dos monstros, a quantidade criada, consoante o numero do score.
+public class DifficultyController extends Controller<MonsterFactoryModel> {
 
     private ScoreModel scoreModel;
     DifficultyController(MonsterFactoryModel monsterFactoryModel, ScoreModel scoreModel){
@@ -20,7 +20,7 @@ public class DifficultyController extends Controller<MonsterFactoryModel> { // N
             super.getModel().setNumMonstros(super.getModel().getNumMonstros() + 1);
         }
         if (score % 20 == 0 && score != 0) {
-            int retira = 100 / (1 + score / 1000); //Faz com que em scores altos, o delay nao seja tao grande, fazendo com que o jogo possa ir a scores altos.
+            int retira = 100 / (1 + score / 1000);
             getModel().setDelay(Math.max(0, getModel().getDelay()) - retira);
         }
     }

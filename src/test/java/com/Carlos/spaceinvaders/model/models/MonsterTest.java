@@ -18,7 +18,7 @@ public class MonsterTest {
     @Test
     public void testMove() {
         monster.move();
-        assertEquals(5, monster.getPosition().getY()); // porque o speed é 5
+        assertEquals(5, monster.getPosition().getY());
 
         monster.setDirection(true);
         monster.move();

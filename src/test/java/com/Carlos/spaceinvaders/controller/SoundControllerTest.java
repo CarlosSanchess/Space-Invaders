@@ -18,7 +18,7 @@ public class SoundControllerTest {
     }
 
     @Test
-    public void testLoadSound() throws IOException {
+    public void testLoadSound(){
         String name = "Shoot";
         String filePath = "/sound/Shoot.wav";
 
@@ -29,7 +29,7 @@ public class SoundControllerTest {
         assertNotNull(clips.get(name));
     }
     @Test
-    public void testPlaySound() throws IOException {
+    public void testPlaySound(){
         String name = "Shoot";
         String filePath = "/sound/Shoot.wav";
         soundController.loadSound(name, filePath);

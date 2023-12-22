@@ -47,7 +47,7 @@ public class HighScore {
         }
 
         if (!playerFound) {
-            if (lines.size() < 10) { // 10 é o numero maximo de scores
+            if (lines.size() < 10) {
                 lines.add(playerName + "," + score);
             } else if (score > lowestScore) {
                 lines.set(lowestScoreIndex, playerName + "," + score);

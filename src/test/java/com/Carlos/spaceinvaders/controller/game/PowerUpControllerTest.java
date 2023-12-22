@@ -75,15 +75,12 @@ public class PowerUpControllerTest {
         Game game = mock(Game.class);
         long currentTime = 2000;
 
-        // Perform the toDo operation with an empty list
         powerUpController.toDo(game, "keyPressed", currentTime);
 
-        // Verify that no interactions occur on the mocked PowerUpModel instances
         for (PowerUpModel powerUp : powerUps) {
             verifyZeroInteractions(powerUp);
         }
 
-        // Verify that the last move time is not updated
         assertEquals(0, powerUpController.getLastMove());
     }
 }

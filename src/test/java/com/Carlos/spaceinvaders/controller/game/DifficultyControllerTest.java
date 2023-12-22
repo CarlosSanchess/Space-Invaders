@@ -38,7 +38,7 @@ public class DifficultyControllerTest {
         assertEquals(2900, monsterFactoryModel.getDelay());
     }
     @Test
-    public void testToDoScoreMultipleOf2000() { //Testar o mecanismo de diminuição do retiro de delay em altos scores
+    public void testToDoScoreMultipleOf2000() {
         scoreModel.setScore(2000);
         difficultyController.toDo(null, null, 0);
 
