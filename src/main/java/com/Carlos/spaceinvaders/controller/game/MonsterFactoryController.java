@@ -27,7 +27,6 @@ public class MonsterFactoryController extends Controller<MonsterFactoryModel> {
         if(Time - lastCreation > getModel().getDelay()){
             List<MonsterModel> newMonsters = new ArrayList<>();
             for(int i = 0; i < getModel().getNumMonstros(); i++){
-                System.out.println(getModel().getDelay());
                 MonsterModel monsterModel = new MonsterModel(createRandomPosition(arenaX), 1);
                 activeMonsters.add(monsterModel);
                 newMonsters.add(monsterModel);
