@@ -300,28 +300,6 @@ The following screenshots ilustrate the general look of our game, as well as the
 #### Fig 11. In-Game
 ![In-Game](Docs/imgs/In-Game.png)
 
-
-### Animations
-
-<p align="center">
-  <img src="Docs/gifs/shooters1.gif" alt="Shooters"/>
-</p>
-<p align="center">
-  <b><i>Gif 3. Invaders Shooting</i></b>
-</p>
-
-<br>
-<br />
-
-<p align="center">
-  <img src="Docs/gifs/tutorial1.gif" alt="Tutorial"/>
-</p>
-<p align="center">
-  <b><i>Gif 4. Tutorial</i></b>
-</p>
-<br>
-<br />
-
 ### End Game
 
 <p align="center">
