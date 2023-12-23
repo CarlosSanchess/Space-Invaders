@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ResumeMenuModel implements Model{
+public class ResumeMenuModel{
     static String text = " ___          ____                      \n" +
             "|_ _|_ __    / ___| __ _ _ __ ___   ___ \n" +
             " | || '_ \\  | |  _ / _` | '_ ` _ \\ / _ \\\n" +

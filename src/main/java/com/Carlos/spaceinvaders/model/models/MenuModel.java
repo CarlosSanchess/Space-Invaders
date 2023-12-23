@@ -6,10 +6,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 
-public class MenuModel implements Model{
+public class MenuModel {
     static String text =
             "                          _                     _               \n" +
                     "                         (_)                   | |              \n" +

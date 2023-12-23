@@ -7,7 +7,6 @@ import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.view.Viewer;
 import com.googlecode.lanterna.TextColor;
 
-import java.io.IOException;
 
 public class DrawPlayerName extends Viewer<PlayerNameModel> {
 

@@ -3,7 +3,7 @@ package com.Carlos.spaceinvaders.model.models;
 
 import java.util.Objects;
 
-public class PositionModel implements Model {
+public class PositionModel {
 
         private int x;
         private int y;

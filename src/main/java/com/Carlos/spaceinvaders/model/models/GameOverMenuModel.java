@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GameOverMenuModel implements Model {
+public class GameOverMenuModel {
     static String text =
             "  ____    _    __  __ _____    _____     _______ ____  \n" +
             " / ___|  / \\  |  \\/  | ____|  / _ \\ \\   / / ____|  _ \\ \n" +

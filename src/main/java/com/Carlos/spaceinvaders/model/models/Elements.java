@@ -1,6 +1,6 @@
 package com.Carlos.spaceinvaders.model.models;
 
-public abstract class Elements implements Model{
+public abstract class Elements{
     
     protected PositionModel position;
     

@@ -1,11 +1,9 @@
 package com.Carlos.spaceinvaders.State;
 
 import com.Carlos.spaceinvaders.Game;
-import com.Carlos.spaceinvaders.controller.game.GameController;
 import com.Carlos.spaceinvaders.controller.menu.MenuController;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
 import com.Carlos.spaceinvaders.model.models.MenuModel;
-import com.Carlos.spaceinvaders.view.game.DrawGame;
 import com.Carlos.spaceinvaders.view.menu.DrawMenu;
 
 import java.io.IOException;

@@ -3,12 +3,10 @@ package com.Carlos.spaceinvaders.controller.game;
 import com.Carlos.spaceinvaders.Game;
 import com.Carlos.spaceinvaders.controller.Controller;
 import com.Carlos.spaceinvaders.controller.SoundController;
-import com.Carlos.spaceinvaders.model.models.ArenaModel;
 import com.Carlos.spaceinvaders.model.models.BulletModel;
 import com.Carlos.spaceinvaders.model.models.PlayerModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Objects;
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ArenaModel implements Model {
+public class ArenaModel {
 
 
     private final int width;

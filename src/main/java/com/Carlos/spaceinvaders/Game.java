@@ -1,9 +1,7 @@
 package com.Carlos.spaceinvaders;
 
-import com.Carlos.spaceinvaders.State.MenuState;
 import com.Carlos.spaceinvaders.State.PlayerNameState;
 import com.Carlos.spaceinvaders.State.State;
-import com.Carlos.spaceinvaders.model.models.MenuModel;
 import com.Carlos.spaceinvaders.model.models.PlayerNameModel;
 import com.Carlos.spaceinvaders.model.models.PositionModel;
 import com.Carlos.spaceinvaders.gui.LanternaGui;
