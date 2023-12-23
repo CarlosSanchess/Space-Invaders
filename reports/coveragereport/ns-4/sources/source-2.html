@@ -60,10 +60,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    83.3%
   </span>
   <span class="absValue">
-    (8/8)
+    (10/12)
   </span>
 </td>
 </tr>
@@ -85,21 +85,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;public class DifficultyController extends Controller&lt;MonsterFactoryModel&gt; {
 &nbsp;
 &nbsp;    private ScoreModel scoreModel;
+&nbsp;    private boolean canChange;
 &nbsp;    DifficultyController(MonsterFactoryModel monsterFactoryModel, ScoreModel scoreModel){
 <b class="fc">&nbsp;        super(monsterFactoryModel);</b>
 <b class="fc">&nbsp;        this.scoreModel = scoreModel;</b>
+<b class="fc">&nbsp;        this.canChange = true;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    @Override
 &nbsp;    public void toDo(Game game, String keyPressed, long Time) {
 <b class="fc">&nbsp;        int score = scoreModel.getScore();</b>
-<b class="fc">&nbsp;        if (score % 75 == 0 &amp;&amp; score != 0) {</b>
-<b class="fc">&nbsp;            super.getModel().setNumMonstros(super.getModel().getNumMonstros() + 1);</b>
+<b class="fc">&nbsp;        if ((score % 100 == 0 &amp;&amp; score != 0) &amp;&amp; canChange) {</b>
+<b class="nc">&nbsp;            super.getModel().setNumMonstros(super.getModel().getNumMonstros() + 1);</b>
+<b class="nc">&nbsp;            canChange = false;</b>
 &nbsp;        }
-<b class="fc">&nbsp;        if (score % 20 == 0 &amp;&amp; score != 0) {</b>
-<b class="fc">&nbsp;            int retira = 100 / (1 + score / 1000);</b>
+<b class="fc">&nbsp;        if ((score % 16 == 0 &amp;&amp; score != 0) &amp;&amp; canChange) {</b>
+<b class="fc">&nbsp;            int retira = 75 / (1 + score / 1000);</b>
 <b class="fc">&nbsp;            getModel().setDelay(Math.max(0, getModel().getDelay()) - retira);</b>
+<b class="fc">&nbsp;            canChange = false;</b>
 &nbsp;        }
+<b class="fc">&nbsp;        if(!(score % 16 == 0 || score % 100 == 0)) canChange = true;</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -125,7 +130,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-12-22 22:53</div>
+    <div style="float:right;">generated on 2023-12-23 00:04</div>
 </div>
 </body>
 </html>

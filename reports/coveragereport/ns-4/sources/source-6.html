@@ -60,10 +60,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    94.4%
+    94.1%
   </span>
   <span class="absValue">
-    (17/18)
+    (16/17)
   </span>
 </td>
 </tr>
@@ -92,22 +92,19 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;        private final List&lt;MonsterModel&gt; activeMonsters;
 &nbsp;        long lastCreation;
-&nbsp;        long Delay;
-&nbsp;        private int numMonstros;
+&nbsp;
 &nbsp;        MonsterFactoryController(MonsterFactoryModel monsterFactoryModel, List&lt;MonsterModel&gt; activeMonsters){
 <b class="fc">&nbsp;            super(monsterFactoryModel);</b>
 <b class="fc">&nbsp;            this.activeMonsters = activeMonsters;</b>
 <b class="fc">&nbsp;            this.lastCreation = 0;</b>
-<b class="fc">&nbsp;            this.Delay = getModel().getDelay();</b>
-<b class="fc">&nbsp;            this.numMonstros = getModel().getNumMonstros();</b>
-&nbsp;
 &nbsp;        }
 &nbsp;
 &nbsp;
 &nbsp;    public List&lt;MonsterModel&gt; createMonster(long Time, int arenaX){
-<b class="fc">&nbsp;        if(Time - lastCreation &gt; Delay){</b>
+<b class="fc">&nbsp;        if(Time - lastCreation &gt; getModel().getDelay()){</b>
 <b class="fc">&nbsp;            List&lt;MonsterModel&gt; newMonsters = new ArrayList&lt;&gt;();</b>
-<b class="fc">&nbsp;            for(int i = 0; i &lt; numMonstros; i++){</b>
+<b class="fc">&nbsp;            for(int i = 0; i &lt; getModel().getNumMonstros(); i++){</b>
+<b class="fc">&nbsp;                System.out.println(getModel().getDelay());</b>
 <b class="fc">&nbsp;                MonsterModel monsterModel = new MonsterModel(createRandomPosition(arenaX), 1);</b>
 <b class="fc">&nbsp;                activeMonsters.add(monsterModel);</b>
 <b class="fc">&nbsp;                newMonsters.add(monsterModel);</b>
@@ -153,7 +150,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-12-22 22:53</div>
+    <div style="float:right;">generated on 2023-12-23 00:04</div>
 </div>
 </body>
 </html>
