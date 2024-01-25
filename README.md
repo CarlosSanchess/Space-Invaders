@@ -11,7 +11,7 @@ To get started with the Space Invaders game, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/FEUP-LDTS-2023/project-l10gr05.git
+    git clone https://github.com/CarlosSanchess/Space-Invaders.git
     ```
 
 2. **Ensure you have Java installed:**
