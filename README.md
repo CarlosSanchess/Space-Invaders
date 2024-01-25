@@ -1,4 +1,4 @@
-## LDTS_l10g05 - Space Invaders
+## Space Invaders
 This project is a Java-based application developed using the Gradle build tool and Lanterna library graphical user interface. 
 It's a game inspired by the classic **Space Invaders**, where the player controls a spaceship and the objective is to shoot down as many alien invaders as possible without them reaching the bottom end of the screen.
 This is the perfect infinite game for someone willing to spend a good time !  
